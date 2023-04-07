@@ -1,18 +1,17 @@
 
 package uniandes.isis2304.alohandes.negocio;
 
-import java.sql.Timestamp;
 
-public class Hostal implements VOHotel
+public class Hostal implements VOHostal
 {
 
 	private String nombre;
 
 	private String direccion;
 	
-	private Timestamp horarioApertura;
+	private String horarioApertura;
 
-	private Timestamp horarioCierre;
+	private String horarioCierre;
 
 	private float calificacion;
 
@@ -28,23 +27,30 @@ public class Hostal implements VOHotel
 	{
 		this.nombre = "";
 		this.direccion = "";
-		this.horarioApertura = new Timestamp(0, 0, 0, 0, 0, 0, 0);
-		this.horarioCierre = new Timestamp(0, 0, 0, 0, 0, 0, 0);
+		this.horarioApertura = "00:00:00";
+		this.horarioCierre = "00:00:00";
+		this.calificacion = 0;
 
 
 	}
 
 	/**
 	 * Constructor con valores
-	 * @param nombre - El identificador del bebedor. Debe exixtir un bebedor con dicho identificador
-	 * @param calificacion - El identificador de la bebida. Debe existir una bebida con dicho identificador
-	 * @param direccion
+	 * @param nombre -
+	 * @param direccion 
+	 * @param horarioApertura
+	 * @param horarioCierre
+	 * @param calificacion
 	 */
-	public Hostal(String nombre, float calificacion,String direccion) 
+
+	public Hostal(String nombre, String direccion, String horarioApertura, String horarioCierre, float calificacion) 
 	{
 		this.nombre = nombre;
-		this.calificacion = calificacion;
 		this.direccion = direccion;
+		this.horarioApertura = horarioApertura;
+		this.horarioCierre = horarioCierre;
+		this.calificacion = calificacion;
+		
 
 	}
 
@@ -64,26 +70,9 @@ public class Hostal implements VOHotel
 		this.nombre = nombre;
 	}
 
-	/**
-	 * @return El calificacion
-	 */
-	public float getCalificacion() 
-	{
-		return calificacion;
-	}
-
-	
 
 	/**
-	 * @param calificacion - 
-	 */
-	public void setCalificacion(long calificacion) 
-	{
-		this.calificacion = calificacion;
-	}
-
-	/**
-	 * @return La direccion
+	 * @return 
 	 */
 	public String getDireccion() 
 	{
@@ -97,6 +86,54 @@ public class Hostal implements VOHotel
 	{
 		this.direccion = direccion;
 	}
+
+	/**
+	 * @return 
+	 */
+	public String getHorarioApertura() 
+	{
+		return horarioApertura;
+	}
+
+	/**
+	 * @param horarioApertura - 
+	 */
+	public void setHorarioApertura(String horarioApertura) 
+	{
+		this.horarioApertura = horarioApertura;
+	}
+
+	/**
+	 * @return 
+	 */
+	public String getHorarioCierre() 
+	{
+		return horarioCierre;
+	}
+
+	/**
+	 * @param horarioCierre - 
+	 */
+	public void setHorarioCierre(String horarioCierre) 
+	{
+		this.horarioCierre = horarioCierre;
+	}
+	
+	/**
+	 * @return 
+	 */
+	public float getCalificacion() 
+	{
+		return calificacion;
+	}
+
+	/**
+	 * @param calificacion - 
+	 */
+	public void setCalificacion(float calificacion) 
+	{
+		this.calificacion = calificacion;
+	}
 	
 	/** 
 	 * @return Una cadena con la información básica
@@ -104,7 +141,7 @@ public class Hostal implements VOHotel
 	@Override
 	public String toString() 
 	{
-		return "Hotel [nombre=" + nombre + ", calificacion=" + calificacion +  ", direccion" + direccion +"]";
+		return "Hostal [nombre=" + nombre + ", direccion=" + direccion +  ", horarioApertura" + horarioApertura + ", horarioCierre" + horarioCierre + ", calificacion" + calificacion +"]";
 	}
 	
 }

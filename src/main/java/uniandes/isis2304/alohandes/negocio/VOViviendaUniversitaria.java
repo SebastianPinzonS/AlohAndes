@@ -1,6 +1,6 @@
 package uniandes.isis2304.alohandes.negocio;
 
-public interface VOHabitacionHotel
+public interface VOViviendaUniversitaria
 {
 	/* ****************************************************************
 	 * 			Métodos
@@ -8,22 +8,39 @@ public interface VOHabitacionHotel
 	/**
 	 * @return 
 	 */
-	public String getTipo();
+	public String getNombre();
 
 	/**
 	 * @return 
 	 */
-	public String getNumeroHabitacion();
+	public String getDireccion();
 
 	/**
 	 * @return 
 	 */
-	public float getTamano();
+	public String getNumeroApartamento();
 
 	/**
 	 * @return 
 	 */
-	public String getDireccionHotel();
+	public int getViviendaCompartida();
+
+	/**
+	 * @return 
+	 */
+	public int getCapacidad();
+
+	/**
+	 * @return 
+	 */
+	public String getMenaje();
+
+	/**
+	 * @return 
+	 */
+	public float getCalificacion();
+
+	
 	
 	/** 
 	 * @return Una cadena con la información básica
