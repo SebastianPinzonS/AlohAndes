@@ -1,0 +1,232 @@
+11:42:05,724 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext "org.datanucleus.ExecutionContextImpl@4f2e8797" se abrió para la base de datos "org.datanucleus.store.rdbms.RDBMSStoreManager@23f168a1" con transaccion="org.datanucleus.TransactionImpl@1d529d65"
+11:42:05,730 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction created [DataNucleus Transaction, ID=-1148580989-1, enlisted resources=[]]
+11:42:05,730 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transacción empezada para el ExecutionContext org.datanucleus.ExecutionContextImpl@4f2e8797 (optimistic=false)
+11:42:05,734 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "DELETE FROM A_GUSTAN"
+11:42:05,769 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@2f4bb059 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]" en resource "tx" con isolación "read-committed" y auto-commit=false
+11:42:05,770 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Running enlist operation on resource: org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@1b7c2da1, error code TMNOFLAGS and transaction [DataNucleus Transaction, ID=-1148580989-1, enlisted resources=[]]
+11:42:05,794 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@4633683e" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b"
+11:42:05,794 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - DELETE FROM A_GUSTAN
+11:42:05,796 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Tiempo de cumplir = 2 ms (numero de lineas cambiado = 0) con el PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@4633683e"
+11:42:05,796 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Cerrando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@4633683e"
+11:42:05,796 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "DELETE FROM A_SIRVEN"
+11:42:05,796 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@1ae91dc0" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b"
+11:42:05,796 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - DELETE FROM A_SIRVEN
+11:42:05,797 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Tiempo de cumplir = 1 ms (numero de lineas cambiado = 0) con el PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@1ae91dc0"
+11:42:05,797 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Cerrando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@1ae91dc0"
+11:42:05,797 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "DELETE FROM A_VISITAN"
+11:42:05,797 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@15b6316e" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b"
+11:42:05,797 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - DELETE FROM A_VISITAN
+11:42:05,799 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Tiempo de cumplir = 2 ms (numero de lineas cambiado = 0) con el PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@15b6316e"
+11:42:05,799 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Cerrando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@15b6316e"
+11:42:05,799 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "DELETE FROM A_BEBIDA"
+11:42:05,799 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@438652e" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b"
+11:42:05,799 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - DELETE FROM A_BEBIDA
+11:42:05,800 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Tiempo de cumplir = 1 ms (numero de lineas cambiado = 0) con el PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@438652e"
+11:42:05,800 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Cerrando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@438652e"
+11:42:05,800 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "DELETE FROM A_TIPOBEBIDA"
+11:42:05,801 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@59179f0f" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b"
+11:42:05,801 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - DELETE FROM A_TIPOBEBIDA
+11:42:05,802 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Tiempo de cumplir = 0 ms (numero de lineas cambiado = 0) con el PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@59179f0f"
+11:42:05,802 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Cerrando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@59179f0f"
+11:42:05,802 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "DELETE FROM A_BEBEDOR"
+11:42:05,802 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@b429ef0" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b"
+11:42:05,802 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - DELETE FROM A_BEBEDOR
+11:42:05,803 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Tiempo de cumplir = 1 ms (numero de lineas cambiado = 0) con el PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@b429ef0"
+11:42:05,803 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Cerrando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@b429ef0"
+11:42:05,803 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "DELETE FROM A_BAR"
+11:42:05,803 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@2fdbf3b7" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b"
+11:42:05,803 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - DELETE FROM A_BAR
+11:42:05,804 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Tiempo de cumplir = 1 ms (numero de lineas cambiado = 0) con el PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@2fdbf3b7"
+11:42:05,804 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Cerrando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@2fdbf3b7"
+11:42:05,804 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Haciendo commit de la transaacción para el ExecutionContext org.datanucleus.ExecutionContextImpl@4f2e8797
+11:42:05,804 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext.internalFlush() empezado con flush ordenado - 0 objetos registrados
+11:42:05,807 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext.internalFlush() terminado
+11:42:05,807 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - Persistence-By-Reachability (commit) : EMPIEZA
+11:42:05,807 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - Persistence-By-Reachability (commit) : TERMINADO
+11:42:05,807 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Committing [DataNucleus Transaction, ID=-1148580989-1, enlisted resources=[org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@1b7c2da1]]
+11:42:05,807 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection VA A COMMIT : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@2f4bb059 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
+11:42:05,808 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@2f4bb059 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8fdc5b, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]" 
+11:42:05,809 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transacción committed en 5 ms
+11:42:05,810 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext "org.datanucleus.ExecutionContextImpl@4f2e8797" se cerró
+17:49:19,984 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+17:49:20,005 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.1.7 at URL file:/C:/Users/gbravo/Dropbox%20(Uniandes)/Compartido%20isis2304-ST-db/ST%20-%20Desde%20201810/isis2304-Material/st-parranderos-jdo-est/lib/datanucleus-api-jdo-5.1.7.jar.
+17:49:20,016 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/gbravo/Dropbox%20(Uniandes)/Compartido%20isis2304-ST-db/ST%20-%20Desde%20201810/isis2304-Material/st-parranderos-jdo-est/lib/datanucleus-api-jdo-5.1.7.jar!/plugin.xml.
+17:49:20,021 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.1.10 at URL file:/C:/Users/gbravo/Dropbox%20(Uniandes)/Compartido%20isis2304-ST-db/ST%20-%20Desde%20201810/isis2304-Material/st-parranderos-jdo-est/lib/datanucleus-core-5.1.10.jar.
+17:49:20,023 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/gbravo/Dropbox%20(Uniandes)/Compartido%20isis2304-ST-db/ST%20-%20Desde%20201810/isis2304-Material/st-parranderos-jdo-est/lib/datanucleus-core-5.1.10.jar!/plugin.xml.
+17:49:20,030 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.1.10 at URL file:/C:/Users/gbravo/Dropbox%20(Uniandes)/Compartido%20isis2304-ST-db/ST%20-%20Desde%20201810/isis2304-Material/st-parranderos-jdo-est/lib/datanucleus-rdbms-5.1.10.jar.
+17:49:20,033 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/gbravo/Dropbox%20(Uniandes)/Compartido%20isis2304-ST-db/ST%20-%20Desde%20201810/isis2304-Material/st-parranderos-jdo-est/lib/datanucleus-rdbms-5.1.10.jar!/plugin.xml.
+17:49:20,063 (main) DEBUG [DataNucleus.MetaData] - Analizando el MetaData "file:/C:/Users/gbravo/Dropbox%20(Uniandes)/Compartido%20isis2304-ST-db/ST%20-%20Desde%20201810/isis2304-Material/st-parranderos-jdo-est/target/classes/META-INF/persistence.xml" con handler "persistence" (validar="false")
+17:49:20,075 (main) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+17:49:20,115 (main) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+17:49:20,116 (main) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : java.lang.String,int[]
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : java.nio.ByteBuffer,byte[]
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : java.lang.String,java.nio.ByteBuffer,byte[]
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Character,java.lang.Integer
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+17:49:20,142 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.String,java.lang.Double
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.String,java.lang.Long
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.String,java.lang.Long,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.String,java.lang.Long,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.String,java.lang.Long,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.String,java.lang.Double,java.lang.Long
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.lang.String,java.lang.Long,java.sql.Timestamp,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.lang.String,java.sql.Date,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.lang.String,java.sql.Timestamp,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.lang.String,java.sql.Time,java.lang.Long,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : java.lang.String,int[],java.sql.Date,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.lang.String,java.sql.Timestamp,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.lang.String,java.sql.Time,java.lang.Long
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : java.lang.String,int[]
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.String,java.lang.Integer
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : java.lang.String,int[],java.sql.Date,java.util.Date
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.lang.String,java.sql.Timestamp
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+17:49:20,143 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+17:49:20,144 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+17:49:20,144 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : java.lang.String,[Ljava.lang.Object;,java.sql.Timestamp,java.util.Date
+17:49:20,144 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+17:49:20,144 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.String,java.lang.Long
+17:49:20,144 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+17:49:20,144 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+17:49:20,144 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+17:49:20,144 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery) mapping-name=oracle, JDO-listener=false
+17:49:20,144 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata del persistence-unit "Parranderos" ...
+17:49:20,144 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+17:49:20,146 (main) DEBUG [DataNucleus.Datastore] - Creating StoreManager for datastore
+17:49:20,271 (main) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "tx" con data source de tipo dbcp2-builtin
+17:49:20,271 (main) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones transaccionales bajo el nombre "rdbms/tx"
+17:49:20,271 (main) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones nontransaccionales bajo el nombre "rdbms/nontx"
+17:49:20,280 (main) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "nontx" con data source de tipo dbcp2-builtin
+17:49:21,694 (main) ERROR [DataNucleus.Datastore.Schema] - La inicialización del base de datos ha fallado.
+ORA-01017: invalid username/password; logon denied
+
+org.datanucleus.exceptions.NucleusDataStoreException: ORA-01017: invalid username/password; logon denied
+
+	at org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl.getConnection(ConnectionFactoryImpl.java:518)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.<init>(RDBMSStoreManager.java:290)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.datanucleus.plugin.NonManagedPluginRegistry.createExecutableExtension(NonManagedPluginRegistry.java:660)
+	at org.datanucleus.plugin.PluginManager.createExecutableExtension(PluginManager.java:295)
+	at org.datanucleus.NucleusContextHelper.createStoreManagerForProperties(NucleusContextHelper.java:140)
+	at org.datanucleus.PersistenceNucleusContextImpl.initialise(PersistenceNucleusContextImpl.java:445)
+	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.freezeConfiguration(JDOPersistenceManagerFactory.java:855)
+	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.createPersistenceManagerFactory(JDOPersistenceManagerFactory.java:346)
+	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.getPersistenceManagerFactory(JDOPersistenceManagerFactory.java:225)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at javax.jdo.JDOHelper$16.run(JDOHelper.java:1975)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.jdo.JDOHelper.invoke(JDOHelper.java:1970)
+	at javax.jdo.JDOHelper.invokeGetPersistenceManagerFactoryOnImplementation(JDOHelper.java:1177)
+	at javax.jdo.JDOHelper.getPersistenceManagerFactory(JDOHelper.java:851)
+	at javax.jdo.JDOHelper.getPersistenceManagerFactory(JDOHelper.java:1109)
+	at javax.jdo.JDOHelper.getPersistenceManagerFactory(JDOHelper.java:924)
+	at uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos.<init>(PersistenciaParranderos.java:161)
+	at uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos.getInstance(PersistenciaParranderos.java:185)
+	at uniandes.isis2304.parranderos.negocio.Parranderos.<init>(Parranderos.java:67)
+	at uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp.<init>(InterfazParranderosApp.java:129)
+	at uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp.main(InterfazParranderosApp.java:647)
+Caused by: java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:441)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:436)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1061)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:550)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:499)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1279)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:663)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:688)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:39)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:691)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:79)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:254)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:864)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:434)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:362)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource.getConnection(PoolingDataSource.java:132)
+	at org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl.getConnection(ConnectionFactoryImpl.java:501)
+	... 28 more
+Nested Throwables StackTrace:
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:441)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:436)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1061)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:550)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:499)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1279)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:663)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:688)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:39)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:691)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:79)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:254)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:864)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:434)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:362)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource.getConnection(PoolingDataSource.java:132)
+	at org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl.getConnection(ConnectionFactoryImpl.java:501)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.<init>(RDBMSStoreManager.java:290)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.datanucleus.plugin.NonManagedPluginRegistry.createExecutableExtension(NonManagedPluginRegistry.java:660)
+	at org.datanucleus.plugin.PluginManager.createExecutableExtension(PluginManager.java:295)
+	at org.datanucleus.NucleusContextHelper.createStoreManagerForProperties(NucleusContextHelper.java:140)
+	at org.datanucleus.PersistenceNucleusContextImpl.initialise(PersistenceNucleusContextImpl.java:445)
+	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.freezeConfiguration(JDOPersistenceManagerFactory.java:855)
+	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.createPersistenceManagerFactory(JDOPersistenceManagerFactory.java:346)
+	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.getPersistenceManagerFactory(JDOPersistenceManagerFactory.java:225)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at javax.jdo.JDOHelper$16.run(JDOHelper.java:1975)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.jdo.JDOHelper.invoke(JDOHelper.java:1970)
+	at javax.jdo.JDOHelper.invokeGetPersistenceManagerFactoryOnImplementation(JDOHelper.java:1177)
+	at javax.jdo.JDOHelper.getPersistenceManagerFactory(JDOHelper.java:851)
+	at javax.jdo.JDOHelper.getPersistenceManagerFactory(JDOHelper.java:1109)
+	at javax.jdo.JDOHelper.getPersistenceManagerFactory(JDOHelper.java:924)
+	at uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos.<init>(PersistenciaParranderos.java:161)
+	at uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos.getInstance(PersistenciaParranderos.java:185)
+	at uniandes.isis2304.parranderos.negocio.Parranderos.<init>(Parranderos.java:67)
+	at uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp.<init>(InterfazParranderosApp.java:129)
+	at uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp.main(InterfazParranderosApp.java:647)
+17:49:21,697 (main) ERROR [DataNucleus.Datastore] - Exception thrown creating StoreManager : ORA-01017: invalid username/password; logon denied
+

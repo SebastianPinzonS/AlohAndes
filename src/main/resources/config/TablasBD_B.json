@@ -1,0 +1,15 @@
+{
+	"title": "Nombre de las tablas de AlohAndes aplicacion B",
+	"unidadPersistencia": "Parranderos",
+	"tablas":
+	[
+		"Parranderos_sequence",
+		"B_TIPOBEBIDA",
+		"B_BEBIDA",
+		"B_BAR",
+		"B_BEBEDOR",
+		"B_GUSTAN",
+		"B_SIRVEN",
+		"B_VISITAN"
+	]
+}
