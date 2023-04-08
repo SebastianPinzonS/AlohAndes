@@ -221,87 +221,93 @@ public class PersistenciaAlohAndes
 		sqlUtil = new SQLUtil(this);
 	}
 
-	/**
-	 * @return La cadena de caracteres con el nombre del secuenciador de parranderos
-	 */
 	public String darSeqAlohAndes()
 	{
 		return tablas.get (0);
 	}
 
-	/**
-	 * @return La cadena de caracteres con el nombre de la tabla de TipoBebida de parranderos
-	 */
 	public String darTablaInstalacionHabitacionHotel ()
 	{
 		return tablas.get (1);
 	}
 
-	/**
-	 * @return La cadena de caracteres con el nombre de la tabla de Bebida de parranderos
-	 */
 	public String darTablaHabitacionHotel ()
 	{
 		return tablas.get (2);
 	}
 
-	/**
-	 * @return La cadena de caracteres con el nombre de la tabla de Bar de parranderos
-	 */
-	public String darTablaBar ()
+	public String darTablaHotel ()
 	{
 		return tablas.get (3);
 	}
 
-	/**
-	 * @return La cadena de caracteres con el nombre de la tabla de Bebedor de parranderos
-	 */
-	public String darTablaBebedor ()
+	public String darTablaServicioHabitacionHotel ()
 	{
 		return tablas.get (4);
 	}
 
-	/**
-	 * @return La cadena de caracteres con el nombre de la tabla de Gustan de parranderos
-	 */
-	public String darTablaGustan ()
+	public String darTablaHostal ()
 	{
 		return tablas.get (5);
 	}
 
-	/**
-	 * @return La cadena de caracteres con el nombre de la tabla de Sirven de parranderos
-	 */
-	public String darTablaSirven ()
+	public String darTablaHabitacionHostal ()
 	{
 		return tablas.get (6);
 	}
-
-	/**
-	 * @return La cadena de caracteres con el nombre de la tabla de Visitan de parranderos
-	 */
-	public String darTablaVisitan ()
+	
+	public String darTablaViviendaUniversitaria ()
 	{
 		return tablas.get (7);
 	}
+
+	public String darTablaViviendaHabitacion ()
+	{
+		return tablas.get (8);
+	}
+
+	public String darTablaViviendaHabitacionServicio()
+	{
+		return tablas.get (9);
+	}
 	
-	/**
-	 * Transacción para el generador de secuencia de Parranderos
-	 * Adiciona entradas al log de la aplicación
-	 * @return El siguiente número del secuenciador de Parranderos
-	 */
+	public String darTablaServicioHabitacion ()
+	{
+		return tablas.get (10);
+	}
+
+	public String darTablaApartamento ()
+	{
+		return tablas.get (11);
+	}
+
+	public String darTablaViviendaExpress ()
+	{
+		return tablas.get (12);
+	}
+
+	public String darTablaCliente ()
+	{
+		return tablas.get (13);
+	}
+
+	public String darTablaOperador ()
+	{
+		return tablas.get (14);
+	}
+
+	public String darTablaOferta ()
+	{
+		return tablas.get (15);
+	}
+
 	private long nextval ()
 	{
         long resp = sqlUtil.nextval (pmf.getPersistenceManager());
         log.trace ("Generando secuencia: " + resp);
         return resp;
     }
-	
-	/**
-	 * Extrae el mensaje de la exception JDODataStoreException embebido en la Exception e, que da el detalle específico del problema encontrado
-	 * @param e - La excepción que ocurrio
-	 * @return El mensaje de la excepción JDO
-	 */
+
 	private String darDetalleException(Exception e) 
 	{
 		String resp = "";
@@ -313,16 +319,7 @@ public class PersistenciaAlohAndes
 		return resp;
 	}
 
-	/* ****************************************************************
-	 * 			Métodos para manejar los TIPOS DE BEBIDA
-	 *****************************************************************/
 
-	/**
-	 * Método que inserta, de manera transaccional, una tupla en la tabla TipoBebida
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del tipo de bebida
-	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepción
-	 */
 	public TipoBebida adicionarTipoBebida(String nombre)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();

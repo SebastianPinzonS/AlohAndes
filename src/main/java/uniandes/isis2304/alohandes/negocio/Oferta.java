@@ -126,13 +126,12 @@ public class Oferta implements VOOferta
 		this.id = id;
 	}
 
-	
-	public int getPrecioEspecialTomado() {
-		return precioEspecialTomado;
+	public Date getFechaInicial() {
+		return fechaInicial;
 	}
 
-	public void setPrecioEspecialTomado(int precioEspecialTomado) {
-		this.precioEspecialTomado = precioEspecialTomado;
+	public void setId(Date fechaInicial) {
+		this.fechaInicial = fechaInicial;
 	}
 
 	public int getDuracionContratoDias() {
@@ -165,6 +164,14 @@ public class Oferta implements VOOferta
 
 	public void setCondicionPrecioEspecial(String condicionPrecioEspecial) {
 		this.condicionPrecioEspecial = condicionPrecioEspecial;
+	}
+
+	public int getPrecioEspecialTomado() {
+		return precioEspecialTomado;
+	}
+
+	public void setPrecioEspecialTomado(int precioEspecialTomado) {
+		this.precioEspecialTomado = precioEspecialTomado;
 	}
 
 	public int getCostoAdicionalServicios() {
@@ -294,6 +301,5 @@ public class Oferta implements VOOferta
 	public void setVisitas(int visitas) {
 		this.visitas = visitas;
 	}
-
 	
 }
