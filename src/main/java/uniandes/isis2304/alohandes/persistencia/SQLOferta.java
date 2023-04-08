@@ -45,7 +45,7 @@ class SQLOferta
 	/**
 	 * El manejador de persistencia general de la aplicación
 	 */
-	private PersistenciaAlohAndes pp;
+	private PersistenciaAlohAndes pa;
 
 	/* ****************************************************************
 	 * 			Métodos
@@ -53,11 +53,11 @@ class SQLOferta
 
 	/**
 	 * Constructor
-	 * @param pp - El Manejador de persistencia de la aplicación
+	 * @param pa - El Manejador de persistencia de la aplicación
 	 */
-	public SQLOferta (PersistenciaAlohAndes pp)
+	public SQLOferta (PersistenciaAlohAndes pa)
 	{
-		this.pp = pp;
+		this.pa = pa;
 	}
 	
 	/**
@@ -72,7 +72,7 @@ class SQLOferta
 	 */
 	public long adicionarBar (PersistenceManager pm, long idBar, String nombre, String ciudad, String presupuesto, int sedes) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaBar () + "(id, nombre, ciudad, presupuesto, cantsedes) values (?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaBar () + "(id, nombre, ciudad, presupuesto, cantsedes) values (?, ?, ?, ?, ?)");
         q.setParameters(idBar, nombre, ciudad, presupuesto, sedes);
         return (long) q.executeUnique();
 	}
@@ -85,7 +85,7 @@ class SQLOferta
 	 */
 	public long eliminarBaresPorNombre (PersistenceManager pm, String nombreBar)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBar () + " WHERE nombre = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaBar () + " WHERE nombre = ?");
         q.setParameters(nombreBar);
         return (long) q.executeUnique();
 	}
@@ -98,7 +98,7 @@ class SQLOferta
 	 */
 	public long eliminarBarPorId (PersistenceManager pm, long idBar)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBar () + " WHERE id = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaBar () + " WHERE id = ?");
         q.setParameters(idBar);
         return (long) q.executeUnique();
 	}
@@ -112,7 +112,7 @@ class SQLOferta
 	 */
 	public Bar darBarPorId (PersistenceManager pm, long idBar) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar () + " WHERE id = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaBar () + " WHERE id = ?");
 		q.setResultClass(Bar.class);
 		q.setParameters(idBar);
 		return (Bar) q.executeUnique();
@@ -127,7 +127,7 @@ class SQLOferta
 	 */
 	public List<Bar> darBaresPorNombre (PersistenceManager pm, String nombreBar) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar () + " WHERE nombre = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaBar () + " WHERE nombre = ?");
 		q.setResultClass(Bar.class);
 		q.setParameters(nombreBar);
 		return (List<Bar>) q.executeList();
@@ -141,7 +141,7 @@ class SQLOferta
 	 */
 	public List<Bar> darBares (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar ());
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaBar ());
 		q.setResultClass(Bar.class);
 		return (List<Bar>) q.executeList();
 	}
@@ -155,7 +155,7 @@ class SQLOferta
 	 */
 	public long aumentarSedesBaresCiudad (PersistenceManager pm, String ciudad)
 	{
-        Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaBar () + " SET cantsedes = cantsedes + 1 WHERE ciudad = ?");
+        Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaBar () + " SET cantsedes = cantsedes + 1 WHERE ciudad = ?");
         q.setParameters(ciudad);
         return (long) q.executeUnique();
 	}

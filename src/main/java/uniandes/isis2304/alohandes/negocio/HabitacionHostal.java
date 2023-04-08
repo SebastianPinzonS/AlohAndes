@@ -101,7 +101,7 @@ public class HabitacionHostal implements VOHabitacionHostal
 	@Override
 	public String toString() 
 	{
-		return "HabitacionHostal [direccionHostal=" + direccionHostal + ", numeroHabitacion=" + numeroHabitacion +  ", tamano" + tamano +  "]";
+		return "HabitacionHostal [direccionHostal=" + direccionHostal + ", numeroHabitacion=" + numeroHabitacion +  ", tamano=" + tamano +  "]";
 	}
 	
 }

@@ -22,7 +22,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import com.google.gson.JsonObject;
 
-import uniandes.isis2304.alohandes.persistencia.PersistenciaParranderos;
+import uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes;
 
 /**
  * Clase principal del negocio
@@ -46,7 +46,7 @@ public class AlohAndes
 	/**
 	 * El manejador de persistencia
 	 */
-	private PersistenciaParranderos pp;
+	private PersistenciaAlohAndes pa;
 	
 	/* ****************************************************************
 	 * 			Métodos
@@ -56,7 +56,7 @@ public class AlohAndes
 	 */
 	public AlohAndes ()
 	{
-		pp = PersistenciaParranderos.getInstance ();
+		pa = PersistenciaAlohAndes.getInstance ();
 	}
 	
 	/**
@@ -65,7 +65,7 @@ public class AlohAndes
 	 */
 	public AlohAndes (JsonObject tableConfig)
 	{
-		pp = PersistenciaParranderos.getInstance (tableConfig);
+		pa = PersistenciaAlohAndes.getInstance (tableConfig);
 	}
 	
 	/**
@@ -73,7 +73,7 @@ public class AlohAndes
 	 */
 	public void cerrarUnidadPersistencia ()
 	{
-		pp.cerrarUnidadPersistencia ();
+		pa.cerrarUnidadPersistencia ();
 	}
 	
 	/* ****************************************************************
@@ -88,7 +88,7 @@ public class AlohAndes
 	public TipoBebida adicionarTipoBebida (String nombre)
 	{
         log.info ("Adicionando Tipo de bebida: " + nombre);
-        TipoBebida tipoBebida = pp.adicionarTipoBebida (nombre);		
+        TipoBebida tipoBebida = pa.adicionarTipoBebida (nombre);		
         log.info ("Adicionando Tipo de bebida: " + tipoBebida);
         return tipoBebida;
 	}
@@ -102,7 +102,7 @@ public class AlohAndes
 	public long eliminarTipoBebidaPorNombre (String nombre)
 	{
 		log.info ("Eliminando Tipo de bebida por nombre: " + nombre);
-        long resp = pp.eliminarTipoBebidaPorNombre (nombre);		
+        long resp = pa.eliminarTipoBebidaPorNombre (nombre);		
         log.info ("Eliminando Tipo de bebida por nombre: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -116,7 +116,7 @@ public class AlohAndes
 	public long eliminarTipoBebidaPorId (long idTipoBebida)
 	{
 		log.info ("Eliminando Tipo de bebida por id: " + idTipoBebida);
-        long resp = pp.eliminarTipoBebidaPorId (idTipoBebida);		
+        long resp = pa.eliminarTipoBebidaPorId (idTipoBebida);		
         log.info ("Eliminando Tipo de bebida por id: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -129,7 +129,7 @@ public class AlohAndes
 	public List<TipoBebida> darTiposBebida ()
 	{
 		log.info ("Consultando Tipos de bebida");
-        List<TipoBebida> tiposBebida = pp.darTiposBebida ();	
+        List<TipoBebida> tiposBebida = pa.darTiposBebida ();	
         log.info ("Consultando Tipos de bebida: " + tiposBebida.size() + " existentes");
         return tiposBebida;
 	}
@@ -143,7 +143,7 @@ public class AlohAndes
 	{
 		log.info ("Generando los VO de Tipos de bebida");        
         List<VOTipoBebida> voTipos = new LinkedList<VOTipoBebida> ();
-        for (TipoBebida tb : pp.darTiposBebida ())
+        for (TipoBebida tb : pa.darTiposBebida ())
         {
         	voTipos.add (tb);
         }
@@ -161,7 +161,7 @@ public class AlohAndes
 	public TipoBebida darTipoBebidaPorNombre (String nombre)
 	{
 		log.info ("Buscando Tipo de bebida por nombre: " + nombre);
-		List<TipoBebida> tb = pp.darTipoBebidaPorNombre (nombre);
+		List<TipoBebida> tb = pa.darTipoBebidaPorNombre (nombre);
 		return !tb.isEmpty () ? tb.get (0) : null;
 	}
 
@@ -179,7 +179,7 @@ public class AlohAndes
 	public Bebida adicionarBebida (String nombre, long idTipoBebida, int gradoAlcohol)
 	{
 		log.info ("Adicionando bebida " + nombre);
-		Bebida bebida = pp.adicionarBebida (nombre, idTipoBebida, gradoAlcohol);
+		Bebida bebida = pa.adicionarBebida (nombre, idTipoBebida, gradoAlcohol);
         log.info ("Adicionando bebida: " + bebida);
         return bebida;
 	}
@@ -193,7 +193,7 @@ public class AlohAndes
 	public long eliminarBebidaPorNombre (String nombre)
 	{
         log.info ("Eliminando bebida por nombre: " + nombre);
-        long resp = pp.eliminarBebidaPorNombre (nombre);
+        long resp = pa.eliminarBebidaPorNombre (nombre);
         log.info ("Eliminando bebida por nombre: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -207,7 +207,7 @@ public class AlohAndes
 	public long eliminarBebidaPorId (long idBebida)
 	{
         log.info ("Eliminando bebida por id: " + idBebida);
-        long resp = pp.eliminarBebidaPorId (idBebida);
+        long resp = pa.eliminarBebidaPorId (idBebida);
         log.info ("Eliminando bebida por id: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -220,7 +220,7 @@ public class AlohAndes
 	public List<Bebida> darBebidas ()
 	{
         log.info ("Consultando Bebidas");
-        List<Bebida> bebidas = pp.darBebidas ();	
+        List<Bebida> bebidas = pa.darBebidas ();	
         log.info ("Consultando Bebidas: " + bebidas.size() + " bebidas existentes");
         return bebidas;
 	}
@@ -234,7 +234,7 @@ public class AlohAndes
 	{
 		log.info ("Generando los VO de las bebidas");       
         List<VOBebida> voBebidas = new LinkedList<VOBebida> ();
-        for (Bebida beb : pp.darBebidas ())
+        for (Bebida beb : pa.darBebidas ())
         {
         	voBebidas.add (beb);
         }
@@ -250,7 +250,7 @@ public class AlohAndes
 	public long eliminarBebidasNoServidas ()
 	{
         log.info ("Borrando bebidas no servidas");
-        long resp = pp.eliminarBebidasNoServidas ();
+        long resp = pa.eliminarBebidasNoServidas ();
         log.info ("Borrando bebidas no servidas: " + resp + " bebidas eliminadas");
         return resp;
 	}
@@ -270,7 +270,7 @@ public class AlohAndes
 	public Bebedor adicionarBebedor (String nombre, String presupuesto, String ciudad)
 	{
         log.info ("Adicionando bebedor: " + nombre);
-        Bebedor bebedor = pp.adicionarBebedor (nombre, presupuesto, ciudad);
+        Bebedor bebedor = pa.adicionarBebedor (nombre, presupuesto, ciudad);
         log.info ("Adicionando bebedor: " + bebedor);
         return bebedor;
 	}
@@ -284,7 +284,7 @@ public class AlohAndes
 	public long eliminarBebedorPorNombre (String nombre)
 	{
         log.info ("Eliminando bebedor por nombre: " + nombre);
-        long resp = pp.eliminarBebedorPorNombre (nombre);
+        long resp = pa.eliminarBebedorPorNombre (nombre);
         log.info ("Eliminando bebedor por nombre: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -298,7 +298,7 @@ public class AlohAndes
 	public long eliminarBebedorPorId (long idBebedor)
 	{
         log.info ("Eliminando bebedor por id: " + idBebedor);
-        long resp = pp.eliminarBebedorPorId (idBebedor);
+        long resp = pa.eliminarBebedorPorId (idBebedor);
         log.info ("Eliminando bebedor por Id: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -312,7 +312,7 @@ public class AlohAndes
 	public Bebedor darBebedorPorId (long idBebedor)
 	{
         log.info ("Dar información de un bebedor por id: " + idBebedor);
-        Bebedor bebedor = pp.darBebedorPorId (idBebedor);
+        Bebedor bebedor = pa.darBebedorPorId (idBebedor);
         log.info ("Buscando bebedor por Id: " + bebedor != null ? bebedor : "NO EXISTE");
         return bebedor;
 	}
@@ -326,7 +326,7 @@ public class AlohAndes
 	public List<Bebedor> darBebedoresPorNombre (String nombre)
 	{
         log.info ("Dar información de bebedores por nombre: " + nombre);
-        List<Bebedor> bebedores = pp.darBebedoresPorNombre (nombre);
+        List<Bebedor> bebedores = pa.darBebedoresPorNombre (nombre);
         log.info ("Dar información de Bebedores por nombre: " + bebedores.size() + " bebedores con ese nombre existentes");
         return bebedores;
  	}
@@ -341,7 +341,7 @@ public class AlohAndes
 	{
         log.info ("Generando VO de bebedores por nombre: " + nombre);
         List<VOBebedor> voBebedores = new LinkedList<VOBebedor> ();
-       for (Bebedor bdor : pp.darBebedoresPorNombre (nombre))
+       for (Bebedor bdor : pa.darBebedoresPorNombre (nombre))
        {
           	voBebedores.add (bdor);
        }
@@ -360,7 +360,7 @@ public class AlohAndes
 	public Bebedor darBebedorCompleto (long idBebedor)
 	{
         log.info ("Dar información COMPLETA de un bebedor por id: " + idBebedor);
-        Bebedor bebedor = pp.darBebedorCompleto (idBebedor);
+        Bebedor bebedor = pa.darBebedorCompleto (idBebedor);
         log.info ("Buscando bebedor por Id: " + bebedor.toStringCompleto() != null ? bebedor : "NO EXISTE");
         return bebedor;
 	}
@@ -373,7 +373,7 @@ public class AlohAndes
 	public List<Bebedor> darBebedores ()
 	{
         log.info ("Listando Bebedores");
-        List<Bebedor> bebedores = pp.darBebedores ();	
+        List<Bebedor> bebedores = pa.darBebedores ();	
         log.info ("Listando Bebedores: " + bebedores.size() + " bebedores existentes");
         return bebedores;
 	}
@@ -387,7 +387,7 @@ public class AlohAndes
 	{
         log.info ("Generando los VO de Bebedores");
          List<VOBebedor> voBebedores = new LinkedList<VOBebedor> ();
-        for (Bebedor bdor : pp.darBebedores ())
+        for (Bebedor bdor : pa.darBebedores ())
         {
         	voBebedores.add (bdor);
         }
@@ -403,7 +403,7 @@ public class AlohAndes
 	public List<Object []> darBebedoresYNumVisitasRealizadas ()
 	{
         log.info ("Listando Bebedores y cuántas visitas ha realizado");
-        List<Object []> tuplas = pp.darBebedoresYNumVisitasRealizadas ();
+        List<Object []> tuplas = pa.darBebedoresYNumVisitasRealizadas ();
         log.info ("Listando Bebedores y cuántas visitas ha realizado: Listo!");
         return tuplas;
 	}
@@ -417,7 +417,7 @@ public class AlohAndes
 	public long darCantidadBebedoresCiudadVisitanBares (String ciudad)
 	{
         log.info ("Calculando cuántos Bebedores de una ciudad visitan bares");
-        long resp = pp.darCantidadBebedoresCiudadVisitanBares (ciudad);
+        long resp = pa.darCantidadBebedoresCiudadVisitanBares (ciudad);
         log.info ("Calculando cuántos Bebedores de una ciudad visitan bares de " + ciudad +": " + resp);
         return resp;
 	}
@@ -432,7 +432,7 @@ public class AlohAndes
 	public long cambiarCiudadBebedor (long idBebedor, String ciudad)
 	{
         log.info ("Cambiando ciudad de bebedor: " + idBebedor);
-        long cambios = pp.cambiarCiudadBebedor (idBebedor, ciudad);
+        long cambios = pa.cambiarCiudadBebedor (idBebedor, ciudad);
         return cambios;
 	}
 	
@@ -446,7 +446,7 @@ public class AlohAndes
 	public long [] eliminarBebedorYVisitas_v1 (long idBebedor)
 	{
         log.info ("Eliminando bebedor con sus visitas v1: " + idBebedor);
-        long [] resp = pp.eliminarBebedorYVisitas_v1 (idBebedor);
+        long [] resp = pa.eliminarBebedorYVisitas_v1 (idBebedor);
         log.info ("Eliminando bebedor con sus visitas v1: " + resp [0] + " bebedor y " + resp [1] + " visitas");
         return resp;
 	}
@@ -461,7 +461,7 @@ public class AlohAndes
 	public long [] eliminarBebedorYVisitas_v2 (long idBebedor)
 	{
         log.info ("Eliminando bebedor con sus visitas v2: " + idBebedor);
-        long [] resp = pp.eliminarBebedorYVisitas_v2 (idBebedor);
+        long [] resp = pa.eliminarBebedorYVisitas_v2 (idBebedor);
         log.info ("Eliminando bebedor con sus visitas v2: " + resp [0] + " bebedor y " + resp [1] + " visitas");
         return resp;
 	}
@@ -481,7 +481,7 @@ public class AlohAndes
 	public Bar adicionarBar (String nombre, String presupuesto, String ciudad, int sedes)
 	{
         log.info ("Adicionando bar: " + nombre);
-        Bar bar = pp.adicionarBar (nombre, presupuesto, ciudad, sedes);
+        Bar bar = pa.adicionarBar (nombre, presupuesto, ciudad, sedes);
         log.info ("Adicionando bar: " + bar);
         return bar;
 	}
@@ -495,7 +495,7 @@ public class AlohAndes
 	public long eliminarBarPorNombre (String nombre)
 	{
         log.info ("Eliminando bar por nombre: " + nombre);
-        long resp = pp.eliminarBarPorNombre (nombre);
+        long resp = pa.eliminarBarPorNombre (nombre);
         log.info ("Eliminando bar: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -509,7 +509,7 @@ public class AlohAndes
 	public long eliminarBarPorId (long idBar)
 	{
         log.info ("Eliminando bar por id: " + idBar);
-        long resp = pp.eliminarBarPorId (idBar);
+        long resp = pa.eliminarBarPorId (idBar);
         log.info ("Eliminando bar: " + resp);
         return resp;
 	}
@@ -522,7 +522,7 @@ public class AlohAndes
 	public List<Bar> darBares ()
 	{
         log.info ("Listando Bares");
-        List<Bar> bares = pp.darBares ();	
+        List<Bar> bares = pa.darBares ();	
         log.info ("Listando Bares: " + bares.size() + " bares existentes");
         return bares;
 	}
@@ -536,7 +536,7 @@ public class AlohAndes
 	{
 		log.info ("Generando los VO de Bares");
 		List<VOBar> voBares = new LinkedList<VOBar> ();
-		for (Bar bar: pp.darBares ())
+		for (Bar bar: pa.darBares ())
 		{
 			voBares.add (bar);
 		}
@@ -553,7 +553,7 @@ public class AlohAndes
 	public long aumentarSedesBaresCiudad (String ciudad)
 	{
         log.info ("Aumentando sedes de bares de una ciudad: " + ciudad);
-        long resp = pp.aumentarSedesBaresCiudad (ciudad);
+        long resp = pa.aumentarSedesBaresCiudad (ciudad);
         log.info ("Aumentando sedes de bares de una ciudad: " + resp + " tuplas actualizadas");
         return resp;
 	}
@@ -567,7 +567,7 @@ public class AlohAndes
 	public List<long []> darBaresYCantidadBebidasSirven ()
 	{
         log.info ("Listando Bares y cuántos bebidas sirven");
-        List<long []> tuplas = pp.darBaresYCantidadBebidasSirven ();
+        List<long []> tuplas = pa.darBaresYCantidadBebidasSirven ();
         log.info ("Listando Bares y cuántos bebidas sirven: Listo!");
         return tuplas;
 	}
@@ -586,7 +586,7 @@ public class AlohAndes
 	public Hotel adicionarGustan (long idBebedor, long idBebida)
 	{
         log.info ("Adicionando gustan [" + idBebedor + ", " + idBebida + "]");
-        Hotel resp = pp.adicionarGustan (idBebedor, idBebida);
+        Hotel resp = pa.adicionarGustan (idBebedor, idBebida);
         log.info ("Adicionando gustan: " + resp + " tuplas insertadas");
         return resp;
 	}
@@ -601,7 +601,7 @@ public class AlohAndes
 	public long eliminarGustan (long idBebedor, long idBebida)
 	{
         log.info ("Eliminando gustan");
-        long resp = pp.eliminarGustan (idBebedor, idBebida);
+        long resp = pa.eliminarGustan (idBebedor, idBebida);
         log.info ("Eliminando gustan: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -614,7 +614,7 @@ public class AlohAndes
 	public List<Hotel> darGustan ()
 	{
         log.info ("Listando Gustan");
-        List<Hotel> gustan = pp.darGustan ();	
+        List<Hotel> gustan = pa.darGustan ();	
         log.info ("Listando Gustan: " + gustan.size() + " preferencias de gusto existentes");
         return gustan;
 	}
@@ -628,7 +628,7 @@ public class AlohAndes
 	{
 		log.info ("Generando los VO de Gustan");
 		List<VOHotel> voGustan = new LinkedList<VOHotel> ();
-		for (VOHotel bar: pp.darGustan ())
+		for (VOHotel bar: pa.darGustan ())
 		{
 			voGustan.add (bar);
 		}
@@ -651,7 +651,7 @@ public class AlohAndes
 	public Sirven adicionarSirven (long idBar, long idBebida, String horario)
 	{
         log.info ("Adicionando sirven [" + idBar + ", " + idBebida + "]");
-        Sirven resp = pp.adicionarSirven (idBar, idBebida, horario);
+        Sirven resp = pa.adicionarSirven (idBar, idBebida, horario);
         log.info ("Adicionando sirven: " + resp + " tuplas insertadas");
         return resp;
 	}
@@ -666,7 +666,7 @@ public class AlohAndes
 	public long eliminarSirven (long idBar, long idBebida)
 	{
         log.info ("Eliminando sirven");
-        long resp = pp.eliminarSirven (idBar, idBebida);
+        long resp = pa.eliminarSirven (idBar, idBebida);
         log.info ("Eliminando sirven: " + resp + "tuplas eliminadas");
         return resp;
 	}
@@ -679,7 +679,7 @@ public class AlohAndes
 	public List<Sirven> darSirven ()
 	{
         log.info ("Listando Sirven");
-        List<Sirven> sirven = pp.darSirven ();	
+        List<Sirven> sirven = pa.darSirven ();	
         log.info ("Listando Sirven: " + sirven.size() + " sirven existentes");
         return sirven;
 	}
@@ -693,7 +693,7 @@ public class AlohAndes
 	{
 		log.info ("Generando los VO de Sirven");
 		List<VOSirven> voGustan = new LinkedList<VOSirven> ();
-		for (VOSirven sirven: pp.darSirven ())
+		for (VOSirven sirven: pa.darSirven ())
 		{
 			voGustan.add (sirven);
 		}
@@ -717,7 +717,7 @@ public class AlohAndes
 	public Visitan adicionarVisitan (long idBebedor, long idBar, Timestamp fecha, String horario)
 	{
         log.info ("Adicionando visitan [" + idBebedor + ", " + idBar + "]");
-        Visitan resp = pp.adicionarVisitan (idBebedor, idBar, fecha, horario);
+        Visitan resp = pa.adicionarVisitan (idBebedor, idBar, fecha, horario);
         log.info ("Adicionando visitan: " + resp + " tuplas insertadas");
         return resp;
 	}
@@ -732,7 +732,7 @@ public class AlohAndes
 	public long eliminarVisitan (long idBebedor, long idBar)
 	{
         log.info ("Eliminando visitan");
-        long resp = pp.eliminarVisitan (idBebedor, idBar);
+        long resp = pa.eliminarVisitan (idBebedor, idBar);
         log.info ("Eliminando visitan: " + resp + " tuplas eliminadas");
         return resp;
 	}
@@ -745,7 +745,7 @@ public class AlohAndes
 	public List<Visitan> darVisitan ()
 	{
         log.info ("Listando Visitan");
-        List<Visitan> visitan = pp.darVisitan ();	
+        List<Visitan> visitan = pa.darVisitan ();	
         log.info ("Listando Visitan: Listo!");
         return visitan;
 	}
@@ -759,7 +759,7 @@ public class AlohAndes
 	{
 		log.info ("Generando los VO de Visitan");
 		List<VOVisitan> voGustan = new LinkedList<VOVisitan> ();
-		for (VOVisitan vis: pp.darVisitan ())
+		for (VOVisitan vis: pa.darVisitan ())
 		{
 			voGustan.add (vis);
 		}
@@ -779,7 +779,7 @@ public class AlohAndes
 	public long [] limpiarParranderos ()
 	{
         log.info ("Limpiando la BD de Parranderos");
-        long [] borrrados = pp.limpiarParranderos();	
+        long [] borrrados = pa.limpiarParranderos();	
         log.info ("Limpiando la BD de Parranderos: Listo!");
         return borrrados;
 	}

@@ -141,7 +141,7 @@ public class Hostal implements VOHostal
 	@Override
 	public String toString() 
 	{
-		return "Hostal [nombre=" + nombre + ", direccion=" + direccion +  ", horarioApertura" + horarioApertura + ", horarioCierre" + horarioCierre + ", calificacion" + calificacion +"]";
+		return "Hostal [nombre=" + nombre + ", direccion=" + direccion +  ", horarioApertura=" + horarioApertura + ", horarioCierre=" + horarioCierre + ", calificacion" + calificacion +"]";
 	}
 	
 }

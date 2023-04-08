@@ -184,7 +184,7 @@ public class ViviendaUniversitaria implements VOViviendaUniversitaria
 	@Override
 	public String toString() 
 	{
-		return "ViviendaUniversitaria [nombre=" + nombre + ", direccion=" + direccion +  ", numeroApartamento" + numeroApartamento + ", viviendaCompartida" + viviendaCompartida +", capacidad" + capacidad + ", menaje" + menaje + ", calificacion" + calificacion +"]";
+		return "ViviendaUniversitaria [nombre=" + nombre + ", direccion=" + direccion +  ", numeroApartamento=" + numeroApartamento + ", viviendaCompartida=" + viviendaCompartida +", capacidad=" + capacidad + ", menaje=" + menaje + ", calificacion=" + calificacion +"]";
 	}
 	
 }

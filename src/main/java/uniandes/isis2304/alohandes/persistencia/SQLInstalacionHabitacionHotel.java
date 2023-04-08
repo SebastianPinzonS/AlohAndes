@@ -1,18 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad	de	los	Andes	(Bogotá	- Colombia)
- * Departamento	de	Ingeniería	de	Sistemas	y	Computación
- * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
- * 		
- * Curso: isis2304 - Sistemas Transaccionales
- * Proyecto: Parranderos Uniandes
- * @version 1.0
- * @author Germán Bravo
- * Julio de 2018
- * 
- * Revisado por: Claudia Jiménez, Christian Ariza
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- */
-
 package uniandes.isis2304.alohandes.persistencia;
 
 import java.math.BigDecimal;
@@ -21,97 +6,53 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import uniandes.isis2304.alohandes.negocio.Bebedor;
+import uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel;
 
-/**
- * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto BEBEDOR de Parranderos
- * Nótese que es una clase que es sólo conocida en el paquete de persistencia
- * 
- * @author Germán Bravo
- */
-class SQLBebedor 
+class SQLHotel 
 {
-	/* ****************************************************************
-	 * 			Constantes
-	 *****************************************************************/
-	/**
-	 * Cadena que representa el tipo de consulta que se va a realizar en las sentencias de acceso a la base de datos
-	 * Se renombra acá para facilitar la escritura de las sentencias
-	 */
-	private final static String SQL = PersistenciaParranderos.SQL;
+	
+	private final static String SQL = PersistenciaAlohAndes.SQL;
 
-	/* ****************************************************************
-	 * 			Atributos
-	 *****************************************************************/
-	/**
-	 * El manejador de persistencia general de la aplicación
-	 */
-	private PersistenciaParranderos pp;
+	private PersistenciaAlohAndes pa;
 
-	/* ****************************************************************
-	 * 			Métodos
-	 *****************************************************************/
-	/**
-	 * Constructor
-	 * @param pp - El Manejador de persistencia de la aplicación
-	 */
-	public SQLBebedor (PersistenciaParranderos pp)
+	public SQLHotel (PersistenciaAlohAndes pa)
 	{
-		this.pp = pp;
+		this.pa = pa;
 	}
 	
-	/**
-	 * Crea y ejecuta la sentencia SQL para adicionar un BEBEDOR a la base de datos de Parranderos
-	 * @param pm - El manejador de persistencia
-	 * @param idBebedor - El identificador del bebedor
-	 * @param nombre - El nombre del bebedor
-	 * @param ciudad - La ciudad del bebedor
-	 * @param presupuesto - El presupuesto del bebedor (ALTO, MEDIO, BAJO)
-	 * @return EL número de tuplas insertadas
-	 */
-	public long adicionarBebedor (PersistenceManager pm, long idBebedor, String nombre, String ciudad, String presupuesto) 
+
+	public long adicionarInstalacionHabitacionHotel (PersistenceManager pm, String tipoInstalacion, String numeroHabitacionHabitacionHotel, String direccionHotelHabitacionHotel) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaBebedor () + "(id, nombre, ciudad, presupuesto) values (?, ?, ?, ?)");
-        q.setParameters(idBebedor, nombre, ciudad, presupuesto);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaInstalacionHabitacionHotel () + "(tipoInstalacion, numeroHabitacionHabitacionHotel, direccionHotelHabitacionHotel) values (?, ?, ?)");
+        q.setParameters(tipoInstalacion, numeroHabitacionHabitacionHotel, direccionHotelHabitacionHotel);
         return (long) q.executeUnique();
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para eliminar BEBEDORES de la base de datos de Parranderos, por su nombre
-	 * @param pm - El manejador de persistencia
-	 * @param nombre - El nombre del bebedor
-	 * @return EL número de tuplas eliminadas
-	 */
-	public long eliminarBebedorPorNombre (PersistenceManager pm, String nombre)
+	public long eliminarInstalacionHabitacionHotelPorTipoInstalacionYDireccionHotel (PersistenceManager pm, String tipoInstlacion, String direccionHotel )
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBebedor () + " WHERE nombre = ?");
-        q.setParameters(nombre);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE TIPO_INSTALACION = ? AND DIRECCION_HOTEL = ?");
+        q.setParameters(tipoInstlacion, direccionHotel);
         return (long) q.executeUnique();            
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para eliminar UN BEBEDOR de la base de datos de Parranderos, por su identificador
-	 * @param pm - El manejador de persistencia
-	 * @param idBebedor - El identificador del bebeodor
-	 * @return EL número de tuplas eliminadas
-	 */
-	public long eliminarBebedorPorId (PersistenceManager pm, long idBebedor)
+	public long eliminarInstalacionHabitacionHotelPorDireccionHotel (PersistenceManager pm, String direccionHotel)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBebedor () + " WHERE id = ?");
-        q.setParameters(idBebedor);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE DIRECCION_HOTEL = ?");
+        q.setParameters(direccionHotel);
         return (long) q.executeUnique();            
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar la información de UN BEBEDOR de la 
-	 * base de datos de Parranderos, por su identificador
-	 * @param pm - El manejador de persistencia
-	 * @param idBebedor - El identificador del bebedor
-	 * @return El objeto BEBEDOR que tiene el identificador dado
-	 */
+	public long eliminarInstalacionHabitacionHotelPorDireccionHotelYNumeroHabitacionHotel (PersistenceManager pm, String direccionHotel)
+	{
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE DIRECCION_HOTEL = ?");
+        q.setParameters(direccionHotel);
+        return (long) q.executeUnique();            
+	}
+
+
 	public Bebedor darBebedorPorId (PersistenceManager pm, long idBebedor) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBebedor () + " WHERE id = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE id = ?");
 		q.setResultClass(Bebedor.class);
 		q.setParameters(idBebedor);
 		return (Bebedor) q.executeUnique();
@@ -126,7 +67,7 @@ class SQLBebedor
 	 */
 	public List<Bebedor> darBebedoresPorNombre (PersistenceManager pm, String nombreBebedor) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBebedor () + " WHERE nombre = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE nombre = ?");
 		q.setResultClass(Bebedor.class);
 		q.setParameters(nombreBebedor);
 		return (List<Bebedor>) q.executeList();
@@ -140,7 +81,7 @@ class SQLBebedor
 	 */
 	public List<Bebedor> darBebedores (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBebedor ());
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaInstalacionHabitacionHotel ());
 		q.setResultClass(Bebedor.class);
 		return (List<Bebedor>) q.executeList();
 	}
@@ -158,9 +99,9 @@ class SQLBebedor
 	{
         String sql = "SELECT bar.id, bar.nombre, bar.ciudad, bar.presupuesto, bar.cantsedes, vis.fechavisita, vis.horario";
         sql += " FROM ";
-        sql += pp.darTablaBebedor () + " bdor, ";
-        sql += pp.darTablaVisitan () + " vis, ";
-        sql += pp.darTablaBar () + " bar ";
+        sql += pa.darTablaInstalacionHabitacionHotel () + " bdor, ";
+        sql += pa.darTablaVisitan () + " vis, ";
+        sql += pa.darTablaBar () + " bar ";
        	sql	+= " WHERE ";
        	sql += "bdor.id = ?";
        	sql += " AND bdor.id = vis.idbebedor";
@@ -183,10 +124,10 @@ class SQLBebedor
 	{
         String sql = "SELECT beb.id, beb.nombre, beb.idtipobebida, beb.gradoalcohol, tb.nombre";
         sql += " FROM ";
-        sql += pp.darTablaBebedor () + " bdor, ";
-        sql += pp.darTablaGustan () + " g, ";
-        sql += pp.darTablaBebida () + " beb, ";
-        sql += pp.darTablaTipoBebida () + " tb ";
+        sql += pa.darTablaInstalacionHabitacionHotel () + " bdor, ";
+        sql += pa.darTablaGustan () + " g, ";
+        sql += pa.darTablaBebida () + " beb, ";
+        sql += pa.darTablaTipoBebida () + " tb ";
        	sql	+= " WHERE ";
        	sql += "bdor.id = ?";
        	sql += " AND bdor.id = g.idbebedor";
@@ -208,8 +149,8 @@ class SQLBebedor
 	public List<Object> darBebedoresYNumVisitasRealizadas (PersistenceManager pm)
 	{
 	    String sql = "SELECT id, nombre, ciudad, presupuesto, count (idbebedor) as numVisitas";
-	    sql += " FROM " + pp.darTablaBebedor ();
-	    sql += " LEFT OUTER JOIN " + pp.darTablaVisitan () + " ON id = idbebedor";
+	    sql += " FROM " + pa.darTablaInstalacionHabitacionHotel ();
+	    sql += " LEFT OUTER JOIN " + pa.darTablaVisitan () + " ON id = idbebedor";
 	    sql	+= " GROUP BY id, nombre, ciudad, presupuesto";
 	    sql	+= " ORDER BY numVisitas";
 		
@@ -227,8 +168,8 @@ class SQLBebedor
 	public long darCantidadBebedoresCiudadVisitanBares (PersistenceManager pm, String ciudad)
 	{
         String sql1 = "SELECT UNIQUE ID";
-        sql1 += " FROM " + pp.darTablaBebedor ();
-        sql1 += " INNER JOIN " + pp.darTablaVisitan () + " ON id = idbebedor";
+        sql1 += " FROM " + pa.darTablaInstalacionHabitacionHotel ();
+        sql1 += " INNER JOIN " + pa.darTablaVisitan () + " ON id = idbebedor";
        	sql1	+= " WHERE ciudad = ?";
        	
        	String sql = "SELECT count (*) FROM (" + sql1 + ")";
@@ -248,7 +189,7 @@ class SQLBebedor
 	 */
 	public long cambiarCiudadBebedor (PersistenceManager pm, long idBebedor, String ciudad) 
 	{
-		 Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaBebedor () + " SET ciudad = ? WHERE id = ?");
+		 Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaInstalacionHabitacionHotel () + " SET ciudad = ? WHERE id = ?");
 	     q.setParameters(ciudad, idBebedor);
 	     return (long) q.executeUnique();            
 	}
@@ -264,9 +205,9 @@ class SQLBebedor
 	 */
 	public long [] eliminarBebedorYVisitas_v1 (PersistenceManager pm, long idBebedor) 
 	{
-      Query q1 = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaVisitan () + " WHERE idBebedor = ?");
+      Query q1 = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaVisitan () + " WHERE idBebedor = ?");
       q1.setParameters(idBebedor);
-      Query q2 = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaBebedor () + " WHERE id = ?");
+      Query q2 = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE id = ?");
       q2.setParameters(idBebedor);
       
       long visitasEliminadas = (long) q1.executeUnique ();
@@ -290,7 +231,7 @@ class SQLBebedor
 	{
 		// Selecciona las parejas [idBebedor, idBar] únicas de la tabla VISITAN
 		String sql0 = "SELECT DISTINCT idbebedor, idBar";
-		sql0 += " FROM " + pp.darTablaVisitan ();
+		sql0 += " FROM " + pa.darTablaVisitan ();
 		
 		// Agrupa las parejas anteriores por idBebedor y cuenta cuántos bares visita cada bebedor
 		String sql1 = "SELECT idbebedor, count (*) as numbares";
@@ -299,7 +240,7 @@ class SQLBebedor
 		
 		// Hace join de BEBEDORES con el resultado anterior para asociar la información del bebedor
         String sql = "SELECT id, nombre, ciudad, presupuesto, NVL (numbares, 0)";
-        sql += " FROM " + pp.darTablaBebedor () + " LEFT OUTER JOIN (" + sql1 + ")";
+        sql += " FROM " + pa.darTablaInstalacionHabitacionHotel () + " LEFT OUTER JOIN (" + sql1 + ")";
         sql += " ON id = idBebedor";
 		Query q = pm.newQuery(SQL, sql);
 		return q.executeList();
@@ -317,11 +258,11 @@ class SQLBebedor
 	public List<Object> darBebedoresYNumVisitasRealizadas_v2 (PersistenceManager pm)
 	{		
 		String sql1 = "SELECT idbebedor, count (*) as numVisitas";
-		sql1 += " FROM " + pp.darTablaVisitan ();
+		sql1 += " FROM " + pa.darTablaVisitan ();
 		sql1 += " GROUP BY idBebedor";
 		
         String sql = "SELECT id, nombre, ciudad, presupuesto, NVL (numVisitas, 0)";
-        sql += " FROM " + pp.darTablaBebedor () + " LEFT OUTER JOIN (" + sql1 + ")";
+        sql += " FROM " + pa.darTablaInstalacionHabitacionHotel () + " LEFT OUTER JOIN (" + sql1 + ")";
         sql += " ON id = idBebedor";
 		Query q = pm.newQuery(SQL, sql);
 		return q.executeList();

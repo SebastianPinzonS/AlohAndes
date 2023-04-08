@@ -95,7 +95,7 @@ public class Hotel implements VOHotel
 	@Override
 	public String toString() 
 	{
-		return "Hotel [nombre=" + nombre + ", calificacion=" + calificacion +  ", direccion" + direccion +"]";
+		return "Hotel [nombre=" + nombre + ", calificacion=" + calificacion +  ", direccion=" + direccion +"]";
 	}
 	
 }

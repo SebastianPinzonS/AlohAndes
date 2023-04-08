@@ -93,7 +93,7 @@ public class ServicioHabitacionHotel implements VOServicioHabitacionHotel
 	@Override
 	public String toString() 
 	{
-		return "ServicioHabitacionHotel [tipoServicio=" + tipoServicio + ", numeroHabitacionHabitacionHotel=" + numeroHabitacionHabitacionHotel +  ", direccionHotelHabitacionHotel" + direccionHotelHabitacionHotel +"]";
+		return "ServicioHabitacionHotel [tipoServicio=" + tipoServicio + ", numeroHabitacionHabitacionHotel=" + numeroHabitacionHabitacionHotel +  ", direccionHotelHabitacionHotel=" + direccionHotelHabitacionHotel +"]";
 	}
 	
 }

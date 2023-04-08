@@ -85,7 +85,7 @@ public class PersistenciaAlohAndes
 	/**
 	 * Atributo para el acceso a la tabla TIPOBEBIDA de la base de datos
 	 */
-	private SQLTipoBebida sqlTipoBebida;
+	private SQLInstalacionHabitacionHotel sqlInstalacionHabitacionHotel;
 	
 	/**
 	 * Atributo para el acceso a la tabla BEBIDA de la base de datos
@@ -100,7 +100,7 @@ public class PersistenciaAlohAndes
 	/**
 	 * Atributo para el acceso a la tabla BEBIDA de la base de datos
 	 */
-	private SQLBebedor sqlBebedor;
+	private SQLHotel sqlBebedor;
 	
 	/**
 	 * Atributo para el acceso a la tabla GUSTAN de la base de datos
@@ -131,14 +131,27 @@ public class PersistenciaAlohAndes
 		
 		// Define los nombres por defecto de las tablas de la base de datos
 		tablas = new LinkedList<String> ();
-		tablas.add ("Parranderos_sequence");
-		tablas.add ("TIPOBEBIDA");
-		tablas.add ("BEBIDA");
-		tablas.add ("BAR");
-		tablas.add ("BEBEDOR");
-		tablas.add ("GUSTAN");
-		tablas.add ("SIRVEN");
-		tablas.add ("VISITAN");
+		tablas.add ("AlohAndes_sequence");
+		tablas.add ("INSTALACION_HABITACION_HOTEL");
+		tablas.add ("HABITACION_HOTEL");
+		tablas.add ("HOTEL");
+		tablas.add ("SERVICIO_HABITACION_HOTEL");
+		tablas.add ("HOSTAL");
+		tablas.add ("HABITACION_HOSTAL");
+		tablas.add ("VIVIENDA_UNIVERSITARIA");
+		tablas.add ("VIVIENDA_HABITACION");
+		tablas.add ("VIVIENDA_HABITACION_SERVICIO_HABITACION");
+		tablas.add ("SERVICIO_HABITACION");
+		tablas.add ("APARTAMENTO");
+		tablas.add ("VIVIENDA_EXPRESS");
+		tablas.add ("CLIENTE");
+		tablas.add ("OPERADOR");
+		tablas.add ("OFERTA");
+
+
+
+
+
 }
 
 	/**
@@ -216,7 +229,7 @@ public class PersistenciaAlohAndes
 		sqlTipoBebida = new SQLTipoBebida(this);
 		sqlBebida = new SQLBebida(this);
 		sqlBar = new SQLOferta(this);
-		sqlBebedor = new SQLBebedor(this);
+		sqlBebedor = new SQLHotel(this);
 		sqlGustan = new SQLGustan(this);
 		sqlSirven = new SQLSirven (this);
 		sqlVisitan = new SQLVisitan(this);		

@@ -120,7 +120,7 @@ public class ViviendaHabitacion implements VOViviendaHabitacion
 	@Override
 	public String toString() 
 	{
-		return "ViviendaHabitacion [nombre=" + nombre + ", direccion" + direccion + "numeroApartamento" + numeroApartamento + ", calificacion=" + calificacion +"]";
+		return "ViviendaHabitacion [nombre=" + nombre + ", direccion=" + direccion + "numeroApartamento=" + numeroApartamento + ", calificacion=" + calificacion +"]";
 	}
 	
 }
