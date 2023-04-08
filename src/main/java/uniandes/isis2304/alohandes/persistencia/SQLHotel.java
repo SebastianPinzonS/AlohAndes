@@ -48,55 +48,37 @@ class SQLHotel
 	 * @param idHotel - El identificador del bebeodor
 	 * @return EL número de tuplas eliminadas
 	 */
-	public long eliminarHotelPorId (PersistenceManager pm, long idHotel)
+	public long eliminarHotelPorDireccion (PersistenceManager pm, String direccion)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHotel () + " WHERE id = ?");
-        q.setParameters(idHotel);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHotel () + " WHERE DIRECCION = ?");
+        q.setParameters(direccion);
         return (long) q.executeUnique();            
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar la información de UN BEBEDOR de la 
-	 * base de datos de Parranderos, por su identificador
-	 * @param pm - El manejador de persistencia
-	 * @param idHotel - El identificador del hotel
-	 * @return El objeto BEBEDOR que tiene el identificador dado
-	 */
-	public Hotel darHotelPorId (PersistenceManager pm, long idHotel) 
+	public Hotel darHotelPorDireccion (PersistenceManager pm, String direccion) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHotel () + " WHERE id = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHotel () + " WHERE DIRECCION = ?");
 		q.setResultClass(Hotel.class);
-		q.setParameters(idHotel);
+		q.setParameters(direccion);
 		return (Hotel) q.executeUnique();
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar la información de LOS BEBEDORES de la 
-	 * base de datos de Parranderos, por su nombre
-	 * @param pm - El manejador de persistencia
-	 * @param nombreHotel - El nombre de hotel buscado
-	 * @return Una lista de objetos BEBEDOR que tienen el nombre dado
-	 */
-	public List<Hotel> darHotelesPorNombre (PersistenceManager pm, String nombreHotel) 
+	public List<Hotel> darHotelesPorNombre (PersistenceManager pm, String nombre) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHotel () + " WHERE nombre = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHotel () + " WHERE NOMBRE = ?");
 		q.setResultClass(Hotel.class);
-		q.setParameters(nombreHotel);
+		q.setParameters(nombre);
 		return (List<Hotel>) q.executeList();
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para encontrar la información de LOS BEBEDORES de la 
-	 * base de datos de Parranderos
-	 * @param pm - El manejador de persistencia
-	 * @return Una lista de objetos BEBEDOR
-	 */
 	public List<Hotel> darHoteles (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHotel ());
 		q.setResultClass(Hotel.class);
 		return (List<Hotel>) q.executeList();
 	}
+
+	/** --------------------------------------------------------------------------------------------------------------------------  */
 
 	/**
 	 * Crea y ejecuta la sentencia SQL para encontrar la información de LOS BEBEDORES Y DE SUS VISITAS REALIZADAS de la 
