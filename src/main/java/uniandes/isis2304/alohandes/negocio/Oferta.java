@@ -1,10 +1,14 @@
 
 package uniandes.isis2304.alohandes.negocio;
 
+import java.sql.Date;
+
 public class Oferta implements VOOferta
 {
 
 	private String id;
+
+	private Date fechaInicial;
 	
 	private int duracionContratoDias;
 
@@ -13,6 +17,8 @@ public class Oferta implements VOOferta
 	private int precioEspecial;
 
 	private String condicionPrecioEspecial;
+
+	private int precioEspecialTomado;
 
 	private int costoAdicionalServicios;
 
@@ -44,6 +50,8 @@ public class Oferta implements VOOferta
 
 	private String direccionViviendaExpress;
 
+	private int visitas;
+
 
 	/* ****************************************************************
 	 * 			Métodos
@@ -58,6 +66,7 @@ public class Oferta implements VOOferta
 		this.costoContrato = 0;
 		this.precioEspecial = 0;
 		this.condicionPrecioEspecial = "";
+		this.precioEspecialTomado = 0;
 		this.costoAdicionalServicios = 0;
 		this.costoSeguroArrendamiento = 0;
 		this.idOperador = "";
@@ -73,17 +82,19 @@ public class Oferta implements VOOferta
 		this.direccionApartamento = "";
 		this.numeroApartamento = "";
 		this.direccionViviendaExpress = "";
+		this.visitas = 0;
 	}
 	
 	public Oferta(String id, int duracionContratoDias, int costoContrato, int precioEspecial,
-			String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento,
+			String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento,
 			String idOperador, String idCliente, String direccionHostal, String numeroHabitacionHostal,
 			String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel,
 			String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria,
 			String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion, String direccionApartamento,
-			String numeroApartamento, String direccionViviendaExpress) 
+			String numeroApartamento, String direccionViviendaExpress, int visitas) 
 	{
 		this.id = id;
+		this.precioEspecialTomado = precioEspecialTomado;
 		this.duracionContratoDias = duracionContratoDias;
 		this.costoContrato = costoContrato;
 		this.precioEspecial = precioEspecial;
@@ -103,6 +114,7 @@ public class Oferta implements VOOferta
 		this.direccionApartamento = direccionApartamento;
 		this.numeroApartamento = numeroApartamento;
 		this.direccionViviendaExpress = direccionViviendaExpress;
+		this.visitas = visitas;
 	}
 
 
@@ -112,6 +124,15 @@ public class Oferta implements VOOferta
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	
+	public int getPrecioEspecialTomado() {
+		return precioEspecialTomado;
+	}
+
+	public void setPrecioEspecialTomado(int precioEspecialTomado) {
+		this.precioEspecialTomado = precioEspecialTomado;
 	}
 
 	public int getDuracionContratoDias() {
@@ -265,5 +286,14 @@ public class Oferta implements VOOferta
 	public void setDireccionViviendaExpress(String direccionViviendaExpress) {
 		this.direccionViviendaExpress = direccionViviendaExpress;
 	}
+
+	public int getVisitas() {
+		return visitas;
+	}
+
+	public void setVisitas(int visitas) {
+		this.visitas = visitas;
+	}
+
 	
 }

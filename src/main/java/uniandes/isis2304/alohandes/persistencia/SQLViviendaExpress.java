@@ -8,13 +8,8 @@ import javax.jdo.Query;
 
 import uniandes.isis2304.alohandes.negocio.Hotel;
 
-/**
- * Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto BEBEDOR de Parranderos
- * Nótese que es una clase que es sólo conocida en el paquete de persistencia
- * 
- * @author Germán Bravo
- */
-class SQLHotel 
+
+class SQLViviendaExpress 
 {
 	/* ****************************************************************
 	 * 			Constantes

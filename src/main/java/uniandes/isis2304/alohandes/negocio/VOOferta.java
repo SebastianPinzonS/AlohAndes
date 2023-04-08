@@ -1,5 +1,7 @@
 package uniandes.isis2304.alohandes.negocio;
 
+import java.sql.Date;
+
 public interface VOOferta
 {
 	/* ****************************************************************
@@ -9,6 +11,11 @@ public interface VOOferta
 	 * @return 
 	 */
 	public String getId();
+
+	/**
+	 * @return 
+	 */
+	public Date getFechaInicial();
 
 	/**
 	 * @return 
@@ -29,6 +36,11 @@ public interface VOOferta
 	 * @return 
 	 */
 	public String getCondicionPrecioEspecial();
+
+	/**
+	 * @return 
+	 */
+	public int getPrecioEspecialTomado();
 
 	/**
 	 * @return 
@@ -105,6 +117,13 @@ public interface VOOferta
 	 * @return 
 	 */
 	public String getDireccionViviendaExpress();
+
+	/**
+	 * @return 
+	 */
+	public int getVisitas();
+
+
 
 	
 }

@@ -71,51 +71,42 @@ public class PersistenciaAlohAndes
 	 */
 	private PersistenceManagerFactory pmf;
 	
-	/**
-	 * Arreglo de cadenas con los nombres de las tablas de la base de datos, en su orden:
-	 * Secuenciador, tipoBebida, bebida, bar, bebedor, gustan, sirven y visitan
-	 */
 	private List <String> tablas;
 	
-	/**
-	 * Atributo para el acceso a las sentencias SQL propias a PersistenciaParranderos
-	 */
 	private SQLUtil sqlUtil;
 	
-	/**
-	 * Atributo para el acceso a la tabla TIPOBEBIDA de la base de datos
-	 */
 	private SQLInstalacionHabitacionHotel sqlInstalacionHabitacionHotel;
 	
-	/**
-	 * Atributo para el acceso a la tabla BEBIDA de la base de datos
-	 */
 	private SQLHabitacionHotel sqlHabitacionHotel;
 	
-	/**
-	 * Atributo para el acceso a la tabla BAR de la base de datos
-	 */
-	private SQLOferta sqlBar;
+	private SQLHotel sqlHotel;
+
+	private SQLServicioHabitacionHotel sqlServicioHabitacionHotel;
+
+	private SQLHostal sqlHostal;
+
+	private SQLHabitacionHostal sqlHabitacionHostal;
+
+	private SQLViviendaUniversitaria sqlViviendaUniversitaria;
+
+	private SQLViviendaHabitacion sqlViviendaHabitacion;
+
+	private SQLViviendaHabitacionServicioHabitacion sqlViviendaHabitacionServicioHabitacion;
+
+	private SQLServicioHabitacion servicioHabitacion;
+
+	private SQLApartamento sqlApartamento;
+
+	private SQLViviendaExpress sqlViviendaExpress;
+
+	private SQLCliente sqlCliente;
+
+	private SQLOperador sqlOperador;
+
+	private SQLOferta sqlOferta;
+
 	
-	/**
-	 * Atributo para el acceso a la tabla BEBIDA de la base de datos
-	 */
-	private SQLHotel sqlBebedor;
-	
-	/**
-	 * Atributo para el acceso a la tabla GUSTAN de la base de datos
-	 */
-	private SQLGustan sqlGustan;
-	
-	/**
-	 * Atributo para el acceso a la tabla SIRVEN de la base de datos
-	 */
-	private SQLSirven sqlSirven;
-	
-	/**
-	 * Atributo para el acceso a la tabla VISITAN de la base de datos
-	 */
-	private SQLVisitan sqlVisitan;
+
 	
 	/* ****************************************************************
 	 * 			Métodos del MANEJADOR DE PERSISTENCIA
@@ -233,7 +224,7 @@ public class PersistenciaAlohAndes
 	/**
 	 * @return La cadena de caracteres con el nombre del secuenciador de parranderos
 	 */
-	public String darSeqParranderos ()
+	public String darSeqAlohAndes()
 	{
 		return tablas.get (0);
 	}
@@ -241,7 +232,7 @@ public class PersistenciaAlohAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de TipoBebida de parranderos
 	 */
-	public String darTablaTipoBebida ()
+	public String darTablaInstalacionHabitacionHotel ()
 	{
 		return tablas.get (1);
 	}
@@ -249,7 +240,7 @@ public class PersistenciaAlohAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de Bebida de parranderos
 	 */
-	public String darTablaBebida ()
+	public String darTablaHabitacionHotel ()
 	{
 		return tablas.get (2);
 	}

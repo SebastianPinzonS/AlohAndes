@@ -29,7 +29,7 @@ import uniandes.isis2304.alohandes.negocio.Hotel;
  * 
  * @author Germán Bravo
  */
-class SQLHotel 
+class SQLViviendaUniversitaria
 {
 	/* ****************************************************************
 	 * 			Constantes
