@@ -32,13 +32,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import uniandes.isis2304.alohandes.negocio.Bar;
-import uniandes.isis2304.alohandes.negocio.Bebedor;
-import uniandes.isis2304.alohandes.negocio.Bebida;
-import uniandes.isis2304.alohandes.negocio.Hotel;
-import uniandes.isis2304.alohandes.negocio.Sirven;
-import uniandes.isis2304.alohandes.negocio.TipoBebida;
-import uniandes.isis2304.alohandes.negocio.Visitan;
 
 /**
  * Clase para el manejador de persistencia del proyecto Parranderos
@@ -50,7 +43,7 @@ import uniandes.isis2304.alohandes.negocio.Visitan;
  * 
  * @author Germán Bravo
  */
-public class PersistenciaParranderos 
+public class PersistenciaAlohAndes 
 {
 	/* ****************************************************************
 	 * 			Constantes
@@ -58,7 +51,7 @@ public class PersistenciaParranderos
 	/**
 	 * Logger para escribir la traza de la ejecución
 	 */
-	private static Logger log = Logger.getLogger(PersistenciaParranderos.class.getName());
+	private static Logger log = Logger.getLogger(PersistenciaAlohAndes.class.getName());
 	
 	/**
 	 * Cadena para indicar el tipo de sentencias que se va a utilizar en una consulta
@@ -71,7 +64,7 @@ public class PersistenciaParranderos
 	/**
 	 * Atributo privado que es el único objeto de la clase - Patrón SINGLETON
 	 */
-	private static PersistenciaParranderos instance;
+	private static PersistenciaAlohAndes instance;
 	
 	/**
 	 * Fábrica de Manejadores de persistencia, para el manejo correcto de las transacciones
@@ -102,7 +95,7 @@ public class PersistenciaParranderos
 	/**
 	 * Atributo para el acceso a la tabla BAR de la base de datos
 	 */
-	private SQLBar sqlBar;
+	private SQLOferta sqlBar;
 	
 	/**
 	 * Atributo para el acceso a la tabla BEBIDA de la base de datos
@@ -131,7 +124,7 @@ public class PersistenciaParranderos
 	/**
 	 * Constructor privado con valores por defecto - Patrón SINGLETON
 	 */
-	private PersistenciaParranderos ()
+	private PersistenciaAlohAndes ()
 	{
 		pmf = JDOHelper.getPersistenceManagerFactory("Parranderos");		
 		crearClasesSQL ();
@@ -152,7 +145,7 @@ public class PersistenciaParranderos
 	 * Constructor privado, que recibe los nombres de las tablas en un objeto Json - Patrón SINGLETON
 	 * @param tableConfig - Objeto Json que contiene los nombres de las tablas y de la unidad de persistencia a manejar
 	 */
-	private PersistenciaParranderos (JsonObject tableConfig)
+	private PersistenciaAlohAndes (JsonObject tableConfig)
 	{
 		crearClasesSQL ();
 		tablas = leerNombresTablas (tableConfig);
@@ -165,11 +158,11 @@ public class PersistenciaParranderos
 	/**
 	 * @return Retorna el único objeto PersistenciaParranderos existente - Patrón SINGLETON
 	 */
-	public static PersistenciaParranderos getInstance ()
+	public static PersistenciaAlohAndes getInstance ()
 	{
 		if (instance == null)
 		{
-			instance = new PersistenciaParranderos ();
+			instance = new PersistenciaAlohAndes ();
 		}
 		return instance;
 	}
@@ -179,11 +172,11 @@ public class PersistenciaParranderos
 	 * @param tableConfig - El objeto JSON con los nombres de las tablas
 	 * @return Retorna el único objeto PersistenciaParranderos existente - Patrón SINGLETON
 	 */
-	public static PersistenciaParranderos getInstance (JsonObject tableConfig)
+	public static PersistenciaAlohAndes getInstance (JsonObject tableConfig)
 	{
 		if (instance == null)
 		{
-			instance = new PersistenciaParranderos (tableConfig);
+			instance = new PersistenciaAlohAndes (tableConfig);
 		}
 		return instance;
 	}
@@ -222,7 +215,7 @@ public class PersistenciaParranderos
 	{
 		sqlTipoBebida = new SQLTipoBebida(this);
 		sqlBebida = new SQLBebida(this);
-		sqlBar = new SQLBar(this);
+		sqlBar = new SQLOferta(this);
 		sqlBebedor = new SQLBebedor(this);
 		sqlGustan = new SQLGustan(this);
 		sqlSirven = new SQLSirven (this);
