@@ -90,7 +90,7 @@ public class PersistenciaAlohAndes
 	/**
 	 * Atributo para el acceso a la tabla BEBIDA de la base de datos
 	 */
-	private SQLBebida sqlBebida;
+	private SQLHabitacionHotel sqlHabitacionHotel;
 	
 	/**
 	 * Atributo para el acceso a la tabla BAR de la base de datos
@@ -226,13 +226,7 @@ public class PersistenciaAlohAndes
 	 */
 	private void crearClasesSQL ()
 	{
-		sqlTipoBebida = new SQLTipoBebida(this);
-		sqlBebida = new SQLBebida(this);
-		sqlBar = new SQLOferta(this);
-		sqlBebedor = new SQLHotel(this);
-		sqlGustan = new SQLGustan(this);
-		sqlSirven = new SQLSirven (this);
-		sqlVisitan = new SQLVisitan(this);		
+		sqlInstalacionHabitacionHotel = new SQLInstalacionHabitacionHotel(this)
 		sqlUtil = new SQLUtil(this);
 	}
 
