@@ -43,6 +43,14 @@ class SQLApartamento
         return (long) q.executeUnique();            
 	}
 
+	public Apartamento darApartamentoPorDireccionYNumero (PersistenceManager pm, String direccion, String numero) 
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaApartamento()+ " WHERE (DIRECCION = ? AND NUMERO = ?)");
+		q.setResultClass(Apartamento.class);
+		q.setParameters(direccion, numero);
+		return (Apartamento) q.executeUnique();
+	}
+
 	public List<Apartamento> darApartamentoPorNombreYNumero (PersistenceManager pm, String nombre, String numero) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaApartamento()+ " WHERE (NOMBRE = ? AND NUMERO = ?)");

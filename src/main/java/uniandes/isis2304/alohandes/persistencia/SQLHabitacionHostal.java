@@ -53,7 +53,7 @@ class SQLHabitacionHostal
 	}
 
 
-	public List<HabitacionHostal> darHostalesPorNombre (PersistenceManager pm, String direccionHostal) 
+	public List<HabitacionHostal> darHabitacionesHostalPorDireccionHostal (PersistenceManager pm, String direccionHostal) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHabitacionHostal () + " WHERE DIRECCION_HOSTAL = ?");
 		q.setResultClass(HabitacionHostal.class);

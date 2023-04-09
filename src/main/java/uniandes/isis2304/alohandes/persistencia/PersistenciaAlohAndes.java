@@ -32,17 +32,17 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import uniandes.isis2304.alohandes.negocio.Apartamento;
+import uniandes.isis2304.alohandes.negocio.Cliente;
+import uniandes.isis2304.alohandes.negocio.HabitacionHostal;
+import uniandes.isis2304.alohandes.negocio.HabitacionHotel;
+import uniandes.isis2304.alohandes.negocio.Hostal;
+import uniandes.isis2304.alohandes.negocio.Hotel;
+import uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel;
+import uniandes.isis2304.alohandes.negocio.ServicioHabitacionHotel;
+import uniandes.isis2304.alohandes.negocio.Operador;
 
-/**
- * Clase para el manejador de persistencia del proyecto Parranderos
- * Traduce la información entre objetos Java y tuplas de la base de datos, en ambos sentidos
- * Sigue un patrón SINGLETON (Sólo puede haber UN objeto de esta clase) para comunicarse de manera correcta
- * con la base de datos
- * Se apoya en las clases SQLBar, SQLBebedor, SQLBebida, SQLGustan, SQLSirven, SQLTipoBebida y SQLVisitan, que son 
- * las que realizan el acceso a la base de datos
- * 
- * @author Germán Bravo
- */
+
 public class PersistenciaAlohAndes 
 {
 	/* ****************************************************************
@@ -212,7 +212,7 @@ public class PersistenciaAlohAndes
 	 */
 	private void crearClasesSQL ()
 	{
-		sqlInstalacionHabitacionHotel = new SQLInstalacionHabitacionHotel(this)
+		sqlInstalacionHabitacionHotel = new SQLInstalacionHabitacionHotel(this);
 		sqlUtil = new SQLUtil(this);
 	}
 
@@ -314,158 +314,21 @@ public class PersistenciaAlohAndes
 		return resp;
 	}
 
-
-	public TipoBebida adicionarCliente(String nombre)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long idTipoBebida = nextval ();
-            long tuplasInsertadas = sqlTipoBebida.adicionarTipoBebida(pm, idTipoBebida, nombre);
-            tx.commit();
-            
-            log.trace ("Inserción de tipo de bebida: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
-            
-            return new TipoBebida (idTipoBebida, nombre);
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla TipoBebida, dado el nombre del tipo de bebida
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del tipo de bebida
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarTipoBebidaPorNombre (String nombre) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlTipoBebida.eliminarTipoBebidaPorNombre(pm, nombre);
-            tx.commit();
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla TipoBebida, dado el identificador del tipo de bebida
-	 * Adiciona entradas al log de la aplicación
-	 * @param idTipoBebida - El identificador del tipo de bebida
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarTipoBebidaPorId (long idTipoBebida) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlTipoBebida.eliminarTipoBebidaPorId(pm, idTipoBebida);
-            tx.commit();
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que consulta todas las tuplas en la tabla TipoBebida
-	 * @return La lista de objetos TipoBebida, construidos con base en las tuplas de la tabla TIPOBEBIDA
-	 */
-	public List<TipoBebida> darTiposBebida ()
-	{
-		return sqlTipoBebida.darTiposBebida (pmf.getPersistenceManager());
-	}
- 
-	/**
-	 * Método que consulta todas las tuplas en la tabla TipoBebida que tienen el nombre dado
-	 * @param nombre - El nombre del tipo de bebida
-	 * @return La lista de objetos TipoBebida, construidos con base en las tuplas de la tabla TIPOBEBIDA
-	 */
-	public List<TipoBebida> darTipoBebidaPorNombre (String nombre)
-	{
-		return sqlTipoBebida.darTiposBebidaPorNombre (pmf.getPersistenceManager(), nombre);
-	}
- 
-	/**
-	 * Método que consulta todas las tuplas en la tabla TipoBebida con un identificador dado
-	 * @param idTipoBebida - El identificador del tipo de bebida
-	 * @return El objeto TipoBebida, construido con base en las tuplas de la tabla TIPOBEBIDA con el identificador dado
-	 */
-	public TipoBebida darTipoBebidaPorId (long idTipoBebida)
-	{
-		return sqlTipoBebida.darTipoBebidaPorId (pmf.getPersistenceManager(), idTipoBebida);
-	}
- 
 	/* ****************************************************************
-	 * 			Métodos para manejar las BEBIDAS
+	 * 			Métodos para manejar los APARTAMENTOS
 	 *****************************************************************/
-	
-	/**
-	 * Método que inserta, de manera transaccional, una tupla en la tabla Bebida
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre de la bebida
-	 * @param idTipoBebida - El identificador del tipo de bebida (Debe existir en la tabla TipoBebida)
-	 * @param gradoAlcohol - El grado de alcohol de la bebida (mayor que 0)
-	 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
-	 */
-	public Bebida adicionarBebida(String nombre, long idTipoBebida, int gradoAlcohol) 
+	public Apartamento adicionarApartamento(String nombre, String numero, int amoblado, int numeroHabitaciones,String direccion, int incluyeServicios, float calificacion) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();            
-            long idBebida = nextval ();
-            long tuplasInsertadas = sqlBebida.adicionarBebida(pm, idBebida, nombre, idTipoBebida, gradoAlcohol);
+            long tuplasInsertadas = sqlApartamento.adicionarApartamento(pm, nombre, numero, amoblado, numeroHabitaciones, direccion, incluyeServicios, calificacion);
             tx.commit();
             
-            log.trace ("Inserción bebida: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
-            return new Bebida (idBebida,nombre, idTipoBebida, gradoAlcohol);
+            log.trace ("Inserción Apartamento: " + direccion + ","+ numero + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Apartamento (nombre, numero, amoblado, numeroHabitaciones, direccion, incluyeServicios, calificacion);
         }
         catch (Exception e)
         {
@@ -482,151 +345,98 @@ public class PersistenciaAlohAndes
             pm.close();
         }
 	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla Bebida, dado el nombre de la bebida
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombreBebida - El nombre de la bebida
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarBebidaPorNombre (String nombreBebida) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlBebida.eliminarBebidaPorNombre(pm, nombreBebida);
-            tx.commit();
-
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla Bebida, dado el identificador de la bebida
-	 * Adiciona entradas al log de la aplicación
-	 * @param idBebida - El identificador de la bebida
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarBebidaPorId (long idBebida) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlBebida.eliminarBebidaPorId (pm, idBebida);
-            tx.commit();
-
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que consulta todas las tuplas en la tabla Bebida que tienen el nombre dado
-	 * @param nombreBebida - El nombre de la bebida
-	 * @return La lista de objetos Bebida, construidos con base en las tuplas de la tabla BEBIDA
-	 */
-	public List<Bebida> darBebidasPorNombre (String nombreBebida)
-	{
-		return sqlBebida.darBebidasPorNombre (pmf.getPersistenceManager(), nombreBebida);
-	}
- 
-	/**
-	 * Método que consulta todas las tuplas en la tabla Bebida
-	 * @return La lista de objetos Bebida, construidos con base en las tuplas de la tabla BEBIDA
-	 */
-	public List<Bebida> darBebidas ()
-	{
-		return sqlBebida.darBebidas (pmf.getPersistenceManager());
-	}
- 
-	/**
-	 * Método que elimina, de manera transaccional, las bebidas que no son referenciadas en la tabla SIRVEN de Parranderos
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarBebidasNoServidas ()
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlBebida.eliminarBebidasNoServidas(pm);
-            tx.commit();
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/* ****************************************************************
-	 * 			Métodos para manejar los BEBEDORES
-	 *****************************************************************/
 	
-	/**
-	 * Método que inserta, de manera transaccional, una tupla en la tabla BEBEDOR
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del bebedor
-	 * @param ciudad - La ciudad del bebedor
-	 * @param presupuesto - El presupuesto del bebedor (ALTO, MEDIO, BAJO)
-	 * @return El objeto BEBEDOR adicionado. null si ocurre alguna Excepción
-	 */
-	public Bebedor adicionarBebedor(String nombre, String ciudad, String presupuesto) 
+	public long eliminarApartamentoPorNombreYNumero (String nombre, String numero) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long idBebedor = nextval ();
-            long tuplasInsertadas = sqlBebedor.adicionarBebedor(pmf.getPersistenceManager(), idBebedor, nombre, ciudad, presupuesto);
+            long resp = sqlApartamento.eliminarApartamentoPorNombreYNumero(pm, nombre, numero);
             tx.commit();
 
-            log.trace ("Inserción de bebedor: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarApartmentoPorDireccionYNumero (String direccion, String numero) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlApartamento.eliminarApartmentoPorDireccionYNumero(pm, direccion, numero);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public Apartamento darApartamentoPorDireccionYNumero (String direccion, String numero)
+	{
+		return sqlApartamento.darApartamentoPorDireccionYNumero (pmf.getPersistenceManager(), direccion, numero);
+	}
+
+	public List<Apartamento> darApartamentoPorNombreYNumero (String nombre, String numero)
+	{
+		return sqlApartamento.darApartamentoPorNombreYNumero (pmf.getPersistenceManager(), nombre, numero);
+	}
+
+	public List<Apartamento> darApartamentosPorDireccion (String direccion)
+	{
+		return sqlApartamento.darApartamentosPorDireccion (pmf.getPersistenceManager(), direccion);
+	}
+
+	public List<Apartamento> darApartamento ()
+	{
+		return sqlApartamento.darApartamento (pmf.getPersistenceManager());
+	}
+	
+	/* ****************************************************************
+	 * 			Métodos para manejar los CLIENTES
+	 *****************************************************************/
+	public Cliente adicionarCliente(String id, String tipoId, String nombre, String tipo) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlCliente.adicionarCliente(pm, id, tipoId, nombre, tipo);
+            tx.commit();
             
-            return new Bebedor (idBebedor, nombre, ciudad, presupuesto);
+            log.trace ("Inserción Cliente: " + id + ","+ nombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Cliente (id, tipoId, nombre, tipo);
         }
         catch (Exception e)
         {
@@ -643,22 +453,17 @@ public class PersistenciaAlohAndes
             pm.close();
         }
 	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla BEBEDOR, dado el nombre del bebedor
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del bebedor
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarBebedorPorNombre(String nombre) 
+	
+	public long eliminarClientePorId (String id) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long resp = sqlBebedor.eliminarBebedorPorNombre (pm, nombre);
+            long resp = sqlCliente.eliminarClientePorId(pm, id);
             tx.commit();
+
             return resp;
         }
         catch (Exception e)
@@ -677,21 +482,16 @@ public class PersistenciaAlohAndes
         }
 	}
 
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla BEBEDOR, dado el identificador del bebedor
-	 * Adiciona entradas al log de la aplicación
-	 * @param idBebedor - El identificador del bebedor
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarBebedorPorId (long idBebedor) 
+	public long eliminarClientePorNombre (String nombre) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long resp = sqlBebedor.eliminarBebedorPorId (pm, idBebedor);
+            long resp = sqlCliente.eliminarClientePorNombre(pm, nombre);
             tx.commit();
+
             return resp;
         }
         catch (Exception e)
@@ -710,263 +510,567 @@ public class PersistenciaAlohAndes
         }
 	}
 
-	/**
-	 * Método que consulta todas las tuplas en la tabla BEBEDOR que tienen el nombre dado
-	 * @param nombreBebedor - El nombre del bebedor
-	 * @return La lista de objetos BEBEDOR, construidos con base en las tuplas de la tabla BEBEDOR
-	 */
-	public List<Bebedor> darBebedoresPorNombre (String nombreBebedor) 
+	public Cliente darClientePorId (String id)
 	{
-		return sqlBebedor.darBebedoresPorNombre (pmf.getPersistenceManager(), nombreBebedor);
+		return sqlCliente.darClientePorId (pmf.getPersistenceManager(), id);
 	}
 
-	/**
-	 * Método que consulta todas las tuplas en la tabla BEBEDOR que tienen el identificador dado
-	 * @param idBebedor - El identificador del bebedor
-	 * @return El objeto BEBEDOR, construido con base en la tuplas de la tabla BEBEDOR, que tiene el identificador dado
-	 */
-	public Bebedor darBebedorPorId (long idBebedor) 
+	public List<Cliente> darClientesPorNombre (String nombre)
 	{
-		return (Bebedor) sqlBebedor.darBebedorPorId (pmf.getPersistenceManager(), idBebedor);
+		return sqlCliente.darClientesPorNombre (pmf.getPersistenceManager(), nombre);
 	}
 
-	/**
-	 * Método que consulta TODA LA INFORMACIÓN DE UN BEBEDOR con el identificador dado. Incluye la información básica del bebedor,
-	 * las visitas realizadas y las bebidas que le gustan.
-	 * @param idBebedor - El identificador del bebedor
-	 * @return El objeto BEBEDOR, construido con base en las tuplas de la tablas BEBEDOR, VISITAN, BARES, GUSTAN, BEBIDAS y TIPOBEBIDA,
-	 * relacionadas con el identificador de bebedor dado
-	 */
-	public Bebedor darBebedorCompleto (long idBebedor) 
+	public List<Cliente> darClientes ()
 	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Bebedor bebedor = (Bebedor) sqlBebedor.darBebedorPorId (pm, idBebedor);
-		bebedor.setVisitasRealizadas(armarVisitasBebedor (sqlBebedor.darVisitasRealizadas (pm, idBebedor)));
-		bebedor.setBebidasQueLeGustan(armarGustanBebedor (sqlBebedor.darBebidasQueLeGustan (pm, idBebedor)));
-		return bebedor;
+		return sqlCliente.darClientes (pmf.getPersistenceManager());
 	}
 
-	/**
-	 * Método que consulta todas las tuplas en la tabla BEBEDOR
-	 * @return La lista de objetos BEBEDOR, construidos con base en las tuplas de la tabla BEBEDOR
-	 */
-	public List<Bebedor> darBebedores ()
-	{
-		return sqlBebedor.darBebedores (pmf.getPersistenceManager());
-	}
- 
-	/**
-	 * Método que consulta los bebedores y el número de visitas que ha realizado
-	 * @return La lista de parejas de objetos, construidos con base en las tuplas de la tabla BEBEDOR y VISITAN. 
-	 * El primer elemento de la pareja es un bebedor; 
-	 * el segundo elemento es el número de visitas de ese bebedor (0 en el caso que no haya realizado visitas)
-	 */
-	public List<Object []> darBebedoresYNumVisitasRealizadas ()
-	{
-		List<Object []> respuesta = new LinkedList <Object []> ();
-		List<Object> tuplas = sqlBebedor.darBebedoresYNumVisitasRealizadas (pmf.getPersistenceManager());
-        for ( Object tupla : tuplas)
-        {
-			Object [] datos = (Object []) tupla;
-			long idBebedor = ((BigDecimal) datos [0]).longValue ();
-			String nombreBebedor = (String) datos [1];
-			String ciudadBebedor = (String) datos [2];
-			String presupuesto = (String) datos [3];
-			int numBares = ((BigDecimal) datos [4]).intValue ();
-
-			Object [] resp = new Object [2];
-			resp [0] = new Bebedor (idBebedor, nombreBebedor, ciudadBebedor, presupuesto);
-			resp [1] = numBares;	
-			
-			respuesta.add(resp);
-        }
-
-		return respuesta;
-	}
- 
-	/**
-	 * Método que consulta CUÁNTOS BEBEDORES DE UNA CIUDAD VISITAN BARES
-	 * @param ciudad - La ciudad que se quiere consultar
-	 * @return El número de bebedores de la ciudad dada que son referenciados en VISITAN
-	 */
-	public long darCantidadBebedoresCiudadVisitanBares (String ciudad)
-	{
-		return sqlBebedor.darCantidadBebedoresCiudadVisitanBares (pmf.getPersistenceManager(), ciudad);
-	}
-	
-	/**
-	 * Método que actualiza, de manera transaccional, la ciudad de un  BEBEDOR
-	 * @param idBebedor - El identificador del bebedor
-	 * @param ciudad - La nueva ciudad del bebedor
-	 * @return El número de tuplas modificadas. -1 si ocurre alguna Excepción
-	 */
-	public long cambiarCiudadBebedor (long idBebedor, String ciudad)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlBebedor.cambiarCiudadBebedor (pm, idBebedor, ciudad);
-            tx.commit();
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que elimima, de manera transaccional, un BEBEDOR y las VISITAS que ha realizado
-	 * Si el bebedor está referenciado en alguna otra relación, no se borra ni el bebedor NI las visitas
-	 * @param idBebedor - El identificador del bebedor
-	 * @return Un arreglo de dos números que representan el número de bebedores eliminados y 
-	 * el número de visitas eliminadas, respectivamente. [-1, -1] si ocurre alguna Excepción
-	 */
-	public long []  eliminarBebedorYVisitas_v1 (long idBebedor)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long [] resp = sqlBebedor.eliminarBebedorYVisitas_v1 (pm, idBebedor);
-            tx.commit();
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return new long[] {-1, -1};
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-	
-	/**
-	 * Método que elimima, de manera transaccional, un BEBEDOR y las VISITAS que ha realizado
-	 * Si el bebedor está referenciado en alguna otra relación, no se puede borrar, SIN EMBARGO SÍ SE BORRAN TODAS SUS VISITAS
-	 * @param idBebedor - El identificador del bebedor
-	 * @return Un arreglo de dos números que representan el número de bebedores eliminados y 
-	 * el número de visitas eliminadas, respectivamente. [-1, -1] si ocurre alguna Excepción
-	 */
-	public long [] eliminarBebedorYVisitas_v2 (long idBebedor)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long visitasEliminadas = eliminarVisitanPorIdBebedor(idBebedor);
-            long bebedorEliminado = eliminarBebedorPorId (idBebedor);
-            tx.commit();
-            return new long [] {bebedorEliminado, visitasEliminadas};
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return new long [] {-1, -1};
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}	
-
-	/**
-	 * Método privado para generar las información completa de las visitas realizadas por un bebedor: 
-	 * La información básica del bar visitado, la fecha y el horario, en el formato esperado por los objetos BEBEDOR
-	 * @param tuplas - Una lista de arreglos de 7 objetos, con la información del bar y de la visita realizada, en el siguiente orden:
-	 *   bar.id, bar.nombre, bar.ciudad, bar.presupuesto, bar.cantsedes, vis.fechavisita, vis.horario
-	 * @return Una lista de arreglos de 3 objetos. El primero es un objeto BAR, el segundo corresponde a la fecha de la visita y
-	 * el tercero corresponde al horaario de la visita
-	 */
-	private List<Object []> armarVisitasBebedor (List<Object []> tuplas)
-	{
-		List<Object []> visitas = new LinkedList <Object []> ();
-		for (Object [] tupla : tuplas)
-		{
-			long idBar = ((BigDecimal) tupla [0]).longValue ();
-			String nombreBar = (String) tupla [1];
-			String ciudadBar = (String) tupla [2];
-			String presupuestoBar = (String) tupla [3];
-			int sedesBar = ((BigDecimal) tupla [4]).intValue ();
-			Timestamp fechaVisita = (Timestamp) tupla [5];
-			String horarioVisita = (String) tupla [6];
-			
-			Object [] visita = new Object [3];
-			visita [0] = new Bar (idBar, nombreBar, ciudadBar, presupuestoBar, sedesBar);
-			visita [1] = fechaVisita;
-			visita [2] = horarioVisita;
-
-			visitas.add (visita);
-		}
-		return visitas;
-	}
-	
-	/**
-	 * Método privado para generar las información completa de las bebidas que le gustan a un bebedor: 
-	 * La información básica de la bebida, especificando también el nombre de la bebida, en el formato esperado por los objetos BEBEDOR
-	 * @param tuplas - Una lista de arreglos de 5 objetos, con la información de la bebida y del tipo de bebida, en el siguiente orden:
-	 * 	 beb.id, beb.nombre, beb.idtipobebida, beb.gradoalcohol, tipobebida.nombre
-	 * @return Una lista de arreglos de 2 objetos. El primero es un objeto BEBIDA, el segundo corresponde al nombre del tipo de bebida
-	 */
-	private List<Object []> armarGustanBebedor (List<Object []> tuplas)
-	{
-		List<Object []> gustan = new LinkedList <Object []> ();
-		for (Object [] tupla : tuplas)
-		{			
-			long idBebida = ((BigDecimal) tupla [0]).longValue ();
-			String nombreBebida = (String) tupla [1];
-			long idTipoBebida = ((BigDecimal) tupla [2]).longValue ();
-			int gradoAlcohol = ((BigDecimal) tupla [3]).intValue ();
-			String nombreTipo = (String) tupla [4];
-
-			Object [] gusta = new Object [2];
-			gusta [0] = new Bebida (idBebida, nombreBebida, idTipoBebida, gradoAlcohol);
-			gusta [1] = nombreTipo;	
-			
-			gustan.add(gusta);
-		}
-		return gustan;
-	}
-	
 	/* ****************************************************************
-	 * 			Métodos para manejar los BARES
+	 * 			Métodos para manejar los HABITACION HOSTEL
 	 *****************************************************************/
+	public HabitacionHostal adicionarHabitacionHostal(String direccionHostal, String numeroHabitacion, int tamano) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlHabitacionHostal.adicionarHabitacionHostal(pm, direccionHostal, numeroHabitacion, tamano);
+            tx.commit();
+            
+            log.trace ("Inserción Habitacion Hostal: " + direccionHostal + ","+ numeroHabitacion + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new HabitacionHostal (direccionHostal, numeroHabitacion, tamano);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
 	
-	/**
-	 * Método que inserta, de manera transaccional, una tupla en la tabla BAR
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del bar
-	 * @param ciudad - La ciudad del bar
-	 * @param presupuesto - El presupuesto del bar (ALTO, MEDIO, BAJO)
-	 * @param sedes - El número de sedes del bar en la ciudad (Mayor que 0)
-	 * @return El objeto Bar adicionado. null si ocurre alguna Excepción
-	 */
+	public long eliminarHabitacionHostalPorDireccionHostal (String direccionHostal) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlHabitacionHostal.eliminarHabitacionHostalPorDireccionHostal(pm, direccionHostal);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarHostalPorDireccionHostalYNumeroHabitacion (String direccionHostal, String numeroHabitacion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlHabitacionHostal.eliminarHostalPorDireccionHostalYNumeroHabitacion(pm, direccionHostal, numeroHabitacion);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public HabitacionHostal darHabitacionHostalPorDireccionHostalYNumeroHabitacion (String direccionHostal, String numeroHabitacion)
+	{
+		return sqlHabitacionHostal.darHabitacionHostalPorDireccionHostalYNumeroHabitacion (pmf.getPersistenceManager(), direccionHostal, numeroHabitacion);
+	}
+
+	public List<HabitacionHostal> darHabitacionesHostalPorDireccionHostal (String direccionHostal)
+	{
+		return sqlHabitacionHostal.darHabitacionesHostalPorDireccionHostal (pmf.getPersistenceManager(), direccionHostal);
+	}
+
+	public List<HabitacionHostal> darTodasHabitacionHostal ()
+	{
+		return sqlHabitacionHostal.darTodasHabitacionHostal (pmf.getPersistenceManager());
+	}
+
+	/* ****************************************************************
+	 * 			Métodos para manejar los HABITACION HOTEL
+	 *****************************************************************/
+	public HabitacionHotel adicionarHabitacionHotel(String tipo, String numerohabitacion, float tamano, String direccionHotel) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlHabitacionHotel.adicionarHabitacionHotel(pm, tipo, numerohabitacion, tamano, direccionHotel);
+            tx.commit();
+            
+            log.trace ("Inserción Habitacion Hotel: " + direccionHotel + ","+ numerohabitacion + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new HabitacionHotel (tipo, numerohabitacion, tamano, direccionHotel);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long eliminarHabitacionHotelPorDireccionHotel (String direccionHotel) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlHabitacionHotel.eliminarHabitacionHotelPorDireccionHotel(pm, direccionHotel);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarHabitacionHotelPorNumeroHabitacionYDireccionHotel (String numeroHabitacion, String direccionHotel) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlHabitacionHotel.eliminarHabitacionHotelPorNumeroHabitacionYDireccionHotel(pm, numeroHabitacion, direccionHotel);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public HabitacionHotel darHabitacionHotelPorNumeroHabitacionYDireccionHotel ( String numeroHabitacion, String direccionHotel)
+	{
+		return sqlHabitacionHotel.darHabitacionHotelPorNumeroHabitacionYDireccionHotel (pmf.getPersistenceManager(), numeroHabitacion, direccionHotel);
+	}
+
+	public List<HabitacionHotel> darHabitacionHotelesPorNombre (String nombreHabitacionHotel)
+	{
+		return sqlHabitacionHotel.darHabitacionHotelesPorNombre (pmf.getPersistenceManager(), nombreHabitacionHotel);
+	}
+
+	public List<HabitacionHotel> darHabitacionHoteles ()
+	{
+		return sqlHabitacionHotel.darHabitacionHoteles (pmf.getPersistenceManager());
+	}
+
+	/* ****************************************************************
+	 * 			Métodos para manejar los HOSTAL
+	 *****************************************************************/
+	public Hostal adicionarHostal(String nombre, String direccion, String horarioApertura, String horarioCierre, float calificacion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlHostal.adicionarHostal(pm, nombre, direccion, horarioApertura, horarioCierre, calificacion);
+            tx.commit();
+            
+            log.trace ("Inserción Hostal: " + nombre + ","+ direccion + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Hostal (nombre, direccion, horarioApertura, horarioCierre, calificacion);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long eliminarHostalPorNombre (String nombre) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlHostal.eliminarHostalPorNombre(pm, nombre);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarHostalPorDireccion (String direccion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlHostal.eliminarHostalPorDireccion(pm, direccion);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public Hostal darHostalesPorDireccion ( String direccion)
+	{
+		return sqlHostal.darHostalesPorDireccion (pmf.getPersistenceManager(), direccion);
+	}
+
+	public List<Hostal> darHostalPorNombre (String nombre)
+	{
+		return sqlHostal.darHostalPorNombre (pmf.getPersistenceManager(), nombre);
+	}
+
+	public List<Hostal> darHostales ()
+	{
+		return sqlHostal.darHostales (pmf.getPersistenceManager());
+	}
+
+	/* ****************************************************************
+	 * 			Métodos para manejar los HOTEL
+	 *****************************************************************/
+	public Hotel adicionarHotel(String nombre, float calificacion, String direccion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlHotel.adicionarHotel(pm, nombre, calificacion, direccion);
+            tx.commit();
+            
+            log.trace ("Inserción Hotel: " + nombre + ","+ direccion + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Hotel (nombre, calificacion, direccion);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long eliminarHotelPorNombre (String nombre) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlHotel.eliminarHotelPorNombre(pm, nombre);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarHotelPorDireccion (String direccion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlHotel.eliminarHotelPorDireccion(pm, direccion);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public Hotel darHotelPorDireccion ( String direccion)
+	{
+		return sqlHotel.darHotelPorDireccion (pmf.getPersistenceManager(), direccion);
+	}
+
+	public List<Hotel> darHotelesPorNombre (String nombre)
+	{
+		return sqlHotel.darHotelesPorNombre (pmf.getPersistenceManager(), nombre);
+	}
+
+	public List<Hotel> darHoteles ()
+	{
+		return sqlHotel.darHoteles (pmf.getPersistenceManager());
+	}
+
+	/* ****************************************************************
+	 *     Métodos para manejar los INSTALACION HABITACION HOTEL
+	 *****************************************************************/
+	public InstalacionHabitacionHotel adicionarInstalacionHabitacionHotel(String tipoInstalacion, String numeroHabitacionHabitacionHotel, String direccionHotelHabitacionHotel) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlInstalacionHabitacionHotel.adicionarInstalacionHabitacionHotel(pm, tipoInstalacion, numeroHabitacionHabitacionHotel, direccionHotelHabitacionHotel);
+            tx.commit();
+            
+            log.trace ("Inserción Instalacion Habitacion hotel: " + tipoInstalacion + ","+ numeroHabitacionHabitacionHotel + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new InstalacionHabitacionHotel (tipoInstalacion, numeroHabitacionHabitacionHotel, direccionHotelHabitacionHotel);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long eliminarInstalacionHabitacionHotelPorTipoInstalacionYDireccionHotelHabitacionHotel (String tipoInstlacion, String direccionHotelHabitacionHotel )
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlInstalacionHabitacionHotel.eliminarInstalacionHabitacionHotelPorTipoInstalacionYDireccionHotelHabitacionHotel(pm,tipoInstlacion, direccionHotelHabitacionHotel);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel (String direccionHotelHabitacionHotel)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlInstalacionHabitacionHotel.eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel(pm, direccionHotelHabitacionHotel);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlInstalacionHabitacionHotel.eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel(pm, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public InstalacionHabitacionHotel darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel) 
+	{
+		return sqlInstalacionHabitacionHotel.darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (pmf.getPersistenceManager(), direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+	}
+
+	public List<InstalacionHabitacionHotel> darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel (String direccionHotelHabitacionHotel)
+	{
+		return sqlInstalacionHabitacionHotel.darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel (pmf.getPersistenceManager(), direccionHotelHabitacionHotel);
+	}
+
+	public List<InstalacionHabitacionHotel> darTodasInstalacionHabitacionHotel ()
+	{
+		return sqlInstalacionHabitacionHotel.darTodasInstalacionHabitacionHotel (pmf.getPersistenceManager());
+	}
+	/* ****************************************************************
+	 * 			Métodos para manejar los OFERTA
+	 *****************************************************************/
+	/*
 	public Bar adicionarBar(String nombre, String ciudad, String presupuesto, int sedes) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -996,162 +1100,22 @@ public class PersistenciaAlohAndes
             }
             pm.close();
         }
-	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla BAR, dado el nombre del bar
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombreBar - El nombre del bar
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarBarPorNombre (String nombreBar) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlBar.eliminarBaresPorNombre(pm, nombreBar);
-            tx.commit();
-
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla BAR, dado el identificador del bar
-	 * Adiciona entradas al log de la aplicación
-	 * @param idBar - El identificador del bar
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarBarPorId (long idBar) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlBar.eliminarBarPorId (pm, idBar);
-            tx.commit();
-
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que consulta todas las tuplas en la tabla BAR
-	 * @return La lista de objetos BAR, construidos con base en las tuplas de la tabla BAR
-	 */
-	public List<Bar> darBares ()
-	{
-		return sqlBar.darBares (pmf.getPersistenceManager());
-	}
- 
-	/**
-	 * Método que consulta todas las tuplas en la tabla BAR que tienen el nombre dado
-	 * @param nombreBar - El nombre del bar
-	 * @return La lista de objetos BAR, construidos con base en las tuplas de la tabla BAR
-	 */
-	public List<Bar> darBaresPorNombre (String nombreBar)
-	{
-		return sqlBar.darBaresPorNombre (pmf.getPersistenceManager(), nombreBar);
-	}
- 
-	/**
-	 * Método que consulta todas las tuplas en la tabla BAR que tienen el identificador dado
-	 * @param idBar - El identificador del bar
-	 * @return El objeto BAR, construido con base en la tuplas de la tabla BAR, que tiene el identificador dado
-	 */
-	public Bar darBarPorId (long idBar)
-	{
-		return sqlBar.darBarPorId (pmf.getPersistenceManager(), idBar);
-	}
- 
-	/**
-	 * Método que actualiza, de manera transaccional, aumentando en 1 el número de sedes de todos los bares de una ciudad
-	 * @param ciudad - La ciudad que se quiere modificar
-	 * @return El número de tuplas modificadas. -1 si ocurre alguna Excepción
-	 */
-	public long aumentarSedesBaresCiudad (String ciudad)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlBar.aumentarSedesBaresCiudad(pm, ciudad);
-            tx.commit();
-
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-	
+	}*/
 	/* ****************************************************************
-	 * 			Métodos para manejar la relación GUSTAN
+	 * 			Métodos para manejar los OPERADOR
 	 *****************************************************************/
-	
-	/**
-	 * Método que inserta, de manera transaccional, una tupla en la tabla GUSTAN
-	 * Adiciona entradas al log de la aplicación
-	 * @param idBebedor - El identificador del bebedor - Debe haber un bebedor con ese identificador
-	 * @param idBebida - El identificador de la bebida - Debe haber una bebida con ese identificador
-	 * @return Un objeto GUSTAN con la información dada. Null si ocurre alguna Excepción
-	 */
-	public Hotel adicionarGustan(long idBebedor, long idBebida) 
+	public Operador adicionarOperador(String id, String nombre, String tipo, int validacionCamaraDeComercioEmpresa, int validacionSuperTurismoEmpresa, int miembroComunidadUniversitariaPersona) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
-            tx.begin();
-            long tuplasInsertadas = sqlGustan.adicionarGustan (pm, idBebedor, idBebida);
+            tx.begin();            
+            long tuplasInsertadas = sqlOperador.adicionarOperador(pm, id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
             tx.commit();
-
-            log.trace ("Inserción de gustan: [" + idBebedor + ", " + idBebida + "]. " + tuplasInsertadas + " tuplas insertadas");
-
-            return new Hotel (idBebedor, idBebida);
+            
+            log.trace ("Inserción Hotel: " + id + ","+ nombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Operador (id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
         }
         catch (Exception e)
         {
@@ -1168,284 +1132,18 @@ public class PersistenciaAlohAndes
             pm.close();
         }
 	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla GUSTAN, dados los identificadores de bebedor y bebida
-	 * @param idBebedor - El identificador del bebedor
-	 * @param idBebida - El identificador de la bebida
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarGustan(long idBebedor, long idBebida) 
+	
+	public long eliminarOperadorPorNombre (String nombre) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long resp = sqlGustan.eliminarGustan(pm, idBebedor, idBebida);           
+            long resp = sqlOperador.eliminarOperadorPorNombre(pm, nombre);
             tx.commit();
 
             return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que consulta todas las tuplas en la tabla GUSTAN
-	 * @return La lista de objetos GUSTAN, construidos con base en las tuplas de la tabla GUSTAN
-	 */
-	public List<Hotel> darGustan ()
-	{
-		return sqlGustan.darGustan (pmf.getPersistenceManager());
-	}
- 
- 
-	/* ****************************************************************
-	 * 			Métodos para manejar la relación SIRVEN
-	 *****************************************************************/
-	
-	/**
-	 * Método que inserta, de manera transaccional, una tupla en la tabla SIRVEN
-	 * Adiciona entradas al log de la aplicación
-	 * @param idBar - El identificador del bar - Debe haber un bar con ese identificador
-	 * @param idBebida - El identificador de la bebida - Debe haber una bebida con ese identificador
-	 * @param horario - El hororio en que se sirve (DIURNO, NOCTURNO, TODOS)
-	 * @return Un objeto SIRVEN con la información dada. Null si ocurre alguna Excepción
-	 */
-	public Sirven adicionarSirven (long idBar, long idBebida, String horario) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long tuplasInsertadas = sqlSirven.adicionarSirven (pmf.getPersistenceManager(), idBar, idBebida, horario);
-    		tx.commit();
-
-            log.trace ("Inserción de gustan: [" + idBar + ", " + idBebida + "]. " + tuplasInsertadas + " tuplas insertadas");
-
-            return new Sirven (idBar, idBebida, horario);
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
- 
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla SIRVEN, dados los identificadores de bar y bebida
-	 * @param idBar - El identificador del bar
-	 * @param idBebida - El identificador de la bebida
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarSirven (long idBar, long idBebida) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-	        Transaction tx=pm.currentTransaction();
-	        try
-	        {
-	            tx.begin();
-	            long resp = sqlSirven.eliminarSirven (pm, idBar, idBebida);	            
-	            tx.commit();
-
-	            return resp;
-	        }
-	        catch (Exception e)
-	        {
-//	        	e.printStackTrace();
-	        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-	        	return -1;
-	        }
-	        finally
-	        {
-	            if (tx.isActive())
-	            {
-	                tx.rollback();
-	            }
-	            pm.close();
-	        }
-	}
- 
-	/**
-	 * Método que consulta todas las tuplas en la tabla SIRVEN
-	 * @return La lista de objetos SIRVEN, construidos con base en las tuplas de la tabla SIRVEN
-	 */
-	public List<Sirven> darSirven ()
-	{
-		return sqlSirven.darSirven (pmf.getPersistenceManager());
-	}
- 
-	/**
-	 * Método que encuentra el identificador de los bares y cuántas bebidas sirve cada uno de ellos. Si una bebida se sirve en diferentes horarios,
-	 * cuenta múltiples veces
-	 * @return Una lista de arreglos de 2 números. El primero corresponde al identificador del bar, el segundo corresponde al nombre del tipo de bebida
-	 */
-	public List<long []> darBaresYCantidadBebidasSirven ()
-	{
-		List<long []> resp = new LinkedList<long []> ();
-		List<Object []> tuplas =  sqlSirven.darBaresYCantidadBebidasSirven (pmf.getPersistenceManager());
-        for ( Object [] tupla : tuplas)
-        {
-			long [] datosResp = new long [2];
-			
-			datosResp [0] = ((BigDecimal) tupla [0]).longValue ();
-			datosResp [1] = ((BigDecimal) tupla [1]).longValue ();
-			resp.add (datosResp);
-        }
-        return resp;
-	}
- 
-	/* ****************************************************************
-	 * 			Métodos para manejar la relación VISITAN
-	 *****************************************************************/
-
-	/**
-	 * Método que inserta, de manera transaccional, una tupla en la tabla VISITAN
-	 * Adiciona entradas al log de la aplicación
-	 * @param idBebedor - El identificador del bebedor - Debe haber un bebedor con ese identificador
-	 * @param idBar - El identificador del bar - Debe haber un bar con ese identificador
-	 * @param fecha - La fecha en que se realizó la visita
-	 * @param horario - El hororio en que se sirve (DIURNO, NOCTURNO, TODOS)
-	 * @return Un objeto VISITAN con la información dada. Null si ocurre alguna Excepción
-	 */	
-	public Visitan adicionarVisitan (long idBebedor, long idBar, Timestamp fecha, String horario) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long tuplasInsertadas = sqlVisitan.adicionarVisitan(pm, idBebedor, idBar, fecha, horario);
-            tx.commit();
-
-            log.trace ("Inserción de gustan: [" + idBebedor + ", " + idBar + "]. " + tuplasInsertadas + " tuplas insertadas");
-
-            return new Visitan (idBebedor, idBar, fecha, horario);
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla VISITAN, dados los identificadores de bebedor y bar
-	 * @param idBebedor - El identificador del bebedor
-	 * @param idBar - El identificador del bar
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarVisitan (long idBebedor, long idBar) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlVisitan.eliminarVisitan(pm, idBebedor, idBar);
-            tx.commit();
-
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla VISITAN, dados el identificador del bebedor
-	 * @param idBebedor - El identificador del bebedor
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarVisitanPorIdBebedor (long idBebedor) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long visitasEliminadas = sqlVisitan.eliminarVisitanPorIdBebedor (pm, idBebedor);
-            tx.commit();
-
-            return visitasEliminadas;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-	
-
-	/**
-	 * Método que elimina, de manera transaccional, una tupla en la tabla VISITAN, dados el identificador del bar
-	 * @param idBar - El identificador del bar
-	 * @return El número de tuplas eliminadas. -1 si ocurre alguna Excepción
-	 */
-	public long eliminarVisitanPorIdBar (long idBar) 
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long visitasEliminadas = sqlVisitan.eliminarVisitanPorIdBar (pm, idBar);
-            tx.commit();
-
-            return visitasEliminadas;
         }
         catch (Exception e)
         {
@@ -1463,38 +1161,23 @@ public class PersistenciaAlohAndes
         }
 	}
 
-	/**
-	 * Método que consulta todas las tuplas en la tabla VISITAN
-	 * @return La lista de objetos VISITAN, construidos con base en las tuplas de la tabla VISITAN
-	 */
-	public List<Visitan> darVisitan ()
-	{
-		return sqlVisitan.darVisitan (pmf.getPersistenceManager());
-	}	
-
-	/**
-	 * Elimina todas las tuplas de todas las tablas de la base de datos de Parranderos
-	 * Crea y ejecuta las sentencias SQL para cada tabla de la base de datos - EL ORDEN ES IMPORTANTE 
-	 * @return Un arreglo con 7 números que indican el número de tuplas borradas en las tablas GUSTAN, SIRVEN, VISITAN, BEBIDA,
-	 * TIPOBEBIDA, BEBEDOR y BAR, respectivamente
-	 */
-	public long [] limpiarParranderos ()
+	public long eliminarOperadorPorId (long id) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long [] resp = sqlUtil.limpiarParranderos (pm);
-            tx.commit ();
-            log.info ("Borrada la base de datos");
+            long resp = sqlOperador.eliminarOperadorPorId(pm, id);
+            tx.commit();
+
             return resp;
         }
         catch (Exception e)
         {
 //        	e.printStackTrace();
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return new long[] {-1, -1, -1, -1, -1, -1, -1};
+            return -1;
         }
         finally
         {
@@ -1504,8 +1187,139 @@ public class PersistenciaAlohAndes
             }
             pm.close();
         }
-		
+	}
+
+	public Operador darOperadorPorId ( long id)
+	{
+		return sqlOperador.darOperadorPorId (pmf.getPersistenceManager(), id);
+	}
+
+	public List<Operador> darOperadorPorNombre (String nombre)
+	{
+		return sqlOperador.darOperadorPorNombre (pmf.getPersistenceManager(), nombre);
+	}
+
+	public List<Operador> darOperadores ()
+	{
+		return sqlOperador.darOperadores (pmf.getPersistenceManager());
+	}
+	/* ****************************************************************
+	 * 		  Métodos para manejar los SERVICIO HABITACION
+	 *****************************************************************/
+	/* ****************************************************************
+	 * 		Métodos para manejar los SERVICIO HABITACION HOTEL
+	 *****************************************************************/
+	public ServicioHabitacionHotel adicionarServicioHabitacionHotel(String tipoServicio, String numeroHabitacionHabitacionHotel, String direccionHotelHabitacionHotel) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlServicioHabitacionHotel.adicionarServicioHabitacionHotel(pm, tipoServicio, numeroHabitacionHabitacionHotel, direccionHotelHabitacionHotel);
+            tx.commit();
+            
+            log.trace ("Inserción Servicio Habitacion Hotel: " + numeroHabitacionHabitacionHotel + ","+ direccionHotelHabitacionHotel + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new ServicioHabitacionHotel (tipoServicio, numeroHabitacionHabitacionHotel, direccionHotelHabitacionHotel);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
 	}
 	
+	public long eliminarServicioHabitacionHotelPorDireccionHotelHabitacionHotel (String direccionHotelHabitacionHotel) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlServicioHabitacionHotel.eliminarServicioHabitacionHotelPorDireccionHotelHabitacionHotel(pm, direccionHotelHabitacionHotel);
+            tx.commit();
 
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarServicioHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlServicioHabitacionHotel.eliminarServicioHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel(pm, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public ServicioHabitacionHotel darServicioHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel ( String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel) 
+	{
+		return sqlServicioHabitacionHotel.darServicioHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (pmf.getPersistenceManager(), direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+	}
+
+	public List<ServicioHabitacionHotel> darServicioHabitacionHotelPorDireccionHotelHabitacionHotel (String direccionHotelHabitacionHotel)
+	{
+		return sqlServicioHabitacionHotel.darServicioHabitacionHotelPorDireccionHotelHabitacionHotel (pmf.getPersistenceManager(), direccionHotelHabitacionHotel);
+	}
+
+	public List<ServicioHabitacionHotel> darTodosServicioHabitacionHotel ()
+	{
+		return sqlServicioHabitacionHotel.darTodosServicioHabitacionHotel (pmf.getPersistenceManager());
+	}
+	/* ****************************************************************
+	 * 			Métodos para manejar los VIVIENDA EXPRESS
+	 *****************************************************************/
+	/* ****************************************************************
+	 * 			Métodos para manejar los VIVIENDA HABITACION
+	 *****************************************************************/
+	/* ******************************************************************
+	 * Métodos para manejar los VIVIENDA HABITACION SERVICIO HABITACION
+	 ********************************************************************/
+	/* ****************************************************************
+	 * 			Métodos para manejar los VIVIENDA UNIVERSITARIA
+	 *****************************************************************/
+	
+	
  }
