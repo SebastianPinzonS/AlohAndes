@@ -12,21 +12,9 @@ class SQLServicioHabitacionHotel
 
 	private final static String SQL = PersistenciaAlohAndes.SQL;
 
-	/* ****************************************************************
-	 * 			Atributos
-	 *****************************************************************/
-	/**
-	 * El manejador de persistencia general de la aplicación
-	 */
+
 	private PersistenciaAlohAndes pa;
 
-	/* ****************************************************************
-	 * 			Métodos
-	 *****************************************************************/
-	/**
-	 * Constructor
-	 * @param pa - El Manejador de persistencia de la aplicación
-	 */
 	public SQLServicioHabitacionHotel (PersistenciaAlohAndes pa)
 	{
 		this.pa = pa;
