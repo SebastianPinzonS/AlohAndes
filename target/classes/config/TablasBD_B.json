@@ -1,15 +1,22 @@
 {
 	"title": "Nombre de las tablas de AlohAndes aplicacion B",
-	"unidadPersistencia": "Parranderos",
+	"unidadPersistencia": "AlohAndes",
 	"tablas":
 	[
-		"Parranderos_sequence",
-		"B_TIPOBEBIDA",
-		"B_BEBIDA",
-		"B_BAR",
-		"B_BEBEDOR",
-		"B_GUSTAN",
-		"B_SIRVEN",
-		"B_VISITAN"
+		"AlohAndes_sequence",
+		 "INSTALACION_HABITACION_HOTEL",
+		 "HABITACION_HOTEL",
+		 "SERVICIO_HABITACION_HOTEL",
+		 "HOSTAL",
+		 "HABITACION_HOSTAL",
+		 "VIVIENDA_UNIVERSITARIA",
+		 "VIVIENDA_HABITACION",
+		 "VIVIENDA_HABITACION_SERVICIO_HABITACION",
+		 "SERVICIO_HABITACION",
+		 "APARTAMENTO",
+		 "VIVIENDA_EXPRESS",
+		 "CLIENTE",
+		 "OPERADOR",
+		 "OFERTA"
 	]
 }

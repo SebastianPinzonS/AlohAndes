@@ -138,11 +138,6 @@ public class PersistenciaAlohAndes
 		tablas.add ("CLIENTE");
 		tablas.add ("OPERADOR");
 		tablas.add ("OFERTA");
-
-
-
-
-
 }
 
 	/**
@@ -266,7 +261,7 @@ public class PersistenciaAlohAndes
 		return tablas.get (8);
 	}
 
-	public String darTablaViviendaHabitacionServicio()
+	public String darTablaViviendaHabitacionServicioHabitacion()
 	{
 		return tablas.get (9);
 	}
@@ -320,7 +315,7 @@ public class PersistenciaAlohAndes
 	}
 
 
-	public TipoBebida adicionarTipoBebida(String nombre)
+	public TipoBebida adicionarCliente(String nombre)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
