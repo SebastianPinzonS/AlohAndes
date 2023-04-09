@@ -35,7 +35,7 @@ class SQLServicioHabitacion
 	 * Constructor
 	 * @param pa - El Manejador de persistencia de la aplicación
 	 */
-	public SQLHotel (PersistenciaAlohAndes pa)
+	public SQLServicioHabitacion (PersistenciaAlohAndes pa)
 	{
 		this.pa = pa;
 	}

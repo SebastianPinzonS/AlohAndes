@@ -24,17 +24,11 @@ class SQLHotel
 
 	public long adicionarHotel (PersistenceManager pm, String nombre, float calificacion, String direccion) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHotel () + "(nombre, calificacion, direccion) values (?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHotel () + "(nombre, calificacion, direccion) values (?, ?, ?)");
         q.setParameters(nombre, calificacion, direccion);
         return (long) q.executeUnique();
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para eliminar BEBEDORES de la base de datos de Parranderos, por su nombre
-	 * @param pm - El manejador de persistencia
-	 * @param nombre - El nombre del hotel
-	 * @return EL número de tuplas eliminadas
-	 */
 	public long eliminarHotelPorNombre (PersistenceManager pm, String nombre)
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHotel () + " WHERE NOMBRE = ?");
@@ -42,12 +36,6 @@ class SQLHotel
         return (long) q.executeUnique();            
 	}
 
-	/**
-	 * Crea y ejecuta la sentencia SQL para eliminar UN BEBEDOR de la base de datos de Parranderos, por su identificador
-	 * @param pm - El manejador de persistencia
-	 * @param idHotel - El identificador del bebeodor
-	 * @return EL número de tuplas eliminadas
-	 */
 	public long eliminarHotelPorDireccion (PersistenceManager pm, String direccion)
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHotel () + " WHERE DIRECCION = ?");
