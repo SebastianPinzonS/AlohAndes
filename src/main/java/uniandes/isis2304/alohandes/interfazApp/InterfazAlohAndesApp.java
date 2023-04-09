@@ -4,7 +4,7 @@
  * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
  * 		
  * Curso: isis2304 - Sistemas Transaccionales
- * Proyecto: Parranderos Uniandes
+ * Proyecto: AlohAndes Uniandes
  * @version 1.0
  * @author Germán Bravo
  * Julio de 2018
@@ -47,63 +47,30 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import uniandes.isis2304.alohandes.negocio.AlohAndes;
-import uniandes.isis2304.alohandes.negocio.VOTipoBebida;
+import uniandes.isis2304.alohandes.negocio.VOApartamento;
 
-/**
- * Clase principal de la interfaz
- * @author Germán Bravo
- */
 @SuppressWarnings("serial")
 
-public class InterfazParranderosApp extends JFrame implements ActionListener
+public class InterfazAlohAndesApp extends JFrame implements ActionListener
 {
-	/* ****************************************************************
-	 * 			Constantes
-	 *****************************************************************/
-	/**
-	 * Logger para escribir la traza de la ejecución
-	 */
-	private static Logger log = Logger.getLogger(InterfazParranderosApp.class.getName());
+
+	private static Logger log = Logger.getLogger(InterfazAlohAndesApp.class.getName());
 	
-	/**
-	 * Ruta al archivo de configuración de la interfaz
-	 */
+
 	private static final String CONFIG_INTERFAZ = "./src/main/resources/config/interfaceConfigApp.json"; 
 	
-	/**
-	 * Ruta al archivo de configuración de los nombres de tablas de la base de datos
-	 */
+	
 	private static final String CONFIG_TABLAS = "./src/main/resources/config/TablasBD_A.json"; 
 	
-	/* ****************************************************************
-	 * 			Atributos
-	 *****************************************************************/
-    /**
-     * Objeto JSON con los nombres de las tablas de la base de datos que se quieren utilizar
-     */
     private JsonObject tableConfig;
     
-    /**
-     * Asociación a la clase principal del negocio.
-     */
-    private AlohAndes parranderos;
-    
-	/* ****************************************************************
-	 * 			Atributos de interfaz
-	 *****************************************************************/
-    /**
-     * Objeto JSON con la configuración de interfaz de la app.
-     */
+    private AlohAndes alohAndes;
+
     private JsonObject guiConfig;
-    
-    /**
-     * Panel de despliegue de interacción para los requerimientos
-     */
+
     private PanelDatos panelDatos;
     
-    /**
-     * Menú de la aplicación
-     */
+
     private JMenuBar menuBar;
 
 	/* ****************************************************************
@@ -113,7 +80,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
      * Construye la ventana principal de la aplicación. <br>
      * <b>post:</b> Todos los componentes de la interfaz fueron inicializados.
      */
-    public InterfazParranderosApp( )
+    public InterfazAlohAndesApp( )
     {
         // Carga la configuración de la interfaz desde un archivo JSON
         guiConfig = openConfig ("Interfaz", CONFIG_INTERFAZ);
@@ -126,7 +93,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
         }
         
         tableConfig = openConfig ("Tablas BD", CONFIG_TABLAS);
-        parranderos = new AlohAndes (tableConfig);
+        alohAndes = new AlohAndes (tableConfig);
         
     	String path = guiConfig.get("bannerPath").getAsString();
         panelDatos = new PanelDatos ( );
@@ -161,7 +128,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		{
 //			e.printStackTrace ();
 			log.info ("NO se encontró un archivo de configuración válido");			
-			JOptionPane.showMessageDialog(null, "No se encontró un archivo de configuración de interfaz válido: " + tipo, "Parranderos App", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "No se encontró un archivo de configuración de interfaz válido: " + tipo, "AlohAndes App", JOptionPane.ERROR_MESSAGE);
 		}	
         return config;
     }
@@ -178,7 +145,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     	if ( guiConfig == null )
     	{
     		log.info ( "Se aplica configuración por defecto" );			
-			titulo = "Parranderos APP Default";
+			titulo = "AlohAndes APP Default";
 			alto = 300;
 			ancho = 500;
     	}
@@ -243,20 +210,28 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
      * Adiciona un tipo de bebida con la información dada por el usuario
      * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
      */
-    public void adicionarTipoBebida( )
+    public void adicionarApartamento( )
     {
     	try 
     	{
-    		String nombreTipo = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Adicionar tipo de bebida", JOptionPane.QUESTION_MESSAGE);
-    		if (nombreTipo != null)
+    		String nombreApartamento = JOptionPane.showInputDialog (this, "Nombre del edificio?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE);
+			String numeroApartamento = JOptionPane.showInputDialog (this, "Numero de apartamento?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE);
+			int amobladoApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Es amblado? 1 para si, 0 para no", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
+			int numeroHabitacionesApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuantas habitaciones tiene?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
+			String direccionApartamento = JOptionPane.showInputDialog (this, "Cual es la direccion?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE);
+			int incluyeServiciosApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Incluye servicios? 1 para si, 0 para no", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
+			float calificacionApartamento = Float.parseFloat(JOptionPane.showInputDialog (this, "Cual es la direccion?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
+
+
+    		if (nombreApartamento != null && numeroApartamento != null && direccionApartamento != null )
     		{
-        		VOTipoBebida tb = parranderos.adicionarTipoBebida (nombreTipo);
-        		if (tb == null)
+        		VOApartamento ap = alohAndes.adicionarApartamento (nombreApartamento, numeroApartamento, amobladoApartamento, numeroApartamento, direccionApartamento, incluyeServiciosApartamento, calificacionApartamento);
+        		if (ap == null)
         		{
-        			throw new Exception ("No se pudo crear un tipo de bebida con nombre: " + nombreTipo);
+        			throw new Exception ("No se pudo crear un tipo de bebida con nombre: " + nombreApartamento + " y numero: " + numeroApartamento);
         		}
-        		String resultado = "En adicionarTipoBebida\n\n";
-        		resultado += "Tipo de bebida adicionado exitosamente: " + tb;
+        		String resultado = "En adicionarApartamento\n\n";
+        		resultado += "Apartamento adicionado exitosamente: " + ap;
     			resultado += "\n Operación terminada";
     			panelDatos.actualizarInterfaz(resultado);
     		}
@@ -276,11 +251,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     /**
      * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
      */
-    public void listarTipoBebida( )
+    public void listarApartamento( )
     {
     	try 
     	{
-			List <VOTipoBebida> lista = parranderos.darVOTiposBebida();
+			List <VOApartamento> lista = alohAndes.darVOApartamento();
 
 			String resultado = "En listarTipoBebida";
 			resultado +=  "\n" + listarTiposBebida (lista);
@@ -307,7 +282,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		if (idTipoStr != null)
     		{
     			long idTipo = Long.valueOf (idTipoStr);
-    			long tbEliminados = parranderos.eliminarTipoBebidaPorId (idTipo);
+    			long tbEliminados = alohAndes.eliminarTipoBebidaPorId (idTipo);
 
     			String resultado = "En eliminar TipoBebida\n\n";
     			resultado += tbEliminados + " Tipos de bebida eliminados\n";
@@ -337,7 +312,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		String nombreTb = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Buscar tipo de bebida por nombre", JOptionPane.QUESTION_MESSAGE);
     		if (nombreTb != null)
     		{
-    			VOTipoBebida tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTb);
+    			VOTipoBebida tipoBebida = alohAndes.darTipoBebidaPorNombre (nombreTb);
     			String resultado = "En buscar Tipo Bebida por nombre\n\n";
     			if (tipoBebida != null)
     			{
@@ -368,11 +343,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 * 			Métodos administrativos
 	 *****************************************************************/
 	/**
-	 * Muestra el log de Parranderos
+	 * Muestra el log de AlohAndes
 	 */
-	public void mostrarLogParranderos ()
+	public void mostrarLogAlohAndes ()
 	{
-		mostrarArchivo ("parranderos.log");
+		mostrarArchivo ("alohAndes.log");
 	}
 	
 	/**
@@ -384,16 +359,16 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	}
 	
 	/**
-	 * Limpia el contenido del log de parranderos
+	 * Limpia el contenido del log de alohAndes
 	 * Muestra en el panel de datos la traza de la ejecución
 	 */
-	public void limpiarLogParranderos ()
+	public void limpiarLogAlohAndes ()
 	{
 		// Ejecución de la operación y recolección de los resultados
-		boolean resp = limpiarArchivo ("parranderos.log");
+		boolean resp = limpiarArchivo ("alohAndes.log");
 
 		// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-		String resultado = "\n\n************ Limpiando el log de parranderos ************ \n";
+		String resultado = "\n\n************ Limpiando el log de alohAndes ************ \n";
 		resultado += "Archivo " + (resp ? "limpiado exitosamente" : "NO PUDO ser limpiado !!");
 		resultado += "\nLimpieza terminada";
 
@@ -418,7 +393,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	}
 	
 	/**
-	 * Limpia todas las tuplas de todas las tablas de la base de datos de parranderos
+	 * Limpia todas las tuplas de todas las tablas de la base de datos de alohAndes
 	 * Muestra en el panel de datos el número de tuplas eliminadas de cada tabla
 	 */
 	public void limpiarBD ()
@@ -426,7 +401,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		try 
 		{
     		// Ejecución de la demo y recolección de los resultados
-			long eliminados [] = parranderos.limpiarParranderos();
+			long eliminados [] = alohAndes.limpiarAlohAndes();
 			
 			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
 			String resultado = "\n\n************ Limpiando la base de datos ************ \n";
@@ -454,23 +429,23 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 */
 	public void mostrarPresentacionGeneral ()
 	{
-		mostrarArchivo ("data/00-ST-ParranderosJDO.pdf");
+		mostrarArchivo ("data/00-ST-AlohAndesJDO.pdf");
 	}
 	
 	/**
-	 * Muestra el modelo conceptual de Parranderos
+	 * Muestra el modelo conceptual de AlohAndes
 	 */
 	public void mostrarModeloConceptual ()
 	{
-		mostrarArchivo ("data/Modelo Conceptual Parranderos.pdf");
+		mostrarArchivo ("data/Modelo Conceptual AlohAndes.pdf");
 	}
 	
 	/**
-	 * Muestra el esquema de la base de datos de Parranderos
+	 * Muestra el esquema de la base de datos de AlohAndes
 	 */
 	public void mostrarEsquemaBD ()
 	{
-		mostrarArchivo ("data/Esquema BD Parranderos.pdf");
+		mostrarArchivo ("data/Esquema BD AlohAndes.pdf");
 	}
 	
 	/**
@@ -478,11 +453,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 */
 	public void mostrarScriptBD ()
 	{
-		mostrarArchivo ("data/EsquemaParranderos.sql");
+		mostrarArchivo ("data/EsquemaAlohAndes.sql");
 	}
 	
 	/**
-	 * Muestra la arquitectura de referencia para Parranderos
+	 * Muestra la arquitectura de referencia para AlohAndes
 	 */
 	public void mostrarArqRef ()
 	{
@@ -508,7 +483,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		resultado += " * Licenciado	bajo	el	esquema	Academic Free License versión 2.1\n";
 		resultado += " * \n";		
 		resultado += " * Curso: isis2304 - Sistemas Transaccionales\n";
-		resultado += " * Proyecto: Parranderos Uniandes\n";
+		resultado += " * Proyecto: AlohAndes Uniandes\n";
 		resultado += " * @version 1.0\n";
 		resultado += " * @author Germán Bravo\n";
 		resultado += " * Julio de 2018\n";
@@ -528,13 +503,13 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
      * @param lista - La lista con los tipos de bebida
      * @return La cadena con una líea para cada tipo de bebida recibido
      */
-    private String listarTiposBebida(List<VOTipoBebida> lista) 
+    private String listarApartamento(List<VOApartamento> lista) 
     {
-    	String resp = "Los tipos de bebida existentes son:\n";
+    	String resp = "Los apartamentos existentes son:\n";
     	int i = 1;
-        for (VOTipoBebida tb : lista)
+        for (VOApartamento ap : lista)
         {
-        	resp += i++ + ". " + tb.toString() + "\n";
+        	resp += i++ + ". " + ap.toString() + "\n";
         }
         return resp;
 	}
@@ -564,7 +539,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	{
 		String resultado = "************ Error en la ejecución\n";
 		resultado += e.getLocalizedMessage() + ", " + darDetalleException(e);
-		resultado += "\n\nRevise datanucleus.log y parranderos.log para más detalles";
+		resultado += "\n\nRevise datanucleus.log y alohAndes.log para más detalles";
 		return resultado;
 	}
 
@@ -621,7 +596,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		String evento = pEvento.getActionCommand( );		
         try 
         {
-			Method req = InterfazParranderosApp.class.getMethod ( evento );			
+			Method req = InterfazAlohAndesApp.class.getMethod ( evento );			
 			req.invoke ( this );
 		} 
         catch (Exception e) 
@@ -644,7 +619,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
         	
             // Unifica la interfaz para Mac y para Windows.
             UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName( ) );
-            InterfazParranderosApp interfaz = new InterfazParranderosApp( );
+            InterfazAlohAndesApp interfaz = new InterfazAlohAndesApp( );
             interfaz.setVisible( true );
         }
         catch( Exception e )
