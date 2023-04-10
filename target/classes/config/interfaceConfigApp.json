@@ -29,9 +29,6 @@
 					"event": "buscarTipoBebidaPorNombre"
 				},
 				{
-					"label": "Buscar "
-				},
-				{
 					"label": "Buscar todos los apartamentos",
 					"event": "listarApartamento"
 				}
