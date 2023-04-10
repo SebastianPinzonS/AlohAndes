@@ -187,14 +187,6 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
         }        
         setJMenuBar ( menuBar );	
     }
-
-	public void getTablas()
-	{
-		for(int i = 0; i<14; i++)
-		{
-			alohAndes.getTablas(11);
-		}
-	}
     
 	/* ****************************************************************
 	 * 			CRUD de TipoBebida
