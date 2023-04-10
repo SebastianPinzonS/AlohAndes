@@ -1,18 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad	de	los	Andes	(Bogotá	- Colombia)
- * Departamento	de	Ingeniería	de	Sistemas	y	Computación
- * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
- * 		
- * Curso: isis2304 - Sistemas Transaccionales
- * Proyecto: Parranderos Uniandes
- * @version 1.0
- * @author Germán Bravo
- * Julio de 2018
- * 
- * Revisado por: Claudia Jiménez, Christian Ariza
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- */
-
 package uniandes.isis2304.alohandes.persistencia;
 
 
@@ -42,6 +27,11 @@ import uniandes.isis2304.alohandes.negocio.Hotel;
 import uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel;
 import uniandes.isis2304.alohandes.negocio.Oferta;
 import uniandes.isis2304.alohandes.negocio.ServicioHabitacionHotel;
+import uniandes.isis2304.alohandes.negocio.ViviendaExpress;
+import uniandes.isis2304.alohandes.negocio.ViviendaHabitacion;
+import uniandes.isis2304.alohandes.negocio.ViviendaHabitacionServicioHabitacion;
+import uniandes.isis2304.alohandes.negocio.ViviendaUniversitaria;
+import uniandes.isis2304.alohandes.negocio.ServicioHabitacion;
 import uniandes.isis2304.alohandes.negocio.Operador;
 
 
@@ -88,6 +78,8 @@ public class PersistenciaAlohAndes
 	private SQLHostal sqlHostal;
 
 	private SQLHabitacionHostal sqlHabitacionHostal;
+
+    private SQLServicioHabitacion sqlServicioHabitacion;
 
 	private SQLViviendaUniversitaria sqlViviendaUniversitaria;
 
@@ -1720,10 +1712,81 @@ public class PersistenciaAlohAndes
 	/* ****************************************************************
 	 * 		  Métodos para manejar los SERVICIO HABITACION
 	 *****************************************************************/
+    public ServicioHabitacion adicionarServicioHabitacion(String tipo, int precio) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlServicioHabitacion.adicionarServicioHabitacion(pm, tipo, precio);
+            tx.commit();
+            
+            log.trace ("Inserción Servicio Habitacion: " + tipo + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new ServicioHabitacion(tipo, precio);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+    public long eliminarServicioHabitacionPorTipo (String tipo) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlServicioHabitacion.eliminarServicioHabitacionPorTipo(pm, tipo);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	public ServicioHabitacion darServicioHabitacionPorTipo (String tipo) 
+	{
+		return sqlServicioHabitacion.darServicioHabitacionPorTipo (pmf.getPersistenceManager(), tipo);
+	}
+
+	public List<ServicioHabitacion> darServicioHabitacionPorPrecio (int precio)
+	{
+		return sqlServicioHabitacion.darServicioHabitacionPorPrecio (pmf.getPersistenceManager(), precio);
+	}
+
+	public List<ServicioHabitacion> darTodosServicioHabitacion ()
+	{
+		return sqlServicioHabitacion.darTodosServicioHabitacion (pmf.getPersistenceManager());
+	}
+
 	/* ****************************************************************
-	 * 		Métodos para manejar los SERVICIO HABITACION HOTEL
+	 * 			Métodos para manejar los SERVICIO HABITACION HOTEL
 	 *****************************************************************/
-	public ServicioHabitacionHotel adicionarServicioHabitacionHotel(String tipoServicio, String numeroHabitacionHabitacionHotel, String direccionHotelHabitacionHotel) 
+    public ServicioHabitacionHotel adicionarServicioHabitacionHotel(String tipoServicio, String numeroHabitacionHabitacionHotel, String direccionHotelHabitacionHotel) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1822,18 +1885,453 @@ public class PersistenciaAlohAndes
 	{
 		return sqlServicioHabitacionHotel.darTodosServicioHabitacionHotel (pmf.getPersistenceManager());
 	}
-	/* ****************************************************************
-	 * 			Métodos para manejar los VIVIENDA EXPRESS
+    /* ****************************************************************
+	 * 		Métodos para manejar los VIVIENDA EXPRESS
 	 *****************************************************************/
+	public ViviendaExpress adicionarViviendaExpress(String nombre, String direccion, int numeroHabitaciones, String menaje, float calificacion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlViviendaExpress.adicionarViviendaExpress(pm, nombre, direccion, numeroHabitaciones, menaje, calificacion);
+            tx.commit();
+            
+            log.trace ("Inserción Vivienda Express: " + nombre + ","+ direccion + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new ViviendaExpress (nombre, direccion, numeroHabitaciones, menaje, calificacion);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long eliminarVivendaExpressPorDireccion (String direccion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaExpress.eliminarVivendaExpressPorDireccion(pm, direccion);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public long eliminarVivendaExpressPorNombre (String nombre)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaExpress.eliminarVivendaExpressPorNombre(pm, nombre);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public ViviendaExpress darViviendaExpressPorDireccion ( String direccion) 
+	{
+		return sqlViviendaExpress.darViviendaExpressPorDireccion (pmf.getPersistenceManager(), direccion);
+	}
+
+	public List<ViviendaExpress> darViviendaExpressPorNombre (String nombre)
+	{
+		return sqlViviendaExpress.darViviendaExpressPorNombre (pmf.getPersistenceManager(), nombre);
+	}
+
+	public List<ViviendaExpress> darTodasViviendaExpress ()
+	{
+		return sqlViviendaExpress.darTodasViviendaExpress (pmf.getPersistenceManager());
+	}
+
 	/* ****************************************************************
 	 * 			Métodos para manejar los VIVIENDA HABITACION
 	 *****************************************************************/
+    public ViviendaHabitacion adiccionarViviendaHabitacion(String nombre, String direccion, String numeroApartamento, float calificacion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlViviendaHabitacion.adiccionarViviendaHabitacion(pm, nombre, direccion, numeroApartamento, calificacion);
+            tx.commit();
+            
+            log.trace ("Inserción Vivienda Express: " + nombre + ","+ direccion + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new ViviendaHabitacion (nombre, direccion, numeroApartamento, calificacion);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long eliminarViviendaHabitacionPorDireccion (String direccion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaHabitacion.eliminarViviendaHabitacionPorDireccion(pm, direccion);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public ViviendaHabitacion darViviendaHabitacionPorDireccion ( String direccion) 
+	{
+		return sqlViviendaHabitacion.darViviendaHabitacionPorDireccion (pmf.getPersistenceManager(), direccion);
+	}
+
+	public List<ViviendaHabitacion> darTodasViviendaHabitacion ()
+	{
+		return sqlViviendaHabitacion.darTodasViviendaHabitacion (pmf.getPersistenceManager());
+	}
+
 	/* ******************************************************************
 	 * Métodos para manejar los VIVIENDA HABITACION SERVICIO HABITACION
 	 ********************************************************************/
+    public ViviendaHabitacionServicioHabitacion adiccionarViviendaHabitacionServicioHabitacion(String direccionViviendaHabitacion, String numeroViviendaHabitacion, String tipo)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlViviendaHabitacionServicioHabitacion.adiccionarViviendaHabitacionServicioHabitacion(pm, direccionViviendaHabitacion, numeroViviendaHabitacion, tipo);
+            tx.commit();
+            
+            log.trace ("Inserción Vivienda Express: " + direccionViviendaHabitacion + ","+ numeroViviendaHabitacion + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new ViviendaHabitacionServicioHabitacion (direccionViviendaHabitacion, numeroViviendaHabitacion, tipo);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long eliminarViviendaHabitacionServicioHabitacionPorDirecionNombreYTipo (String direccionViviendaHabitacion, String numeroViviendaHabitacion, String tipo)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaHabitacionServicioHabitacion.eliminarViviendaHabitacionServicioHabitacionPorDirecionNombreYTipo(pm, direccionViviendaHabitacion, numeroViviendaHabitacion, tipo);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+    public long eliminarViviendaHabitacionServicioHabitacionPorDirecionYNumeroViviendaHabitacion (String direccionViviendaHabitacion, String numeroViviendaHabitacion)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaHabitacionServicioHabitacion.eliminarViviendaHabitacionServicioHabitacionPorDirecionYNumeroViviendaHabitacion(pm, direccionViviendaHabitacion, numeroViviendaHabitacion);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+    public long eliminarViviendaHabitacionServicioHabitacionPorTipo (String tipo)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaHabitacionServicioHabitacion.eliminarViviendaHabitacionServicioHabitacionPorTipo(pm, tipo);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public ViviendaHabitacionServicioHabitacion darViviendaHabitacionServicioPorDireccionNombreYTipo (String direccionViviendaHabitacion, String numeroViviendaHabitacion, String tipo)
+	{
+		return sqlViviendaHabitacionServicioHabitacion.darViviendaHabitacionServicioPorDireccionNombreYTipo (pmf.getPersistenceManager(), direccionViviendaHabitacion, numeroViviendaHabitacion, tipo);
+	}
+
+    public List<ViviendaHabitacionServicioHabitacion> darViviendaHabitacionServicioPorNumero (String numeroViviendaHabitacion)
+	{
+		return sqlViviendaHabitacionServicioHabitacion.darViviendaHabitacionServicioPorNumero (pmf.getPersistenceManager(), numeroViviendaHabitacion);
+	}
+
+    public List<ViviendaHabitacionServicioHabitacion> darViviendaHabitacionServicioPorDireccion (String direccionViviendaHabitacion)
+	{
+		return sqlViviendaHabitacionServicioHabitacion.darViviendaHabitacionServicioPorDireccion (pmf.getPersistenceManager(), direccionViviendaHabitacion);
+	}
+
+    public List<ViviendaHabitacionServicioHabitacion> darViviendaHabitacionServicioPorTipo (String tipo)
+	{
+		return sqlViviendaHabitacionServicioHabitacion.darViviendaHabitacionServicioPorTipo (pmf.getPersistenceManager(), tipo);
+	}
+
+	public List<ViviendaHabitacionServicioHabitacion> darTodasViviendaHabitacionServicio ()
+	{
+		return sqlViviendaHabitacionServicioHabitacion.darTodasViviendaHabitacionServicio (pmf.getPersistenceManager());
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar los VIVIENDA UNIVERSITARIA
 	 *****************************************************************/
+	public ViviendaUniversitaria adiccionarViviendaUniversitaria(String nombre, String direccion, String numeroApartamento, int viviendaCompartida, int capacidad, String menaje, float calificacion)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlViviendaUniversitaria.adiccionarViviendaUniversitaria(pm, nombre, direccion, numeroApartamento, viviendaCompartida, capacidad, menaje, calificacion);
+            tx.commit();
+            
+            log.trace ("Inserción Vivienda Express: " + direccion + ","+ numeroApartamento + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new ViviendaUniversitaria (nombre, direccion, numeroApartamento, viviendaCompartida, capacidad, menaje, calificacion););
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
 	
+	public long eliminarViviendaUniversitariaPorDireccionYNumero (String direccion, String numeroApartamento)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaUniversitaria.eliminarViviendaUniversitariaPorDireccionYNumero(pm, direccion, numeroApartamento);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+    public long eliminarViviendaUniversitariaPorDireccion (String direccion)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaUniversitaria.eliminarViviendaUniversitariaPorDireccion(pm, direccion);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+    public long eliminarViviendaUniversitariaPorNumeroApto (String numeroApartamento)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlViviendaUniversitaria.eliminarViviendaUniversitariaPorNumeroApto(pm, numeroApartamento);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	public ViviendaUniversitaria darViviendaUniversitariaPorDireccionYNumero ( String direccion, String numeroApartamento) 
+	{
+		return sqlViviendaUniversitaria.darViviendaUniversitariaPorDireccionYNumero (pmf.getPersistenceManager(), direccion, numeroApartamento);
+	}
+
+    public List<ViviendaUniversitaria> darViviendaUniversitariaPorDireccion (String direccion)
+	{
+		return sqlViviendaUniversitaria.darViviendaUniversitariaPorDireccion (pmf.getPersistenceManager(), direccion);
+	}
+
+    public List<ViviendaUniversitaria> darViviendaUniversitariaPorNumero (String numeroApartamento)
+	{
+		return sqlViviendaUniversitaria.darViviendaUniversitariaPorNumero (pmf.getPersistenceManager(), numeroApartamento);
+	}
+
+	public List<ViviendaUniversitaria> darTodasViviendasUniversitaria ()
+	{
+		return sqlViviendaUniversitaria.darTodasViviendasUniversitaria (pmf.getPersistenceManager());
+	}
 	
  }
