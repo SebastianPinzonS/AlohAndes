@@ -113,4 +113,78 @@ public class AlohAndes
 		log.info ("Buscando Apartamentos: "  != null ? apartamentos : "NO EXISTE");
         return apartamentos;
 	}
+
+	/* ****************************************************************
+	 * 			Métodos para manejar los CLIENTE
+	 *****************************************************************/
+
+	 public Cliente adicionarCliente (String id, String tipoId, String nombre, String tipo)
+	 {
+		 log.info ("Adicionando Cliente id: " + id + "con el nombre: " + nombre);
+		 Cliente cliente = pa.adicionarCliente(id, tipoId, nombre, tipo);		
+		 log.info ("Adicionando Cliente: " + cliente);
+		 return cliente;
+	 }
+	 
+ 
+	 public long eliminarApartamentoPorNombreYNumero (String nombre, String numero)
+	 {
+		 log.info ("Eliminando Apartamento numero: " + numero + " del edificio: " + nombre);
+		 long resp = pa.eliminarApartamentoPorNombreYNumero (nombre, numero);		
+		 log.info ("Eliminando Apartamento: " + resp + " tuplas eliminadas");
+		 return resp;
+	 }
+ 
+	 public long eliminarApartmentoPorDireccionYNumero (String direccion, String numero)
+	 {
+		 log.info ("Eliminando Apartamento numero: " + numero + " en la direccion: " + direccion);
+		 long resp = pa.eliminarApartmentoPorDireccionYNumero (direccion, numero);		
+		 log.info ("Eliminando Apartamento: " + resp + " tuplas eliminadas");
+		 return resp;
+	 }
+	 
+	 public Apartamento darApartamentoPorDireccionYNumero (String direccion, String numero)
+	 {
+		 log.info ("Consultando Apartamento");
+		 Apartamento apartamento = pa.darApartamentoPorDireccionYNumero (direccion, numero);	
+		 log.info ("Buscando Apartamento: " + direccion + " " + numero != null ? apartamento : "NO EXISTE");
+		 return apartamento;
+	 }
+ 
+	 public List<VOApartamento> darVOApartamentos ()
+	 {
+		 log.info ("Generando los VO de Apartamento");        
+		 List<VOApartamento> voApartamentos = new LinkedList<VOApartamento> ();
+		 List<Apartamento> apartamentos = pa.darApartamento ();
+		 for (Apartamento ap : apartamentos )
+		 {
+			 voApartamentos.add (ap);
+		 }
+		 log.info ("Generando los VO de Tipos de Apartamento: " + voApartamentos.size() + " existentes");
+		 return voApartamentos;
+	 }
+ 
+	 public List<Apartamento> darApartamentoPorNombreYNumero (String nombre, String numero)
+	 {
+		 log.info ("Consultando Apartamentos");
+		 List<Apartamento> apartamentos = pa.darApartamentoPorNombreYNumero (nombre, numero);	
+		 log.info ("Buscando Apartamentos: " + nombre + " " + numero != null ? apartamentos : "NO EXISTE");
+		 return apartamentos;
+	 }
+ 
+	 public List<Apartamento> darApartamentosPorDireccion (String direccion)
+	 {
+		 log.info ("Consultando Apartamentos");
+		 List<Apartamento> apartamentos = pa.darApartamentosPorDireccion (direccion);	
+		 log.info ("Buscando Apartamentos: " + direccion != null ? apartamentos : "NO EXISTE");
+		 return apartamentos;
+	 }
+ 
+	 public List<Apartamento> darApartamento ()
+	 {
+		 log.info ("Consultando Apartamentos");
+		 List<Apartamento> apartamentos = pa.darApartamento ();	
+		 log.info ("Buscando Apartamentos: "  != null ? apartamentos : "NO EXISTE");
+		 return apartamentos;
+	 }
 }

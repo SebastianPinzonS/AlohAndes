@@ -189,7 +189,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
     }
     
 	/* ****************************************************************
-	 * 			CRUD de TipoBebida
+	 * 			CRUD de Apartamento
 	 *****************************************************************/
     /**
      * Adiciona un tipo de bebida con la información dada por el usuario

@@ -31,10 +31,35 @@
 				{
 					"label": "Buscar por direccion y numero",
 					"event": "buscarApartamentosPorDireccionYNumero"
+				}
+			]
+		},
+		{ "menuTitle": "Cliente",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarCliente"
 				},
 				{
-					"label": "Buscar todos los apartamentos",
-					"event": "listarApartamento"
+					"label": "Listar",
+					"event": "listarClientes"
+				},
+				{
+					"label": "Borrar por Nombre",
+					"event": "eliminarClientePorNombre"
+				},
+				{
+					"label": "Borrar por Id",
+					"event": "eliminarClientePorId"
+				},
+				{
+					"label": "Buscar por Id",
+					"event": "buscarClientePorId"
+				},
+				{
+					"label": "Buscar por Nombre",
+					"event": "buscarClientePorNombre"
 				}
 			]
 		},
