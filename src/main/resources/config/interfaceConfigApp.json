@@ -14,15 +14,23 @@
 				},
 				{
 					"label": "Listar",
-					"event": "listarTipoBebida"
+					"event": "listarApartamento"
 				},
 				{
-					"label": "Borrar por Id",
-					"event": "eliminarTipoBebidaPorId"
+					"label": "Borrar por Nombre y Numero",
+					"event": "eliminarApartamentoPorNombreYNumero"
 				},
 				{
-					"label": "Buscar por Nombre",
+					"label": "Borrar por Direccion y Numero",
+					"event": "eliminarApartamentoPorDireccionYNumero"
+				},
+				{
+					"label": "Buscar por direccion",
 					"event": "buscarTipoBebidaPorNombre"
+				},
+				{
+					"label": "Buscar todos los apartamentos",
+					"event": "listarApartamento"
 				}
 			]
 		},
@@ -30,16 +38,16 @@
 		  "options":
 			[
 				{
-					"label": "Mostrar log Parranderos",
-					"event": "mostrarLogParranderos"
+					"label": "Mostrar log AlohAndes",
+					"event": "mostrarLogAlohAndes"
 				},
 				{
 					"label": "Mostrar log datanucleus",
 					"event": "mostrarLogDatanuecleus"
 				},
 				{
-					"label": "Limpiar log de parranderos",
-					"event": "limpiarLogParranderos"
+					"label": "Limpiar log de AlohAndes",
+					"event": "limpiarLogAlohAndes"
 				},
 				{
 					"label": "Limpiar log de datanucleus",
@@ -48,6 +56,10 @@
 				{
 					"label": "Limpiar Base de Datos",
 					"event": "limpiarBD"
+				},
+				{
+					"label": "Mostrar tablas",
+					"event": "getTablas"
 				}
 			]
 		},		

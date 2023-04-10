@@ -3,9 +3,10 @@
 	"unidadPersistencia": "AlohAndesErrorDS",
 	"tablas":
 	[
-		"AlohAndes_sequence",
+		 "AlohAndes_sequence",
 		 "INSTALACION_HABITACION_HOTEL",
 		 "HABITACION_HOTEL",
+		 "HOTEL",
 		 "SERVICIO_HABITACION_HOTEL",
 		 "HOSTAL",
 		 "HABITACION_HOSTAL",

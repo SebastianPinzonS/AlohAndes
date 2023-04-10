@@ -66,5 +66,4 @@ class SQLUtil
         return new long[] {ofertaEliminados, instalacionHabitacionHotelEliminados, servicioHabitacionHotelEliminados, viviendaHabitacionServicioHabitacionEliminados, 
         		clienteEliminados, operadorEliminados, servicioHabitacionEliminados, habitacionHotelEliminados, hotelEliminados, habitacionHostalEliminados, hostalEliminados, viviendaUniversitariaEliminados, viviendaHabitacionEliminados, viviendaExpressEliminados, apartamentoEliminados};
 	}
-
 }

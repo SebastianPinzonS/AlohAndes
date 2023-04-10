@@ -187,6 +187,14 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
         }        
         setJMenuBar ( menuBar );	
     }
+
+	public void getTablas()
+	{
+		for(int i = 0; i<14; i++)
+		{
+			alohAndes.getTablas(11);
+		}
+	}
     
 	/* ****************************************************************
 	 * 			CRUD de TipoBebida
@@ -195,13 +203,14 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
      * Adiciona un tipo de bebida con la información dada por el usuario
      * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
      */
+
     public void adicionarApartamento( )
     {
     	try 
     	{
     		String nombreApartamento = JOptionPane.showInputDialog (this, "Nombre del edificio?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE);
 			String numeroApartamento = JOptionPane.showInputDialog (this, "Numero de apartamento?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE);
-			int amobladoApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Es amblado? 1 para si, 0 para no", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
+			int amobladoApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Es amoblado? 1 para si, 0 para no", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
 			int numeroHabitacionesApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuantas habitaciones tiene?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
 			String direccionApartamento = JOptionPane.showInputDialog (this, "Cual es la direccion?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE);
 			int incluyeServiciosApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Incluye servicios? 1 para si, 0 para no", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
@@ -257,7 +266,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
     	try 
     	{
     		String nombreApartmanetoStr = JOptionPane.showInputDialog (this, "Nombre del edificio del apartamento?", "Borrar Apartamento en el edificio: ", JOptionPane.QUESTION_MESSAGE);
-    		String numeroApartmanetoStr = JOptionPane.showInputDialog (this, "Nombre del edificio del apartamento?", "Borrar Apartamento en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+    		String numeroApartmanetoStr = JOptionPane.showInputDialog (this, "Numero de apartamento?", "Borrar Apartamento en el edificio: ", JOptionPane.QUESTION_MESSAGE);
 
     		if (nombreApartmanetoStr != null && numeroApartmanetoStr != null)
     		{
@@ -359,7 +368,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	 */
 	public void mostrarLogAlohAndes ()
 	{
-		mostrarArchivo ("alohAndes.log");
+		mostrarArchivo ("alohandes.log");
 	}
 	
 	/**

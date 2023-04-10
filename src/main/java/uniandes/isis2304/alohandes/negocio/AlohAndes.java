@@ -34,6 +34,11 @@ public class AlohAndes
 		pa.cerrarUnidadPersistencia ();
 	}
 
+	public void getTablas(int index)
+	{
+		log.info(pa.getTabla(index));
+	}
+
 
 	/* ****************************************************************
 	 * 			Métodos para manejar las APARTAMENTO

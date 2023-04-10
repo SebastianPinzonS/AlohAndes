@@ -132,6 +132,7 @@ public class PersistenciaAlohAndes
 		tablas.add ("CLIENTE");
 		tablas.add ("OPERADOR");
 		tablas.add ("OFERTA");
+      
 }
 
 	/**
@@ -210,6 +211,10 @@ public class PersistenciaAlohAndes
         sqlApartamento = new SQLApartamento(this);
 		sqlUtil = new SQLUtil(this);
 	}
+
+    public String getTabla(int index){
+        return tablas.get(index);
+    }
 
 	public String darSeqAlohAndes()
 	{

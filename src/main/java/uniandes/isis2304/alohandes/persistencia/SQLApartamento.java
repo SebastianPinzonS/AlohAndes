@@ -31,7 +31,7 @@ class SQLApartamento
 
 	public long eliminarApartamentoPorNombreYNumero (PersistenceManager pm, String nombre, String numero)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaApartamento () + " WHERE (NOMBRE = ? AND NUMERO = ?)");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaApartamento () + " WHERE (nombre = ? AND numero = ?)");
         q.setParameters(nombre, numero);
         return (long) q.executeUnique();            
 	}
