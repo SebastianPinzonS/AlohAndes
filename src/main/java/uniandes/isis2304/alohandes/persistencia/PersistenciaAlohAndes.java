@@ -2212,7 +2212,7 @@ public class PersistenciaAlohAndes
             tx.commit();
             
             log.trace ("Inserción Vivienda Express: " + direccion + ","+ numeroApartamento + ": " + tuplasInsertadas + " tuplas insertadas");
-            return new ViviendaUniversitaria (nombre, direccion, numeroApartamento, viviendaCompartida, capacidad, menaje, calificacion););
+            return new ViviendaUniversitaria (nombre, direccion, numeroApartamento, viviendaCompartida, capacidad, menaje, calificacion);
         }
         catch (Exception e)
         {

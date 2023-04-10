@@ -10,8 +10,8 @@
             <!-- ENABLE THESE FOR Oracle -->
             <property name="javax.jdo.option.ConnectionURL" value="jdbc:oracle:thin:@fn4.oracle.virtual.uniandes.edu.co:1521/prod"/>
             <property name="javax.jdo.option.ConnectionDriverName" value="oracle.jdbc.driver.OracleDriver"/>
-            <property name="javax.jdo.option.ConnectionUserName" value="SYSTEM"/>
-            <property name="javax.jdo.option.ConnectionPassword" value="espe3ra8"/>
+            <property name="javax.jdo.option.ConnectionUserName" value="ISIS2304B07202310"/>
+            <property name="javax.jdo.option.ConnectionPassword" value="ZhQVctsRnSwZ"/>
             <property name="javax.jdo.option.Mapping" value="oracle"/>
 
             <property name="datanucleus.schema.autoCreateAll" value="false"/>
