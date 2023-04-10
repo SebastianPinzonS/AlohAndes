@@ -225,7 +225,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 
     		if (nombreApartamento != null && numeroApartamento != null && direccionApartamento != null )
     		{
-        		VOApartamento ap = alohAndes.adicionarApartamento (nombreApartamento, numeroApartamento, amobladoApartamento, numeroApartamento, direccionApartamento, incluyeServiciosApartamento, calificacionApartamento);
+        		VOApartamento ap = alohAndes.adicionarApartamento (nombreApartamento, numeroApartamento, amobladoApartamento, numeroHabitacionesApartamento, direccionApartamento, incluyeServiciosApartamento, calificacionApartamento);
         		if (ap == null)
         		{
         			throw new Exception ("No se pudo crear un tipo de bebida con nombre: " + nombreApartamento + " y numero: " + numeroApartamento);
@@ -248,17 +248,14 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
-    /**
-     * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
-     */
     public void listarApartamento( )
     {
     	try 
     	{
-			List <VOApartamento> lista = alohAndes.darVOApartamento();
+			List <VOApartamento> lista = alohAndes.darVOApartamentos();
 
 			String resultado = "En listarTipoBebida";
-			resultado +=  "\n" + listarTiposBebida (lista);
+			resultado +=  "\n" + listarApartamento (lista);
 			panelDatos.actualizarInterfaz(resultado);
 			resultado += "\n Operación terminada";
 		} 
@@ -270,22 +267,20 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
-    /**
-     * Borra de la base de datos el tipo de bebida con el identificador dado po el usuario
-     * Cuando dicho tipo de bebida no existe, se indica que se borraron 0 registros de la base de datos
-     */
-    public void eliminarTipoBebidaPorId( )
+    public void eliminarApartamentoPorNombreYNumero ( )
     {
     	try 
     	{
-    		String idTipoStr = JOptionPane.showInputDialog (this, "Id del tipo de bedida?", "Borrar tipo de bebida por Id", JOptionPane.QUESTION_MESSAGE);
-    		if (idTipoStr != null)
-    		{
-    			long idTipo = Long.valueOf (idTipoStr);
-    			long tbEliminados = alohAndes.eliminarTipoBebidaPorId (idTipo);
+    		String nombreApartmanetoStr = JOptionPane.showInputDialog (this, "Nombre del edificio del apartamento?", "Borrar Apartamento en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+    		String numeroApartmanetoStr = JOptionPane.showInputDialog (this, "Nombre del edificio del apartamento?", "Borrar Apartamento en el edificio: ", JOptionPane.QUESTION_MESSAGE);
 
-    			String resultado = "En eliminar TipoBebida\n\n";
-    			resultado += tbEliminados + " Tipos de bebida eliminados\n";
+    		if (nombreApartmanetoStr != null && numeroApartmanetoStr != null)
+    		{
+    		
+    			long apEliminados = alohAndes.eliminarApartamentoPorNombreYNumero(nombreApartmanetoStr, numeroApartmanetoStr);
+
+    			String resultado = "En eliminar Apartamento\n\n";
+    			resultado += apEliminados + " Apartmentos eliminados\n";
     			resultado += "\n Operación terminada";
     			panelDatos.actualizarInterfaz(resultado);
     		}
@@ -302,25 +297,57 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
-    /**
-     * Busca el tipo de bebida con el nombre indicado por el usuario y lo muestra en el panel de datos
-     */
-    public void buscarTipoBebidaPorNombre( )
+    public void eliminarApartamentoPorDireccionYNumero ( )
     {
     	try 
     	{
-    		String nombreTb = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Buscar tipo de bebida por nombre", JOptionPane.QUESTION_MESSAGE);
-    		if (nombreTb != null)
+    		String direccionApartmanetoStr = JOptionPane.showInputDialog (this, "Direccion del edificio del apartamento?", "Borrar Apartamento en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+    		String numeroApartmanetoStr = JOptionPane.showInputDialog (this, "Direccion del edificio del apartamento?", "Borrar Apartamento en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+
+    		if (direccionApartmanetoStr != null && numeroApartmanetoStr != null)
     		{
-    			VOTipoBebida tipoBebida = alohAndes.darTipoBebidaPorNombre (nombreTb);
-    			String resultado = "En buscar Tipo Bebida por nombre\n\n";
-    			if (tipoBebida != null)
+    		
+    			long apEliminados = alohAndes.eliminarApartmentoPorDireccionYNumero(direccionApartmanetoStr, numeroApartmanetoStr);
+											
+
+    			String resultado = "En eliminar Apartamento\n\n";
+    			resultado += apEliminados + " Apartmentos eliminados\n";
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+
+	
+
+    public void buscarApartamentosPorDireccionYNumero ()
+    {
+    	try 
+    	{
+    		String direccionAp = JOptionPane.showInputDialog (this, "Direccion del edificio del apartamento?", "Buscar Apartamento por direccion", JOptionPane.QUESTION_MESSAGE);
+			String numeroAp = JOptionPane.showInputDialog (this, "Direccion del edificio del apartamento?", "Buscar Apartamento por direccion", JOptionPane.QUESTION_MESSAGE);
+
+    		if (numeroAp != null && direccionAp != null)
+    		{
+    			VOApartamento apartamento = alohAndes.darApartamentoPorDireccionYNumero(direccionAp, numeroAp) ;
+    			String resultado = "En buscar Apartamentos\n\n";
+    			if (apartamento != null)
     			{
-        			resultado += "El tipo de bebida es: " + tipoBebida;
+        			resultado += "El Apartamento es: " + apartamento;
     			}
     			else
     			{
-        			resultado += "Un tipo de bebida con nombre: " + nombreTb + " NO EXISTE\n";    				
+        			resultado += "Un Apartamento con direccion y numero: " + direccionAp +" "+numeroAp  + " NO EXISTE\n";    				
     			}
     			resultado += "\n Operación terminada";
     			panelDatos.actualizarInterfaz(resultado);
@@ -392,38 +419,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		panelDatos.actualizarInterfaz(resultado);
 	}
 	
-	/**
-	 * Limpia todas las tuplas de todas las tablas de la base de datos de alohAndes
-	 * Muestra en el panel de datos el número de tuplas eliminadas de cada tabla
-	 */
-	public void limpiarBD ()
-	{
-		try 
-		{
-    		// Ejecución de la demo y recolección de los resultados
-			long eliminados [] = alohAndes.limpiarAlohAndes();
-			
-			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-			String resultado = "\n\n************ Limpiando la base de datos ************ \n";
-			resultado += eliminados [0] + " Gustan eliminados\n";
-			resultado += eliminados [1] + " Sirven eliminados\n";
-			resultado += eliminados [2] + " Visitan eliminados\n";
-			resultado += eliminados [3] + " Bebidas eliminadas\n";
-			resultado += eliminados [4] + " Tipos de bebida eliminados\n";
-			resultado += eliminados [5] + " Bebedores eliminados\n";
-			resultado += eliminados [6] + " Bares eliminados\n";
-			resultado += "\nLimpieza terminada";
-   
-			panelDatos.actualizarInterfaz(resultado);
-		} 
-		catch (Exception e) 
-		{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
-	
+
 	/**
 	 * Muestra la presentación general del proyecto
 	 */
