@@ -1,5 +1,7 @@
 package uniandes.isis2304.alohandes.persistencia;
 
+import java.math.*;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -69,11 +71,24 @@ class SQLApartamento
 	}
 
 
-	public List<Apartamento> darApartamento (PersistenceManager pm)
+	public List<Apartamento>darApartamento (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaApartamento ());
-		q.setResultClass(Apartamento.class);
-		return (List<Apartamento>) q.executeList();
+		Query q = pm.newQuery(SQL, "SELECT NOMBRE, NUMERO, AMOBLADO, NUMERO_HABITACIONES, DIRECCION, INCLUYE_SERVICIOS, CALIFICACION FROM " + pa.darTablaApartamento ());
+		List<Apartamento> resp = new LinkedList<>();
+		List results = q.executeList();
+		for (Object obj : results)
+		{
+			Object [] datos = (Object []) obj;
+			String nombre =  (String) datos [0];
+			String numero =  (String) datos [1];
+			int amoblado = ((BigDecimal) datos [2]).intValue();
+			int numeroHabitaciones = ((BigDecimal) datos [3]).intValue();
+			String direccion =  (String) datos [4];
+			int incluyeServicios = ((BigDecimal) datos [5]).intValue();
+			float calificacion = ((BigDecimal) datos [6]).floatValue();
+			resp.add (new Apartamento(nombre, numero, amoblado, numeroHabitaciones, direccion, incluyeServicios, calificacion));
+		}
+		return (resp) ;
 	}
 
 }

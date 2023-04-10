@@ -6,7 +6,6 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import oracle.sql.DATE;
 import uniandes.isis2304.alohandes.negocio.Oferta;
 
 
@@ -24,10 +23,10 @@ class SQLOferta
 	}
 	
 
-	public long adicionarOfertaHabitacionHostal (PersistenceManager pm, long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal, int visitas) 
+	public long adicionarOfertaHabitacionHostal (PersistenceManager pm, long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHostal, String numeroHabitacionHostal, int visitas) 
 	{
         Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIO, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_HOSTAL, NUMERO_HABITACION_HOSTAL, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        q.setParameters(id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal, visitas );
+        q.setParameters(id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostal, numeroHabitacionHostal, visitas );
         return (long) q.executeUnique();
 	}
 
@@ -88,10 +87,10 @@ class SQLOferta
         return (long) q.executeUnique();
 	}
 
-	public long eliminarOfertaPorHabitacionHostal (PersistenceManager pm, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal)
+	public long eliminarOfertaPorHabitacionHostal (PersistenceManager pm, String direccionHostal, String numeroHabitacionHostal)
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_HOSTAL = ? AND NUMERO_HABITACION_HOSTAL = ?)");
-        q.setParameters(direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal);
+        q.setParameters(direccionHostal, numeroHabitacionHostal);
         return (long) q.executeUnique();
 	}
 
@@ -155,52 +154,52 @@ class SQLOferta
         return (List<Oferta>) q.executeUnique();
 	}
 
-	public List<Oferta> darOfertaPorHabitacionHostal (PersistenceManager pm, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal)
+	public Oferta darOfertaPorHabitacionHostal (PersistenceManager pm, String direccionHostal, String numeroHabitacionHostal)
 	{
         Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_HOSTAL = ? AND NUMERO_HABITACION_HOSTAL = ?)");
 		q.setResultClass(Oferta.class);
-        q.setParameters(direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal);
-        return (List<Oferta>) q.executeUnique();
+        q.setParameters(direccionHostal, numeroHabitacionHostal);
+        return (Oferta) q.executeUnique();
 	}
 
-	public List<Oferta> darOfertaPorHabitacionHotel (PersistenceManager pm, String direccionHotel, String numeroHabitacionHotel)
+	public Oferta darOfertaPorHabitacionHotel (PersistenceManager pm, String direccionHotel, String numeroHabitacionHotel)
 	{
         Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_HOSTAL = ? AND NUMERO_HABITACION_HOSTAL = ?)");
 		q.setResultClass(Oferta.class);
 		q.setParameters(direccionHotel, numeroHabitacionHotel);
-        return (List<Oferta>) q.executeUnique();
+        return (Oferta) q.executeUnique();
 	}
 
-	public List<Oferta> darOfertaPorViviendaUniversitaria (PersistenceManager pm, String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
+	public Oferta darOfertaPorViviendaUniversitaria (PersistenceManager pm, String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
 	{
         Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_VIVIENDA_UNIVERSITARIA = ? AND NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA = ?)");
 		q.setResultClass(Oferta.class);
 		q.setParameters(direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);
-        return (List<Oferta>) q.executeUnique();
+        return (Oferta) q.executeUnique();
 	}
 
-	public List<Oferta> darOfertaPorViviendaHabitacion (PersistenceManager pm, String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion)
+	public Oferta darOfertaPorViviendaHabitacion (PersistenceManager pm, String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion)
 	{
         Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_VIVIENDA_HABITACION = ? AND NUMERO_APARTAMENTO_VIVIENDA_HABITACION = ?)");
 		q.setResultClass(Oferta.class);
 		q.setParameters(direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion);
-        return (List<Oferta>) q.executeUnique();
+        return (Oferta) q.executeUnique();
 	}
 
-	public List<Oferta> darOfertaPorApartamento (PersistenceManager pm, String direccionApartamento, String numeroApartamento)
+	public Oferta darOfertaPorApartamento (PersistenceManager pm, String direccionApartamento, String numeroApartamento)
 	{
         Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_APARTAMENTO = ? AND NUMERO_APARTAMENTO = ?)");
 		q.setResultClass(Oferta.class);
         q.setParameters(direccionApartamento, numeroApartamento);
-        return (List<Oferta>) q.executeUnique();
+        return (Oferta) q.executeUnique();
 	}
 
-	public List<Oferta> darOfertaPorViviendaExpress (PersistenceManager pm, String direccionViviendaExpress)
+	public Oferta darOfertaPorViviendaExpress (PersistenceManager pm, String direccionViviendaExpress)
 	{
         Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_VIVIENDA_EXPRESS = ?)");
 		q.setResultClass(Oferta.class);
         q.setParameters(direccionViviendaExpress);
-        return (List<Oferta>) q.executeUnique();
+        return (Oferta) q.executeUnique();
 	}
 
 	public List<Oferta> darOfertas (PersistenceManager pm)

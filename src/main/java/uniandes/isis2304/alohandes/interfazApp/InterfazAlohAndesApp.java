@@ -234,13 +234,13 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
-    public void listarApartamento( )
+    public void listarApartamentos( )
     {
     	try 
     	{
 			List <VOApartamento> lista = alohAndes.darVOApartamentos();
 
-			String resultado = "En listarTipoBebida";
+			String resultado = "En listarApartamento";
 			resultado +=  "\n" + listarApartamento (lista);
 			panelDatos.actualizarInterfaz(resultado);
 			resultado += "\n Operación terminada";
@@ -321,7 +321,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
     	try 
     	{
     		String direccionAp = JOptionPane.showInputDialog (this, "Direccion del edificio del apartamento?", "Buscar Apartamento por direccion", JOptionPane.QUESTION_MESSAGE);
-			String numeroAp = JOptionPane.showInputDialog (this, "Direccion del edificio del apartamento?", "Buscar Apartamento por direccion", JOptionPane.QUESTION_MESSAGE);
+			String numeroAp = JOptionPane.showInputDialog (this, "Numero del apartamento?", "Buscar Apartamento por direccion", JOptionPane.QUESTION_MESSAGE);
 
     		if (numeroAp != null && direccionAp != null)
     		{

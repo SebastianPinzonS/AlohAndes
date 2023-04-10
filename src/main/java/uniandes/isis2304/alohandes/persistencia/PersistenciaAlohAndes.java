@@ -1579,32 +1579,32 @@ public class PersistenciaAlohAndes
 		return sqlOferta.darOfertaPorIdCliente (pmf.getPersistenceManager(), idCliente);
 	}
 
-    public List<Oferta> darOfertaPorHabitacionHostal (String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal)
+    public Oferta darOfertaPorHabitacionHostal (String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal)
 	{
 		return sqlOferta.darOfertaPorHabitacionHostal (pmf.getPersistenceManager(), direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal);
 	}
 
-    public List<Oferta> darOfertaPorHabitacionHotel (String direccionHotel, String numeroHabitacionHotel)
+    public Oferta darOfertaPorHabitacionHotel (String direccionHotel, String numeroHabitacionHotel)
 	{
 		return sqlOferta.darOfertaPorHabitacionHotel (pmf.getPersistenceManager(), direccionHotel, numeroHabitacionHotel);
 	}
 
-    public List<Oferta> darOfertaPorViviendaUniversitaria (String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
+    public Oferta darOfertaPorViviendaUniversitaria (String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
 	{
 		return sqlOferta.darOfertaPorViviendaUniversitaria (pmf.getPersistenceManager(), direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);
 	}
 
-    public List<Oferta> darOfertaPorViviendaHabitacion (String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion)
+    public Oferta darOfertaPorViviendaHabitacion (String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion)
 	{
 		return sqlOferta.darOfertaPorViviendaHabitacion (pmf.getPersistenceManager(), direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion);
 	}
 
-    public List<Oferta> darOfertaPorApartamento (String direccionApartamento, String numeroApartamento)
+    public Oferta darOfertaPorApartamento (String direccionApartamento, String numeroApartamento)
 	{
 		return sqlOferta.darOfertaPorApartamento (pmf.getPersistenceManager(), direccionApartamento, numeroApartamento);
 	}
 
-    public List<Oferta> darOfertaPorViviendaExpress (String direccionViviendaExpress)
+    public Oferta darOfertaPorViviendaExpress (String direccionViviendaExpress)
 	{
 		return sqlOferta.darOfertaPorViviendaExpress (pmf.getPersistenceManager(), direccionViviendaExpress);
 	}

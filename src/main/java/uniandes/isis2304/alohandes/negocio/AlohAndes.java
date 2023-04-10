@@ -79,13 +79,14 @@ public class AlohAndes
 
 	public List<VOApartamento> darVOApartamentos ()
 	{
-		log.info ("Generando los VO de Tipos de bebida");        
+		log.info ("Generando los VO de Apartamento");        
         List<VOApartamento> voApartamentos = new LinkedList<VOApartamento> ();
-        for (Apartamento ap : pa.darApartamento ())
+        List<Apartamento> apartamentos = pa.darApartamento ();
+        for (Apartamento ap : apartamentos )
         {
         	voApartamentos.add (ap);
         }
-        log.info ("Generando los VO de Tipos de bebida: " + voApartamentos.size() + " existentes");
+        log.info ("Generando los VO de Tipos de Apartamento: " + voApartamentos.size() + " existentes");
         return voApartamentos;
 	}
 
