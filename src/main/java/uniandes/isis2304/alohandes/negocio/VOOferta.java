@@ -10,7 +10,7 @@ public interface VOOferta
 	/**
 	 * @return 
 	 */
-	public String getId();
+	public long getId();
 
 	/**
 	 * @return 

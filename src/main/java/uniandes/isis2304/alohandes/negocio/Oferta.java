@@ -6,7 +6,7 @@ import java.sql.Date;
 public class Oferta implements VOOferta
 {
 
-	private String id;
+	private long id;
 
 	private Date fechaInicial;
 	
@@ -28,9 +28,9 @@ public class Oferta implements VOOferta
 
 	private String idCliente;
 
-	private String direccionHostal;
+	private String direccionHostalHabitacionHostal;
 
-	private String numeroHabitacionHostal;
+	private String numeroHabitacionHabitacionHostal;
 
 	private String direccionHotelHabitacionHotel;
 
@@ -61,7 +61,8 @@ public class Oferta implements VOOferta
 	 */
 	public Oferta() 
 	{
-		this.id = "";
+		this.id = 0;
+		this.fechaInicial = Date.valueOf("0001-01-01");
 		this.duracionContratoDias = 0;
 		this.costoContrato = 0;
 		this.precioEspecial = 0;
@@ -71,8 +72,8 @@ public class Oferta implements VOOferta
 		this.costoSeguroArrendamiento = 0;
 		this.idOperador = "";
 		this.idCliente = "";
-		this.direccionHostal = "";
-		this.numeroHabitacionHostal = "";
+		this.direccionHostalHabitacionHostal = "";
+		this.numeroHabitacionHabitacionHostal = "";
 		this.direccionHotelHabitacionHotel = "";
 		this.numeroHabitacionHabitacionHotel = "";
 		this.direccionViviendaUniversitaria = "";
@@ -85,15 +86,16 @@ public class Oferta implements VOOferta
 		this.visitas = 0;
 	}
 	
-	public Oferta(String id, int duracionContratoDias, int costoContrato, int precioEspecial,
+	public Oferta(long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial,
 			String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento,
-			String idOperador, String idCliente, String direccionHostal, String numeroHabitacionHostal,
+			String idOperador, String idCliente, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal,
 			String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel,
 			String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria,
 			String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion, String direccionApartamento,
 			String numeroApartamento, String direccionViviendaExpress, int visitas) 
 	{
 		this.id = id;
+		this.fechaInicial = fechaInicial;
 		this.precioEspecialTomado = precioEspecialTomado;
 		this.duracionContratoDias = duracionContratoDias;
 		this.costoContrato = costoContrato;
@@ -103,8 +105,8 @@ public class Oferta implements VOOferta
 		this.costoSeguroArrendamiento = costoSeguroArrendamiento;
 		this.idOperador = idOperador;
 		this.idCliente = idCliente;
-		this.direccionHostal = direccionHostal;
-		this.numeroHabitacionHostal = numeroHabitacionHostal;
+		this.direccionHostalHabitacionHostal = direccionHostalHabitacionHostal;
+		this.numeroHabitacionHabitacionHostal = numeroHabitacionHabitacionHostal;
 		this.direccionHotelHabitacionHotel = direccionHotelHabitacionHotel;
 		this.numeroHabitacionHabitacionHotel = numeroHabitacionHabitacionHotel;
 		this.direccionViviendaUniversitaria = direccionViviendaUniversitaria;
@@ -118,11 +120,11 @@ public class Oferta implements VOOferta
 	}
 
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -207,19 +209,19 @@ public class Oferta implements VOOferta
 	}
 
 	public String getDireccionHostal() {
-		return direccionHostal;
+		return direccionHostalHabitacionHostal;
 	}
 
-	public void setDireccionHostal(String direccionHostal) {
-		this.direccionHostal = direccionHostal;
+	public void setDireccionHostal(String direccionHostalHabitacionHostal) {
+		this.direccionHostalHabitacionHostal = direccionHostalHabitacionHostal;
 	}
 
 	public String getNumeroHabitacionHostal() {
-		return numeroHabitacionHostal;
+		return numeroHabitacionHabitacionHostal;
 	}
 
-	public void setNumeroHabitacionHostal(String numeroHabitacionHostal) {
-		this.numeroHabitacionHostal = numeroHabitacionHostal;
+	public void setNumeroHabitacionHostal(String numeroHabitacionHabitacionHostal) {
+		this.numeroHabitacionHabitacionHostal = numeroHabitacionHabitacionHostal;
 	}
 
 	public String getDireccionHotelHabitacionHotel() {
