@@ -5,12 +5,12 @@
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
-		{ "menuTitle": "TipoBebida",
+		{ "menuTitle": "Apartamento",
 		  "options":
 			[
 				{
 					"label": "Adicionar",
-					"event": "adicionarTipoBebida"
+					"event": "adicionarApartamento"
 				},
 				{
 					"label": "Listar",

@@ -205,7 +205,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			int numeroHabitacionesApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuantas habitaciones tiene?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
 			String direccionApartamento = JOptionPane.showInputDialog (this, "Cual es la direccion?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE);
 			int incluyeServiciosApartamento = Integer.parseInt(JOptionPane.showInputDialog (this, "Incluye servicios? 1 para si, 0 para no", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
-			float calificacionApartamento = Float.parseFloat(JOptionPane.showInputDialog (this, "Cual es la direccion?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
+			float calificacionApartamento = Float.parseFloat(JOptionPane.showInputDialog (this, "Cual es la Calificacion?", "Adicionar Apartamento", JOptionPane.QUESTION_MESSAGE));
 
 
     		if (nombreApartamento != null && numeroApartamento != null && direccionApartamento != null )

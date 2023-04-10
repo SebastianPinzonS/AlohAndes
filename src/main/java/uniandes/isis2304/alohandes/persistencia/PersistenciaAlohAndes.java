@@ -111,7 +111,7 @@ public class PersistenciaAlohAndes
 	 */
 	private PersistenciaAlohAndes ()
 	{
-		pmf = JDOHelper.getPersistenceManagerFactory("Parranderos");		
+		pmf = JDOHelper.getPersistenceManagerFactory("AlohAndes");		
 		crearClasesSQL ();
 		
 		// Define los nombres por defecto de las tablas de la base de datos
@@ -207,6 +207,7 @@ public class PersistenciaAlohAndes
 	private void crearClasesSQL ()
 	{
 		sqlInstalacionHabitacionHotel = new SQLInstalacionHabitacionHotel(this);
+        sqlApartamento = new SQLApartamento(this);
 		sqlUtil = new SQLUtil(this);
 	}
 

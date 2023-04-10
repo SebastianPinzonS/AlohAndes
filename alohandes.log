@@ -1,0 +1,15 @@
+10:20:43,758 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+10:20:43,759 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+10:20:43,778 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:22:16,567 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Apartamento numero: A506 en la direccion: Calle 50 R Numero 28 N 76
+10:22:16,591 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.persistencia.SQLApartamento.adicionarApartamento(javax.jdo.PersistenceManager, String, String, int, int, String, int, float)" because "this.sqlApartamento" is null
+
+10:22:16,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Apartamento: null
+10:26:59,046 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+10:26:59,046 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+10:26:59,063 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:28:02,169 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Apartamento numero: B503 en la direccion: Av 76 Cll 76-81
+10:28:02,350 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO VIVIENDA_EXPRESS(NOMBRE, NUMERO, AMOBLADO, NUMERO_HABITACIONES, DIRECCION, INCLUYE_SERVICIOS, CALIFICACION ) values (?, ?, ?, ?, ?, ?, ?)".
+ORA-00904: "INCLUYE_SERVICIOS": invalid identifier
+
+10:28:02,371 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Apartamento: null
