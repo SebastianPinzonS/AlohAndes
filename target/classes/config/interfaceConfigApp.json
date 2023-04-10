@@ -13,7 +13,7 @@
 					"event": "adicionarApartamento"
 				},
 				{
-					"label": "Listar",
+					"label": "Listar apartamentos",
 					"event": "listarApartamentos"
 				},
 				{
@@ -23,10 +23,6 @@
 				{
 					"label": "Borrar por Direccion y Numero",
 					"event": "eliminarApartamentoPorDireccionYNumero"
-				},
-				{
-					"label": "Buscar por direccion",
-					"event": "buscarTipoBebidaPorNombre"
 				},
 				{
 					"label": "Buscar por direccion y numero",
