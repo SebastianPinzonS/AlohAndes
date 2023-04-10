@@ -32,6 +32,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import uniandes.isis2304.alohandes.negocio.AlohAndes;
+import uniandes.isis2304.alohandes.negocio.Apartamento;
 import uniandes.isis2304.alohandes.negocio.VOApartamento;
 
 @SuppressWarnings("serial")
@@ -351,6 +352,27 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
+	public void buscarApartamentosPorDireccion( )
+    {
+		String direccionAp = JOptionPane.showInputDialog (this, "Direccion del edificio del apartamento?", "Buscar Apartamento por direccion", JOptionPane.QUESTION_MESSAGE);
+
+    	try 
+    	{
+			
+			List<Apartamento> lista = alohAndes.darApartamentosPorDireccion(direccionAp);
+			String resultado = "En listarApartamento";
+			resultado +=  "\n" + listarApartamentoNVO (lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+
 
 	/* ****************************************************************
 	 * 			Métodos administrativos
@@ -490,6 +512,16 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
     	String resp = "Los apartamentos existentes son:\n";
     	int i = 1;
         for (VOApartamento ap : lista)
+        {
+        	resp += i++ + ". " + ap.toString() + "\n";
+        }
+        return resp;
+	}
+	private String listarApartamentoNVO(List<Apartamento> lista) 
+    {
+    	String resp = "Los apartamentos existentes son:\n";
+    	int i = 1;
+        for (Apartamento ap : lista)
         {
         	resp += i++ + ". " + ap.toString() + "\n";
         }

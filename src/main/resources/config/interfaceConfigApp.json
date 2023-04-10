@@ -13,7 +13,7 @@
 					"event": "adicionarApartamento"
 				},
 				{
-					"label": "Listar",
+					"label": "Listar apartamentos",
 					"event": "listarApartamentos"
 				},
 				{
@@ -25,17 +25,9 @@
 					"event": "eliminarApartamentoPorDireccionYNumero"
 				},
 				{
-					"label": "Buscar por direccion",
-					"event": "buscarTipoBebidaPorNombre"
-				},
-				{
 					"label": "Buscar por direccion y numero",
 					"event": "buscarApartamentosPorDireccionYNumero"
-				},
-				{
-					"label": "Buscar todos los apartamentos",
-					"event": "listarApartamento"
-				}
+				}		
 			]
 		},
 		{ "menuTitle": "Mantenimiento",
