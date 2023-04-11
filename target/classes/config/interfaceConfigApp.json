@@ -129,17 +129,8 @@
 					"event": "mostrarJavadoc"
 				}
 			]
-		},		
-		{ "menuTitle": "Acerca de ...",
-		  "options":
-			[
-				{
-					"label": "Acerca de ...",
-					"event": "acercaDe"
-				}
-			]
-		}		
-		
+		}	
+	
 	]
 }
 	
