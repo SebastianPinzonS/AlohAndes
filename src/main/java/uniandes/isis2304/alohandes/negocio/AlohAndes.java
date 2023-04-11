@@ -1,5 +1,6 @@
 package uniandes.isis2304.alohandes.negocio;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
@@ -187,4 +188,63 @@ public class AlohAndes
 		 log.info ("Buscando Apartamentos: "  != null ? apartamentos : "NO EXISTE");
 		 return apartamentos;
 	 }
+
+	/* ****************************************************************
+	 * 			Métodos para manejar los Oferta
+	 *****************************************************************/
+
+	public Oferta adicionarOfertaHabitacionHostal (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal)
+	{
+        log.info ("Adicionando Oferta Habitacion Hostal");
+        Oferta oferta = pa.adicionarOfertaHabitacionHostal(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal);		
+        log.info ("Adicionando Oferta: " + oferta);
+        return oferta;
+	}
+
+	public Oferta adicionarOfertaHabitacionHotel (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	{
+        log.info ("Adicionando Oferta Habitacion Hotel");
+        Oferta oferta = pa.adicionarOfertaHabitacionHotel(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);		
+        log.info ("Adicionando Oferta: " + oferta);
+        return oferta;
+	}
+
+	public Oferta adicionarOfertaViviendaUniversitaria (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
+	{
+        log.info ("Adicionando Oferta Vivienda Universitaria");
+        Oferta oferta = pa.adicionarOfertaViviendaUniversitaria(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);		
+        log.info ("Adicionando Oferta: " + oferta);
+        return oferta;
+	}
+
+	public Oferta adicionarOfertaViviendaHabitacion (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion)
+	{
+        log.info ("Adicionando Oferta Vivienda Habitacion");
+        Oferta oferta = pa.adicionarOfertaHabitacionHostal(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion);		
+        log.info ("Adicionando Oferta: " + oferta);
+        return oferta;
+	}
+
+	public Oferta adicionarOfertaApartamento (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionApartamento, String numeroApartamento)
+	{
+        log.info ("Adicionando Oferta Apartamento");
+        Oferta oferta = pa.adicionarOfertaApartamento(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionApartamento, numeroApartamento);		
+        log.info ("Adicionando Oferta: " + oferta);
+        return oferta;
+	}
+
+	public Oferta adicionarOfertaViviendaExpress (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaExpress)
+	{
+        log.info ("Adicionando Vivienda Express");
+        Oferta oferta = pa.adicionarOfertaViviendaExpress(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaExpress);		
+        log.info ("Adicionando Oferta: " + oferta);
+        return oferta;
+	}
+
+	public long eliminarOfertaPorId(long id)
+	{
+		return pa.eliminarOfertaPorId(id);
+	}
+
+
 }

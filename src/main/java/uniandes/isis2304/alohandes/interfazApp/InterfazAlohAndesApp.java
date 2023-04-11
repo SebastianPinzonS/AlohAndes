@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.sql.Date;
 import java.util.List;
 
 import javax.jdo.JDODataStoreException;
@@ -34,6 +35,7 @@ import com.google.gson.stream.JsonReader;
 import uniandes.isis2304.alohandes.negocio.AlohAndes;
 import uniandes.isis2304.alohandes.negocio.Apartamento;
 import uniandes.isis2304.alohandes.negocio.VOApartamento;
+import uniandes.isis2304.alohandes.negocio.VOOferta;
 
 @SuppressWarnings("serial")
 
@@ -372,7 +374,203 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+	/* ****************************************************************
+	 * 			CRUD de Oferta
+	 *****************************************************************/
+	public void adicionarOferta( )
+    {
+    	try 
+    	{
+    		String opcion = JOptionPane.showInputDialog (this, "Que oferta desea? HabitacionHostal, HabitacionHotel, Oferta, ViviendaUniversitaria, ViviendaHabitacion o ViviendaExpress", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+			if (opcion == "HabitacionHotel")
+			{
+				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Que oferta desea? ", JOptionPane.QUESTION_MESSAGE));
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				int precioEspecialTomado = Integer.parseInt(JOptionPane.showInputDialog (this, "Se tomo el precio especial? 1 para si, 0 para no", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String idOperador = JOptionPane.showInputDialog (this, "Cual es el id del operador? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				/* -------------------------------------------------------------------------------------------------**/
+				String direccionHotelHabitacionHotel = JOptionPane.showInputDialog (this, "Cual es la direccion del hotel? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				String numeroHabitacionHabitacionHotel = JOptionPane.showInputDialog (this, "Cual es el numero de habitacion? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 
+				VOOferta ap = alohAndes.adicionarOfertaHabitacionHotel (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+        		if (ap == null)
+        		{
+        			throw new Exception ("No se pudo crear la oferta");
+        		}
+        		String resultado = "En adicionarOferta\n\n";
+        		resultado += "Oferta adicionado exitosamente: " + ap;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+			} 
+			else if (opcion == "HabitacionHostal")
+			{
+				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Que oferta desea? ", JOptionPane.QUESTION_MESSAGE));
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				int precioEspecialTomado = Integer.parseInt(JOptionPane.showInputDialog (this, "Se tomo el precio especial? 1 para si, 0 para no", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String idOperador = JOptionPane.showInputDialog (this, "Cual es el id del operador? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				/* -------------------------------------------------------------------------------------------------**/
+				String direccionHotelHabitacionHostal = JOptionPane.showInputDialog (this, "Cual es la direccion del hostal? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				String numeroHabitacionHabitacionHostal = JOptionPane.showInputDialog (this, "Cual es el numero de habitacion? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+
+				VOOferta ap = alohAndes.adicionarOfertaHabitacionHostal (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHostal, numeroHabitacionHabitacionHostal);
+        		if (ap == null)
+        		{
+        			throw new Exception ("No se pudo crear la oferta");
+        		}
+        		String resultado = "En adicionarOferta\n\n";
+        		resultado += "Oferta adicionado exitosamente: " + ap;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+			} 
+			else if (opcion == "Apartamento")
+			{
+				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Que oferta desea? ", JOptionPane.QUESTION_MESSAGE));
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				int precioEspecialTomado = Integer.parseInt(JOptionPane.showInputDialog (this, "Se tomo el precio especial? 1 para si, 0 para no", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String idOperador = JOptionPane.showInputDialog (this, "Cual es el id del operador? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				/* -------------------------------------------------------------------------------------------------**/
+				String direccionApartamento = JOptionPane.showInputDialog (this, "Cual es la direccion del edificio? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				String numeroApartamento = JOptionPane.showInputDialog (this, "Cual es el numero de apartamento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+
+				VOOferta ap = alohAndes.adicionarOfertaApartamento (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionApartamento, numeroApartamento);
+        		if (ap == null)
+        		{
+        			throw new Exception ("No se pudo crear la oferta");
+        		}
+        		String resultado = "En adicionarOferta\n\n";
+        		resultado += "Oferta adicionado exitosamente: " + ap;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+			} 
+			else if (opcion == "ViviendaUniversitaria")
+			{
+				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Que oferta desea? ", JOptionPane.QUESTION_MESSAGE));
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				int precioEspecialTomado = Integer.parseInt(JOptionPane.showInputDialog (this, "Se tomo el precio especial? 1 para si, 0 para no", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String idOperador = JOptionPane.showInputDialog (this, "Cual es el id del operador? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				/* -------------------------------------------------------------------------------------------------**/
+				String direccionViviendaUniversitaria = JOptionPane.showInputDialog (this, "Cual es la direccion de la vivienda universitaria? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				String numeroApartamentoViviendaUniversitaria = JOptionPane.showInputDialog (this, "Cual es el numero del apartamento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+
+				VOOferta ap = alohAndes.adicionarOfertaViviendaUniversitaria (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);
+        		if (ap == null)
+        		{
+        			throw new Exception ("No se pudo crear la oferta");
+        		}
+        		String resultado = "En adicionarOferta\n\n";
+        		resultado += "Oferta adicionado exitosamente: " + ap;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+			}
+			else if (opcion == "ViviendaHabitacion")
+			{
+				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Que oferta desea? ", JOptionPane.QUESTION_MESSAGE));
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				int precioEspecialTomado = Integer.parseInt(JOptionPane.showInputDialog (this, "Se tomo el precio especial? 1 para si, 0 para no", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String idOperador = JOptionPane.showInputDialog (this, "Cual es el id del operador? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				/* -------------------------------------------------------------------------------------------------**/
+				String direccionViviendaHabitacion = JOptionPane.showInputDialog (this, "Cual es la direccion de la vivienda habitacion? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				String numeroApartamentoViviendaHabitacion = JOptionPane.showInputDialog (this, "Cual es el numero de Apartamento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+
+				VOOferta ap = alohAndes.adicionarOfertaViviendaHabitacion (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion);
+        		if (ap == null)
+        		{
+        			throw new Exception ("No se pudo crear la oferta");
+        		}
+        		String resultado = "En adicionarOferta\n\n";
+        		resultado += "Oferta adicionado exitosamente: " + ap;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+			}
+			else if (opcion == "ViviendaExpress")
+			{
+				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Que oferta desea? ", JOptionPane.QUESTION_MESSAGE));
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				int precioEspecialTomado = Integer.parseInt(JOptionPane.showInputDialog (this, "Se tomo el precio especial? 1 para si, 0 para no", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				String idOperador = JOptionPane.showInputDialog (this, "Cual es el id del operador? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+				/* -------------------------------------------------------------------------------------------------**/
+				String direccionViviendaExpress = JOptionPane.showInputDialog (this, "Cual es la direccion de vivienda express? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+
+				VOOferta ap = alohAndes.adicionarOfertaViviendaExpress (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaExpress);
+        		if (ap == null)
+        		{
+        			throw new Exception ("No se pudo crear la oferta");
+        		}
+        		String resultado = "En adicionarOferta\n\n";
+        		resultado += "Oferta adicionado exitosamente: " + ap;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+			} else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+	public void eliminarOfertaPorId ( )
+    {
+    	try 
+    	{
+    		long idOferta = Long.parseLong(JOptionPane.showInputDialog (this, "Cual es el id?", "Borrar Oferta por id: ", JOptionPane.QUESTION_MESSAGE));
+
+    		if (idOferta > -1)
+    		{
+    		
+    			long ofEliminado = alohAndes.eliminarOfertaPorId(idOferta);
+											
+
+    			String resultado = "En eliminar Oferta\n\n";
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+	
 
 	/* ****************************************************************
 	 * 			Métodos administrativos

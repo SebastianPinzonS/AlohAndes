@@ -59,6 +59,19 @@
 				}
 			]
 		},
+		{ "menuTitle": "Oferta",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarOferta"
+				},
+				{
+					"label": "Listar",
+					"event": "eliminarOfertaPorId"
+				}
+			]
+		},
 		{ "menuTitle": "Mantenimiento",
 		  "options":
 			[
