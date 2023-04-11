@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.sql.Date;
 import java.util.List;
 
 import javax.jdo.JDODataStoreException;
@@ -36,6 +37,7 @@ import uniandes.isis2304.alohandes.negocio.Apartamento;
 import uniandes.isis2304.alohandes.negocio.Cliente;
 import uniandes.isis2304.alohandes.negocio.Operador;
 import uniandes.isis2304.alohandes.negocio.VOApartamento;
+import uniandes.isis2304.alohandes.negocio.VOOferta;
 import uniandes.isis2304.alohandes.negocio.VOCliente;
 import uniandes.isis2304.alohandes.negocio.VOOperador;
 
