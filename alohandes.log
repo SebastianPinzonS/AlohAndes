@@ -298,3 +298,17 @@ ORA-00904: "MIEMBROCOMUNIDADUNIVERSITARIAPERSONA": identificador no válido
 ORA-02290: restricción de control (ISIS2304B07202310.CK_EMPRESA_O_PERSONA) violada
 
 21:19:21,543 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: null
+21:31:53,842 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:31:53,843 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:31:53,862 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:35:22,592 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:35:22,593 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:35:22,612 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:38:22,292 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:38:22,293 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:38:22,311 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:41:21,121 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:41:21,122 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:41:21,142 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:42:45,625 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Oferta Apartamento
+21:42:46,236 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Oferta: uniandes.isis2304.alohandes.negocio.Oferta@4cc15ca9
