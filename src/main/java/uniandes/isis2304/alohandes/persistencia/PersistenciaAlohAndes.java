@@ -209,6 +209,20 @@ public class PersistenciaAlohAndes
 	{
 		sqlInstalacionHabitacionHotel = new SQLInstalacionHabitacionHotel(this);
         sqlApartamento = new SQLApartamento(this);
+        sqlCliente = new SQLCliente(this);
+        sqlHabitacionHostal = new SQLHabitacionHostal(this);
+        sqlHabitacionHotel = new SQLHabitacionHotel(this);
+        sqlHostal = new SQLHostal(this);
+        sqlHotel = new SQLHotel(this);
+        sqlInstalacionHabitacionHotel = new SQLInstalacionHabitacionHotel(this);
+        sqlOferta = new SQLOferta(this);
+        sqlOperador = new SQLOperador(this);
+        sqlServicioHabitacion = new SQLServicioHabitacion(this);
+        sqlServicioHabitacionHotel = new SQLServicioHabitacionHotel(this);
+        sqlViviendaExpress = new SQLViviendaExpress(this);
+        sqlViviendaHabitacion = new SQLViviendaHabitacion(this);
+        sqlViviendaHabitacionServicioHabitacion = new SQLViviendaHabitacionServicioHabitacion(this);
+        sqlViviendaUniversitaria = new SQLViviendaUniversitaria(this);
 		sqlUtil = new SQLUtil(this);
 	}
 
@@ -1616,7 +1630,7 @@ public class PersistenciaAlohAndes
 	/* ****************************************************************
 	 * 			Métodos para manejar los OPERADOR
 	 *****************************************************************/
-	public Operador adicionarOperador(String id, String nombre, String tipo, int validacionCamaraDeComercioEmpresa, int validacionSuperTurismoEmpresa, int miembroComunidadUniversitariaPersona) 
+	public Operador adicionarOperador(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1673,7 +1687,7 @@ public class PersistenciaAlohAndes
         }
 	}
 
-	public long eliminarOperadorPorId (long id) 
+	public long eliminarOperadorPorId (String id) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1701,7 +1715,7 @@ public class PersistenciaAlohAndes
         }
 	}
 
-	public Operador darOperadorPorId ( long id)
+	public Operador darOperadorPorId ( String id)
 	{
 		return sqlOperador.darOperadorPorId (pmf.getPersistenceManager(), id);
 	}
@@ -1715,6 +1729,30 @@ public class PersistenciaAlohAndes
 	{
 		return sqlOperador.darOperadores (pmf.getPersistenceManager());
 	}
+
+    public List<String> mostrarDineroRecibidoPorCadaOperador()
+    {
+        List<String> respuesta = new LinkedList <String> ();
+		List<Object> tuplas = sqlOperador.mostrarDineroRecibidoPorCadaOperador (pmf.getPersistenceManager());
+        for ( Object tupla : tuplas)
+        {
+			Object [] datos = (Object []) tupla;
+			String idOperador = (String) datos [0];
+			String nombreOperador = (String) datos [1];
+			int dineroTotal = ((BigDecimal) datos [2]).intValue ();
+            int dineroAno = ((BigDecimal) datos [3]).intValue ();
+
+            String resp = "";
+            resp += "id del Operador: " + idOperador;
+            resp += " nombre del Operador: " + nombreOperador;
+            resp += " dinero Total ganado: " + dineroTotal;
+            resp += " dinero Año pasado (2022): " + dineroAno; 
+			
+			respuesta.add(resp);
+        }
+
+		return respuesta;
+    }
 	/* ****************************************************************
 	 * 		  Métodos para manejar los SERVICIO HABITACION
 	 *****************************************************************/

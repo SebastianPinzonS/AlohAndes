@@ -59,6 +59,39 @@
 				}
 			]
 		},
+		{ "menuTitle": "Operador",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarOperador"
+				},
+				{
+					"label": "Listar",
+					"event": "listarOperadores"
+				},
+				{
+					"label": "Borrar por Nombre",
+					"event": "eliminarOperadorPorNombre"
+				},
+				{
+					"label": "Borrar por Id",
+					"event": "eliminarOperadorPorId"
+				},
+				{
+					"label": "Buscar por Id",
+					"event": "buscarOperadorPorId"
+				},
+				{
+					"label": "Buscar por Nombre",
+					"event": "buscarOperadorPorNombre"
+				},
+				{
+					"label": "Mostrar dinero recibido por cada Operador (total y año pasado)",
+					"event": "mostrarDineroPorOperador"
+				}
+			]
+		},
 		{ "menuTitle": "Mantenimiento",
 		  "options":
 			[

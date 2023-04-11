@@ -33,7 +33,11 @@ import com.google.gson.stream.JsonReader;
 
 import uniandes.isis2304.alohandes.negocio.AlohAndes;
 import uniandes.isis2304.alohandes.negocio.Apartamento;
+import uniandes.isis2304.alohandes.negocio.Cliente;
+import uniandes.isis2304.alohandes.negocio.Operador;
 import uniandes.isis2304.alohandes.negocio.VOApartamento;
+import uniandes.isis2304.alohandes.negocio.VOCliente;
+import uniandes.isis2304.alohandes.negocio.VOOperador;
 
 @SuppressWarnings("serial")
 
@@ -373,6 +377,374 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
+	/* ****************************************************************
+	 * 			CRUD de Cliente
+	 *****************************************************************/
+
+	 public void adicionarCliente( )
+	 {
+		 try 
+		 {
+			 String idCliente = JOptionPane.showInputDialog (this, "Id del Cliente?", "Adicionar Cliente", JOptionPane.QUESTION_MESSAGE);
+			 String tipoIdCliente = JOptionPane.showInputDialog (this, "Tipo del id del Cliente?", "Adicionar Cliente", JOptionPane.QUESTION_MESSAGE);
+			 String nombreCliente = JOptionPane.showInputDialog (this, "Nombre del Cliente?", "Adicionar Cliente", JOptionPane.QUESTION_MESSAGE);
+			 String tipoCliente = JOptionPane.showInputDialog (this, "Tipo de Cliente?", "Adicionar Cliente", JOptionPane.QUESTION_MESSAGE);
+			 
+ 
+			 if (idCliente != null && tipoIdCliente != null && nombreCliente != null && tipoCliente != null )
+			 {
+				 VOCliente ap = alohAndes.adicionarCliente(idCliente, tipoIdCliente, nombreCliente, tipoCliente); 
+				 if (ap == null)
+				 {
+					 throw new Exception ("No se pudo crear un Cliente con nombre: " + nombreCliente + " y id: " + idCliente);
+				 }
+				 String resultado = "En adicionarCliente\n\n";
+				 resultado += "Cliente adicionado exitosamente: " + ap;
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 public void listarClientes( )
+	 {
+		 try 
+		 {
+			 List <VOCliente> lista = alohAndes.darVOClientes();
+ 
+			 String resultado = "En listarClientes";
+			 resultado +=  "\n" + listarCliente(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 public void eliminarClientePorNombre ( )
+	 {
+		 try 
+		 {
+			 String nombreClienteStr = JOptionPane.showInputDialog (this, "Nombre del cliente?", "Borrar Cliente: ", JOptionPane.QUESTION_MESSAGE);
+			 
+			 if (nombreClienteStr != null)
+			 {
+			 
+				 long apEliminados = alohAndes.eliminarClientePorNombre(nombreClienteStr);
+ 
+				 String resultado = "En eliminar Cliente\n\n";
+				 resultado += apEliminados + " Clientes eliminados\n";
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 public void eliminarClientePorId ( )
+	 {
+		 try 
+		 {
+			 String idClienteStr = JOptionPane.showInputDialog (this, "Id del Cliente?", "Borrar Cliente en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+			 
+			 if (idClienteStr != null)
+			 {
+			 
+				 long apEliminados = alohAndes.eliminarClientePorId(idClienteStr);
+											 
+ 
+				 String resultado = "En eliminar Cliente\n\n";
+				 resultado += apEliminados + " Clientes eliminados\n";
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 
+ 
+	 public void buscarClientePorId ()
+	 {
+		 try 
+		 {
+			 String idCl = JOptionPane.showInputDialog (this, "Id del Cliente?", "Buscar Cliente por id", JOptionPane.QUESTION_MESSAGE);
+			 
+			 if (idCl != null)
+			 {
+				 VOCliente cliente = alohAndes.darClientePorId(idCl) ;
+				 String resultado = "En buscar Apartamentos\n\n";
+				 if (cliente != null)
+				 {
+					 resultado += "El Cliente es: " + cliente;
+				 }
+				 else
+				 {
+					 resultado += "Un Cliente con id: " + idCl  + " NO EXISTE\n";    				
+				 }
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 public void buscarClientePorNombre( )
+	 {
+		 String nombreCl = JOptionPane.showInputDialog (this, "Nombre del Cliente?", "Buscar Cliente por nombre", JOptionPane.QUESTION_MESSAGE);
+ 
+		 try 
+		 {
+			 
+			 List<Cliente> lista = alohAndes.darClientesPorNombre(nombreCl);
+			 String resultado = "En listarCliente";
+			 resultado +=  "\n" + listarClienteNVO (lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+
+	 /* ****************************************************************
+	 * 			CRUD de Operador
+	 *****************************************************************/
+
+	 public void adicionarOperador()
+	 {
+		 try 
+		 {
+			 String idOperador = JOptionPane.showInputDialog (this, "Id del Operador?", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE);
+			 String nombreOperador = JOptionPane.showInputDialog (this, "Nombre del Operador?", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE);
+			 String tipoOperador = JOptionPane.showInputDialog (this, "Tipo del documento del Operador?", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE);
+			 int validacionCamaraDeComercioEmpresa = Integer.parseInt(JOptionPane.showInputDialog (this, "Tiene validacion de la camara de comercio? 1 para si, 0 para no o no aplica", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE));
+			 int validacionSuperTurismoEmpresa = Integer.parseInt(JOptionPane.showInputDialog (this, "Tiene validacion de la super intendecia de turismo? 1 para si, 0 para no o no aplica", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE));
+			 int miembroComunidadUniversitariaPersona = Integer.parseInt(JOptionPane.showInputDialog (this, "Pertenece a la comunidad Universitaria? 1 para si, 0 para no o no aplica", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE));
+ 
+			 if (idOperador != null && nombreOperador != null && tipoOperador != null)
+			 {
+				 VOOperador op = alohAndes.adicionarOperador(idOperador, nombreOperador, tipoOperador, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+				 if (op == null)
+				 {
+					 throw new Exception ("No se pudo crear un Operador con nombre: " + nombreOperador + " y id: " + idOperador);
+				 }
+				 String resultado = "En adicionarOperador\n\n";
+				 resultado += "Operador adicionado exitosamente: " + op;
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 public void listarOperadores( )
+	 {
+		 try 
+		 {
+			 List <VOOperador> lista = alohAndes.darVOOperadores();
+ 
+			 String resultado = "En listarOperadores";
+			 resultado +=  "\n" + listarOperador(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 public void eliminarOperadorPorNombre ( )
+	 {
+		 try 
+		 {
+			 String nombreOperadorStr = JOptionPane.showInputDialog (this, "Nombre del operador?", "Borrar Operador: ", JOptionPane.QUESTION_MESSAGE);
+			 
+			 if (nombreOperadorStr != null)
+			 {
+			 
+				 long apEliminados = alohAndes.eliminarOperadorPorNombre(nombreOperadorStr);
+ 
+				 String resultado = "En eliminar Operador\n\n";
+				 resultado += apEliminados + " Operadores eliminados\n";
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 public void eliminarOperadorPorId ( )
+	 {
+		 try 
+		 {
+			 String idOperadorStr = JOptionPane.showInputDialog (this, "Id del Operador?", "Borrar Operador en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+			 
+			 if (idOperadorStr != null)
+			 {
+			 
+				 long apEliminados = alohAndes.eliminarOperadorPorId(idOperadorStr);
+											 
+ 
+				 String resultado = "En eliminar Operador\n\n";
+				 resultado += apEliminados + " Operador eliminados\n";
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 
+ 
+	 public void buscarOperadorPorId ()
+	 {
+		 try 
+		 {
+			 String idOP = JOptionPane.showInputDialog (this, "Id del Operador?", "Buscar Operador por id", JOptionPane.QUESTION_MESSAGE);
+			 
+			 if (idOP != null)
+			 {
+				 VOOperador operador = alohAndes.darOperadorPorId(idOP) ;
+				 String resultado = "En buscar Operador\n\n";
+				 if (operador != null)
+				 {
+					 resultado += "El Operador es: " + operador;
+				 }
+				 else
+				 {
+					 resultado += "Un Operador con id: " + idOP  + " NO EXISTE\n";    				
+				 }
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+ 
+	 public void buscarOperadorPorNombre( )
+	 {
+		 String nombreOp = JOptionPane.showInputDialog (this, "Nombre del Operador?", "Buscar Operador por nombre", JOptionPane.QUESTION_MESSAGE);
+ 
+		 try 
+		 {
+			 
+			 List<Operador> lista = alohAndes.darOperadorPorNombre(nombreOp);
+			 String resultado = "En listarOperador";
+			 resultado +=  "\n" + listarOperadorNVO(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+
+	 public void mostrarDineroPorOperador()
+	 {
+		try 
+		 {
+			 List <String> lista = alohAndes.mostrarDineroRecibidoPorCadaOperador();
+ 
+			 String resultado = "En listarOperadores";
+			 resultado +=  "\n" + listarDineroPorOperador(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+
 
 	/* ****************************************************************
 	 * 			Métodos administrativos
@@ -524,6 +896,60 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
         for (Apartamento ap : lista)
         {
         	resp += i++ + ". " + ap.toString() + "\n";
+        }
+        return resp;
+	}
+
+	/* -------------------- LISTAR CLIENTE ----------------------------- */
+	private String listarCliente(List<VOCliente> lista) 
+    {
+    	String resp = "Los clientes existentes son:\n";
+    	int i = 1;
+        for (VOCliente cl : lista)
+        {
+        	resp += i++ + ". " + cl.toString() + "\n";
+        }
+        return resp;
+	}
+	private String listarClienteNVO(List<Cliente> lista) 
+    {
+    	String resp = "Los apartamentos existentes son:\n";
+    	int i = 1;
+        for (Cliente cl : lista)
+        {
+        	resp += i++ + ". " + cl.toString() + "\n";
+        }
+        return resp;
+	}
+
+	/* -------------------- LISTAR OPERADOR ----------------------------- */
+	private String listarOperador(List<VOOperador> lista) 
+    {
+    	String resp = "Los operadores existentes son:\n";
+    	int i = 1;
+        for (VOOperador op : lista)
+        {
+        	resp += i++ + ". " + op.toString() + "\n";
+        }
+        return resp;
+	}
+	private String listarDineroPorOperador(List<String> lista) 
+    {
+    	String resp = "Los operadores existentes son:\n";
+    	int i = 1;
+        for (String op : lista)
+        {
+        	resp += i++ + ". " + op.toString() + "\n";
+        }
+        return resp;
+	}
+	private String listarOperadorNVO(List<Operador> lista) 
+    {
+    	String resp = "Los apartamentos existentes son:\n";
+    	int i = 1;
+        for (Operador op : lista)
+        {
+        	resp += i++ + ". " + op.toString() + "\n";
         }
         return resp;
 	}

@@ -125,3 +125,94 @@ ORA-00904: "INCLUYE_SERVICIOS": invalid identifier
 18:17:54,283 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Apartamento
 18:17:54,298 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Tipos de Apartamento: 6 existentes
 18:18:07,205 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Apartamentos
+18:59:43,307 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:59:43,308 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+18:59:43,327 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:00:24,706 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Cliente id: 69420con el nombre: somsardo
+19:00:24,729 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.persistencia.SQLCliente.adicionarCliente(javax.jdo.PersistenceManager, String, String, String, String)" because "this.sqlCliente" is null
+
+19:00:24,731 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Cliente: null
+19:11:31,882 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:11:31,883 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+19:11:31,899 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:11:58,826 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Cliente id: 69420con el nombre: Somsardo
+19:11:59,124 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Cliente: Cliente [id=69420, tipoId=CC, nombre=Somsardo, tipo=estudiante]
+19:12:25,654 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Cliente
+19:12:25,756 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Tipos de Cliente: 20 existentes
+19:12:45,844 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Eliminando cliente con el nombre: Somsardo
+19:12:45,918 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Eliminando Cliente: 1 tuplas eliminadas
+19:12:48,745 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Cliente
+19:12:48,808 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Tipos de Cliente: 19 existentes
+20:24:07,989 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:24:07,991 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:24:08,009 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:24:21,554 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:24:21,555 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:24:21,573 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:28:13,972 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:28:13,972 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:28:13,992 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:28:26,737 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+20:33:30,371 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:33:30,372 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:33:30,388 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:33:44,006 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Cliente
+20:33:44,108 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Tipos de Cliente: 19 existentes
+20:33:46,088 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Operador
+20:42:09,374 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:42:09,374 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:42:09,394 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:42:13,634 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Operador
+20:48:38,639 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:48:38,641 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:48:38,661 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:48:42,306 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Operador
+20:49:24,247 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:49:24,247 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:49:24,266 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:49:27,477 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Operador
+20:51:00,860 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:51:00,861 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:51:00,884 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:51:04,873 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Operador
+20:53:58,849 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:53:58,850 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:53:58,868 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:54:02,215 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Operador
+20:57:40,699 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:57:40,699 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+20:57:40,717 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:57:44,445 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Operador
+21:08:19,777 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:08:19,778 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:08:19,798 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:09:42,603 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:09:42,604 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:09:42,625 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:10:54,836 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:10:54,837 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:10:54,856 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:15:44,207 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:15:44,208 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:15:44,226 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:16:02,245 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 69420con el nombre: somsigod
+21:16:02,498 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO OPERADOR(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona) values (?, ?, ?, ?, ?, ?)".
+ORA-00904: "MIEMBROCOMUNIDADUNIVERSITARIAPERSONA": identificador no válido
+
+21:16:02,543 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: null
+21:17:40,460 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:17:40,462 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:17:40,482 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:18:06,471 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 69420 con el nombre: a
+21:18:06,735 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO OPERADOR(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona) values (?, ?, ?, ?, ?, ?)".
+ORA-00904: "MIEMBROCOMUNIDADUNIVERSITARIAPERSONA": identificador no válido
+
+21:18:06,764 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: null
+21:19:09,212 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:19:09,213 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:19:09,230 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:19:21,236 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 69 con el nombre: a
+21:19:21,510 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO OPERADOR(id, nombre, tipo, validacion_Camara_De_Comercio_Empresa, validacion_Super_Turismo_Empresa, miembro_Comunidad_Universitaria_Persona) values (?, ?, ?, ?, ?, ?)".
+ORA-02290: restricción de control (ISIS2304B07202310.CK_EMPRESA_O_PERSONA) violada
+
+21:19:21,543 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: null
