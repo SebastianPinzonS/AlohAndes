@@ -210,6 +210,7 @@ public class PersistenciaAlohAndes
 		sqlInstalacionHabitacionHotel = new SQLInstalacionHabitacionHotel(this);
         sqlApartamento = new SQLApartamento(this);
 		sqlUtil = new SQLUtil(this);
+        sqlOferta = new SQLOferta(this);
 	}
 
     public String getTabla(int index){

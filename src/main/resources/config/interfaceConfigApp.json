@@ -59,6 +59,19 @@
 				}
 			]
 		},
+		{ "menuTitle": "Oferta",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarOferta"
+				},
+				{
+					"label": "Eliminar por id",
+					"event": "eliminarOfertaPorId"
+				}
+			]
+		},
 		{ "menuTitle": "Mantenimiento",
 		  "options":
 			[
@@ -116,17 +129,8 @@
 					"event": "mostrarJavadoc"
 				}
 			]
-		},		
-		{ "menuTitle": "Acerca de ...",
-		  "options":
-			[
-				{
-					"label": "Acerca de ...",
-					"event": "acercaDe"
-				}
-			]
-		}		
-		
+		}	
+	
 	]
 }
 	

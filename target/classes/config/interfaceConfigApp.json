@@ -67,7 +67,7 @@
 					"event": "adicionarOferta"
 				},
 				{
-					"label": "Listar",
+					"label": "Eliminar por id",
 					"event": "eliminarOfertaPorId"
 				}
 			]

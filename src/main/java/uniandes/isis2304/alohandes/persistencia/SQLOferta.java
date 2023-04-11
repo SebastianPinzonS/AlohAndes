@@ -25,42 +25,42 @@ class SQLOferta
 
 	public long adicionarOfertaHabitacionHostal (PersistenceManager pm, long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHostal, String numeroHabitacionHostal) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIO, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_HOSTAL, NUMERO_HABITACION_HOSTAL, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIOS, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_HOSTAL_HABITACION_HOSTAL, NUMERO_HABITACION_HABITACION_HOSTAL, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         q.setParameters(id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostal, numeroHabitacionHostal, 0 );
         return (long) q.executeUnique();
 	}
 
 	public long adicionarOfertaHabitacionHotel (PersistenceManager pm, long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIO, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_HOTEL_HABITACION_HOTEL, NUMERO_HABITACION_HABITACION_HOTEL, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?. ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIOS, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_HOTEL_HABITACION_HOTEL, NUMERO_HABITACION_HABITACION_HOTEL, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?. ?)");
         q.setParameters(id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel, 0 );
         return (long) q.executeUnique();
 	}
 
 	public long adicionarOfertaViviendaUniversitaria (PersistenceManager pm, long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIO, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_VIVIENDA_UNIVERSITARIA, NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIOS, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_VIVIENDA_UNIVERSITARIA, NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         q.setParameters(id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria, 0 );
         return (long) q.executeUnique();
 	}
 
 	public long adicionarOfertaViviendaHabitacion (PersistenceManager pm, long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIO, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_VIVIENDA_HABITACION, NUMERO_APARTAMENTO_VIVIENDA_HABITACION, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIOS, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_VIVIENDA_HABITACION, NUMERO_APARTAMENTO_VIVIENDA_HABITACION, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         q.setParameters(id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion, 0 );
         return (long) q.executeUnique();
 	}
 
 	public long adicionarOfertaApartamento (PersistenceManager pm, long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionApartamento, String numeroApartamento) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIO, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_APARTAMENTO, NUMERO_APARTAMENTO, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIOS, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_APARTAMENTO, NUMERO_APARTAMENTO, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         q.setParameters(id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionApartamento, numeroApartamento, 0 );
         return (long) q.executeUnique();
 	}
 
 	public long adicionarOfertaViviendaExpress (PersistenceManager pm, long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaExpress) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIO, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_VIVIENDA_EXPRESS, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOferta () + "(ID, FECHA_INICIAL, DURACION_CONTRATO_DIAS, COSTO_CONTRATO, PRECIO_ESPECIAL, CONDICION_PRECIO_ESPECIAL, PRECIO_ESPECIAL_TOMADO, COSTO_ADICIONAL_SERVICIOS, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_VIVIENDA_EXPRESS, VISITAS) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         q.setParameters(id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , precioEspecialTomado, costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaExpress, 0 );
         return (long) q.executeUnique();
 	}
@@ -89,14 +89,14 @@ class SQLOferta
 
 	public long eliminarOfertaPorHabitacionHostal (PersistenceManager pm, String direccionHostal, String numeroHabitacionHostal)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_HOSTAL = ? AND NUMERO_HABITACION_HOSTAL = ?)");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_HOSTAL_HABITACION_HOSTAL = ? AND NUMERO_HABITACION_HABITACION_HOSTAL = ?)");
         q.setParameters(direccionHostal, numeroHabitacionHostal);
         return (long) q.executeUnique();
 	}
 
 	public long eliminarOfertaPorHabitacionHotel (PersistenceManager pm, String direccionHotel, String numeroHabitacionHotel)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_HOSTAL = ? AND NUMERO_HABITACION_HOSTAL = ?)");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta () + " WHERE (DIRECCION_HOTEL_HABITACION_HOTEL = ? AND NUMERO_HABITACION_HABITACION_HOTEL = ?)");
         q.setParameters(direccionHotel, numeroHabitacionHotel);
         return (long) q.executeUnique();
 	}

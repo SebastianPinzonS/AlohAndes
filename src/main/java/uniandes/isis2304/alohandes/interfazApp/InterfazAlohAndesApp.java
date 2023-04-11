@@ -381,7 +381,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
     {
     	try 
     	{
-    		String opcion = JOptionPane.showInputDialog (this, "Que oferta desea? HabitacionHostal, HabitacionHotel, Oferta, ViviendaUniversitaria, ViviendaHabitacion o ViviendaExpress", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
+    		String opcion = JOptionPane.showInputDialog (this, "Que oferta desea? HabitacionHostal, HabitacionHotel, Apartamento, ViviendaUniversitaria, ViviendaHabitacion o ViviendaExpress", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 			if (opcion == "HabitacionHotel")
 			{
 				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
