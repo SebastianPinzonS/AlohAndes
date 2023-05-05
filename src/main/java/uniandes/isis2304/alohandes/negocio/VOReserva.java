@@ -17,7 +17,7 @@ public interface VOReserva {
 	/**
 	 * @return 
 	 */
-	public String getEspecialTomado();
+	public int getEspecialTomado();
 
 	/** 
 	 * @return Una cadena con la información básica

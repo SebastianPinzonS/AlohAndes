@@ -62,13 +62,13 @@ public class Reserva {
 
 
 
-    public String getPrecioEspecialTomado() {
+    public int getPrecioEspecialTomado() {
         return precioEspecialTomado;
     }
 
 
 
-    public void setPrecioEspecialTomado(String precioEspecialTomado) {
+    public void setPrecioEspecialTomado(int precioEspecialTomado) {
         this.precioEspecialTomado = precioEspecialTomado;
     }
 
