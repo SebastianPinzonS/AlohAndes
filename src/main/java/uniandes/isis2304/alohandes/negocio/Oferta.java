@@ -18,15 +18,11 @@ public class Oferta implements VOOferta
 
 	private String condicionPrecioEspecial;
 
-	private int precioEspecialTomado;
-
 	private int costoAdicionalServicios;
 
 	private int costoSeguroArrendamiento;
 
 	private String idOperador;
-
-	private String idCliente;
 
 	private String direccionHostalHabitacionHostal;
 
@@ -67,11 +63,9 @@ public class Oferta implements VOOferta
 		this.costoContrato = 0;
 		this.precioEspecial = 0;
 		this.condicionPrecioEspecial = "";
-		this.precioEspecialTomado = 0;
 		this.costoAdicionalServicios = 0;
 		this.costoSeguroArrendamiento = 0;
 		this.idOperador = "";
-		this.idCliente = "";
 		this.direccionHostalHabitacionHostal = "";
 		this.numeroHabitacionHabitacionHostal = "";
 		this.direccionHotelHabitacionHotel = "";
@@ -87,8 +81,8 @@ public class Oferta implements VOOferta
 	}
 	
 	public Oferta(long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial,
-			String condicionPrecioEspecial, int precioEspecialTomado, int costoAdicionalServicios, int costoSeguroArrendamiento,
-			String idOperador, String idCliente, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal,
+			String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento,
+			String idOperador, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal,
 			String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel,
 			String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria,
 			String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion, String direccionApartamento,
@@ -96,7 +90,6 @@ public class Oferta implements VOOferta
 	{
 		this.id = id;
 		this.fechaInicial = fechaInicial;
-		this.precioEspecialTomado = precioEspecialTomado;
 		this.duracionContratoDias = duracionContratoDias;
 		this.costoContrato = costoContrato;
 		this.precioEspecial = precioEspecial;
@@ -104,7 +97,6 @@ public class Oferta implements VOOferta
 		this.costoAdicionalServicios = costoAdicionalServicios;
 		this.costoSeguroArrendamiento = costoSeguroArrendamiento;
 		this.idOperador = idOperador;
-		this.idCliente = idCliente;
 		this.direccionHostalHabitacionHostal = direccionHostalHabitacionHostal;
 		this.numeroHabitacionHabitacionHostal = numeroHabitacionHabitacionHostal;
 		this.direccionHotelHabitacionHotel = direccionHotelHabitacionHotel;
@@ -168,14 +160,6 @@ public class Oferta implements VOOferta
 		this.condicionPrecioEspecial = condicionPrecioEspecial;
 	}
 
-	public int getPrecioEspecialTomado() {
-		return precioEspecialTomado;
-	}
-
-	public void setPrecioEspecialTomado(int precioEspecialTomado) {
-		this.precioEspecialTomado = precioEspecialTomado;
-	}
-
 	public int getCostoAdicionalServicios() {
 		return costoAdicionalServicios;
 	}
@@ -198,14 +182,6 @@ public class Oferta implements VOOferta
 
 	public void setIdOperador(String idOperador) {
 		this.idOperador = idOperador;
-	}
-
-	public String getIdCliente() {
-		return idCliente;
-	}
-
-	public void setIdCliente(String idCliente) {
-		this.idCliente = idCliente;
 	}
 
 	public String getDireccionHostal() {

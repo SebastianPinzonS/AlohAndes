@@ -40,11 +40,6 @@ public interface VOOferta
 	/**
 	 * @return 
 	 */
-	public int getPrecioEspecialTomado();
-
-	/**
-	 * @return 
-	 */
 	public int getCostoAdicionalServicios();
 
 	/**
@@ -56,11 +51,6 @@ public interface VOOferta
 	 * @return 
 	 */
 	public String getIdOperador();
-
-	/**
-	 * @return 
-	 */
-	public String getIdCliente();
 
 	/**
 	 * @return 
