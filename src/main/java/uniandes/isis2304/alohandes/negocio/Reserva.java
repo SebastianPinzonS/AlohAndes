@@ -27,7 +27,7 @@ public class Reserva implements VOReserva{
 		
     }
 
-    public Reserva(String idOferta, String idCliente, int precioEspecialTomado) {
+    public Reserva(long idOferta, String idCliente, int precioEspecialTomado) {
             this.idOferta = idOferta;
             this.idCliente = idCliente;
             this.precioEspecialTomado = precioEspecialTomado;
