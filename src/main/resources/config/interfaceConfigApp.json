@@ -105,6 +105,19 @@
 				}
 			]
 		},
+		{ "menuTitle": "Reserva",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarReserva"
+				},
+				{
+					"label": "Listar",
+					"event": "listarReservas"
+				}
+			]
+		},
 		{ "menuTitle": "Mantenimiento",
 		  "options":
 			[

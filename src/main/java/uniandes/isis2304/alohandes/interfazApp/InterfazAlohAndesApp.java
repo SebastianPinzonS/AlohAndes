@@ -418,8 +418,8 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		 }
 	 }
  
-	 public void listarClientes( )
-	 {
+	public void listarClientes( )
+	{
 		 try 
 		 {
 			 List <VOCliente> lista = alohAndes.darVOClientes();
@@ -946,8 +946,59 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	/* ****************************************************************
 	 * 			CRUD de Reserva
 	 *****************************************************************/
-
-	pu
+	public void listarReservas( )
+	{
+		 try 
+		 {
+			 List <Reserva> lista = alohAndes.darReservas();
+ 
+			 String resultado = "En listarReservas";
+			 resultado +=  "\n" + listarCliente(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	}
+	
+	public void adicionarCliente( )
+	{
+		 try 
+		 {
+			 long idOperadpr = Long.valueOf(JOptionPane.showInputDialog (this, "Id del operador?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+			 String idCliente = JOptionPane.showInputDialog (this, "Id del Cliente?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
+			 int nombreCliente = Int.valueOf(JOptionPane.showInputDialog (this, "Nombre del Cliente?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+			 
+			 
+ 
+			 if (idCliente != null && idOferta != null && nombreCliente != null)
+			 {
+				 VOCliente ap = alohAndes.adicionarReserva(idOferta, idCliente, nombreCliente); 
+				 if (ap == null)
+				 {
+					 throw new Exception ("No se pudo crear una Reserva con idOferta: " + idOferta );
+				 }
+				 String resultado = "En adicionarOferta\n\n";
+				 resultado += "Oferta adicionado exitosamente: " + ap;
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	}
 	
 	 
 	
