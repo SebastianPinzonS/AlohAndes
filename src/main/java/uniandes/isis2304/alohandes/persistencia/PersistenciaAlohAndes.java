@@ -914,6 +914,7 @@ public class PersistenciaAlohAndes
             pm.close();
         }
 	}
+	
 
 	public long eliminarHotelPorDireccion (String direccion) 
 	{
@@ -2450,5 +2451,7 @@ public class PersistenciaAlohAndes
 	{
 		return sqlReserva.darReservas(pmf.getPersistenceManager());
 	}
+
+	
  }
 
