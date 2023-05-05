@@ -7,7 +7,7 @@ public interface VOReserva {
 	/**
 	 * @return 
 	 */
-	public String getIdOperador();
+	public long getIdOperador();
 
 	/**
 	 * @return 
