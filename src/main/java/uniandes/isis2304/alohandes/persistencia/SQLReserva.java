@@ -40,20 +40,20 @@ public class SQLReserva
         return (long) q.executeUnique();
 	}
 
-	public long eliminarOfertaPorIdOferta (PersistenceManager pm, String idOferta)
+	public long eliminarReservaPorIdOferta (PersistenceManager pm, String idOferta)
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta() + " WHERE id_oferta = ?");
         q.setParameters(idOferta);
         return (long) q.executeUnique();            
 	}
 
-	public long eliminarOfertaPorIdCliente (PersistenceManager pm, String idCliente)
+	public long eliminarReservaPorIdCliente (PersistenceManager pm, String idCliente)
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta() + " WHERE id_cliente = ?");
         q.setParameters(idCliente);
         return (long) q.executeUnique();        
 
-	public Oferta darOfertaPorIdOferta (PersistenceManager pm, String idOferta) 
+	public Oferta darReservaPorIdOferta (PersistenceManager pm, String idOferta) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE id_oferta = ?");
 		q.setResultClass(Oferta.class);
@@ -61,7 +61,7 @@ public class SQLReserva
 		return (Oferta) q.executeUnique();
 	}
 
-	public List<Oferta> darOfertaPorNombre (PersistenceManager pm, String idCliente) 
+	public List<Oferta> darReservaPorIdCliente (PersistenceManager pm, String idCliente) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE id_cliente = ?");
 		q.setResultClass(Oferta.class);
@@ -69,23 +69,11 @@ public class SQLReserva
 		return (List<Oferta>) q.executeList();
 	}
 
-	public List<Oferta> darOfertas (PersistenceManager pm)
+	public List<Reserva> darReservas (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT ID, NOMBRE, TIPO, VALIDACION_CAMARA_DE_COMERCIO_EMPRESA, VALIDACION_SUPER_TURISMO_EMPRESA, MIEMBRO_COMUNIDAD_UNIVERSITARIA_PERSONA FROM " + pa.darTablaOferta());
-		List<Oferta> resp = new LinkedList<>();
-		List results = q.executeList();
-		for (Object obj : results)
-		{
-			Object [] datos = (Object []) obj;
-			String id =  (String) datos [0];
-			String nombre =  (String) datos [1];
-			String tipo = (String) datos[2];
-			int validacionCamaraDeComercioEmpresa = ((BigDecimal) datos [3]).intValue();
-			int validacionSuperTurismoEmpresa = ((BigDecimal) datos [4]).intValue();
-			int miembroComunidadUniversitariaPersona = ((BigDecimal) datos [5]).intValue();
-			resp.add (new Oferta(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona));
-		}
-		return (resp) ;
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaReserva ());
+		q.setResultClass(Reserva.class);
+		return (List<Reserva>) q.executeList();
 	}
 
 	
