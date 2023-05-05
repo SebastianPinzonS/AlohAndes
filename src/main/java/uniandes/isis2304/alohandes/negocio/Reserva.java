@@ -1,15 +1,15 @@
 package uniandes.isis2304.alohandes.negocio;
 
-public class Reserva {
+public class Reserva implements VOReserva{
     
 
 
 
-    private String idOperador;
+    private long idOferta;
 	
 	private String idCliente;
 
-	private String precioEspecialTomado;
+	private int precioEspecialTomado;
 
 	
 
@@ -21,14 +21,14 @@ public class Reserva {
 	 */
 	public Reserva() 
 	{
-		this.idOperador = "";
+		this.idOferta = 0;
 		this.idCliente = "";
-		this.precioEspecialTomado = "";
+		this.precioEspecialTomado = 0;
 		
     }
 
-    public Reserva(String idOperador, String idCliente, String precioEspecialTomado) {
-            this.idOperador = idOperador;
+    public Reserva(String idOferta, String idCliente, int precioEspecialTomado) {
+            this.idOferta = idOferta;
             this.idCliente = idCliente;
             this.precioEspecialTomado = precioEspecialTomado;
         }
@@ -38,14 +38,14 @@ public class Reserva {
 
 
 
-    public String getIdOperador() {
-        return idOperador;
+    public long getIdOferta() {
+        return idOferta;
     }
 
 
 
-    public void setIdOperador(String idOperador) {
-        this.idOperador = idOperador;
+    public void setidOferta(long idOferta) {
+        this.idOferta = idOferta;
     }
 
 
@@ -78,6 +78,6 @@ public class Reserva {
 	@Override
 	public String toString() 
 	{
-		return "Reserva [idOperador=" + idOperador + ", idCliente=" + idCliente + ", precioEspecialTomado=" + precioEspecialTomado + "]";
+		return "Reserva [idOferta=" + idOferta + ", idCliente=" + idCliente + ", precioEspecialTomado=" + precioEspecialTomado + "]";
 	}
 }

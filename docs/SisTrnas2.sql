@@ -236,9 +236,7 @@ CREATE TABLE oferta
     condicion_precio_especial VARCHAR2(200) NOT NULL,
     costo_adicional_servicios NUMBER(20,0) NOT NULL,
     costo_seguro_arrendamiento NUMBER(20,0) NOT NULL,
-    precio_especial_tomado NUMERIC(1,0) NOT NULL,
     id_operador VARCHAR2(20) NOT NULL,
-    id_cliente VARCHAR2(20),
     direccion_hostal_habitacion_hostal VARCHAR2(40),
     numero_habitacion_habitacion_hostal VARCHAR2(20),
     direccion_hotel_habitacion_hotel VARCHAR2(40),
@@ -250,10 +248,6 @@ CREATE TABLE oferta
     direccion_apartamento VARCHAR2(40),
     numero_apartamento VARCHAR2(20),
     direccion_vivienda_express VARCHAR2(40));
-
-ALTER TABLE oferta
-ADD CONSTRAINT CK_precio_especial_tomado
-CHECK (precio_especial_tomado in (1,0));
     
 ALTER TABLE oferta
 ADD CONSTRAINT CK_oferta_solo_un_lugar
@@ -272,11 +266,6 @@ ALTER TABLE oferta
 ADD CONSTRAINT FK_id_operador
 FOREIGN KEY (id_operador)
 REFERENCES operador(id);
-
-ALTER TABLE oferta
-ADD CONSTRAINT FK_id_cliente
-FOREIGN KEY (id_cliente)
-REFERENCES cliente(id);
 
 ALTER TABLE oferta
 ADD CONSTRAINT FK_direccion_y_numero_habitacion_hostal
@@ -312,6 +301,29 @@ CREATE SEQUENCE AlohAndes_sequence
 START WITH 40
 INCREMENT BY 1
 NOCYCLE;
+
+CREATE TABLE reserva
+    (id_oferta NUMBER(38,0) NOT NULL,
+    id_cliente VARCHAR2(20) NOT NULL,
+    precio_especial_tomado NUMBER(1,0) NOT NULL);
+
+ALTER TABLE reserva
+ADD CONSTRAINT PK_reserva
+PRIMARY KEY (id_oferta, id_cliente);
+
+ALTER TABLE reserva
+ADD CONSTRAINT CK_precio_especial_tomado
+CHECK (precio_especial_tomado in (1,0));
+
+ALTER TABLE reserva
+ADD CONSTRAINT FK_id_oferta
+FOREIGN KEY (id_oferta)
+REFERENCES oferta(id);
+
+ALTER TABLE reserva
+ADD CONSTRAINT FK_id_cliente
+FOREIGN KEY (id_cliente)
+REFERENCES cliente(id);
 
 --RFC1  
 SELECT dinero.id_operador, nombres.nombre, dinero.dinero_total, dinero.dinero_ano

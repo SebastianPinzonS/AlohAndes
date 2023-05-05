@@ -7,7 +7,7 @@ public interface VOReserva {
 	/**
 	 * @return 
 	 */
-	public String getIdOperador();
+	public String getIdOferta();
 
 	/**
 	 * @return 
@@ -17,7 +17,7 @@ public interface VOReserva {
 	/**
 	 * @return 
 	 */
-	public int getEspecialTomado();
+	public int getPrecioEspecialTomado();
 
 	/** 
 	 * @return Una cadena con la información básica
