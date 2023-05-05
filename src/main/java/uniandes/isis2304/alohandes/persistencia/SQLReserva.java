@@ -62,7 +62,7 @@ public class SQLReserva
 		return (Reserva) q.executeUnique();
 	}
 
-	public List<Reserva> darReservaPorIdCliente (PersistenceManager pm, String idCliente) 
+	public List<Reserva> darReservasPorIdCliente (PersistenceManager pm, String idCliente) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaReserva () + " WHERE id_cliente = ?");
 		q.setResultClass(Reserva.class);

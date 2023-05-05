@@ -2351,7 +2351,7 @@ public class PersistenciaAlohAndes
     /* ****************************************************************
 	 * 			Métodos para manejar las RESERVA
 	 *****************************************************************/
-    public Reserva adicionaReserva(long idOferta, String idCliente, int precioEspecialTomado)
+    public Reserva adicionarReserva(long idOferta, String idCliente, int precioEspecialTomado)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -2441,9 +2441,9 @@ public class PersistenciaAlohAndes
 		return sqlReserva.darReservaPorIdOferta(pmf.getPersistenceManager(), idOferta);
 	}
 
-    public List<Reserva> darReservaPorIdCliente (String idCliente)
+    public List<Reserva> darReservasPorIdCliente (String idCliente)
 	{
-		return sqlReserva.darReservaPorIdCliente(pmf.getPersistenceManager(), idCliente);
+		return sqlReserva.darReservasPorIdCliente(pmf.getPersistenceManager(), idCliente);
 	}
 
 	public List<Reserva> darReservas ()
