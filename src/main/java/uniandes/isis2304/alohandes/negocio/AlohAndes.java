@@ -114,6 +114,80 @@ public class AlohAndes
 		log.info ("Buscando Apartamentos: "  != null ? apartamentos : "NO EXISTE");
         return apartamentos;
 	}
+	/* ****************************************************************
+	 * 			Métodos para manejar las Hotel
+	 *****************************************************************/
+
+	public Hotel adicionarHotel (String nombre, float calificacion, String direccion)
+	{
+        log.info ("Adicionando Hotel de nombre: " + nombre + " en la direccion: " + direccion);
+        Hotel Hotel = pa.adicionarHotel(nombre, calificacion, direccion);		
+        log.info ("Adicionando Hotel: " + Hotel);
+        return Hotel;
+	}
+	
+
+	public long eliminarHotelPorDireccion (String direccion)
+	{
+		log.info ("Eliminando Hotel en direccion: " + direccion);
+        long resp = pa.eliminarHotelPorDireccion (direccion);		
+        log.info ("Eliminando Hotel: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+
+	public long eliminarHotelPorNombre (String direccion, String numero)
+	{
+		log.info ("Eliminando Hotel numero: " + numero + " en la direccion: " + direccion);
+        long resp = pa.eliminarApartmentoPorDireccionYNumero (direccion, numero);		
+        log.info ("Eliminando Hotel: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	public Hotel darHotelPorDireccionYNumero (String direccion, String numero)
+	{
+		log.info ("Consultando Hotel");
+        Hotel Hotel = pa.darHotelPorDireccionYNumero (direccion, numero);	
+		log.info ("Buscando Hotel: " + direccion + " " + numero != null ? Hotel : "NO EXISTE");
+        return Hotel;
+	}
+
+	public List<VOHotel> darVOHotels ()
+	{
+		log.info ("Generando los VO de Hotel");        
+        List<VOHotel> voHotels = new LinkedList<VOHotel> ();
+        List<Hotel> Hotels = pa.darHotel ();
+        for (Hotel ap : Hotels )
+        {
+        	voHotels.add (ap);
+        }
+        log.info ("Generando los VO de Tipos de Hotel: " + voHotels.size() + " existentes");
+        return voHotels;
+	}
+
+	public List<Hotel> darHotelPorNombreYNumero (String nombre, String numero)
+	{
+		log.info ("Consultando Hotels");
+        List<Hotel> Hotels = pa.darHotelPorNombreYNumero (nombre, numero);	
+		log.info ("Buscando Hotels: " + nombre + " " + numero != null ? Hotels : "NO EXISTE");
+        return Hotels;
+	}
+
+	public List<Hotel> darHotelsPorDireccion (String direccion)
+	{
+		log.info ("Consultando Hotels");
+        List<Hotel> Hotels = pa.darHotelsPorDireccion (direccion);	
+		log.info ("Buscando Hotels: " + direccion != null ? Hotels : "NO EXISTE");
+        return Hotels;
+	}
+
+	public List<Hotel> darHotel ()
+	{
+		log.info ("Consultando Hotels");
+        List<Hotel> Hotels = pa.darHotel ();	
+		log.info ("Buscando Hotels: "  != null ? Hotels : "NO EXISTE");
+        return Hotels;
+	}
+
 
 	/* ****************************************************************
 	 * 			Métodos para manejar los CLIENTE

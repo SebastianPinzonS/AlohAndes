@@ -371,6 +371,184 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+	/* ****************************************************************
+	 * 			CRUD de Hotel
+	 *****************************************************************/
+    /**
+     * Adiciona un tipo de bebida con la información dada por el usuario
+     * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
+     */
+
+    public void adicionarHotel( )
+    {
+    	try 
+    	{
+			String nombreHotel = JOptionPane.showInputDialog (this, "Nombre de Hotel?", "Adicionar Hotel", JOptionPane.QUESTION_MESSAGE);
+			float calificacionHotel = Float.parseFloat(JOptionPane.showInputDialog (this, "Cual es la Calificacion?", "Adicionar Hotel", JOptionPane.QUESTION_MESSAGE));
+    		String direccionHotel = JOptionPane.showInputDialog (this, "Direccion del hotel?", "Adicionar Hotel", JOptionPane.QUESTION_MESSAGE);
+			
+    		if (direccionHotel != null	&&  nombreHotel != null )
+    		{
+        		VOHotel ap = alohAndes.adicionarHotel (nombreHotel,calificacionHotel, direccionHotel);
+        		if (ap == null)
+        		{
+        			throw new Exception ("No se pudo crear un Hotel con nombre: " + nombreHotel + " y direccion: " + direccionHotel);
+        		}
+        		String resultado = "En adicionarHotel\n\n";
+        		resultado += "Hotel adicionado exitosamente: " + ap;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+
+    public void listarHotels( )
+    {
+    	try 
+    	{
+			List <VOHotel> lista = alohAndes.darVOHotels();
+
+			String resultado = "En listarHotel";
+			resultado +=  "\n" + listarHotel (lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+
+    public void eliminarHotelPorNombreYNumero ( )
+    {
+    	try 
+    	{
+    		String nombreApartmanetoStr = JOptionPane.showInputDialog (this, "Nombre del edificio del Hotel?", "Borrar Hotel en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+    		String numeroApartmanetoStr = JOptionPane.showInputDialog (this, "Numero de Hotel?", "Borrar Hotel en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+
+    		if (nombreApartmanetoStr != null && numeroApartmanetoStr != null)
+    		{
+    		
+    			long apEliminados = alohAndes.eliminarHotelPorNombreYNumero(nombreApartmanetoStr, numeroApartmanetoStr);
+
+    			String resultado = "En eliminar Hotel\n\n";
+    			resultado += apEliminados + " Apartmentos eliminados\n";
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+
+    public void eliminarHotelPorDireccionYNumero ( )
+    {
+    	try 
+    	{
+    		String direccionApartmanetoStr = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Borrar Hotel en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+    		String numeroApartmanetoStr = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Borrar Hotel en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+
+    		if (direccionApartmanetoStr != null && numeroApartmanetoStr != null)
+    		{
+    		
+    			long apEliminados = alohAndes.eliminarApartmentoPorDireccionYNumero(direccionApartmanetoStr, numeroApartmanetoStr);
+											
+
+    			String resultado = "En eliminar Hotel\n\n";
+    			resultado += apEliminados + " Apartmentos eliminados\n";
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+
+	
+
+    public void buscarHotelsPorDireccionYNumero ()
+    {
+    	try 
+    	{
+    		String direccionAp = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Buscar Hotel por direccion", JOptionPane.QUESTION_MESSAGE);
+			String numeroAp = JOptionPane.showInputDialog (this, "Numero del Hotel?", "Buscar Hotel por direccion", JOptionPane.QUESTION_MESSAGE);
+
+    		if (numeroAp != null && direccionAp != null)
+    		{
+    			VOHotel Hotel = alohAndes.darHotelPorDireccionYNumero(direccionAp, numeroAp) ;
+    			String resultado = "En buscar Hotels\n\n";
+    			if (Hotel != null)
+    			{
+        			resultado += "El Hotel es: " + Hotel;
+    			}
+    			else
+    			{
+        			resultado += "Un Hotel con direccion y numero: " + direccionAp +" "+numeroAp  + " NO EXISTE\n";    				
+    			}
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+
+	public void buscarHotelsPorDireccion( )
+    {
+		String direccionAp = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Buscar Hotel por direccion", JOptionPane.QUESTION_MESSAGE);
+
+    	try 
+    	{
+			
+			List<Hotel> lista = alohAndes.darHotelsPorDireccion(direccionAp);
+			String resultado = "En listarHotel";
+			resultado +=  "\n" + listarHotelNVO (lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
 
 	/* ****************************************************************
 	 * 			CRUD de Cliente
@@ -1184,14 +1362,25 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
         }
         return resp;
 	}
+
+	  private String listarHotel(List<Hotel> lista) 
+    {
+    	String resp = "Los apartamentos existentes son:\n";
+    	int i = 1;
+        for (Hotel ho : lista)
+        {
+        	resp += i++ + ". " + ho.toString() + "\n";
+        }
+        return resp;
+	}
     
     private String listarReservas(List<Reserva> lista) 
     {
     	String resp = "Los apartamentos existentes son:\n";
     	int i = 1;
-        for (Reserva ap : lista)
+        for (Reserva re : lista)
         {
-        	resp += i++ + ". " + ap.toString() + "\n";
+        	resp += i++ + ". " + re.toString() + "\n";
         }
         return resp;
 	}
