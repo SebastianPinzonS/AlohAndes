@@ -1,4 +1,13 @@
-package uniandes.isis2304.alohandes.persistencia;
+uniandes.isis2304.alohandes.persistencia;
+
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.Query;
+
+import uniandes.isis2304.alohandes.negocio.Reserva;
 
 public class SQLReserva 
 {
@@ -31,37 +40,36 @@ public class SQLReserva
         return (long) q.executeUnique();
 	}
 
-	public long eliminarOfertaPorId (PersistenceManager pm, String nombre)
+	public long eliminarOfertaPorIdOferta (PersistenceManager pm, String idOferta)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta() + " WHERE nombre = ?");
-        q.setParameters(nombre);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta() + " WHERE id_oferta = ?");
+        q.setParameters(idOferta);
         return (long) q.executeUnique();            
 	}
 
-	public long eliminarOfertaPorId (PersistenceManager pm, String id)
+	public long eliminarOfertaPorIdCliente (PersistenceManager pm, String idCliente)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta () + " WHERE id = ?");
-        q.setParameters(id);
-        return (long) q.executeUnique();            
-	}
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaOferta() + " WHERE id_cliente = ?");
+        q.setParameters(idCliente);
+        return (long) q.executeUnique();        
 
-	public Oferta darOfertaPorId (PersistenceManager pm, String id) 
+	public Oferta darOfertaPorIdOferta (PersistenceManager pm, String idOferta) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE id = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE id_oferta = ?");
 		q.setResultClass(Oferta.class);
-		q.setParameters(id);
+		q.setParameters(idOferta);
 		return (Oferta) q.executeUnique();
 	}
 
-	public List<Oferta> darOfertaPorNombre (PersistenceManager pm, String nombre) 
+	public List<Oferta> darOfertaPorNombre (PersistenceManager pm, String idCliente) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE nombre = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOferta () + " WHERE id_cliente = ?");
 		q.setResultClass(Oferta.class);
-		q.setParameters(nombre);
+		q.setParameters(idCliente);
 		return (List<Oferta>) q.executeList();
 	}
 
-	public List<Oferta> darOfertaes (PersistenceManager pm)
+	public List<Oferta> darOfertas (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT ID, NOMBRE, TIPO, VALIDACION_CAMARA_DE_COMERCIO_EMPRESA, VALIDACION_SUPER_TURISMO_EMPRESA, MIEMBRO_COMUNIDAD_UNIVERSITARIA_PERSONA FROM " + pa.darTablaOferta());
 		List<Oferta> resp = new LinkedList<>();
