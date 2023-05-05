@@ -135,27 +135,20 @@ public class AlohAndes
         return resp;
 	}
 
-	public long eliminarHotelPorNombre (String direccion, String numero)
+	public long eliminarHotelPorNombre (String nombre)
 	{
-		log.info ("Eliminando Hotel numero: " + numero + " en la direccion: " + direccion);
-        long resp = pa.eliminarApartmentoPorDireccionYNumero (direccion, numero);		
+		log.info ("Eliminando Hotel con nombre: " + nombre );
+        long resp = pa.eliminarHotelPorNombre (nombre);		
         log.info ("Eliminando Hotel: " + resp + " tuplas eliminadas");
         return resp;
 	}
 	
-	public Hotel darHotelPorDireccionYNumero (String direccion, String numero)
-	{
-		log.info ("Consultando Hotel");
-        Hotel Hotel = pa.darHotelPorDireccionYNumero (direccion, numero);	
-		log.info ("Buscando Hotel: " + direccion + " " + numero != null ? Hotel : "NO EXISTE");
-        return Hotel;
-	}
 
-	public List<VOHotel> darVOHotels ()
+	public List<VOHotel> darVOHoteles ()
 	{
 		log.info ("Generando los VO de Hotel");        
         List<VOHotel> voHotels = new LinkedList<VOHotel> ();
-        List<Hotel> Hotels = pa.darHotel ();
+        List<Hotel> Hotels = pa.darHoteles  ();
         for (Hotel ap : Hotels )
         {
         	voHotels.add (ap);
@@ -164,26 +157,26 @@ public class AlohAndes
         return voHotels;
 	}
 
-	public List<Hotel> darHotelPorNombreYNumero (String nombre, String numero)
+	public List<Hotel> darHotelesPorNombre (String nombre)
 	{
-		log.info ("Consultando Hotels");
-        List<Hotel> Hotels = pa.darHotelPorNombreYNumero (nombre, numero);	
-		log.info ("Buscando Hotels: " + nombre + " " + numero != null ? Hotels : "NO EXISTE");
-        return Hotels;
+		 log.info ("Consultando Hotel");
+		 List<Hotel> hoteles = pa.darHotelesPorNombre(nombre);
+		 log.info ("Buscando Hotels: " + nombre != null ? hoteles : "NO EXISTE");
+		 return hoteles;
 	}
 
-	public List<Hotel> darHotelsPorDireccion (String direccion)
+	public Hotel darHotelPorDireccion (String direccion)
 	{
 		log.info ("Consultando Hotels");
-        List<Hotel> Hotels = pa.darHotelsPorDireccion (direccion);	
-		log.info ("Buscando Hotels: " + direccion != null ? Hotels : "NO EXISTE");
-        return Hotels;
+        Hotel hotel = pa.darHotelPorDireccion (direccion);	
+		log.info ("Buscando Hotel: " + direccion  != null ? hotel : "NO EXISTE");
+        return hotel;
 	}
 
-	public List<Hotel> darHotel ()
+	public List<Hotel> listarHoteles ()
 	{
 		log.info ("Consultando Hotels");
-        List<Hotel> Hotels = pa.darHotel ();	
+        List<Hotel> Hotels = pa.darHoteles ();	
 		log.info ("Buscando Hotels: "  != null ? Hotels : "NO EXISTE");
         return Hotels;
 	}
@@ -316,9 +309,9 @@ public class AlohAndes
 	 public List<Operador> darOperadores ()
 	 {
 		 log.info ("Consultando Operadores");
-		 List<Operador> clientes = pa.darOperadores  ();	
-		 log.info ("Buscando Operadores: "  != null ? clientes : "NO EXISTE");
-		 return clientes;
+		 List<Operador> operadores = pa.darOperadores();	
+		 log.info ("Buscando Operadores: "  != null ? operadores : "NO EXISTE");
+		 return operadores;
 	 }
 
 	 public List<String> mostrarDineroRecibidoPorCadaOperador()

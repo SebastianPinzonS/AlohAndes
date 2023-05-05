@@ -412,14 +412,14 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
-    public void listarHotels( )
+    public void listarHoteles( )
     {
     	try 
     	{
-			List <VOHotel> lista = alohAndes.darVOHotels();
+			List <Hotel> lista = alohAndes.listarHoteles();
 
 			String resultado = "En listarHotel";
-			resultado +=  "\n" + listarHotel (lista);
+			resultado +=  "\n" + listarHoteles (lista);
 			panelDatos.actualizarInterfaz(resultado);
 			resultado += "\n Operación terminada";
 		} 
@@ -431,17 +431,16 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
-    public void eliminarHotelPorNombreYNumero ( )
+    public void eliminarHotelPorNombre ( )
     {
     	try 
     	{
-    		String nombreApartmanetoStr = JOptionPane.showInputDialog (this, "Nombre del edificio del Hotel?", "Borrar Hotel en el edificio: ", JOptionPane.QUESTION_MESSAGE);
-    		String numeroApartmanetoStr = JOptionPane.showInputDialog (this, "Numero de Hotel?", "Borrar Hotel en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+    		String nombre = JOptionPane.showInputDialog (this, "Nombre del Hotel?", "Borrar Hotel : ", JOptionPane.QUESTION_MESSAGE);
 
-    		if (nombreApartmanetoStr != null && numeroApartmanetoStr != null)
+    		if (nombre != null )
     		{
     		
-    			long apEliminados = alohAndes.eliminarHotelPorNombreYNumero(nombreApartmanetoStr, numeroApartmanetoStr);
+    			long apEliminados = alohAndes.eliminarHotelPorNombre(nombre);
 
     			String resultado = "En eliminar Hotel\n\n";
     			resultado += apEliminados + " Apartmentos eliminados\n";
@@ -461,21 +460,20 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
-    public void eliminarHotelPorDireccionYNumero ( )
+    public void eliminarHotelPorDireccion ( )
     {
     	try 
     	{
-    		String direccionApartmanetoStr = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Borrar Hotel en el edificio: ", JOptionPane.QUESTION_MESSAGE);
-    		String numeroApartmanetoStr = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Borrar Hotel en el edificio: ", JOptionPane.QUESTION_MESSAGE);
+    		String direccion = JOptionPane.showInputDialog (this, "Direccion del Hotel?", "Borrar Hotel en la direccion: ", JOptionPane.QUESTION_MESSAGE);
 
-    		if (direccionApartmanetoStr != null && numeroApartmanetoStr != null)
+    		if (direccion != null)
     		{
     		
-    			long apEliminados = alohAndes.eliminarApartmentoPorDireccionYNumero(direccionApartmanetoStr, numeroApartmanetoStr);
+    			long apEliminados = alohAndes.eliminarHotelPorDireccion(direccion);
 											
 
     			String resultado = "En eliminar Hotel\n\n";
-    			resultado += apEliminados + " Apartmentos eliminados\n";
+    			resultado += apEliminados + " Hotel eliminado\n";
     			resultado += "\n Operación terminada";
     			panelDatos.actualizarInterfaz(resultado);
     		}
@@ -494,16 +492,15 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 
 	
 
-    public void buscarHotelsPorDireccionYNumero ()
+    public void buscarHotelPorDireccion ()
     {
     	try 
     	{
-    		String direccionAp = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Buscar Hotel por direccion", JOptionPane.QUESTION_MESSAGE);
-			String numeroAp = JOptionPane.showInputDialog (this, "Numero del Hotel?", "Buscar Hotel por direccion", JOptionPane.QUESTION_MESSAGE);
+    		String direccion = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Buscar Hotel por direccion", JOptionPane.QUESTION_MESSAGE);
 
-    		if (numeroAp != null && direccionAp != null)
+    		if (direccion != null)
     		{
-    			VOHotel Hotel = alohAndes.darHotelPorDireccionYNumero(direccionAp, numeroAp) ;
+    			Hotel Hotel = alohAndes.darHotelPorDireccion(direccion) ;
     			String resultado = "En buscar Hotels\n\n";
     			if (Hotel != null)
     			{
@@ -511,7 +508,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
     			}
     			else
     			{
-        			resultado += "Un Hotel con direccion y numero: " + direccionAp +" "+numeroAp  + " NO EXISTE\n";    				
+        			resultado += "Un Hotel con direccion y numero: " + direccion + " NO EXISTE\n";    				
     			}
     			resultado += "\n Operación terminada";
     			panelDatos.actualizarInterfaz(resultado);
@@ -529,16 +526,16 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
     }
 
-	public void buscarHotelsPorDireccion( )
+    public void buscarHotelesPorNombre( )
     {
-		String direccionAp = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Buscar Hotel por direccion", JOptionPane.QUESTION_MESSAGE);
+		String nombre = JOptionPane.showInputDialog (this, "Nombre del Hotel?", "Buscar Hotel por nombre", JOptionPane.QUESTION_MESSAGE);
 
     	try 
     	{
 			
-			List<Hotel> lista = alohAndes.darHotelsPorDireccion(direccionAp);
-			String resultado = "En listarHotel";
-			resultado +=  "\n" + listarHotelNVO (lista);
+			List<Hotel> lista = alohAndes.darHotelesPorNombre(nombre);
+			String resultado = "En listarHotelesPorNombre";
+			resultado +=  "\n" + listarHoteles (lista);
 			panelDatos.actualizarInterfaz(resultado);
 			resultado += "\n Operación terminada";
 		} 
@@ -1363,9 +1360,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
         return resp;
 	}
 
-	  private String listarHotel(List<Hotel> lista) 
+	  private String listarHoteles(List<Hotel> lista) 
     {
-    	String resp = "Los apartamentos existentes son:\n";
+    	String resp = "Los hoteles existentes son:\n";
     	int i = 1;
         for (Hotel ho : lista)
         {
@@ -1376,7 +1373,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
     
     private String listarReservas(List<Reserva> lista) 
     {
-    	String resp = "Los apartamentos existentes son:\n";
+    	String resp = "Las reservas existentes son:\n";
     	int i = 1;
         for (Reserva re : lista)
         {
