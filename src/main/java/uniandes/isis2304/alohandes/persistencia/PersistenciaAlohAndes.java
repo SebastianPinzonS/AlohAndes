@@ -2351,18 +2351,18 @@ public class PersistenciaAlohAndes
     /* ****************************************************************
 	 * 			Métodos para manejar las RESERVA
 	 *****************************************************************/
-    public Reserva adicionaReserva(long idOferta, String)
+    public Reserva adicionaReserva(long idOferta, String idCliente, int precioEspecialTomado)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();            
-            long tuplasInsertadas = sqlViviendaUniversitaria.adiccionarViviendaUniversitaria(pm, nombre, direccion, numeroApartamento, viviendaCompartida, capacidad, menaje, calificacion);
+            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idOferta, idCliente, precioEspecialTomado);
             tx.commit();
             
-            log.trace ("Inserción Vivienda Express: " + direccion + ","+ numeroApartamento + ": " + tuplasInsertadas + " tuplas insertadas");
-            return new ViviendaUniversitaria (nombre, direccion, numeroApartamento, viviendaCompartida, capacidad, menaje, calificacion);
+            log.trace ("Inserción Resrva: " + idOferta + ","+ idCliente + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Reserva (idOferta, idCliente, precioEspecialTomado);
         }
         catch (Exception e)
         {
@@ -2380,14 +2380,14 @@ public class PersistenciaAlohAndes
         }
 	}
 	
-	public long eliminarViviendaUniversitariaPorDireccionYNumero (String direccion, String numeroApartamento)
+	public long eliminarReservaPorIdOferta (long idOferta)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long resp = sqlViviendaUniversitaria.eliminarViviendaUniversitariaPorDireccionYNumero(pm, direccion, numeroApartamento);
+            long resp = sqlReserva.eliminarReservaPorIdOferta(pm, idOferta);
             tx.commit();
 
             return resp;
@@ -2408,14 +2408,14 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public long eliminarViviendaUniversitariaPorDireccion (String direccion)
+    public long eliminarReservaPorIdCliente (String idCliente)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long resp = sqlViviendaUniversitaria.eliminarViviendaUniversitariaPorDireccion(pm, direccion);
+            long resp = sqlReserva.eliminarReservaPorIdCliente(pm, idCliente);
             tx.commit();
 
             return resp;
@@ -2436,52 +2436,19 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public long eliminarViviendaUniversitariaPorNumeroApto (String numeroApartamento)
+	public Reserva darReservaPorIdOferta (long idOferta) 
 	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long resp = sqlViviendaUniversitaria.eliminarViviendaUniversitariaPorNumeroApto(pm, numeroApartamento);
-            tx.commit();
-
-            return resp;
-        }
-        catch (Exception e)
-        {
-//        	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-            return -1;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
+		return sqlReserva.darReservaPorIdOferta(pmf.getPersistenceManager(), idOferta);
 	}
 
-	public ViviendaUniversitaria darViviendaUniversitariaPorDireccionYNumero ( String direccion, String numeroApartamento) 
+    public List<Reserva> darReservaPorIdCliente (String idCliente)
 	{
-		return sqlViviendaUniversitaria.darViviendaUniversitariaPorDireccionYNumero (pmf.getPersistenceManager(), direccion, numeroApartamento);
+		return sqlReserva.darReservaPorIdCliente(pmf.getPersistenceManager(), idCliente);
 	}
 
-    public List<ViviendaUniversitaria> darViviendaUniversitariaPorDireccion (String direccion)
+	public List<Reserva> darReservas ()
 	{
-		return sqlViviendaUniversitaria.darViviendaUniversitariaPorDireccion (pmf.getPersistenceManager(), direccion);
-	}
-
-    public List<ViviendaUniversitaria> darViviendaUniversitariaPorNumero (String numeroApartamento)
-	{
-		return sqlViviendaUniversitaria.darViviendaUniversitariaPorNumero (pmf.getPersistenceManager(), numeroApartamento);
-	}
-
-	public List<ViviendaUniversitaria> darTodasViviendasUniversitaria ()
-	{
-		return sqlViviendaUniversitaria.darTodasViviendasUniversitaria (pmf.getPersistenceManager());
+		return sqlReserva.darReservas(pmf.getPersistenceManager());
 	}
  }
 
