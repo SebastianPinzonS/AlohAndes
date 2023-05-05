@@ -326,13 +326,23 @@ public class AlohAndes
 		 log.info ("Adicionando Reserva: " + reserva);
 		 return reserva;
 	 }
- 
+
+	 public List<Reserva> darReservas()
+	 {
+		 return pa.darReservas();
+	 }
+
+	 public Reserva darReservaPorIdOferta(long idOferta)
+	 {
+		 return pa.darReservaPorIdOferta(idOferta);
+	 }
 	 
  
-	 public long eliminarReservaPorIdOferta(long idOferta)
+	 public Reserva eliminarReservaPorIdCliente(String idCliente)
 	 {
-		 return pa.eliminarReservaPorIdOferta(idOferta);
+		 return pa.eliminarReservaPorIdCliente(idCliente);
 	 }
+
 
 	 public long eliminarReservaPorIdCliente(String idCliente)
 	 {
