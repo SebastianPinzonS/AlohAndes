@@ -314,3 +314,31 @@ public class AlohAndes
 
 
 }
+
+/* ****************************************************************
+	 * 			Métodos para manejar los Reservas
+	 *****************************************************************/
+
+	 public Reserva adicionarReservaHabitacionHostal (long idCferta, String idCliente, )
+	 {
+		 log.info ("Adicionando Reserva");
+		 Reserva reserva = pa.adicionarReserva();		
+		 log.info ("Adicionando Reserva: " + reserva);
+		 return reserva;
+	 }
+ 
+	 
+ 
+	 public long eliminarReservaPorIdOferta(long idOferta)
+	 {
+		 return pa.eliminarReservaPorIdOferta(idOferta);
+	 }
+
+	 public long eliminarReservaPorIdCliente(String idCliente)
+	 {
+		 return pa.eliminarReservaPorIdCliente(idCliente);
+	 }
+ 
+ 
+ 
+ }
