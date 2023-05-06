@@ -5,6 +5,35 @@
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
+		{"menuTitle": "Hotel",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarHotel"
+				},
+				{
+					"label": "Listar hoteles",
+					"event": "listarHoteles"
+				},
+				{
+					"label": "Borrar por Nombre",
+					"event": "eliminarHotelPorNombre"
+				},
+				{
+					"label": "Borrar por Direccion",
+					"event": "eliminarHotelPorDireccion"
+				},
+				{
+					"label": "Buscar por direccion",
+					"event": "buscarHotelPorDireccion"
+				},
+				{
+					"label": "Buscar por nombre",
+					"event": "buscarHotelesPorNombre"
+				}
+			]
+		},
 		{ "menuTitle": "Apartamento",
 		  "options":
 			[
@@ -115,6 +144,14 @@
 				{
 					"label": "Listar",
 					"event": "listarReservas"
+				},
+				{
+					"label": "Listar por IdCliente",
+					"event": "listarReservasPorIdCliente"
+				},
+				{
+					"label": "Listar por IdOferta",
+					"event": "listarReservaPorIdOferta"
 				}
 			]
 		},
