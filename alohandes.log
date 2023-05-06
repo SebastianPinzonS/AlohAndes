@@ -370,3 +370,9 @@ ORA-00904: "DIRECCION_HOTEL_HOTEL_HABITACION": identificador no v√°lido
 22:48:21,772 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Interfaz
 22:48:21,776 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraci√≥n indicada en el archivo de configuraci√≥n
 22:48:21,917 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Tablas BD
+10:25:08,081 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
+10:25:08,081 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
+10:25:08,204 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
+10:25:40,190 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Apartamento
+10:25:40,362 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Tipos de Apartamento: 6 existentes
+10:25:46,487 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hotel

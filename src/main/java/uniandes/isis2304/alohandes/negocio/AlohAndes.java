@@ -376,6 +376,71 @@ public class AlohAndes
 		log.info ("Buscando Habitacion Hotel: "  != null ? habitacionHotel : "NO EXISTE");
         return habitacionHotel;
 	}
+
+	/* ****************************************************************
+	 * 			Métodos para manejar las HABITACION HOSTAL
+	 *****************************************************************/
+
+	 public HabitacionHostal adicionarHabitacionHostal(String direccionHostal, String numeroHabitacion, int tamano)  
+	 {
+		 log.info ("Adicionando Habitacion Hostal");
+		 HabitacionHostal habitacionHostal = pa.adicionarHabitacionHostal(direccionHostal, numeroHabitacion, tamano);		
+		 log.info ("Adicionando Habitacion Hostal: " + habitacionHostal);
+		 return habitacionHostal;
+	 }
+
+	 public long eliminarHabitacionHostalPorDireccionHostal (String direccionHostal)
+	 {
+		 log.info ("Eliminando habitaciones hostal con la direccion: " + direccionHostal);
+		 long resp = pa.eliminarHabitacionHostalPorDireccionHostal (direccionHostal);		
+		 log.info ("Eliminando Habitacion Hostal: " + resp + " tuplas eliminadas");
+		 return resp;
+	 }
+ 
+	 public long eliminarHabitacionHostalPorDireccionYNumero (String direccionHotel, String numeroHabitacion)
+	 {
+		log.info ("Eliminando habitacion hostal con la direccion: " + direccionHotel + " y numero habitacion: " + numeroHabitacion);
+		long resp = pa.eliminarHostalPorDireccionHostalYNumeroHabitacion(direccionHotel, numeroHabitacion);		
+		log.info ("Eliminando Habitacion Hostal: " + resp + " tuplas eliminadas");
+		return resp;
+	 }
+	 
+	 public HabitacionHostal darHabitacionHostalPorDireccionHostalYNumeroHabitacion (String direccion, String numero)
+	{
+		log.info ("Consultando Habitacion Hostal");
+        HabitacionHostal habitacionHostal = pa.darHabitacionHostalPorDireccionHostalYNumeroHabitacion(direccion, numero);	
+		log.info ("Buscando Habtiacion Hostal con direccion: " + direccion + " y numero habitacion " + numero != null ? habitacionHostal : "NO EXISTE");
+        return habitacionHostal;
+	}
+
+	public List<VOHabitacionHostal> darVoHabitacionesHostal ()
+	{
+		log.info ("Generando los VO de Habitacion Hostal");        
+        List<VOHabitacionHostal> voHabitacionHostals = new LinkedList<VOHabitacionHostal> ();
+        List<HabitacionHostal> habitacionHostal = pa.darHabitacionHostales();
+        for (HabitacionHostal habHot : habitacionHostal)
+        {
+        	voHabitacionHostals.add (habHot);
+        }
+        log.info ("Generando los VO de Tipos de Habitacion Hostal: " + voHabitacionHostals.size() + " existentes");
+        return voHabitacionHostals;
+	}
+	
+	public List<HabitacionHotel> darHabitacionHotelesPorDireccion (String direccion)
+	{
+		log.info ("Consultando Habitacion Hotel");
+        List<HabitacionHotel> habitacionHotel = pa.darHabitacionHotelesPorNombre(direccion);	
+		log.info ("Buscando Habitacion Hotel: " + direccion != null ? habitacionHotel : "NO EXISTE");
+        return habitacionHotel;
+	}
+
+	public List<HabitacionHotel> darHabitacionesHotel ()
+	{
+		log.info ("Consultando Habitacion Hotel");
+        List<HabitacionHotel> habitacionHotel = pa.darHabitacionHoteles();	
+		log.info ("Buscando Habitacion Hotel: "  != null ? habitacionHotel : "NO EXISTE");
+        return habitacionHotel;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar los Reservas
 	 *****************************************************************/
