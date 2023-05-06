@@ -4,7 +4,7 @@
  * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
  * 		
  * Curso: isis2304 - Sistemas Transaccionales
- * Proyecto: Parranderos Uniandes
+ * Proyecto: AlohAndes Uniandes
  * @version 1.0
  * @author Germán Bravo
  * Julio de 2018
@@ -206,7 +206,7 @@ public class ConexionTest
 		}
 		finally
 		{
-			parranderos.limpiarParranderos ();
+			parranderos.limpiarAlohAndes ();
     		parranderos.cerrarUnidadPersistencia ();    		
 		}
     }

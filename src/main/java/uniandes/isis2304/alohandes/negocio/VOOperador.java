@@ -23,17 +23,17 @@ public interface VOOperador
 	/**
 	 * @return 
 	 */
-	public int getValidacionCamaraDeComercioEmpresa();
+	public Integer getValidacionCamaraDeComercioEmpresa();
 
 	/**
 	 * @return 
 	 */
-	public int getValidacionSuperTurismoEmpresa();
+	public Integer getValidacionSuperTurismoEmpresa();
 
 	/**
 	 * @return 
 	 */
-	public int getMiembroComunidadUniversitariaPersona();
+	public Integer getMiembroComunidadUniversitariaPersona();
 
 
 	/** 

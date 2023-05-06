@@ -150,7 +150,7 @@ public class PersistenciaAlohAndes
 	}
 
 	/**
-	 * @return Retorna el único objeto PersistenciaParranderos existente - Patrón SINGLETON
+	 * @return Retorna el único objeto PersistenciaAlohAndes existente - Patrón SINGLETON
 	 */
 	public static PersistenciaAlohAndes getInstance ()
 	{
@@ -164,7 +164,7 @@ public class PersistenciaAlohAndes
 	/**
 	 * Constructor que toma los nombres de las tablas de la base de datos del objeto tableConfig
 	 * @param tableConfig - El objeto JSON con los nombres de las tablas
-	 * @return Retorna el único objeto PersistenciaParranderos existente - Patrón SINGLETON
+	 * @return Retorna el único objeto PersistenciaAlohAndes existente - Patrón SINGLETON
 	 */
 	public static PersistenciaAlohAndes getInstance (JsonObject tableConfig)
 	{

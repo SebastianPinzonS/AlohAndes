@@ -32,7 +32,15 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
-import uniandes.isis2304.alohandes.negocio.*;
+import uniandes.isis2304.alohandes.negocio.AlohAndes;
+import uniandes.isis2304.alohandes.negocio.Apartamento;
+import uniandes.isis2304.alohandes.negocio.Cliente;
+import uniandes.isis2304.alohandes.negocio.Operador;
+import uniandes.isis2304.alohandes.negocio.Reserva;
+import uniandes.isis2304.alohandes.negocio.VOApartamento;
+import uniandes.isis2304.alohandes.negocio.VOCliente;
+import uniandes.isis2304.alohandes.negocio.VOOferta;
+import uniandes.isis2304.alohandes.negocio.VOOperador;
 
 @SuppressWarnings("serial")
 
@@ -371,181 +379,6 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
-	/* ****************************************************************
-	 * 			CRUD de Hotel
-	 *****************************************************************/
-    /**
-     * Adiciona un tipo de bebida con la información dada por el usuario
-     * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
-     */
-
-    public void adicionarHotel( )
-    {
-    	try 
-    	{
-			String nombreHotel = JOptionPane.showInputDialog (this, "Nombre de Hotel?", "Adicionar Hotel", JOptionPane.QUESTION_MESSAGE);
-			float calificacionHotel = Float.parseFloat(JOptionPane.showInputDialog (this, "Cual es la Calificacion?", "Adicionar Hotel", JOptionPane.QUESTION_MESSAGE));
-    		String direccionHotel = JOptionPane.showInputDialog (this, "Direccion del hotel?", "Adicionar Hotel", JOptionPane.QUESTION_MESSAGE);
-			
-    		if (direccionHotel != null	&&  nombreHotel != null )
-    		{
-        		VOHotel ap = alohAndes.adicionarHotel (nombreHotel,calificacionHotel, direccionHotel);
-        		if (ap == null)
-        		{
-        			throw new Exception ("No se pudo crear un Hotel con nombre: " + nombreHotel + " y direccion: " + direccionHotel);
-        		}
-        		String resultado = "En adicionarHotel\n\n";
-        		resultado += "Hotel adicionado exitosamente: " + ap;
-    			resultado += "\n Operación terminada";
-    			panelDatos.actualizarInterfaz(resultado);
-    		}
-    		else
-    		{
-    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-    		}
-		} 
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
-
-    public void listarHoteles( )
-    {
-    	try 
-    	{
-			List <Hotel> lista = alohAndes.listarHoteles();
-
-			String resultado = "En listarHotel";
-			resultado +=  "\n" + listarHoteles (lista);
-			panelDatos.actualizarInterfaz(resultado);
-			resultado += "\n Operación terminada";
-		} 
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
-
-    public void eliminarHotelPorNombre ( )
-    {
-    	try 
-    	{
-    		String nombre = JOptionPane.showInputDialog (this, "Nombre del Hotel?", "Borrar Hotel : ", JOptionPane.QUESTION_MESSAGE);
-
-    		if (nombre != null )
-    		{
-    		
-    			long apEliminados = alohAndes.eliminarHotelPorNombre(nombre);
-
-    			String resultado = "En eliminar Hotel\n\n";
-    			resultado += apEliminados + " Apartmentos eliminados\n";
-    			resultado += "\n Operación terminada";
-    			panelDatos.actualizarInterfaz(resultado);
-    		}
-    		else
-    		{
-    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-    		}
-		} 
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
-
-    public void eliminarHotelPorDireccion ( )
-    {
-    	try 
-    	{
-    		String direccion = JOptionPane.showInputDialog (this, "Direccion del Hotel?", "Borrar Hotel en la direccion: ", JOptionPane.QUESTION_MESSAGE);
-
-    		if (direccion != null)
-    		{
-    		
-    			long apEliminados = alohAndes.eliminarHotelPorDireccion(direccion);
-											
-
-    			String resultado = "En eliminar Hotel\n\n";
-    			resultado += apEliminados + " Hotel eliminado\n";
-    			resultado += "\n Operación terminada";
-    			panelDatos.actualizarInterfaz(resultado);
-    		}
-    		else
-    		{
-    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-    		}
-		} 
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
-
-	
-
-    public void buscarHotelPorDireccion ()
-    {
-    	try 
-    	{
-    		String direccion = JOptionPane.showInputDialog (this, "Direccion del edificio del Hotel?", "Buscar Hotel por direccion", JOptionPane.QUESTION_MESSAGE);
-
-    		if (direccion != null)
-    		{
-    			Hotel Hotel = alohAndes.darHotelPorDireccion(direccion) ;
-    			String resultado = "En buscar Hotels\n\n";
-    			if (Hotel != null)
-    			{
-        			resultado += "El Hotel es: " + Hotel;
-    			}
-    			else
-    			{
-        			resultado += "Un Hotel con direccion y numero: " + direccion + " NO EXISTE\n";    				
-    			}
-    			resultado += "\n Operación terminada";
-    			panelDatos.actualizarInterfaz(resultado);
-    		}
-    		else
-    		{
-    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-    		}
-		} 
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
-
-    public void buscarHotelesPorNombre( )
-    {
-		String nombre = JOptionPane.showInputDialog (this, "Nombre del Hotel?", "Buscar Hotel por nombre", JOptionPane.QUESTION_MESSAGE);
-
-    	try 
-    	{
-			
-			List<Hotel> lista = alohAndes.darHotelesPorNombre(nombre);
-			String resultado = "En listarHotelesPorNombre";
-			resultado +=  "\n" + listarHoteles (lista);
-			panelDatos.actualizarInterfaz(resultado);
-			resultado += "\n Operación terminada";
-		} 
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
 
 	/* ****************************************************************
 	 * 			CRUD de Cliente
@@ -765,7 +598,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	 {
 		 try 
 		 {
-			 List <VOOperador> lista = alohAndes.darVOOperadores();
+			 List <Operador> lista = alohAndes.darOperadores();
  
 			 String resultado = "En listarOperadores";
 			 resultado +=  "\n" + listarOperador(lista);
@@ -1359,25 +1192,14 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
         }
         return resp;
 	}
-
-	  private String listarHoteles(List<Hotel> lista) 
-    {
-    	String resp = "Los hoteles existentes son:\n";
-    	int i = 1;
-        for (Hotel ho : lista)
-        {
-        	resp += i++ + ". " + ho.toString() + "\n";
-        }
-        return resp;
-	}
     
     private String listarReservas(List<Reserva> lista) 
     {
-    	String resp = "Las reservas existentes son:\n";
+    	String resp = "Los apartamentos existentes son:\n";
     	int i = 1;
-        for (Reserva re : lista)
+        for (Reserva ap : lista)
         {
-        	resp += i++ + ". " + re.toString() + "\n";
+        	resp += i++ + ". " + ap.toString() + "\n";
         }
         return resp;
 	}
@@ -1415,11 +1237,11 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	}
 
 	/* -------------------- LISTAR OPERADOR ----------------------------- */
-	private String listarOperador(List<VOOperador> lista) 
+	private String listarOperador(List<Operador> lista) 
     {
     	String resp = "Los operadores existentes son:\n";
     	int i = 1;
-        for (VOOperador op : lista)
+        for (Operador op : lista)
         {
         	resp += i++ + ". " + op.toString() + "\n";
         }
@@ -1461,7 +1283,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
 		return resp;
 	}
-
+ 
 	/**
 	 * Genera una cadena para indicar al usuario que hubo un error en la aplicación
 	 * @param e - La excepción generada

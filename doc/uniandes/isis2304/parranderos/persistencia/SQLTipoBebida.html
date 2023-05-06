@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>class <span class="typeNameLabel">SQLTipoBebida</span>
 extends java.lang.Object</pre>
-<div class="block">Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto TIPO DE BEBIDA de Parranderos
+<div class="block">Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto TIPO DE BEBIDA de AlohAndes
  Nótese que es una clase que es sólo conocida en el paquete de persistencia</div>
 </li>
 </ul>
@@ -132,7 +132,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaParranderos</a></code></td>
+<td class="colFirst"><code>private <a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaAlohAndes</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#pa">pa</a></span></code>
 <div class="block">El manejador de persistencia general de la aplicación</div>
 </td>
@@ -159,7 +159,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#SQLTipoBebida-uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos-">SQLTipoBebida</a></span>(<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaParranderos</a>&nbsp;pa)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#SQLTipoBebida-uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes-">SQLTipoBebida</a></span>(<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaAlohAndes</a>&nbsp;pa)</code>
 <div class="block">Constructor</div>
 </td>
 </tr>
@@ -183,7 +183,7 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#adicionarTipoBebida-javax.jdo.PersistenceManager-long-java.lang.String-">adicionarTipoBebida</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                    long&nbsp;idTipoBebida,
                    java.lang.String&nbsp;nombre)</code>
-<div class="block">Crea y ejecuta la sentencia SQL para adicionar un TIPOBEBIDA a la base de datos de Parranderos</div>
+<div class="block">Crea y ejecuta la sentencia SQL para adicionar un TIPOBEBIDA a la base de datos de AlohAndes</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -191,14 +191,14 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#darTipoBebidaPorId-javax.jdo.PersistenceManager-long-">darTipoBebidaPorId</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                   long&nbsp;idTipoBebida)</code>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de UN TIPO DE BEBIDA de la 
- base de datos de Parranderos, por su identificador</div>
+ base de datos de AlohAndes, por su identificador</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../uniandes/isis2304/parranderos/negocio/TipoBebida.html" title="class in uniandes.isis2304.parranderos.negocio">TipoBebida</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#darTiposBebida-javax.jdo.PersistenceManager-">darTiposBebida</a></span>(javax.jdo.PersistenceManager&nbsp;pm)</code>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de LOS TIPOS DE BEBIDA de la 
- base de datos de Parranderos</div>
+ base de datos de AlohAndes</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -206,21 +206,21 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#darTiposBebidaPorNombre-javax.jdo.PersistenceManager-java.lang.String-">darTiposBebidaPorNombre</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                        java.lang.String&nbsp;nombreTipoBebida)</code>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de UN TIPO DE BEBIDA de la 
- base de datos de Parranderos, por su nombre</div>
+ base de datos de AlohAndes, por su nombre</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#eliminarTipoBebidaPorId-javax.jdo.PersistenceManager-long-">eliminarTipoBebidaPorId</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                        long&nbsp;idTipoBebida)</code>
-<div class="block">Crea y ejecuta la sentencia SQL para eliminar TIPOS DE BEBIDA de la base de datos de Parranderos, por su identificador</div>
+<div class="block">Crea y ejecuta la sentencia SQL para eliminar TIPOS DE BEBIDA de la base de datos de AlohAndes, por su identificador</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLTipoBebida.html#eliminarTipoBebidaPorNombre-javax.jdo.PersistenceManager-java.lang.String-">eliminarTipoBebidaPorNombre</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                            java.lang.String&nbsp;nombreTipoBebida)</code>
-<div class="block">Crea y ejecuta la sentencia SQL para eliminar TIPOS DE BEBIDA de la base de datos de Parranderos, por su nombre</div>
+<div class="block">Crea y ejecuta la sentencia SQL para eliminar TIPOS DE BEBIDA de la base de datos de AlohAndes, por su nombre</div>
 </td>
 </tr>
 </table>
@@ -266,7 +266,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>pa</h4>
-<pre>private&nbsp;<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaParranderos</a> pa</pre>
+<pre>private&nbsp;<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaAlohAndes</a> pa</pre>
 <div class="block">El manejador de persistencia general de la aplicación</div>
 </li>
 </ul>
@@ -278,13 +278,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="SQLTipoBebida-uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos-">
+<a name="SQLTipoBebida-uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SQLTipoBebida</h4>
-<pre>public&nbsp;SQLTipoBebida(<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaParranderos</a>&nbsp;pa)</pre>
+<pre>public&nbsp;SQLTipoBebida(<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaAlohAndes</a>&nbsp;pa)</pre>
 <div class="block">Constructor</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -309,7 +309,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;long&nbsp;adicionarTipoBebida(javax.jdo.PersistenceManager&nbsp;pm,
                                 long&nbsp;idTipoBebida,
                                 java.lang.String&nbsp;nombre)</pre>
-<div class="block">Crea y ejecuta la sentencia SQL para adicionar un TIPOBEBIDA a la base de datos de Parranderos</div>
+<div class="block">Crea y ejecuta la sentencia SQL para adicionar un TIPOBEBIDA a la base de datos de AlohAndes</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -328,7 +328,7 @@ extends java.lang.Object</pre>
 <h4>eliminarTipoBebidaPorNombre</h4>
 <pre>public&nbsp;long&nbsp;eliminarTipoBebidaPorNombre(javax.jdo.PersistenceManager&nbsp;pm,
                                         java.lang.String&nbsp;nombreTipoBebida)</pre>
-<div class="block">Crea y ejecuta la sentencia SQL para eliminar TIPOS DE BEBIDA de la base de datos de Parranderos, por su nombre</div>
+<div class="block">Crea y ejecuta la sentencia SQL para eliminar TIPOS DE BEBIDA de la base de datos de AlohAndes, por su nombre</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -346,7 +346,7 @@ extends java.lang.Object</pre>
 <h4>eliminarTipoBebidaPorId</h4>
 <pre>public&nbsp;long&nbsp;eliminarTipoBebidaPorId(javax.jdo.PersistenceManager&nbsp;pm,
                                     long&nbsp;idTipoBebida)</pre>
-<div class="block">Crea y ejecuta la sentencia SQL para eliminar TIPOS DE BEBIDA de la base de datos de Parranderos, por su identificador</div>
+<div class="block">Crea y ejecuta la sentencia SQL para eliminar TIPOS DE BEBIDA de la base de datos de AlohAndes, por su identificador</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -365,7 +365,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../../uniandes/isis2304/parranderos/negocio/TipoBebida.html" title="class in uniandes.isis2304.parranderos.negocio">TipoBebida</a>&nbsp;darTipoBebidaPorId(javax.jdo.PersistenceManager&nbsp;pm,
                                      long&nbsp;idTipoBebida)</pre>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de UN TIPO DE BEBIDA de la 
- base de datos de Parranderos, por su identificador</div>
+ base de datos de AlohAndes, por su identificador</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -384,7 +384,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../uniandes/isis2304/parranderos/negocio/TipoBebida.html" title="class in uniandes.isis2304.parranderos.negocio">TipoBebida</a>&gt;&nbsp;darTiposBebidaPorNombre(javax.jdo.PersistenceManager&nbsp;pm,
                                                           java.lang.String&nbsp;nombreTipoBebida)</pre>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de UN TIPO DE BEBIDA de la 
- base de datos de Parranderos, por su nombre</div>
+ base de datos de AlohAndes, por su nombre</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -402,7 +402,7 @@ extends java.lang.Object</pre>
 <h4>darTiposBebida</h4>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../uniandes/isis2304/parranderos/negocio/TipoBebida.html" title="class in uniandes.isis2304.parranderos.negocio">TipoBebida</a>&gt;&nbsp;darTiposBebida(javax.jdo.PersistenceManager&nbsp;pm)</pre>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de LOS TIPOS DE BEBIDA de la 
- base de datos de Parranderos</div>
+ base de datos de AlohAndes</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
