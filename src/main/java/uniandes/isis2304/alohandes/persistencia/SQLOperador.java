@@ -1,13 +1,11 @@
 package uniandes.isis2304.alohandes.persistencia;
 
-import java.math.BigDecimal;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import uniandes.isis2304.alohandes.negocio.Hotel;
+
 import uniandes.isis2304.alohandes.negocio.Operador;
 
 class SQLOperador 

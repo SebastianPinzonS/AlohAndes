@@ -49,7 +49,7 @@ class SQLHabitacionHotel
 
 	public List<HabitacionHotel> darHabitacionHotelesPorNombre (PersistenceManager pm, String nombreHabitacionHotel) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHabitacionHotel () + " WHERE nombre = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHabitacionHotel () + " WHERE DIRECCION_HOTEL = ?");
 		q.setResultClass(HabitacionHotel.class);
 		q.setParameters(nombreHabitacionHotel);
 		return (List<HabitacionHotel>) q.executeList();

@@ -34,11 +34,79 @@
 				}
 			]
 		},
+<<<<<<< HEAD
+		{"menuTitle": "HabitacionHotel",
+=======
 		{"menuTitle": "Hostal",
+>>>>>>> master
 		  "options":
 			[
 				{
 					"label": "Adicionar",
+<<<<<<< HEAD
+					"event": "adicionarHabitacionHotel"
+				},
+				{
+					"label": "Listar habitaciones",
+					"event": "darHabitacionesHotel"
+				},
+				{
+					"label": "Borrar por Direccion Hotel",
+					"event": "eliminarHabitacionHotelPorDireccionHotel"
+				},
+				{
+					"label": "Borrar por Direccion Hotel y Numero",
+					"event": "eliminarHabitacionHotelPorDireccionYNumero"
+				},
+				{
+					"label": "Buscar por direccion",
+					"event": "buscarHabitacionHotelPorDireccion"
+				},
+				{
+					"label": "Buscar por direccion y numero habitacion",
+					"event": "buscarHabitacionHotelPorDireccionYNumeroHabitacion"
+				}
+			]
+		},
+		{"menuTitle": "InstalacionHabitacionHotel",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarInstalacionHabitacionHotel"
+				},
+				{
+					"label": "Listar Instalaciones Habitacion Hotel",
+					"event": "listarInstalacionesHabitacionHotel" 
+				},
+				{
+					"label": "Borrar por Tipo Instalacion y Direccion Hotel",
+					"event": "eliminarInstalacionHabitacionHotelPorTipoInstalacionYDireccionHotelHabitacionHotel"
+				},
+				{
+					"label": "Borrar por Tipo Instalacion, Direccion Hotel y Numero Habitacion",
+					"event": "eliminarInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel"
+				},
+				{
+					"label" : "Borrar por Direccion Hotel",
+					"event" : "eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel"
+				},
+				{
+					"label" : "Borrar por Direccion Hotel y Numero Habitacion",
+					"event" : "eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel"
+				},
+				{
+					"label" : "Buscar por Direccion Hotel",
+					"event" : "buscarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel"
+				},
+				{
+					"label" : "Buscar por Direccion Hotel y Numero Habitacion",
+					"event" : "buscarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel"
+				},
+				{
+					"label" : "Buscar por Tipo Instalacion, Direccion Hotel y Numero Habitacion",
+					"event" : "buscarInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel"
+=======
 					"event": "adicionarHostal"
 				},
 				{
@@ -60,6 +128,7 @@
 				{
 					"label": "Buscar por nombre",
 					"event": "buscarHostalesPorNombre"
+>>>>>>> master
 				}
 			]
 		},

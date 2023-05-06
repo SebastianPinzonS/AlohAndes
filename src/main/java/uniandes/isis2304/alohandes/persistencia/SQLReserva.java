@@ -1,7 +1,5 @@
 package uniandes.isis2304.alohandes.persistencia;
 
-import java.math.BigDecimal;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;

@@ -48,6 +48,13 @@ class SQLInstalacionHabitacionHotel
         return (long) q.executeUnique();            
 	}
 
+	public long eliminarInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (PersistenceManager pm, String tipoInstalacion, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	{
+		Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE (TIPO_INSTALACION = ? AND DIRECCION_HOTEL_HABITACION_HOTEL = ? AND NUMERO_HABITACION_HABITACION_HOTEL = ?)");
+		q.setParameters(tipoInstalacion, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+		return (long) q.executeUnique();
+	}
+
 
 	public List<InstalacionHabitacionHotel> darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel (PersistenceManager pm, String direccionHotelHabitacionHotel) 
 	{
@@ -57,11 +64,18 @@ class SQLInstalacionHabitacionHotel
 		return (List<InstalacionHabitacionHotel>) q.executeUnique();
 	}
 
-	public InstalacionHabitacionHotel darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (PersistenceManager pm, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel) 
+	public List<InstalacionHabitacionHotel> darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (PersistenceManager pm, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE (DIRECCION_HOTEL_HABITACION_HOTEL = ? AND NUMERO_HABITACION_HABITACION_HOTEL = ?)");
 		q.setResultClass(InstalacionHabitacionHotel.class);
 		q.setParameters(direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+		return (List<InstalacionHabitacionHotel>) q.executeUnique();
+	}
+
+	public InstalacionHabitacionHotel darInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (PersistenceManager pm, String tipoInstalacion, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaInstalacionHabitacionHotel () + " WHERE (TIPO_INSTALACION = ? AND DIRECCION_HOTEL_HABITACION_HOTEL = ? AND NUMERO_HABITACION_HABITACION_HOTEL = ?)");
+		q.setParameters(tipoInstalacion, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
 		return (InstalacionHabitacionHotel) q.executeUnique();
 	}
 
