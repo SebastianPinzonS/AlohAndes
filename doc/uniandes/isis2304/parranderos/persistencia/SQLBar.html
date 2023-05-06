@@ -49,7 +49,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBebedor.html" title="class in uniandes.isis2304.parranderos.persistencia"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>class <span class="typeNameLabel">SQLBar</span>
 extends java.lang.Object</pre>
-<div class="block">Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto BAR de Parranderos
+<div class="block">Clase que encapsula los métodos que hacen acceso a la base de datos para el concepto BAR de AlohAndes
  Nótese que es una clase que es sólo conocida en el paquete de persistencia</div>
 </li>
 </ul>
@@ -132,7 +132,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaParranderos</a></code></td>
+<td class="colFirst"><code>private <a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaAlohAndes</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#pa">pa</a></span></code>
 <div class="block">El manejador de persistencia general de la aplicación</div>
 </td>
@@ -159,7 +159,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#SQLBar-uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos-">SQLBar</a></span>(<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaParranderos</a>&nbsp;pa)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#SQLBar-uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes-">SQLBar</a></span>(<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaAlohAndes</a>&nbsp;pa)</code>
 <div class="block">Constructor</div>
 </td>
 </tr>
@@ -186,7 +186,7 @@ extends java.lang.Object</pre>
             java.lang.String&nbsp;ciudad,
             java.lang.String&nbsp;presupuesto,
             int&nbsp;sedes)</code>
-<div class="block">Crea y ejecuta la sentencia SQL para adicionar un BAR a la base de datos de Parranderos</div>
+<div class="block">Crea y ejecuta la sentencia SQL para adicionar un BAR a la base de datos de AlohAndes</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -194,14 +194,14 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#aumentarSedesBaresCiudad-javax.jdo.PersistenceManager-java.lang.String-">aumentarSedesBaresCiudad</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                         java.lang.String&nbsp;ciudad)</code>
 <div class="block">Crea y ejecuta la sentencia SQL para aumentar en uno el número de sedes de los bares de la 
- base de datos de Parranderos</div>
+ base de datos de AlohAndes</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../uniandes/isis2304/parranderos/negocio/Bar.html" title="class in uniandes.isis2304.parranderos.negocio">Bar</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#darBares-javax.jdo.PersistenceManager-">darBares</a></span>(javax.jdo.PersistenceManager&nbsp;pm)</code>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de LOS BARES de la 
- base de datos de Parranderos</div>
+ base de datos de AlohAndes</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -209,7 +209,7 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#darBaresPorNombre-javax.jdo.PersistenceManager-java.lang.String-">darBaresPorNombre</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                  java.lang.String&nbsp;nombreBar)</code>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de LOS BARES de la 
- base de datos de Parranderos, por su nombre</div>
+ base de datos de AlohAndes, por su nombre</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -217,21 +217,21 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#darBarPorId-javax.jdo.PersistenceManager-long-">darBarPorId</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
            long&nbsp;idBar)</code>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de UN BAR de la 
- base de datos de Parranderos, por su identificador</div>
+ base de datos de AlohAndes, por su identificador</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#eliminarBaresPorNombre-javax.jdo.PersistenceManager-java.lang.String-">eliminarBaresPorNombre</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                       java.lang.String&nbsp;nombreBar)</code>
-<div class="block">Crea y ejecuta la sentencia SQL para eliminar BARES de la base de datos de Parranderos, por su nombre</div>
+<div class="block">Crea y ejecuta la sentencia SQL para eliminar BARES de la base de datos de AlohAndes, por su nombre</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBar.html#eliminarBarPorId-javax.jdo.PersistenceManager-long-">eliminarBarPorId</a></span>(javax.jdo.PersistenceManager&nbsp;pm,
                 long&nbsp;idBar)</code>
-<div class="block">Crea y ejecuta la sentencia SQL para eliminar UN BAR de la base de datos de Parranderos, por su identificador</div>
+<div class="block">Crea y ejecuta la sentencia SQL para eliminar UN BAR de la base de datos de AlohAndes, por su identificador</div>
 </td>
 </tr>
 </table>
@@ -277,7 +277,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>pa</h4>
-<pre>private&nbsp;<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaParranderos</a> pa</pre>
+<pre>private&nbsp;<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaAlohAndes</a> pa</pre>
 <div class="block">El manejador de persistencia general de la aplicación</div>
 </li>
 </ul>
@@ -289,13 +289,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="SQLBar-uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos-">
+<a name="SQLBar-uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SQLBar</h4>
-<pre>public&nbsp;SQLBar(<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaParranderos</a>&nbsp;pa)</pre>
+<pre>public&nbsp;SQLBar(<a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia">PersistenciaAlohAndes</a>&nbsp;pa)</pre>
 <div class="block">Constructor</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -323,7 +323,7 @@ extends java.lang.Object</pre>
                          java.lang.String&nbsp;ciudad,
                          java.lang.String&nbsp;presupuesto,
                          int&nbsp;sedes)</pre>
-<div class="block">Crea y ejecuta la sentencia SQL para adicionar un BAR a la base de datos de Parranderos</div>
+<div class="block">Crea y ejecuta la sentencia SQL para adicionar un BAR a la base de datos de AlohAndes</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -345,7 +345,7 @@ extends java.lang.Object</pre>
 <h4>eliminarBaresPorNombre</h4>
 <pre>public&nbsp;long&nbsp;eliminarBaresPorNombre(javax.jdo.PersistenceManager&nbsp;pm,
                                    java.lang.String&nbsp;nombreBar)</pre>
-<div class="block">Crea y ejecuta la sentencia SQL para eliminar BARES de la base de datos de Parranderos, por su nombre</div>
+<div class="block">Crea y ejecuta la sentencia SQL para eliminar BARES de la base de datos de AlohAndes, por su nombre</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -363,7 +363,7 @@ extends java.lang.Object</pre>
 <h4>eliminarBarPorId</h4>
 <pre>public&nbsp;long&nbsp;eliminarBarPorId(javax.jdo.PersistenceManager&nbsp;pm,
                              long&nbsp;idBar)</pre>
-<div class="block">Crea y ejecuta la sentencia SQL para eliminar UN BAR de la base de datos de Parranderos, por su identificador</div>
+<div class="block">Crea y ejecuta la sentencia SQL para eliminar UN BAR de la base de datos de AlohAndes, por su identificador</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -382,7 +382,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../../uniandes/isis2304/parranderos/negocio/Bar.html" title="class in uniandes.isis2304.parranderos.negocio">Bar</a>&nbsp;darBarPorId(javax.jdo.PersistenceManager&nbsp;pm,
                        long&nbsp;idBar)</pre>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de UN BAR de la 
- base de datos de Parranderos, por su identificador</div>
+ base de datos de AlohAndes, por su identificador</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -401,7 +401,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../uniandes/isis2304/parranderos/negocio/Bar.html" title="class in uniandes.isis2304.parranderos.negocio">Bar</a>&gt;&nbsp;darBaresPorNombre(javax.jdo.PersistenceManager&nbsp;pm,
                                              java.lang.String&nbsp;nombreBar)</pre>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de LOS BARES de la 
- base de datos de Parranderos, por su nombre</div>
+ base de datos de AlohAndes, por su nombre</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -419,7 +419,7 @@ extends java.lang.Object</pre>
 <h4>darBares</h4>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../uniandes/isis2304/parranderos/negocio/Bar.html" title="class in uniandes.isis2304.parranderos.negocio">Bar</a>&gt;&nbsp;darBares(javax.jdo.PersistenceManager&nbsp;pm)</pre>
 <div class="block">Crea y ejecuta la sentencia SQL para encontrar la información de LOS BARES de la 
- base de datos de Parranderos</div>
+ base de datos de AlohAndes</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -437,7 +437,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;long&nbsp;aumentarSedesBaresCiudad(javax.jdo.PersistenceManager&nbsp;pm,
                                      java.lang.String&nbsp;ciudad)</pre>
 <div class="block">Crea y ejecuta la sentencia SQL para aumentar en uno el número de sedes de los bares de la 
- base de datos de Parranderos</div>
+ base de datos de AlohAndes</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pm</code> - - El manejador de persistencia</dd>
@@ -475,7 +475,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaParranderos.html" title="class in uniandes.isis2304.parranderos.persistencia"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../uniandes/isis2304/parranderos/persistencia/PersistenciaAlohAndes.html" title="class in uniandes.isis2304.parranderos.persistencia"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../uniandes/isis2304/parranderos/persistencia/SQLBebedor.html" title="class in uniandes.isis2304.parranderos.persistencia"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
