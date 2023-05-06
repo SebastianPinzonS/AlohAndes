@@ -34,6 +34,35 @@
 				}
 			]
 		},
+		{"menuTitle": "Habitacion Hotel",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarHabitacionHotel"
+				},
+				{
+					"label": "Listar habitaciones",
+					"event": "darHabitacionesHotel"
+				},
+				{
+					"label": "Borrar por Direccion Hotel",
+					"event": "eliminarHabitacionHotelPorDireccionHotel"
+				},
+				{
+					"label": "Borrar por Direccion Hotel y Numero",
+					"event": "eliminarHabitacionHotelPorDireccionYNumero"
+				},
+				{
+					"label": "Buscar por direccion",
+					"event": "buscarHabitacionHotelPorDireccion"
+				},
+				{
+					"label": "Buscar por direccion y numero habitacion",
+					"event": "buscarHabitacionHotelPorDireccionYNumeroHabitacion"
+				}
+			]
+		},
 		{ "menuTitle": "Apartamento",
 		  "options":
 			[

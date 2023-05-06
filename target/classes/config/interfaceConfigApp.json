@@ -5,6 +5,64 @@
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
+		{"menuTitle": "Hotel",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarHotel"
+				},
+				{
+					"label": "Listar hoteles",
+					"event": "listarHoteles"
+				},
+				{
+					"label": "Borrar por Nombre",
+					"event": "eliminarHotelPorNombre"
+				},
+				{
+					"label": "Borrar por Direccion",
+					"event": "eliminarHotelPorDireccion"
+				},
+				{
+					"label": "Buscar por direccion",
+					"event": "buscarHotelPorDireccion"
+				},
+				{
+					"label": "Buscar por nombre",
+					"event": "buscarHotelesPorNombre"
+				}
+			]
+		},
+		{"menuTitle": "Habitacion Hotel",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarHabitacionHotel"
+				},
+				{
+					"label": "Listar habitaciones",
+					"event": "darHabitacionesHotel"
+				},
+				{
+					"label": "Borrar por Direccion Hotel",
+					"event": "eliminarHabitacionHotelPorDireccionHotel"
+				},
+				{
+					"label": "Borrar por Direccion Hotel y Numero",
+					"event": "eliminarHabitacionHotelPorDireccionYNumero"
+				},
+				{
+					"label": "Buscar por direccion",
+					"event": "buscarHabitacionHotelPorDireccion"
+				},
+				{
+					"label": "Buscar por direccion y numero habitacion",
+					"event": "buscarHabitacionHotelPorDireccionYNumeroHabitacion"
+				}
+			]
+		},
 		{ "menuTitle": "Apartamento",
 		  "options":
 			[
@@ -115,6 +173,14 @@
 				{
 					"label": "Listar",
 					"event": "listarReservas"
+				},
+				{
+					"label": "Listar por IdCliente",
+					"event": "listarReservasPorIdCliente"
+				},
+				{
+					"label": "Listar por IdOferta",
+					"event": "listarReservaPorIdOferta"
 				}
 			]
 		},
