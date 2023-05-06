@@ -1,5 +1,5 @@
 {
-	"title": "Aplicación transaccional de Parranderos Uniandes",
+	"title": "Aplicación transaccional de AlohAndes Uniandes",
 	"frameH": 600,
 	"frameW": 800,
 	"bannerPath": "./src/main/resources/config/logo.png",
@@ -31,6 +31,35 @@
 				{
 					"label": "Buscar por nombre",
 					"event": "buscarHotelesPorNombre"
+				}
+			]
+		},
+		{"menuTitle": "Hostal",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarHostal"
+				},
+				{
+					"label": "Listar hostales",
+					"event": "listarHostales"
+				},
+				{
+					"label": "Borrar por Nombre",
+					"event": "eliminarHostalesPorNombre"
+				},
+				{
+					"label": "Borrar por Direccion",
+					"event": "eliminarHostalPorDireccion"
+				},
+				{
+					"label": "Buscar por direccion",
+					"event": "buscarHostalPorDireccion"
+				},
+				{
+					"label": "Buscar por nombre",
+					"event": "buscarHostalesPorNombre"
 				}
 			]
 		},
@@ -208,7 +237,7 @@
 					"event": "mostrarArqRef"
 				},
 				{
-					"label": "Javadoc Parranderos",
+					"label": "Javadoc AlohAndes",
 					"event": "mostrarJavadoc"
 				}
 			]

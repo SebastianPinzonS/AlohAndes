@@ -7,6 +7,7 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import uniandes.isis2304.alohandes.negocio.Hotel;
 import uniandes.isis2304.alohandes.negocio.Operador;
 
 class SQLOperador 
@@ -72,21 +73,9 @@ class SQLOperador
 
 	public List<Operador> darOperadores (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT ID, NOMBRE, TIPO, VALIDACION_CAMARA_DE_COMERCIO_EMPRESA, VALIDACION_SUPER_TURISMO_EMPRESA, MIEMBRO_COMUNIDAD_UNIVERSITARIA_PERSONA FROM " + pa.darTablaOperador());
-		List<Operador> resp = new LinkedList<>();
-		List results = q.executeList();
-		for (Object obj : results)
-		{
-			Object [] datos = (Object []) obj;
-			String id =  (String) datos [0];
-			String nombre =  (String) datos [1];
-			String tipo = (String) datos[2];
-			int validacionCamaraDeComercioEmpresa = ((BigDecimal) datos [3]).intValue();
-			int validacionSuperTurismoEmpresa = ((BigDecimal) datos [4]).intValue();
-			int miembroComunidadUniversitariaPersona = ((BigDecimal) datos [5]).intValue();
-			resp.add (new Operador(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona));
-		}
-		return (resp) ;
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOperador ());
+		q.setResultClass(Operador.class);
+		return (List<Operador>) q.executeList();
 	}
 
 	public List<Object> mostrarDineroRecibidoPorCadaOperador (PersistenceManager pm)

@@ -1,5 +1,5 @@
 {
-	"title": "Demostración de Parranderos Uniandes",
+	"title": "Demostración de AlohAndes Uniandes",
 	"frameH": 600,
 	"frameW": 800,
 	"bannerPath": "./src/main/resources/config/logo.png",
@@ -112,8 +112,8 @@
 		  "options":
 			[
 				{
-					"label": "Mostrar log Parranderos",
-					"event": "mostrarLogParranderos"
+					"label": "Mostrar log AlohAndes",
+					"event": "mostrarLogAlohAndes"
 				},
 				{
 					"label": "Mostrar log datanucleus",
@@ -121,7 +121,7 @@
 				},
 				{
 					"label": "Limpiar log de parranderos",
-					"event": "limpiarLogParranderos"
+					"event": "limpiarLogAlohAndes"
 				},
 				{
 					"label": "Limpiar log de datanucleus",
@@ -157,7 +157,7 @@
 					"event": "mostrarArqRef"
 				},
 				{
-					"label": "Javadoc Parranderos",
+					"label": "Javadoc AlohAndes",
 					"event": "mostrarJavadoc"
 				}
 			]
