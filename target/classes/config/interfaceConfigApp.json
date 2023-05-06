@@ -34,6 +34,35 @@
 				}
 			]
 		},
+		{"menuTitle": "Hostal",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarHostal"
+				},
+				{
+					"label": "Listar hostales",
+					"event": "listarHostales"
+				},
+				{
+					"label": "Borrar por Nombre",
+					"event": "eliminarHostalesPorNombre"
+				},
+				{
+					"label": "Borrar por Direccion",
+					"event": "eliminarHostalPorDireccion"
+				},
+				{
+					"label": "Buscar por direccion",
+					"event": "buscarHostalPorDireccion"
+				},
+				{
+					"label": "Buscar por nombre",
+					"event": "buscarHostalesPorNombre"
+				}
+			]
+		},
 		{ "menuTitle": "Apartamento",
 		  "options":
 			[

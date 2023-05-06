@@ -379,7 +379,7 @@ public class AlohAndes
 		return pa.eliminarOfertaPorId(id);
 	}
 
-/* ****************************************************************
+	/* ****************************************************************
 	 * 			Métodos para manejar los Reservas
 	 *****************************************************************/
 
@@ -416,6 +416,33 @@ public class AlohAndes
 	 {
 		 return pa.eliminarReservaPorIdCliente(idCliente);
 	 }
+
+	/* ****************************************************************
+	 * 			Métodos para manejar los Hostales
+	 *****************************************************************/
+	public Hostal adicionarHostal(String nombre, String direccion, String horarioApertura, String horarioCierre, float calificacion ){
+		return pa.adicionarHostal(nombre, direccion, horarioApertura, horarioCierre, calificacion);
+	}
+
+    public List<Hostal> darHostales() {
+		return pa.darHostales();
+    }
+
+	public List<Hostal> darHostalesPorNombre(String nombre) {
+		return pa.darHostalPorNombre(nombre);
+	}
+
+	public Hostal darHostalPorDireccion(String direccion) {
+		return pa.darHostalesPorDireccion(direccion);
+	}
+
+	public long eliminarHostalesPorNombre(String nombre) {
+		return pa.eliminarHostalPorNombre(nombre);
+	}
+
+	public long eliminarHostalPorDireccion(String direccion) {
+		return pa.eliminarHostalPorDireccion(direccion);
+	}
  
  
  

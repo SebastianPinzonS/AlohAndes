@@ -1,7 +1,6 @@
 
 package uniandes.isis2304.alohandes.negocio;
 
-
 public class Operador implements VOOperador
 {
 
@@ -11,11 +10,11 @@ public class Operador implements VOOperador
 
 	private String tipo;
 
-	private Integer validacionCamaraDeComercioEmpresa;
+	private int validacionCamaraDeComercioEmpresa;
 
-	private Integer validacionSuperTurismoEmpresa;
+	private int validacionSuperTurismoEmpresa;
 
-	private Integer miembroComunidadUniversitariaPersona;
+	private int miembroComunidadUniversitariaPersona;
 
 
 	/* ****************************************************************
@@ -41,7 +40,7 @@ public class Operador implements VOOperador
 	 * @param nombre
 	 * @param tipo
 	 */
-	public Operador(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
+	public Operador(String id, String nombre, String tipo, int validacionCamaraDeComercioEmpresa, int validacionSuperTurismoEmpresa, int miembroComunidadUniversitariaPersona) 
 	{
 		this.id = id;
 		this.nombre = nombre;
@@ -103,7 +102,7 @@ public class Operador implements VOOperador
 	/**
 	 * @return validacionCamaraDeComercioEmpresa
 	 */
-	public Integer getValidacionCamaraDeComercioEmpresa() 
+	public int getValidacionCamaraDeComercioEmpresa() 
 	{
 		return validacionCamaraDeComercioEmpresa;
 	}
@@ -111,7 +110,7 @@ public class Operador implements VOOperador
 	/**
 	 * @param validacionCamaraDeComercioEmpresa - 
 	 */
-	public void setValidacionCamaraDeComercioEmpresa(Integer validacionCamaraDeComercioEmpresa) 
+	public void setValidacionCamaraDeComercioEmpresa(int validacionCamaraDeComercioEmpresa) 
 	{
 		this.validacionCamaraDeComercioEmpresa = validacionCamaraDeComercioEmpresa;
 	}
@@ -119,7 +118,7 @@ public class Operador implements VOOperador
 	/**
 	 * @return validacionSuperTurismoEmpresa
 	 */
-	public Integer getValidacionSuperTurismoEmpresa() 
+	public int getValidacionSuperTurismoEmpresa() 
 	{
 		return validacionSuperTurismoEmpresa;
 	}
@@ -127,7 +126,7 @@ public class Operador implements VOOperador
 	/**
 	 * @param validacionSuperTurismoEmpresa - 
 	 */
-	public void setValidacionSuperTurismoEmpresa(Integer validacionSuperTurismoEmpresa) 
+	public void setValidacionSuperTurismoEmpresa(int validacionSuperTurismoEmpresa) 
 	{
 		this.validacionSuperTurismoEmpresa = validacionSuperTurismoEmpresa;
 	}
@@ -135,7 +134,7 @@ public class Operador implements VOOperador
 	/**
 	 * @return miembroComunidadUniversitariaPersona
 	 */
-	public Integer getMiembroComunidadUniversitariaPersona() 
+	public int getMiembroComunidadUniversitariaPersona() 
 	{
 		return miembroComunidadUniversitariaPersona;
 	}
@@ -143,7 +142,7 @@ public class Operador implements VOOperador
 	/**
 	 * @param miembroComunidadUniversitariaPersona - 
 	 */
-	public void setMiembroComunidadUniversitariaPersona(Integer miembroComunidadUniversitariaPersona) 
+	public void setMiembroComunidadUniversitariaPersona(int miembroComunidadUniversitariaPersona) 
 	{
 		this.miembroComunidadUniversitariaPersona = miembroComunidadUniversitariaPersona;
 	}
