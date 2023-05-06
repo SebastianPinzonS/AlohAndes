@@ -376,7 +376,7 @@ public class AlohAndes
 		log.info ("Buscando Habitacion Hotel: "  != null ? habitacionHotel : "NO EXISTE");
         return habitacionHotel;
 	}
-/* ****************************************************************
+	/* ****************************************************************
 	 * 			Métodos para manejar los Reservas
 	 *****************************************************************/
 
@@ -413,4 +413,94 @@ public class AlohAndes
 	 {
 		 return pa.eliminarReservaPorIdCliente(idCliente);
 	 }
+
+	 /* ****************************************************************
+	 * 			Métodos para manejar las Instalacion Habitacion Hotel
+	 *****************************************************************/
+
+	 public InstalacionHabitacionHotel adicionarInstalacionHabitacionHotel (String tipoInstalacion, String numeroHabitacionHabitacionHotel, String direccionHotelHabitacionHotel)
+	 {
+		 log.info ("Adicionando Instalacion Habitacion Hotel");
+		 InstalacionHabitacionHotel instalacionHabitacionHotel = pa.adicionarInstalacionHabitacionHotel(tipoInstalacion, numeroHabitacionHabitacionHotel, direccionHotelHabitacionHotel);
+		 log.info ("Adicionando Instalacion Habitacion Hotel: " + instalacionHabitacionHotel);
+		 return instalacionHabitacionHotel;
+	 }
+
+	 public List<VOInstalacionHabitacionHotel> darVOInstalacionesHabitacionHotel ()
+	 {
+		 log.info ("Generando los VO de Instalaciones Habitacion Hotel");        
+		 List<VOInstalacionHabitacionHotel> voInstalacionHabitacionHotels = new LinkedList<VOInstalacionHabitacionHotel> ();
+		 List<InstalacionHabitacionHotel> instalacionHabitacionHotel = pa.darTodasInstalacionHabitacionHotel();
+		 for (InstalacionHabitacionHotel cl : instalacionHabitacionHotel )
+		 {
+			voInstalacionHabitacionHotels.add (cl);
+		 }
+		 log.info ("Generando los VO de Tipos de Cliente: " + voInstalacionHabitacionHotels.size() + " existentes");
+		 return voInstalacionHabitacionHotels;
+	 }
+
+	 public List<InstalacionHabitacionHotel> darInstalacionesHabitacionHotel()
+	 {
+		 log.info ("Consultando Instalaciones Habitacion Hotel");
+		 List<InstalacionHabitacionHotel> instalacionHabitacionHotel = pa.darTodasInstalacionHabitacionHotel();
+		 log.info ("Consultando Instalaciones Habitacion Hotel: " != null ? instalacionHabitacionHotel : "NO EXISTE");
+		 return instalacionHabitacionHotel;
+	 }
+
+	 public List<InstalacionHabitacionHotel> darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel(String direccionHotelHabitacionHotel)
+	 {
+		 log.info("Consultando Instalacion Habitacion Hotel por direccion de hotel");
+		 List<InstalacionHabitacionHotel> instalacionHabitacionHotel = pa.darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel(direccionHotelHabitacionHotel);
+		 log.info("Consultando Instalacion Habitacion Hotel por direccion de hotel: " + direccionHotelHabitacionHotel != null ? instalacionHabitacionHotel : "NO EXISTE");
+		 return instalacionHabitacionHotel;
+	 }
+
+	 public List<InstalacionHabitacionHotel> darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel(String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	 {
+		 log.info("Consultando Instalacion Habitacion Hotel por direccion de hotel y numero de habitacion");
+		 List<InstalacionHabitacionHotel> instalacionHabitacionHotel = pa.darInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel(direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+		 log.info("Consultando Instalacion Habitacion Hotel por direccion de hotel: " + direccionHotelHabitacionHotel + " y numero habitacion: " + numeroHabitacionHabitacionHotel != null ? instalacionHabitacionHotel : "NO EXISTE");
+		 return instalacionHabitacionHotel;
+	 }
+
+	 public InstalacionHabitacionHotel darInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel(String tipoInstalacion, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	 {
+		 log.info("Consultando Instalacion Habitacion Hotel por tipo de instalacion, direccion de hotel y numero de habitacion");
+		 InstalacionHabitacionHotel instalacionHabitacionHotel = pa.darInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel(tipoInstalacion, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+		 log.info("Consultando Instalacion Habitacion Hotel por tipo de instalacion: " + tipoInstalacion + " direccion de hotel: " + direccionHotelHabitacionHotel + " y numero habitacion: " + numeroHabitacionHabitacionHotel != null ? instalacionHabitacionHotel : "NO EXISTE");
+		 return instalacionHabitacionHotel;
+	 }
+	 
+	 public long eliminarInstalacionHabitacionHotelPorTipoInstalacionYDireccionHotelHabitacionHotel (String tipoInstlacion, String direccionHotelHabitacionHotel )
+	 {
+		 log.info("Eliminando Instalacion Habitacion Hotel con tipo instalacion: " + tipoInstlacion + " y direccion de hotel: " + direccionHotelHabitacionHotel);
+		 long resp = pa.eliminarInstalacionHabitacionHotelPorTipoInstalacionYDireccionHotelHabitacionHotel(tipoInstlacion, direccionHotelHabitacionHotel);
+		 log.info ("Eliminando Instalacion Habitacion Hotel: " + resp + " tuplas eliminadas");
+		return resp;
+	 }
+
+	 public long eliminarInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (String tipoInstlacion, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	 {
+		 log.info("Eliminando Instalacion Habitacion Hotel con tipo instalacion: " + tipoInstlacion + " direccion de hotel: " + direccionHotelHabitacionHotel + " y numero habitacion: " + numeroHabitacionHabitacionHotel);
+		 long resp = pa.eliminarInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel(tipoInstlacion, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+		 log.info ("Eliminando Instalacion Habitacion Hotel: " + resp + " tuplas eliminadas");
+		 return resp;
+	 }
+
+	 public long eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel (String direccionHotelHabitacionHotel)
+	 {
+		 log.info("Eliminando Instalacion Habitacion Hotel con direccion de hotel: " + direccionHotelHabitacionHotel);
+		 long resp = pa.eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotel(direccionHotelHabitacionHotel);
+		 log.info ("Eliminando Instalacion Habitacion Hotel: " + resp + " tuplas eliminadas");
+		 return resp;
+	 }
+
+	 public long eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel (String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	 {
+		 log.info("Eliminando Instalacion Habitacion Hotel con direccion de hotel: " + direccionHotelHabitacionHotel + " y numero habitacion: " + numeroHabitacionHabitacionHotel);
+		 long resp = pa.eliminarInstalacionHabitacionHotelPorDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel(direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+		 log.info ("Eliminando Instalacion Habitacion Hotel: " + resp + " tuplas eliminadas");
+		 return resp;
+	 }
+
 }

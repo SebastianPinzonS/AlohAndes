@@ -10846,3 +10846,338 @@ org.datanucleus.store.query.QueryNotUniqueException: The query returned more tha
 15:59:17,716 (AWT-EventQueue-0) ERROR [DataNucleus.Query] - El Query tenia que devolver objetos de tipo "uniandes.isis2304.alohandes.negocio.HabitacionHotel" pero era imposible poner el valor al campo "NUMERO_HABITACION"  tipo "java.lang.String". El campo debe tener un metodo publico set/put o ser publico.
 15:59:17,731 (AWT-EventQueue-0) WARN  [DataNucleus.Query] - Exception thrown while loading remaining rows of query : El Query tenia que devolver objetos de tipo "uniandes.isis2304.alohandes.negocio.HabitacionHotel" pero era imposible poner el valor al campo "NUMERO_HABITACION"  tipo "java.lang.String". El campo debe tener un metodo publico set/put o ser publico.
 15:59:17,746 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@49484a07 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@432fd68, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" 
+22:44:34,801 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+22:44:34,913 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.1.7 at URL file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-api-jdo-5.1.7.jar.
+22:44:34,976 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-api-jdo-5.1.7.jar!/plugin.xml.
+22:44:35,010 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.1.10 at URL file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-core-5.1.10.jar.
+22:44:35,018 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-core-5.1.10.jar!/plugin.xml.
+22:44:35,052 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.1.10 at URL file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-rdbms-5.1.10.jar.
+22:44:35,066 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-rdbms-5.1.10.jar!/plugin.xml.
+22:44:35,176 (main) DEBUG [DataNucleus.MetaData] - Analizando el MetaData "file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/target/classes/META-INF/persistence.xml" con handler "persistence" (validar="false")
+22:44:35,236 (main) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+22:44:35,416 (main) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+22:44:35,417 (main) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+22:44:35,513 (main) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+22:44:35,514 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+22:44:35,514 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+22:44:35,515 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+22:44:35,515 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+22:44:35,515 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+22:44:35,515 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+22:44:35,516 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+22:44:35,516 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+22:44:35,516 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+22:44:35,516 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+22:44:35,517 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : java.lang.String,int[]
+22:44:35,517 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : java.nio.ByteBuffer,byte[]
+22:44:35,517 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : java.nio.ByteBuffer,java.lang.String,byte[]
+22:44:35,517 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Integer,java.lang.Character
+22:44:35,517 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+22:44:35,518 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+22:44:35,518 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+22:44:35,518 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+22:44:35,518 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+22:44:35,519 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+22:44:35,519 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.String,java.lang.Double
+22:44:35,519 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.String,java.lang.Long
+22:44:35,519 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+22:44:35,519 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+22:44:35,520 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.String,java.util.Date,java.lang.Long
+22:44:35,520 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.String,java.util.Date,java.lang.Long
+22:44:35,520 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.String,java.util.Date,java.lang.Long
+22:44:35,521 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.String,java.lang.Double,java.lang.Long
+22:44:35,521 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.lang.String,java.sql.Timestamp,java.util.Date,java.lang.Long
+22:44:35,521 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.lang.String,java.util.Date,java.sql.Date
+22:44:35,521 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.lang.String,java.sql.Timestamp,java.util.Date
+22:44:35,522 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.sql.Time,java.lang.String,java.util.Date,java.lang.Long
+22:44:35,522 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : java.lang.String,int[],java.util.Date,java.sql.Date
+22:44:35,522 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.lang.String,java.sql.Timestamp,java.util.Date
+22:44:35,522 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.sql.Time,java.lang.String,java.lang.Long
+22:44:35,523 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : java.lang.String,int[]
+22:44:35,523 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.Integer,java.lang.String
+22:44:35,523 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : java.lang.String,int[],java.util.Date,java.sql.Date
+22:44:35,523 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.lang.String,java.sql.Timestamp
+22:44:35,523 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+22:44:35,524 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+22:44:35,524 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+22:44:35,524 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : java.lang.String,java.sql.Timestamp,java.util.Date,[Ljava.lang.Object;
+22:44:35,524 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+22:44:35,525 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.String,java.lang.Long
+22:44:35,525 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+22:44:35,525 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+22:44:35,525 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+22:44:35,526 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery) mapping-name=oracle, JDO-listener=false
+22:44:35,527 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata del persistence-unit "AlohAndes" ...
+22:44:35,527 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+22:44:35,537 (main) DEBUG [DataNucleus.Datastore] - Creating StoreManager for datastore
+22:44:36,456 (main) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "tx" con data source de tipo dbcp2-builtin
+22:44:36,457 (main) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones transaccionales bajo el nombre "rdbms/tx"
+22:44:36,457 (main) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones nontransaccionales bajo el nombre "rdbms/nontx"
+22:44:36,489 (main) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "nontx" con data source de tipo dbcp2-builtin
+22:44:37,769 (main) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@29a60c27 [conn=null, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" en resource "nontx"
+22:44:38,569 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.Boolean, jdbc-type=BOOLEAN
+22:44:38,570 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "[B" con jdbc-types=[BLOB, VARBINARY, LONGVARBINARY], sql-types=[BLOB, VARBINARY, LONGVARBINARY] y defecto (jdbc-type=BLOB, sql-type=BLOB)
+22:44:38,571 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.io.File" con jdbc-types=[LONGVARBINARY], sql-types=[LONGVARBINARY] y defecto (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+22:44:38,571 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.io.Serializable" con jdbc-types=[BLOB, VARBINARY, LONGVARBINARY], sql-types=[BLOB, VARBINARY, LONGVARBINARY] y defecto (jdbc-type=BLOB, sql-type=BLOB)
+22:44:38,571 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Boolean" con jdbc-types=[NUMERIC, SMALLINT, CHAR, BIT, TINYINT], sql-types=[NUMERIC, SMALLINT, CHAR, BIT, TINYINT] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:44:38,571 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Byte" con jdbc-types=[NUMERIC, SMALLINT, TINYINT], sql-types=[NUMERIC, SMALLINT, TINYINT] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:44:38,572 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Character" con jdbc-types=[NUMERIC, CHAR, INTEGER], sql-types=[NUMERIC, CHAR, INTEGER] y defecto (jdbc-type=CHAR, sql-type=CHAR)
+22:44:38,572 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Double" con jdbc-types=[FLOAT, NUMERIC, DECIMAL, DOUBLE], sql-types=[FLOAT, NUMBER, DECIMAL, DOUBLE] y defecto (jdbc-type=FLOAT, sql-type=FLOAT)
+22:44:38,572 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Float" con jdbc-types=[FLOAT, NUMERIC, REAL, DECIMAL, DOUBLE], sql-types=[FLOAT, NUMBER, REAL, DECIMAL, DOUBLE] y defecto (jdbc-type=FLOAT, sql-type=FLOAT)
+22:44:38,572 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Integer" con jdbc-types=[NUMERIC, SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, BIGINT, TINYINT, INTEGER] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:44:38,573 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Long" con jdbc-types=[NUMERIC, SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, BIGINT, INT, TINYINT] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:44:38,573 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Short" con jdbc-types=[NUMERIC, SMALLINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, TINYINT, INTEGER] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:44:38,573 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.String" con jdbc-types=[XMLTYPE, BLOB, LONGVARCHAR, CLOB, VARCHAR, CHAR, BIGINT, NVARCHAR, NCHAR], sql-types=[NVARCHAR2, XMLTYPE, BLOB, LONGVARCHAR, CLOB, VARCHAR, CHAR, BIGINT, NVARCHAR, NCHAR] y defecto (jdbc-type=VARCHAR, sql-type=VARCHAR)
+22:44:38,574 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.math.BigDecimal" con jdbc-types=[NUMERIC, DECIMAL], sql-types=[NUMERIC, NUMBER, DECIMAL] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:44:38,574 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.math.BigInteger" con jdbc-types=[NUMERIC], sql-types=[NUMERIC, NUMBER] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:44:38,574 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Date" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT] y defecto (jdbc-type=DATE, sql-type=DATE)
+22:44:38,575 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Time" con jdbc-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] y defecto (jdbc-type=TIME, sql-type=TIME)
+22:44:38,575 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Timestamp" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME] y defecto (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+22:44:38,575 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.util.Date" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] y defecto (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+22:44:38,576 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "org.datanucleus.identity.DatastoreId" con jdbc-types=[NUMERIC, VARCHAR, CHAR, BIGINT, INTEGER], sql-types=[NUMERIC, VARCHAR, CHAR, BIGINT, INTEGER] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:44:38,599 (main) DEBUG [DataNucleus.Datastore] - ======================= Datastore =========================
+22:44:38,599 (main) DEBUG [DataNucleus.Datastore] - StoreManager : "rdbms" (org.datanucleus.store.rdbms.RDBMSStoreManager)
+22:44:38,600 (main) DEBUG [DataNucleus.Datastore] - Datastore : read-write
+22:44:38,600 (main) DEBUG [DataNucleus.Datastore] - Schema Control : AutoCreate(None), Validate(None)
+22:44:38,601 (main) DEBUG [DataNucleus.Datastore] - Schema : NamingFactory=datanucleus2 identifierCase=null
+22:44:38,601 (main) DEBUG [DataNucleus.Datastore] - Query Languages : JDOQL, JPQL, STOREDPROC, SQL
+22:44:38,601 (main) DEBUG [DataNucleus.Datastore] - Queries : Timeout=0
+22:44:38,602 (main) DEBUG [DataNucleus.Datastore] - ===========================================================
+22:44:38,602 (main) DEBUG [DataNucleus.Datastore] - Datastore Adapter : org.datanucleus.store.rdbms.adapter.OracleAdapter
+22:44:38,602 (main) DEBUG [DataNucleus.Datastore] - Datastore : name="Oracle" version="Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production"
+22:44:38,602 (main) DEBUG [DataNucleus.Datastore] - Datastore Driver : name="Oracle JDBC driver" version="12.2.0.1.0"
+22:44:38,602 (main) DEBUG [DataNucleus.Datastore] - Primary Connection Factory : URL[jdbc:oracle:thin:@fn4.oracle.virtual.uniandes.edu.co:1521/prod]
+22:44:38,603 (main) DEBUG [DataNucleus.Datastore] - Secondary Connection Factory : URL[jdbc:oracle:thin:@fn4.oracle.virtual.uniandes.edu.co:1521/prod]
+22:44:38,603 (main) DEBUG [DataNucleus.Datastore] - Datastore Identifiers : factory="datanucleus2" case=UPPERCASE schema=ISIS2304B07202310
+22:44:38,603 (main) DEBUG [DataNucleus.Datastore] - Supported Identifier Cases : "MixedCase" UPPERCASE "MixedCase-Sensitive" 
+22:44:38,604 (main) DEBUG [DataNucleus.Datastore] - Supported Identifier Lengths (max) : Table=128 Column=128 Constraint=128 Index=128 Delimiter="
+22:44:38,605 (main) DEBUG [DataNucleus.Datastore] - Support for Identifiers in DDL : catalog=false schema=true
+22:44:38,605 (main) DEBUG [DataNucleus.Datastore] - Datastore : checkTableViewExistence, rdbmsConstraintCreateMode=DataNucleus, initialiseColumnInfo=ALL
+22:44:38,605 (main) DEBUG [DataNucleus.Datastore] - Support Statement Batching : yes (max-batch-size=50)
+22:44:38,605 (main) DEBUG [DataNucleus.Datastore] - Queries : Results direction=forward, type=forward-only, concurrency=read-only
+22:44:38,606 (main) DEBUG [DataNucleus.Datastore] - Java-Types : string-default-length=255
+22:44:38,606 (main) DEBUG [DataNucleus.Datastore] - JDBC-Types : NCLOB, NCHAR, [id=2007], REF, CLOB, BLOB, ARRAY, STRUCT, DATE, TIME, TIMESTAMP, VARCHAR, LONGVARCHAR, VARBINARY, LONGVARBINARY, BIGINT, TINYINT, BIT, NVARCHAR, [id=-101], CHAR, [id=-103], NUMERIC, [id=-102], DECIMAL, INTEGER, SMALLINT, FLOAT, REAL, DOUBLE, [id=-104]
+22:44:38,607 (main) DEBUG [DataNucleus.Datastore] - ===========================================================
+22:44:38,607 (main) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@29a60c27 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@4aeaadc1, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" 
+22:44:38,609 (main) DEBUG [DataNucleus.Datastore] - StoreManager now created
+22:44:38,615 (main) DEBUG [DataNucleus.Persistence] - Started pool of ExecutionContext (maxPool=20, reaperThread=false)
+22:44:38,629 (main) DEBUG [DataNucleus.Persistence] - ================= NucleusContext ===============
+22:44:38,630 (main) DEBUG [DataNucleus.Persistence] - DataNucleus Context : Versión: "5.1.10" con JRE "17.0.7" en "Windows 10"
+22:44:38,630 (main) DEBUG [DataNucleus.Persistence] - Persistence API : JDO
+22:44:38,630 (main) DEBUG [DataNucleus.Persistence] - Persistence-Unit : AlohAndes
+22:44:38,631 (main) DEBUG [DataNucleus.Persistence] - Plugin Registry : org.datanucleus.plugin.NonManagedPluginRegistry
+22:44:38,631 (main) DEBUG [DataNucleus.Persistence] - ClassLoading : default
+22:44:38,631 (main) DEBUG [DataNucleus.Persistence] - Persistence : pm-singlethreaded, nontransactional-read, nontransactional-write, reachability-at-commit, copy-on-attach, managed-relations(checked), deletion-policy=JDO2, serverTimeZone=America/Bogota
+22:44:38,631 (main) DEBUG [DataNucleus.Persistence] - Transactions : type=RESOURCE_LOCAL, mode=datastore, isolation=read-committed
+22:44:38,632 (main) DEBUG [DataNucleus.Persistence] - ValueGeneration : txn-isolation=read-committed connection=New
+22:44:38,632 (main) DEBUG [DataNucleus.Persistence] - Cache : Level1 (soft), Level2 (soft, mode=UNSPECIFIED), QueryResults (soft), Collections/Maps 
+22:44:38,632 (main) DEBUG [DataNucleus.Persistence] - ================================================
+22:44:58,698 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext "org.datanucleus.ExecutionContextImpl@2bb56e53" se abrió para la base de datos "org.datanucleus.store.rdbms.RDBMSStoreManager@445b7fea" con transaccion="org.datanucleus.TransactionImpl@4ba84eeb"
+22:44:58,717 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction created [DataNucleus Transaction, ID=1029736639-1, enlisted resources=[]]
+22:44:58,718 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transacción empezada para el ExecutionContext org.datanucleus.ExecutionContextImpl@2bb56e53 (optimistic=false)
+22:44:58,736 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "INSERT INTO INSTALACION_HABITACION_HOTEL(TIPO_INSTALACION, NUMERO_HABITACION_HABITACION_HOTEL, DIRECCION_HOTEL_HOTEL_HABITACION) values (?, ?, ?)"
+22:44:58,882 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@1b50b461 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7b0579f6, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]" en resource "tx" con isolación "read-committed" y auto-commit=false
+22:44:58,886 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Running enlist operation on resource: org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@592be65b, error code TMNOFLAGS and transaction [DataNucleus Transaction, ID=1029736639-1, enlisted resources=[]]
+22:44:58,896 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@1543bbd8" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7b0579f6"
+22:44:58,898 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - INSERT INTO INSTALACION_HABITACION_HOTEL(TIPO_INSTALACION, NUMERO_HABITACION_HABITACION_HOTEL, DIRECCION_HOTEL_HOTEL_HABITACION) values (<'baño'>, <'123'>, <'achor 23'>)
+22:44:58,925 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Cerrando PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@1543bbd8"
+22:44:58,945 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Haciendo rollback de la transacción para el ExecutionContext org.datanucleus.ExecutionContextImpl@2bb56e53
+22:44:58,949 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Rolling back [DataNucleus Transaction, ID=1029736639-1, enlisted resources=[org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@592be65b]]
+22:44:58,949 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection VA A ROLLBACK : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@1b50b461 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7b0579f6, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
+22:44:58,951 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@1b50b461 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7b0579f6, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]" 
+22:44:58,954 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transacción rolled back en 9 ms
+22:44:58,956 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext "org.datanucleus.ExecutionContextImpl@2bb56e53" se cerró
+22:45:09,459 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext "org.datanucleus.ExecutionContextImpl@2bb56e53" se abrió para la base de datos "org.datanucleus.store.rdbms.RDBMSStoreManager@445b7fea" con transaccion="org.datanucleus.TransactionImpl@45fe5297"
+22:45:09,461 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "SELECT * FROM INSTALACION_HABITACION_HOTEL"
+22:45:09,490 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@89efee [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@63f43a31, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" en resource "nontx" con isolación "read-committed" y auto-commit=false
+22:45:09,490 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "oracle.jdbc.driver.OraclePreparedStatementWrapper@6c3fd7eb" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@63f43a31"
+22:45:09,491 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - SELECT * FROM INSTALACION_HABITACION_HOTEL
+22:45:09,501 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Retrieve] - SQL Tiempo de cumplir = 9 ms
+22:45:09,527 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection VA A COMMIT : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@89efee [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@63f43a31, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+22:45:09,530 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Leyendo los resultados del query "org.datanucleus.store.rdbms.query.SQLQuery@f272bb41" como la conneccion va a cerrar o cometer
+22:45:09,533 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [aire acondicionado, C324, Calle 23 I Numero 66 U 74]
+22:45:09,535 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [aire acondicionado, E446, Calle 3 H Numero 62 Y 05]
+22:45:09,535 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [aire acondicionado, E446, Calle 56 Y Numero 97 X 20]
+22:45:09,536 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [aire acondicionado, M321, Calle 83 B Numero 81 G 67]
+22:45:09,536 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [bano privado, F537, Calle 56 Y Numero 97 X 20]
+22:45:09,536 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [bano privado, G346, Calle 85 G Numero 03 K 46]
+22:45:09,537 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [bano privado, N929, Calle 56 Y Numero 97 X 20]
+22:45:09,537 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, E446, Calle 3 H Numero 62 Y 05]
+22:45:09,538 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, E446, Calle 56 Y Numero 97 X 20]
+22:45:09,538 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, I989, Calle 3 H Numero 62 Y 05]
+22:45:09,540 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, M373, Calle 67 K Numero 71 C 22]
+22:45:09,540 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, X356, Calle 67 K Numero 71 C 22]
+22:45:09,541 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [cama, K754, Calle 3 H Numero 62 Y 05]
+22:45:09,541 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [cama, K934, Calle 1 I Numero 71 B 86]
+22:45:09,541 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [cama, L875, Calle 81 N Numero 22 H 20]
+22:45:09,543 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [minibar, F123, Calle 91 Q Numero 96 I 87]
+22:45:09,543 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [minibar, F537, Calle 56 Y Numero 97 X 20]
+22:45:09,543 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [minibar, G345, Calle 85 G Numero 03 K 46]
+22:45:09,544 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [plancha, E123, Calle 23 I Numero 66 U 74]
+22:45:09,544 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [plancha, N929, Calle 56 Y Numero 97 X 20]
+22:45:09,546 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [plancha, R784, Calle 23 I Numero 66 U 74]
+22:45:09,546 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [television, A897, Calle 31 U Numero 27 R 31]
+22:45:09,546 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [television, E111, Calle 31 U Numero 27 R 31]
+22:45:09,547 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [television, I989, Calle 3 H Numero 62 Y 05]
+22:45:09,547 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [television, K754, Calle 3 H Numero 62 Y 05]
+22:45:09,547 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@89efee [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@63f43a31, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" 
+22:45:14,526 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext "org.datanucleus.ExecutionContextImpl@293b96a7" se abrió para la base de datos "org.datanucleus.store.rdbms.RDBMSStoreManager@445b7fea" con transaccion="org.datanucleus.TransactionImpl@2657a11e"
+22:45:14,526 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Query de SQL : "SELECT * FROM INSTALACION_HABITACION_HOTEL"
+22:45:14,527 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@6f050e38 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@1a7e23d1, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" en resource "nontx" con isolación "read-committed" y auto-commit=false
+22:45:14,527 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Utilizando PreparedStatement "oracle.jdbc.driver.OraclePreparedStatementWrapper@13a3ed1" para la conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@1a7e23d1"
+22:45:14,528 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - SELECT * FROM INSTALACION_HABITACION_HOTEL
+22:45:14,530 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Retrieve] - SQL Tiempo de cumplir = 2 ms
+22:45:14,531 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection VA A COMMIT : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@6f050e38 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@1a7e23d1, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+22:45:14,532 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Leyendo los resultados del query "org.datanucleus.store.rdbms.query.SQLQuery@f272bb41" como la conneccion va a cerrar o cometer
+22:45:14,532 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [aire acondicionado, C324, Calle 23 I Numero 66 U 74]
+22:45:14,533 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [aire acondicionado, E446, Calle 3 H Numero 62 Y 05]
+22:45:14,533 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [aire acondicionado, E446, Calle 56 Y Numero 97 X 20]
+22:45:14,533 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [aire acondicionado, M321, Calle 83 B Numero 81 G 67]
+22:45:14,533 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [bano privado, F537, Calle 56 Y Numero 97 X 20]
+22:45:14,534 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [bano privado, G346, Calle 85 G Numero 03 K 46]
+22:45:14,534 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [bano privado, N929, Calle 56 Y Numero 97 X 20]
+22:45:14,534 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, E446, Calle 3 H Numero 62 Y 05]
+22:45:14,535 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, E446, Calle 56 Y Numero 97 X 20]
+22:45:14,535 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, I989, Calle 3 H Numero 62 Y 05]
+22:45:14,536 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, M373, Calle 67 K Numero 71 C 22]
+22:45:14,537 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [caja fuerte, X356, Calle 67 K Numero 71 C 22]
+22:45:14,537 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [cama, K754, Calle 3 H Numero 62 Y 05]
+22:45:14,537 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [cama, K934, Calle 1 I Numero 71 B 86]
+22:45:14,538 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [cama, L875, Calle 81 N Numero 22 H 20]
+22:45:14,538 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [minibar, F123, Calle 91 Q Numero 96 I 87]
+22:45:14,539 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [minibar, F537, Calle 56 Y Numero 97 X 20]
+22:45:14,539 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [minibar, G345, Calle 85 G Numero 03 K 46]
+22:45:14,540 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [plancha, E123, Calle 23 I Numero 66 U 74]
+22:45:14,540 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [plancha, N929, Calle 56 Y Numero 97 X 20]
+22:45:14,541 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [plancha, R784, Calle 23 I Numero 66 U 74]
+22:45:14,542 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [television, A897, Calle 31 U Numero 27 R 31]
+22:45:14,542 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [television, E111, Calle 31 U Numero 27 R 31]
+22:45:14,542 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [television, I989, Calle 3 H Numero 62 Y 05]
+22:45:14,543 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel created with following constructor arguments: [television, K754, Calle 3 H Numero 62 Y 05]
+22:45:14,543 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@6f050e38 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@1a7e23d1, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" 
+22:48:22,427 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+22:48:22,529 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.1.7 at URL file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-api-jdo-5.1.7.jar.
+22:48:22,608 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-api-jdo-5.1.7.jar!/plugin.xml.
+22:48:22,646 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.1.10 at URL file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-core-5.1.10.jar.
+22:48:22,657 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-core-5.1.10.jar!/plugin.xml.
+22:48:22,700 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.1.10 at URL file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-rdbms-5.1.10.jar.
+22:48:22,714 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/lib/datanucleus-rdbms-5.1.10.jar!/plugin.xml.
+22:48:22,808 (main) DEBUG [DataNucleus.MetaData] - Analizando el MetaData "file:/C:/Users/a.cordero/Documents/GitHub/AlohAndes/target/classes/META-INF/persistence.xml" con handler "persistence" (validar="false")
+22:48:22,859 (main) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+22:48:23,006 (main) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+22:48:23,007 (main) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+22:48:23,095 (main) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+22:48:23,096 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+22:48:23,096 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+22:48:23,097 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+22:48:23,097 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+22:48:23,097 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+22:48:23,097 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+22:48:23,097 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+22:48:23,098 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+22:48:23,098 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+22:48:23,098 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+22:48:23,098 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : java.lang.String,int[]
+22:48:23,098 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : java.nio.ByteBuffer,byte[]
+22:48:23,098 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : java.nio.ByteBuffer,java.lang.String,byte[]
+22:48:23,099 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Integer,java.lang.Character
+22:48:23,099 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+22:48:23,099 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+22:48:23,099 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+22:48:23,099 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+22:48:23,099 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+22:48:23,100 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+22:48:23,100 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.String,java.lang.Double
+22:48:23,100 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.String,java.lang.Long
+22:48:23,100 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+22:48:23,100 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+22:48:23,100 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.String,java.util.Date,java.lang.Long
+22:48:23,101 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.String,java.util.Date,java.lang.Long
+22:48:23,101 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.String,java.util.Date,java.lang.Long
+22:48:23,101 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.String,java.lang.Double,java.lang.Long
+22:48:23,102 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.lang.String,java.sql.Timestamp,java.util.Date,java.lang.Long
+22:48:23,103 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.lang.String,java.util.Date,java.sql.Date
+22:48:23,104 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.lang.String,java.sql.Timestamp,java.util.Date
+22:48:23,104 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.sql.Time,java.lang.String,java.util.Date,java.lang.Long
+22:48:23,105 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : java.lang.String,int[],java.util.Date,java.sql.Date
+22:48:23,105 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.lang.String,java.sql.Timestamp,java.util.Date
+22:48:23,105 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.sql.Time,java.lang.String,java.lang.Long
+22:48:23,106 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : java.lang.String,int[]
+22:48:23,106 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.Integer,java.lang.String
+22:48:23,106 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : java.lang.String,int[],java.util.Date,java.sql.Date
+22:48:23,106 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.lang.String,java.sql.Timestamp
+22:48:23,106 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+22:48:23,107 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+22:48:23,107 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+22:48:23,107 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : java.lang.String,java.sql.Timestamp,java.util.Date,[Ljava.lang.Object;
+22:48:23,107 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+22:48:23,107 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.String,java.lang.Long
+22:48:23,107 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+22:48:23,107 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+22:48:23,109 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+22:48:23,111 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery) mapping-name=oracle, JDO-listener=false
+22:48:23,112 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata del persistence-unit "AlohAndes" ...
+22:48:23,112 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+22:48:23,118 (main) DEBUG [DataNucleus.Datastore] - Creating StoreManager for datastore
+22:48:23,769 (main) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "tx" con data source de tipo dbcp2-builtin
+22:48:23,769 (main) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones transaccionales bajo el nombre "rdbms/tx"
+22:48:23,770 (main) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones nontransaccionales bajo el nombre "rdbms/nontx"
+22:48:23,798 (main) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "nontx" con data source de tipo dbcp2-builtin
+22:48:24,768 (main) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@29a60c27 [conn=null, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" en resource "nontx"
+22:48:25,305 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.Boolean, jdbc-type=BOOLEAN
+22:48:25,306 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "[B" con jdbc-types=[BLOB, VARBINARY, LONGVARBINARY], sql-types=[BLOB, VARBINARY, LONGVARBINARY] y defecto (jdbc-type=BLOB, sql-type=BLOB)
+22:48:25,306 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.io.File" con jdbc-types=[LONGVARBINARY], sql-types=[LONGVARBINARY] y defecto (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+22:48:25,306 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.io.Serializable" con jdbc-types=[BLOB, VARBINARY, LONGVARBINARY], sql-types=[BLOB, VARBINARY, LONGVARBINARY] y defecto (jdbc-type=BLOB, sql-type=BLOB)
+22:48:25,307 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Boolean" con jdbc-types=[NUMERIC, SMALLINT, CHAR, BIT, TINYINT], sql-types=[NUMERIC, SMALLINT, CHAR, BIT, TINYINT] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:48:25,307 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Byte" con jdbc-types=[NUMERIC, SMALLINT, TINYINT], sql-types=[NUMERIC, SMALLINT, TINYINT] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:48:25,307 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Character" con jdbc-types=[NUMERIC, CHAR, INTEGER], sql-types=[NUMERIC, CHAR, INTEGER] y defecto (jdbc-type=CHAR, sql-type=CHAR)
+22:48:25,307 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Double" con jdbc-types=[FLOAT, NUMERIC, DECIMAL, DOUBLE], sql-types=[FLOAT, NUMBER, DECIMAL, DOUBLE] y defecto (jdbc-type=FLOAT, sql-type=FLOAT)
+22:48:25,307 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Float" con jdbc-types=[FLOAT, NUMERIC, REAL, DECIMAL, DOUBLE], sql-types=[FLOAT, NUMBER, REAL, DECIMAL, DOUBLE] y defecto (jdbc-type=FLOAT, sql-type=FLOAT)
+22:48:25,307 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Integer" con jdbc-types=[NUMERIC, SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, BIGINT, TINYINT, INTEGER] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:48:25,307 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Long" con jdbc-types=[NUMERIC, SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, BIGINT, INT, TINYINT] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:48:25,308 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Short" con jdbc-types=[NUMERIC, SMALLINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, TINYINT, INTEGER] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:48:25,308 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.String" con jdbc-types=[XMLTYPE, BLOB, LONGVARCHAR, CLOB, VARCHAR, CHAR, BIGINT, NVARCHAR, NCHAR], sql-types=[NVARCHAR2, XMLTYPE, BLOB, LONGVARCHAR, CLOB, VARCHAR, CHAR, BIGINT, NVARCHAR, NCHAR] y defecto (jdbc-type=VARCHAR, sql-type=VARCHAR)
+22:48:25,308 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.math.BigDecimal" con jdbc-types=[NUMERIC, DECIMAL], sql-types=[NUMERIC, NUMBER, DECIMAL] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:48:25,309 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.math.BigInteger" con jdbc-types=[NUMERIC], sql-types=[NUMERIC, NUMBER] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:48:25,309 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Date" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT] y defecto (jdbc-type=DATE, sql-type=DATE)
+22:48:25,309 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Time" con jdbc-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] y defecto (jdbc-type=TIME, sql-type=TIME)
+22:48:25,309 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Timestamp" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME] y defecto (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+22:48:25,310 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.util.Date" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] y defecto (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+22:48:25,310 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "org.datanucleus.identity.DatastoreId" con jdbc-types=[NUMERIC, VARCHAR, CHAR, BIGINT, INTEGER], sql-types=[NUMERIC, VARCHAR, CHAR, BIGINT, INTEGER] y defecto (jdbc-type=NUMERIC, sql-type=NUMERIC)
+22:48:25,322 (main) DEBUG [DataNucleus.Datastore] - ======================= Datastore =========================
+22:48:25,322 (main) DEBUG [DataNucleus.Datastore] - StoreManager : "rdbms" (org.datanucleus.store.rdbms.RDBMSStoreManager)
+22:48:25,322 (main) DEBUG [DataNucleus.Datastore] - Datastore : read-write
+22:48:25,322 (main) DEBUG [DataNucleus.Datastore] - Schema Control : AutoCreate(None), Validate(None)
+22:48:25,323 (main) DEBUG [DataNucleus.Datastore] - Schema : NamingFactory=datanucleus2 identifierCase=null
+22:48:25,323 (main) DEBUG [DataNucleus.Datastore] - Query Languages : JDOQL, JPQL, STOREDPROC, SQL
+22:48:25,323 (main) DEBUG [DataNucleus.Datastore] - Queries : Timeout=0
+22:48:25,323 (main) DEBUG [DataNucleus.Datastore] - ===========================================================
+22:48:25,323 (main) DEBUG [DataNucleus.Datastore] - Datastore Adapter : org.datanucleus.store.rdbms.adapter.OracleAdapter
+22:48:25,324 (main) DEBUG [DataNucleus.Datastore] - Datastore : name="Oracle" version="Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production"
+22:48:25,324 (main) DEBUG [DataNucleus.Datastore] - Datastore Driver : name="Oracle JDBC driver" version="12.2.0.1.0"
+22:48:25,324 (main) DEBUG [DataNucleus.Datastore] - Primary Connection Factory : URL[jdbc:oracle:thin:@fn4.oracle.virtual.uniandes.edu.co:1521/prod]
+22:48:25,324 (main) DEBUG [DataNucleus.Datastore] - Secondary Connection Factory : URL[jdbc:oracle:thin:@fn4.oracle.virtual.uniandes.edu.co:1521/prod]
+22:48:25,324 (main) DEBUG [DataNucleus.Datastore] - Datastore Identifiers : factory="datanucleus2" case=UPPERCASE schema=ISIS2304B07202310
+22:48:25,324 (main) DEBUG [DataNucleus.Datastore] - Supported Identifier Cases : "MixedCase" UPPERCASE "MixedCase-Sensitive" 
+22:48:25,325 (main) DEBUG [DataNucleus.Datastore] - Supported Identifier Lengths (max) : Table=128 Column=128 Constraint=128 Index=128 Delimiter="
+22:48:25,325 (main) DEBUG [DataNucleus.Datastore] - Support for Identifiers in DDL : catalog=false schema=true
+22:48:25,326 (main) DEBUG [DataNucleus.Datastore] - Datastore : checkTableViewExistence, rdbmsConstraintCreateMode=DataNucleus, initialiseColumnInfo=ALL
+22:48:25,326 (main) DEBUG [DataNucleus.Datastore] - Support Statement Batching : yes (max-batch-size=50)
+22:48:25,326 (main) DEBUG [DataNucleus.Datastore] - Queries : Results direction=forward, type=forward-only, concurrency=read-only
+22:48:25,326 (main) DEBUG [DataNucleus.Datastore] - Java-Types : string-default-length=255
+22:48:25,327 (main) DEBUG [DataNucleus.Datastore] - JDBC-Types : NCLOB, NCHAR, [id=2007], REF, CLOB, BLOB, ARRAY, STRUCT, DATE, TIME, TIMESTAMP, VARCHAR, LONGVARCHAR, VARBINARY, LONGVARBINARY, BIGINT, TINYINT, BIT, NVARCHAR, [id=-101], CHAR, [id=-103], NUMERIC, [id=-102], DECIMAL, INTEGER, SMALLINT, FLOAT, REAL, DOUBLE, [id=-104]
+22:48:25,328 (main) DEBUG [DataNucleus.Datastore] - ===========================================================
+22:48:25,328 (main) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@29a60c27 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@4aeaadc1, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" 
+22:48:25,329 (main) DEBUG [DataNucleus.Datastore] - StoreManager now created
+22:48:25,333 (main) DEBUG [DataNucleus.Persistence] - Started pool of ExecutionContext (maxPool=20, reaperThread=false)
+22:48:25,346 (main) DEBUG [DataNucleus.Persistence] - ================= NucleusContext ===============
+22:48:25,347 (main) DEBUG [DataNucleus.Persistence] - DataNucleus Context : Versión: "5.1.10" con JRE "17.0.7" en "Windows 10"
+22:48:25,347 (main) DEBUG [DataNucleus.Persistence] - Persistence API : JDO
+22:48:25,347 (main) DEBUG [DataNucleus.Persistence] - Persistence-Unit : AlohAndes
+22:48:25,347 (main) DEBUG [DataNucleus.Persistence] - Plugin Registry : org.datanucleus.plugin.NonManagedPluginRegistry
+22:48:25,348 (main) DEBUG [DataNucleus.Persistence] - ClassLoading : default
+22:48:25,348 (main) DEBUG [DataNucleus.Persistence] - Persistence : pm-singlethreaded, nontransactional-read, nontransactional-write, reachability-at-commit, copy-on-attach, managed-relations(checked), deletion-policy=JDO2, serverTimeZone=America/Bogota
+22:48:25,348 (main) DEBUG [DataNucleus.Persistence] - Transactions : type=RESOURCE_LOCAL, mode=datastore, isolation=read-committed
+22:48:25,348 (main) DEBUG [DataNucleus.Persistence] - ValueGeneration : txn-isolation=read-committed connection=New
+22:48:25,349 (main) DEBUG [DataNucleus.Persistence] - Cache : Level1 (soft), Level2 (soft, mode=UNSPECIFIED), QueryResults (soft), Collections/Maps 
+22:48:25,353 (main) DEBUG [DataNucleus.Persistence] - ================================================
