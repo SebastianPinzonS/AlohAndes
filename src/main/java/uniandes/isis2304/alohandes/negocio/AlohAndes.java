@@ -114,6 +114,73 @@ public class AlohAndes
 		log.info ("Buscando Apartamentos: "  != null ? apartamentos : "NO EXISTE");
         return apartamentos;
 	}
+	/* ****************************************************************
+	 * 			Métodos para manejar las Hotel
+	 *****************************************************************/
+
+	public Hotel adicionarHotel (String nombre, float calificacion, String direccion)
+	{
+        log.info ("Adicionando Hotel de nombre: " + nombre + " en la direccion: " + direccion);
+        Hotel Hotel = pa.adicionarHotel(nombre, calificacion, direccion);		
+        log.info ("Adicionando Hotel: " + Hotel);
+        return Hotel;
+	}
+	
+
+	public long eliminarHotelPorDireccion (String direccion)
+	{
+		log.info ("Eliminando Hotel en direccion: " + direccion);
+        long resp = pa.eliminarHotelPorDireccion (direccion);		
+        log.info ("Eliminando Hotel: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+
+	public long eliminarHotelPorNombre (String nombre)
+	{
+		log.info ("Eliminando Hotel con nombre: " + nombre );
+        long resp = pa.eliminarHotelPorNombre (nombre);		
+        log.info ("Eliminando Hotel: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+
+	public List<VOHotel> darVOHoteles ()
+	{
+		log.info ("Generando los VO de Hotel");        
+        List<VOHotel> voHotels = new LinkedList<VOHotel> ();
+        List<Hotel> Hotels = pa.darHoteles  ();
+        for (Hotel ap : Hotels )
+        {
+        	voHotels.add (ap);
+        }
+        log.info ("Generando los VO de Tipos de Hotel: " + voHotels.size() + " existentes");
+        return voHotels;
+	}
+
+	public List<Hotel> darHotelesPorNombre (String nombre)
+	{
+		 log.info ("Consultando Hotel");
+		 List<Hotel> hoteles = pa.darHotelesPorNombre(nombre);
+		 log.info ("Buscando Hotels: " + nombre != null ? hoteles : "NO EXISTE");
+		 return hoteles;
+	}
+
+	public Hotel darHotelPorDireccion (String direccion)
+	{
+		log.info ("Consultando Hotels");
+        Hotel hotel = pa.darHotelPorDireccion (direccion);	
+		log.info ("Buscando Hotel: " + direccion  != null ? hotel : "NO EXISTE");
+        return hotel;
+	}
+
+	public List<Hotel> listarHoteles ()
+	{
+		log.info ("Consultando Hotels");
+        List<Hotel> Hotels = pa.darHoteles ();	
+		log.info ("Buscando Hotels: "  != null ? Hotels : "NO EXISTE");
+        return Hotels;
+	}
+
 
 	/* ****************************************************************
 	 * 			Métodos para manejar los CLIENTE
@@ -242,9 +309,9 @@ public class AlohAndes
 	 public List<Operador> darOperadores ()
 	 {
 		 log.info ("Consultando Operadores");
-		 List<Operador> clientes = pa.darOperadores  ();	
-		 log.info ("Buscando Operadores: "  != null ? clientes : "NO EXISTE");
-		 return clientes;
+		 List<Operador> operadores = pa.darOperadores();	
+		 log.info ("Buscando Operadores: "  != null ? operadores : "NO EXISTE");
+		 return operadores;
 	 }
 
 	 public List<String> mostrarDineroRecibidoPorCadaOperador()
@@ -312,7 +379,7 @@ public class AlohAndes
 		return pa.eliminarOfertaPorId(id);
 	}
 
-/* ****************************************************************
+	/* ****************************************************************
 	 * 			Métodos para manejar los Reservas
 	 *****************************************************************/
 
@@ -349,6 +416,33 @@ public class AlohAndes
 	 {
 		 return pa.eliminarReservaPorIdCliente(idCliente);
 	 }
+
+	/* ****************************************************************
+	 * 			Métodos para manejar los Hostales
+	 *****************************************************************/
+	public Hostal adicionarHostal(String nombre, String direccion, String horarioApertura, String horarioCierre, float calificacion ){
+		return pa.adicionarHostal(nombre, direccion, horarioApertura, horarioCierre, calificacion);
+	}
+
+    public List<Hostal> darHostales() {
+		return pa.darHostales();
+    }
+
+	public List<Hostal> darHostalesPorNombre(String nombre) {
+		return pa.darHostalPorNombre(nombre);
+	}
+
+	public Hostal darHostalPorDireccion(String direccion) {
+		return pa.darHostalesPorDireccion(direccion);
+	}
+
+	public long eliminarHostalesPorNombre(String nombre) {
+		return pa.eliminarHostalPorNombre(nombre);
+	}
+
+	public long eliminarHostalPorDireccion(String direccion) {
+		return pa.eliminarHostalPorDireccion(direccion);
+	}
  
  
  

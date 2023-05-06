@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 
-    <!-- Parranderos "unit" -->
+    <!-- AlohAndes "unit" -->
     <persistence-unit name="AlohAndes">
         <exclude-unlisted-classes/>
         <properties>
@@ -19,8 +19,8 @@
         </properties>
     </persistence-unit>
 
-    <!-- ParranderosError "unit" Definición de una base de datos que no existe, para verificar el comportamiento en caso de error o caida de la BD-->
-    <persistence-unit name="ParranderosErrorDS">
+    <!-- AlohAndesError "unit" Definición de una base de datos que no existe, para verificar el comportamiento en caso de error o caida de la BD-->
+    <persistence-unit name="AlohAndesErrorDS">
         <exclude-unlisted-classes/>
         <properties>
             <!-- ENABLE THESE FOR Oracle -->
@@ -35,7 +35,7 @@
         </properties>
     </persistence-unit>
 
-    <!-- ParranderosErrorUser "unit" Definición de una base de datos que no existe, para verificar el comportamiento en caso de error en las credenciales del usuario -->
+    <!-- AlohAndesErrorUser "unit" Definición de una base de datos que no existe, para verificar el comportamiento en caso de error en las credenciales del usuario -->
     <persistence-unit name="AlohAndesErrorUser">
         <exclude-unlisted-classes/>
         <properties>
