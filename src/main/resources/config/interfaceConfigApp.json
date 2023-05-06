@@ -34,16 +34,11 @@
 				}
 			]
 		},
-<<<<<<< HEAD
 		{"menuTitle": "HabitacionHotel",
-=======
-		{"menuTitle": "Hostal",
->>>>>>> master
 		  "options":
 			[
 				{
 					"label": "Adicionar",
-<<<<<<< HEAD
 					"event": "adicionarHabitacionHotel"
 				},
 				{
@@ -65,6 +60,35 @@
 				{
 					"label": "Buscar por direccion y numero habitacion",
 					"event": "buscarHabitacionHotelPorDireccionYNumeroHabitacion"
+				}
+			]
+		},
+		{"menuTitle": "Hostal",
+		  "options":
+			[
+				{
+					"label": "Adicionar",
+					"event": "adicionarHostal"
+				},
+				{
+					"label": "Listar hostales",
+					"event": "listarHostales"
+				},
+				{
+					"label": "Borrar por Nombre",
+					"event": "eliminarHostalesPorNombre"
+				},
+				{
+					"label": "Borrar por Direccion",
+					"event": "eliminarHostalPorDireccion"
+				},
+				{
+					"label": "Buscar por direccion",
+					"event": "buscarHostalPorDireccion"
+				},
+				{
+					"label": "Buscar por nombre",
+					"event": "buscarHostalesPorNombre"
 				}
 			]
 		},
@@ -106,29 +130,6 @@
 				{
 					"label" : "Buscar por Tipo Instalacion, Direccion Hotel y Numero Habitacion",
 					"event" : "buscarInstalacionHabitacionHotelPorTipoInstalacionDireccionHotelHabitacionHotelYNumeroHabitacionHabitacionHotel"
-=======
-					"event": "adicionarHostal"
-				},
-				{
-					"label": "Listar hostales",
-					"event": "listarHostales"
-				},
-				{
-					"label": "Borrar por Nombre",
-					"event": "eliminarHostalesPorNombre"
-				},
-				{
-					"label": "Borrar por Direccion",
-					"event": "eliminarHostalPorDireccion"
-				},
-				{
-					"label": "Buscar por direccion",
-					"event": "buscarHostalPorDireccion"
-				},
-				{
-					"label": "Buscar por nombre",
-					"event": "buscarHostalesPorNombre"
->>>>>>> master
 				}
 			]
 		},
