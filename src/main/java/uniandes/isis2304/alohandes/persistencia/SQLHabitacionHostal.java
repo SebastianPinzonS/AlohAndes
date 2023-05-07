@@ -21,7 +21,7 @@ class SQLHabitacionHostal
 	}
 	
 
-	public long adicionarHabitacionHostal (PersistenceManager pm, String direccionHostal, String numeroHabitacion, int tamano) 
+	public long adicionarHabitacionHostal (PersistenceManager pm, String direccionHostal, String numeroHabitacion, float tamano) 
 	{
         Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHabitacionHostal () + "(DIRECCION_HOSTAL, NUMERO_HABITACION, TAMANO) values (?, ?, ?)");
         q.setParameters(direccionHostal, numeroHabitacion, tamano);
@@ -62,11 +62,10 @@ class SQLHabitacionHostal
 	}
 
 	
-	public List<HabitacionHostal> darTodasHabitacionHostal (PersistenceManager pm)
+	public List<Object[]> darTodasHabitacionHostal (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHabitacionHostal ());
-		q.setResultClass(HabitacionHostal.class);
-		return (List<HabitacionHostal>) q.executeList();
+		return (List<Object[]>) q.executeList();
 	}
 
 }

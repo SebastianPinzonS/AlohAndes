@@ -477,3 +477,194 @@ ORA-00904: "DIRECCION_HOTEL_HOTEL_HABITACION": identificador no válido
 12:14:42,689 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
 12:14:42,718 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
 >>>>>>> master
+23:19:36,458 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:19:36,459 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:19:36,490 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:19:44,328 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:20:10,375 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:21:07,749 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:21:07,750 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:21:07,775 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:21:13,082 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:24:45,777 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:24:45,777 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:24:45,808 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:25:03,107 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:26:27,299 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:26:27,300 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:26:27,326 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:26:32,109 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:28:46,885 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:28:46,886 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:28:46,908 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:29:10,393 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:31:43,755 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:31:43,755 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:31:43,780 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:31:58,477 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:36:26,453 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:36:26,454 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:36:26,484 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:36:34,647 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:36:55,244 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:36:55,245 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:36:55,281 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:37:16,383 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:37:16,383 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:37:16,415 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:37:39,050 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:39:39,042 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:39:39,043 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:39:39,068 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:39:46,186 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:42:41,185 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:42:41,186 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:42:41,218 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:42:48,925 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:44:29,203 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:44:29,204 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:44:29,228 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:44:40,006 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:46:23,522 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:46:23,523 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:46:23,547 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:46:28,597 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+23:46:50,589 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+23:46:50,590 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+23:46:50,612 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+23:46:59,257 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+09:31:08,526 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:31:08,527 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+09:31:08,548 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:31:13,413 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operadores
+09:31:13,477 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@18e70e5d, [Ljava.lang.Object;@6746e91f, [Ljava.lang.Object;@4c1663a6, [Ljava.lang.Object;@3552ee4, [Ljava.lang.Object;@23605d35, [Ljava.lang.Object;@73be5657, [Ljava.lang.Object;@cca00d5, [Ljava.lang.Object;@26422da6, [Ljava.lang.Object;@76a45ae, [Ljava.lang.Object;@6e7a7fa, [Ljava.lang.Object;@5a77d35b]
+10:10:09,762 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+10:15:58,092 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+10:15:58,092 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+10:15:58,116 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:16:03,282 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Hotels
+10:16:03,351 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@26abf0c2, [Ljava.lang.Object;@6cd7c638, [Ljava.lang.Object;@b16da86, [Ljava.lang.Object;@3915293c, [Ljava.lang.Object;@40c1f33c, [Ljava.lang.Object;@12f51b1a, [Ljava.lang.Object;@2f0a2128, [Ljava.lang.Object;@3f46a13c, [Ljava.lang.Object;@7051fdfb, [Ljava.lang.Object;@4a460520]
+10:16:13,163 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hotel
+10:18:48,919 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+10:18:48,921 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+10:18:48,945 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:18:55,721 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operadores
+10:18:55,785 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@55f00a1e, [Ljava.lang.Object;@4201942d, [Ljava.lang.Object;@163c9caf, [Ljava.lang.Object;@6b8d0612, [Ljava.lang.Object;@3e785187, [Ljava.lang.Object;@70960a99, [Ljava.lang.Object;@23d39c0, [Ljava.lang.Object;@1831203, [Ljava.lang.Object;@7d8b8fdd, [Ljava.lang.Object;@3d899037, [Ljava.lang.Object;@56915d7f]
+10:19:04,713 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operadores
+10:19:04,730 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@1a854ad5]
+10:19:19,265 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+10:19:23,570 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+10:20:52,956 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+10:20:52,956 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+10:20:52,978 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:20:56,518 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operadores
+10:20:56,570 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@3735803c, [Ljava.lang.Object;@44d48f74, [Ljava.lang.Object;@12fe7b95, [Ljava.lang.Object;@3fffd59b, [Ljava.lang.Object;@24508638, [Ljava.lang.Object;@449f12e9, [Ljava.lang.Object;@25dcfb3c, [Ljava.lang.Object;@644eb111, [Ljava.lang.Object;@440f9ae6, [Ljava.lang.Object;@783bc0d4, [Ljava.lang.Object;@3a7cd1f4]
+10:21:06,562 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operador
+10:21:19,201 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operadores
+10:21:19,219 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@7ecaf32b, [Ljava.lang.Object;@6a010806, [Ljava.lang.Object;@6d7c6ad8, [Ljava.lang.Object;@3d37bb98, [Ljava.lang.Object;@14cd44be, [Ljava.lang.Object;@766e2f19, [Ljava.lang.Object;@784aa1a6, [Ljava.lang.Object;@78213e4c, [Ljava.lang.Object;@6377d42, [Ljava.lang.Object;@1268c7a, [Ljava.lang.Object;@2c4c5a69]
+10:21:30,788 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operador
+11:06:46,733 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:06:46,733 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+11:06:46,767 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:06:53,313 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operadores
+11:06:53,371 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@50277ffb, [Ljava.lang.Object;@21761016, [Ljava.lang.Object;@3979e89f, [Ljava.lang.Object;@88bedb3, [Ljava.lang.Object;@63b883fe, [Ljava.lang.Object;@725fd93f, [Ljava.lang.Object;@414fafb, [Ljava.lang.Object;@532569bf, [Ljava.lang.Object;@7425a756, [Ljava.lang.Object;@783f1ecc, [Ljava.lang.Object;@5b5fe012]
+11:07:00,519 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Operador
+11:07:00,535 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [Ljava.lang.Object;@22d78d22
+11:30:18,405 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:30:18,405 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+11:30:18,439 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:30:45,336 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hotel
+11:30:45,406 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@64f05a00, [Ljava.lang.Object;@1ffae343, [Ljava.lang.Object;@5b8c735d, [Ljava.lang.Object;@2d2dbcb8, [Ljava.lang.Object;@4bebd347, [Ljava.lang.Object;@343c182, [Ljava.lang.Object;@3b6d4c2c, [Ljava.lang.Object;@7b65ff85, [Ljava.lang.Object;@6e017a45, [Ljava.lang.Object;@7353f9d6, [Ljava.lang.Object;@220ec7bc, [Ljava.lang.Object;@76439daf, [Ljava.lang.Object;@13751270, [Ljava.lang.Object;@7f84d481, [Ljava.lang.Object;@2b63dfea, [Ljava.lang.Object;@41a791cc, [Ljava.lang.Object;@7a7aed1a, [Ljava.lang.Object;@23831e08, [Ljava.lang.Object;@162a191d]
+11:33:43,850 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:33:43,851 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+11:33:43,877 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:33:14,606 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:33:14,606 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:33:14,644 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:34:04,158 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Habitacion Hostal
+12:34:04,429 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Habitacion Hostal: HabitacionHostal [direccionHostal=Calle 94 E Numero 03 S 42, numeroHabitacion=1200, tamano=80.3]
+12:36:08,214 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:36:08,214 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:36:08,243 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:36:28,831 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Eliminando habitacion hostal con la direccion: Calle 94 E Numero 03 S 42 y numero habitacion: 1200
+12:36:28,996 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Eliminando Habitacion Hostal: 1 tuplas eliminadas
+12:37:47,930 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:37:47,930 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:37:47,957 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:38:08,741 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO HOSTAL(NOMBRE, DIRECCION, HORARIO_APERTURA, HORARIO_CIERRE, CALIFICACION) values (?, ?, ?, ?, ?)".
+ORA-01858: a non-numeric character was found where a numeric was expected
+
+12:40:59,821 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Habitacion Hostal
+12:40:59,834 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Habitacion Hostal: HabitacionHostal [direccionHostal=Calle 94 E Numero 03 S 43, numeroHabitacion=1200, tamano=25.0]
+12:41:22,793 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Habitacion Hostal
+12:41:22,811 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Habitacion Hostal: HabitacionHostal [direccionHostal=Calle 94 E Numero 03 S 43, numeroHabitacion=2000, tamano=90.0]
+12:41:49,601 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Eliminando habitaciones hostal con la direccion: Calle 94 E Numero 03 S 43
+12:41:49,632 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Eliminando Habitacion Hostal: 2 tuplas eliminadas
+12:43:29,799 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:43:29,800 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:43:29,828 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:43:43,381 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hostal
+12:50:40,092 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Hotels
+12:50:40,117 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@20724f48, [Ljava.lang.Object;@4e81fcb, [Ljava.lang.Object;@b88726f, [Ljava.lang.Object;@7e91d0c2, [Ljava.lang.Object;@4cabd857, [Ljava.lang.Object;@8f9804e, [Ljava.lang.Object;@402a9034, [Ljava.lang.Object;@30cd5f33, [Ljava.lang.Object;@22b6501d, [Ljava.lang.Object;@66895ff5]
+12:53:14,709 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:53:14,710 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:53:14,744 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:53:56,698 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:53:56,699 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:53:56,728 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:55:41,380 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:55:41,381 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:55:41,408 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:56:20,496 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:56:20,497 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:56:20,522 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:58:08,008 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:58:08,009 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+12:58:08,056 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:58:12,713 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Hotels
+12:58:12,768 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@7da51889, [Ljava.lang.Object;@3b6b456d, [Ljava.lang.Object;@74b8b7f8, [Ljava.lang.Object;@475f35c4, [Ljava.lang.Object;@12eb1cf6, [Ljava.lang.Object;@734a73eb, [Ljava.lang.Object;@42fc1d0d, [Ljava.lang.Object;@7c33f183, [Ljava.lang.Object;@36755e5f, [Ljava.lang.Object;@1600a651]
+12:58:15,157 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hotel
+12:58:15,171 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@29e47d07, [Ljava.lang.Object;@68a18ff6, [Ljava.lang.Object;@4f649c1, [Ljava.lang.Object;@1f6a44c2, [Ljava.lang.Object;@15ec0e6d, [Ljava.lang.Object;@7156fd19, [Ljava.lang.Object;@47d81ab3, [Ljava.lang.Object;@ad91ade, [Ljava.lang.Object;@7fb3f28e, [Ljava.lang.Object;@394b7654, [Ljava.lang.Object;@3e41fe4c, [Ljava.lang.Object;@7c0c1cb0, [Ljava.lang.Object;@1ccbb63d, [Ljava.lang.Object;@7e508a26, [Ljava.lang.Object;@4fd2b83e, [Ljava.lang.Object;@5327d4e8, [Ljava.lang.Object;@129ceaef, [Ljava.lang.Object;@68e75320, [Ljava.lang.Object;@32ae054a]
+12:58:30,876 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hotel
+13:00:59,310 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:00:59,311 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+13:00:59,339 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:01:06,978 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hotel
+13:01:07,044 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@28880e50, [Ljava.lang.Object;@364348c8, [Ljava.lang.Object;@598f1cce, [Ljava.lang.Object;@55d912e4, [Ljava.lang.Object;@3dcb7c81, [Ljava.lang.Object;@11e276f8, [Ljava.lang.Object;@302a7166, [Ljava.lang.Object;@2d791bb5, [Ljava.lang.Object;@4b3055ef, [Ljava.lang.Object;@4967afc7, [Ljava.lang.Object;@2a2556cc, [Ljava.lang.Object;@4fe4448e, [Ljava.lang.Object;@632ffb0, [Ljava.lang.Object;@72df7126, [Ljava.lang.Object;@724cca87, [Ljava.lang.Object;@1fe12074, [Ljava.lang.Object;@ebf8347, [Ljava.lang.Object;@7e095f7, [Ljava.lang.Object;@136c7f7e]
+13:01:17,490 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hotel
+13:01:17,519 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - [[Ljava.lang.Object;@44874b65, [Ljava.lang.Object;@a270043, [Ljava.lang.Object;@47ea2660]
+13:49:51,936 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:49:51,937 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+13:49:51,963 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:49:57,139 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+13:50:34,743 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:50:34,743 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+13:50:34,784 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:50:37,998 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:50:37,999 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+13:50:38,026 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:50:43,429 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+13:52:19,845 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:52:19,846 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+13:52:19,874 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:57:35,520 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+14:00:13,792 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:00:13,792 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+14:00:13,819 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:00:19,256 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Dinero por Operador
+14:48:06,761 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:48:06,761 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+14:48:06,791 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:50:55,140 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Oferta Habitacion Hostal
+14:50:55,404 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO OFERTA(ID, FECHA_PUBLICACION_RESERVA,  COSTO_CONTRATO_DIA, PRECIO_ESPECIAL_DIA, CONDICION_PRECIO_ESPECIAL,  COSTO_ADICIONAL_SERVICIOS, COSTO_SEGURO_ARRENDAMIENTO, ID_OPERADOR, DIRECCION_HOSTAL_HABITACION_HOSTAL, NUMERO_HABITACION_HABITACION_HOSTAL, VISITAS) values (?, CURRENT_DATE, ?, ?, ?, ?, ?, ?, ?, ?, ?)".
+ORA-01400: cannot insert NULL into ("ISIS2304B07202310"."OFERTA"."COSTO_CONTRATO_DIA")
+
+14:50:55,417 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Oferta: null
+14:55:43,571 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:55:43,571 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+14:55:43,600 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:56:20,672 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Oferta Habitacion Hostal
+14:56:20,937 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Oferta: uniandes.isis2304.alohandes.negocio.Oferta@7f124c81
+15:29:29,403 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+15:29:29,405 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+15:29:29,456 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD

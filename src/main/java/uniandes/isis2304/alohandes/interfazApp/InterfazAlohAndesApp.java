@@ -195,7 +195,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	
 	public void listarHostales() 
 	{
-		List<Hostal> lista = alohAndes.darHostales();
+		List<Object[]> lista = alohAndes.darHostales();
 
 		String resultado = "En listarHostales";
 		resultado +=  "\n" + listarHostales (lista); 
@@ -235,12 +235,18 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		try{
 			String direccion = JOptionPane.showInputDialog (this, "Direccion del hostal?", "Dar hostal por direccion", JOptionPane.QUESTION_MESSAGE);
 			if (direccion != null){
-				Hostal hostal = alohAndes.darHostalPorDireccion(direccion);
+				Object[] hostal = alohAndes.darHostalPorDireccion(direccion);
 				if (hostal == null){
 					throw new Exception ("No se pudo encontrar un hostal con direccion: " + direccion);
 				}
 				String resultado = "En darHostalPorDireccion\n\n";
-				resultado += "Hostal encontrado: " + hostal;
+				resultado += "Hostal encontrado: ";
+            	resultado += "Hostal [nombre=" + hostal[0];
+            	resultado += ", direccion=" + hostal[1];
+				resultado += ", horarioApertura=" + hostal[2] ;
+				resultado += ", horarioCierre=" + hostal[3];
+				resultado += ", calificacion=" + hostal[4] + "]\n";
+		;
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
 			}
@@ -257,7 +263,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		try{
 			String nombre = JOptionPane.showInputDialog (this, "Nombre del hostal?", "Dar hostales por nombre", JOptionPane.QUESTION_MESSAGE);
 			if (nombre != null){
-				List<Hostal> hostales = alohAndes.darHostalesPorNombre(nombre);
+				List<Object[]> hostales = alohAndes.darHostalesPorNombre(nombre);
 				if (hostales == null){
 					throw new Exception ("No se pudo encontrar un hostal con nombre: " + nombre);
 				}
@@ -536,7 +542,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	public void listarHoteles(){
 		try 
 		{
-			List<Hotel> lista = alohAndes.listarHoteles();
+			List<Object[]> lista = alohAndes.listarHoteles();
 			String resultado = "En listarHoteles";
 			resultado +=  "\n" + listarHoteles (lista);
 			panelDatos.actualizarInterfaz(resultado);
@@ -554,7 +560,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		String nombre = JOptionPane.showInputDialog (this, "Nombre del hotel?", "Buscar Hotel por nombre", JOptionPane.QUESTION_MESSAGE);
 		try 
 		{
-			List<Hotel> lista = alohAndes.darHotelesPorNombre(nombre);
+			List<Object[]> lista = alohAndes.darHotelesPorNombre(nombre);
 			String resultado = "En listarHoteles";
 			resultado +=  "\n" + listarHoteles (lista);
 			panelDatos.actualizarInterfaz(resultado);
@@ -664,7 +670,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	 {
 		 try 
 		 {
-			 List <VOHabitacionHotel> lista = alohAndes.darVoHabitacionesHotel();
+			 List<Object[]> lista = alohAndes.darHabitacionesHotel();
  
 			 String resultado = "En listarHabitacionesHotel";
 			 resultado +=  "\n" + listarHabitacionHotel (lista);
@@ -777,9 +783,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
  
 		 try 
 		 {
-			 List<HabitacionHotel> lista = alohAndes.darHabitacionHotelesPorDireccion(direccionHotel);
+			List<Object[]> lista = alohAndes.darHabitacionHotelesPorDireccion(direccionHotel);
 			 String resultado = "En listarHabitacionesHotel";
-			 resultado +=  "\n" + listarHabitacionHotelNVO (lista);
+			 resultado +=  "\n" + listarHabitacionHotel (lista);
 			 panelDatos.actualizarInterfaz(resultado);
 			 resultado += "\n Operación terminada";
 		 } 
@@ -795,9 +801,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	 {
 		 try 
 		 {
-			 List<HabitacionHotel> lista = alohAndes.darHabitacionesHotel();
+			List<Object[]> lista = alohAndes.darHabitacionesHotel();
 			 String resultado = "En listarHabitacionesHotel";
-			 resultado +=  "\n" + listarHabitacionHotelNVO (lista);
+			 resultado +=  "\n" + listarHabitacionHotel (lista);
 			 panelDatos.actualizarInterfaz(resultado);
 			 resultado += "\n Operación terminada";
 		 } 
@@ -1304,7 +1310,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	 {
 		 try 
 		 {
-			 List <Operador> lista = alohAndes.darOperadores();
+			List<Object[]> lista = alohAndes.darOperadores();
  
 			 String resultado = "En listarOperadores";
 			 resultado +=  "\n" + listarOperador(lista);
@@ -1388,11 +1394,17 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			 
 			 if (idOP != null)
 			 {
-				 VOOperador operador = alohAndes.darOperadorPorId(idOP) ;
+				 Object[] operador = alohAndes.darOperadorPorId(idOP) ;
 				 String resultado = "En buscar Operador\n\n";
 				 if (operador != null)
 				 {
-					 resultado += "El Operador es: " + operador;
+					resultado += "Operador [id=" + operador[0];
+            		resultado += ", nombre=" + operador[1];
+           	 		resultado += ", tipo=" + operador[2];
+					resultado += ", validacionCamaraDeComercioEmpresa=" + operador[3];
+					resultado += ", validacionSuperTurismoEmpresa=" + operador[4];
+					resultado += ", miembroComunidadUniversitariaPersona=" + operador[5] + "]\n";
+
 				 }
 				 else
 				 {
@@ -1421,9 +1433,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		 try 
 		 {
 			 
-			 List<Operador> lista = alohAndes.darOperadorPorNombre(nombreOp);
+			 List<Object[]> lista = alohAndes.darOperadorPorNombre(nombreOp);
 			 String resultado = "En listarOperador";
-			 resultado +=  "\n" + listarOperadorNVO(lista);
+			 resultado +=  "\n" + listarOperador(lista);
 			 panelDatos.actualizarInterfaz(resultado);
 			 resultado += "\n Operación terminada";
 		 } 
@@ -1433,16 +1445,15 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			 String resultado = generarMensajeError(e);
 			 panelDatos.actualizarInterfaz(resultado);
 		 }
-	 }
+	 } 
 
 	 public void mostrarDineroPorOperador()
-	 {
+	 {		
 		try 
 		 {
 			 List <String> lista = alohAndes.mostrarDineroRecibidoPorCadaOperador();
- 
 			 String resultado = "En listarOperadores";
-			 resultado +=  "\n" + listarDineroPorOperador(lista);
+			 resultado +=  "\n" + listarValorOperador(lista);
 			 panelDatos.actualizarInterfaz(resultado);
 			 resultado += "\n Operación terminada";
 		 } 
@@ -1463,10 +1474,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
     		String opcion = JOptionPane.showInputDialog (this, "Que oferta desea? HabitacionHostal, HabitacionHotel, Apartamento, ViviendaUniversitaria, ViviendaHabitacion o ViviendaExpress", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 			if (opcion.equals("HabitacionHotel"))
 			{
-				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuanto dura el contrato? ", JOptionPane.QUESTION_MESSAGE));
-				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato por dia?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial por dia? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
@@ -1475,7 +1485,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 				String direccionHotelHabitacionHotel = JOptionPane.showInputDialog (this, "Cual es la direccion del hotel? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				String numeroHabitacionHabitacionHotel = JOptionPane.showInputDialog (this, "Cual es el numero de habitacion? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 
-				VOOferta ap = alohAndes.adicionarOfertaHabitacionHotel (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
+				VOOferta ap = alohAndes.adicionarOfertaHabitacionHotel ( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);
         		if (ap == null)
         		{
         			throw new Exception ("No se pudo crear la oferta");
@@ -1487,10 +1497,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			} 
 			else if (opcion.equals("HabitacionHostal"))
 			{
-				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuanto dura el contrato? ", JOptionPane.QUESTION_MESSAGE));
-				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato por dia?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial por dia? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
@@ -1499,7 +1508,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 				String direccionHotelHabitacionHostal = JOptionPane.showInputDialog (this, "Cual es la direccion del hostal? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				String numeroHabitacionHabitacionHostal = JOptionPane.showInputDialog (this, "Cual es el numero de habitacion? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 
-				VOOferta ap = alohAndes.adicionarOfertaHabitacionHostal (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHostal, numeroHabitacionHabitacionHostal);
+				VOOferta ap = alohAndes.adicionarOfertaHabitacionHostal ( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHostal, numeroHabitacionHabitacionHostal);
         		if (ap == null)
         		{
         			throw new Exception ("No se pudo crear la oferta");
@@ -1511,10 +1520,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			} 
 			else if (opcion.equals("Apartamento"))
 			{
-				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuanto dura el contrato? ", JOptionPane.QUESTION_MESSAGE));
-				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato por dia?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial por dia? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
@@ -1523,7 +1531,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 				String direccionApartamento = JOptionPane.showInputDialog (this, "Cual es la direccion del edificio? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				String numeroApartamento = JOptionPane.showInputDialog (this, "Cual es el numero de apartamento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 
-				VOOferta ap = alohAndes.adicionarOfertaApartamento (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionApartamento, numeroApartamento);
+				VOOferta ap = alohAndes.adicionarOfertaApartamento ( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionApartamento, numeroApartamento);
         		if (ap == null)
         		{
         			throw new Exception ("No se pudo crear la oferta");
@@ -1535,10 +1543,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			} 
 			else if (opcion.equals("ViviendaUniversitaria"))
 			{
-				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuanto dura el contrato? ", JOptionPane.QUESTION_MESSAGE));
-				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato por dia?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial por dia? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
@@ -1547,7 +1554,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 				String direccionViviendaUniversitaria = JOptionPane.showInputDialog (this, "Cual es la direccion de la vivienda universitaria? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				String numeroApartamentoViviendaUniversitaria = JOptionPane.showInputDialog (this, "Cual es el numero del apartamento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 
-				VOOferta ap = alohAndes.adicionarOfertaViviendaUniversitaria (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);
+				VOOferta ap = alohAndes.adicionarOfertaViviendaUniversitaria ( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);
         		if (ap == null)
         		{
         			throw new Exception ("No se pudo crear la oferta");
@@ -1559,10 +1566,8 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			}
 			else if (opcion.equals("ViviendaHabitacion"))
 			{
-				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuanto dura el contrato? ", JOptionPane.QUESTION_MESSAGE));
-				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato por dia?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial por dia? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
@@ -1571,7 +1576,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 				String direccionViviendaHabitacion = JOptionPane.showInputDialog (this, "Cual es la direccion de la vivienda habitacion? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				String numeroApartamentoViviendaHabitacion = JOptionPane.showInputDialog (this, "Cual es el numero de Apartamento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 
-				VOOferta ap = alohAndes.adicionarOfertaViviendaHabitacion (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion);
+				VOOferta ap = alohAndes.adicionarOfertaViviendaHabitacion ( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion);
         		if (ap == null)
         		{
         			throw new Exception ("No se pudo crear la oferta");
@@ -1583,10 +1588,9 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			}
 			else if (opcion.equals("ViviendaExpress"))
 			{
-				Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Cual es la fecha Inicial? yyyy-mm-dd", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int duracionContratoDias = Integer.parseInt(JOptionPane.showInputDialog (this, "Cuanto dura el contrato? ", JOptionPane.QUESTION_MESSAGE));
-				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
-				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				
+				int costoContrato = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el costo del contrato por dia?", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
+				int precioEspecial = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual es el precio especial por dia? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				String condicionPrecioEspecial = JOptionPane.showInputDialog (this, "Cual es la condicion de oferta especial? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 				int costoAdicionalServicios = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo adicional de los servicios? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
 				int costoSeguroArrendamiento = Integer.parseInt(JOptionPane.showInputDialog (this, "Cual el costo del seguro de arrendamiento? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE));
@@ -1594,7 +1598,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 				/* -------------------------------------------------------------------------------------------------**/
 				String direccionViviendaExpress = JOptionPane.showInputDialog (this, "Cual es la direccion de vivienda express? ", "Adicionar Oferta", JOptionPane.QUESTION_MESSAGE);
 
-				VOOferta ap = alohAndes.adicionarOfertaViviendaExpress (fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaExpress);
+				VOOferta ap = alohAndes.adicionarOfertaViviendaExpress ( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaExpress);
         		if (ap == null)
         		{
         			throw new Exception ("No se pudo crear la oferta");
@@ -1643,6 +1647,173 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+	public void darOfertas(){
+		try 
+		{
+			List<Object[]> lista = alohAndes.darOfertas();
+
+			String resultado = "En listarOfertas";
+			resultado +=  "\n" + listarOfertas(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+		} 
+		catch (Exception e) 
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	/* ****************************************************************
+	 * 			CRUD de HabitacionHostal
+	 *****************************************************************/
+	public void adicionarHabitacionHostal( ){
+
+		String direccionHostal = JOptionPane.showInputDialog (this, "Cual es la direccion del hostal", "Adicionar HabitacionHostal", JOptionPane.QUESTION_MESSAGE);
+		String numeroHabitaciones = JOptionPane.showInputDialog (this, "Cual es el numero de habitacion", "Adicionar HabitacionHostal", JOptionPane.QUESTION_MESSAGE);
+		float tamano = Float.valueOf(JOptionPane.showInputDialog (this, "Cual es el tamano en m2 de la habitacion (solo numeros)", "Adicionar HabitacionHostal", JOptionPane.QUESTION_MESSAGE));
+		try 
+		{
+			if (direccionHostal != null && numeroHabitaciones != null && tamano != 0)
+			{
+				HabitacionHostal habitacionHostal = alohAndes.adicionarHabitacionHostal(direccionHostal, numeroHabitaciones, tamano);
+				if (habitacionHostal == null)
+				{
+					throw new Exception ("No se pudo crear habitacion hostal numero: " + numeroHabitaciones);
+				}
+				String resultado = "En adicionarHotel\n\n";
+				resultado += "Habitacion Hostal adicionada exitosamente: " + habitacionHostal;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	public void eliminarHabitacionHostalPorDireccionYNumero(){
+		try 
+		{
+			String direccionHostal = JOptionPane.showInputDialog (this, "Cual es la direccion del hostal", "Eliminar HabitacionHostal", JOptionPane.QUESTION_MESSAGE);
+			String numeroHabitaciones = JOptionPane.showInputDialog (this, "Cual es el numero de habitacion", "Eliminar HabitacionHostal", JOptionPane.QUESTION_MESSAGE);
+			if (direccionHostal != null && numeroHabitaciones != null)
+			{
+				long habitacionHostalEliminada = alohAndes.eliminarHabitacionHostalPorDireccionYNumero(direccionHostal, numeroHabitaciones);
+				if (habitacionHostalEliminada == 0)
+				{
+					throw new Exception ("No se pudo eliminar habitacion hostal numero: " + numeroHabitaciones);
+				}
+				String resultado = "En eliminarHabitacionHostal\n\n";
+				resultado += "Habitacion Hostal eliminada exitosamente: " + habitacionHostalEliminada;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void eliminarHabitacionHostalPorDireccionHostal(){
+		try 
+		{
+			String direccionHostal = JOptionPane.showInputDialog (this, "Cual es la direccion del hostal", "Eliminar HabitacionHostal", JOptionPane.QUESTION_MESSAGE);
+			if (direccionHostal != null)
+			{
+				long habitacionHostalEliminada = alohAndes.eliminarHabitacionHostalPorDireccionHostal(direccionHostal);
+				if (habitacionHostalEliminada == 0)
+				{
+					throw new Exception ("No se pudo eliminar habitacion hostal con direccion: " + direccionHostal);
+				}
+				String resultado = "En eliminarHabitacionHostal\n\n";
+				resultado += "Habitacion Hostal eliminada exitosamente: " + habitacionHostalEliminada;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void buscarHabitacionHostalPorNumeroYDireccion(){
+		try 
+		{
+			String direccionHostal = JOptionPane.showInputDialog (this, "Cual es la direccion del hostal", "Buscar HabitacionHostal", JOptionPane.QUESTION_MESSAGE);
+			String numeroHabitaciones = JOptionPane.showInputDialog (this, "Cual es el numero de habitacion", "Buscar HabitacionHostal", JOptionPane.QUESTION_MESSAGE);
+			if (direccionHostal != null && numeroHabitaciones != null)
+			{
+				HabitacionHostal habitacionHostal = alohAndes.darHabitacionHostalPorDireccionHostalYNumeroHabitacion(direccionHostal, numeroHabitaciones);
+				if (habitacionHostal == null)
+				{
+					throw new Exception ("No se pudo encontrar habitacion hostal numero: " + numeroHabitaciones);
+				}
+				String resultado = "En buscarHabitacionHostal\n\n";
+				resultado += "Habitacion Hostal encontrada exitosamente: " + habitacionHostal;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void listarHabitacionesHostalPorDireccion(){
+		try 
+		{
+			String direccionHostal = JOptionPane.showInputDialog (this, "Cual es la direccion del hostal", "Listar HabitacionesHostal", JOptionPane.QUESTION_MESSAGE);
+			if (direccionHostal != null)
+			{
+				List <Object[]> lista = alohAndes.darHabitacionHostalPorDireccion(direccionHostal);
+				if (lista == null)
+				{
+					throw new Exception ("No se pudo encontrar habitaciones hostal con direccion: " + direccionHostal);
+				}
+				String resultado = "En listarHabitacionesHostal\n\n";
+				resultado +=  "\n" + listarHabitacionesHostal(lista);
+				panelDatos.actualizarInterfaz(resultado);
+				resultado += "\n Operación terminada";
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+		
 
 	/* ****************************************************************
 	 * 			CRUD de Reserva
@@ -1877,11 +2048,36 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	/* ****************************************************************
 	 * 			Métodos privados para la presentación de resultados y otras operaciones
 	 *****************************************************************/
-    /**
-     * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
-     * @param lista - La lista con los tipos de bebida
-     * @return La cadena con una líea para cada tipo de bebida recibido
-     */
+    
+	private String formatOferta(Object[] oferta){
+		String resp = "Oferta [id=" + oferta[0] + ", visitas=" + oferta[1] + ", fechaPublicacionReserva=" + oferta[2] + ", costoContratoDia=" + oferta[3] + ", precioEspecialDia=" + oferta[4] + ", condicionPrecioEspecial=" + oferta[5] + ", costoAdicionalServicios=" + oferta[6] + "costoSeguroArrendamiento=" + oferta[7] + ", idOperador=" + oferta[8] + ", direccionHostalHabitacioonHostal=" + oferta[9] + ", numeroHabitacionHabitacionHostal=" + oferta[10] + ", direccionHotelHabitacionHotel=" + oferta[11] + ", numeroHabitacionHabitacioHotel=" + oferta[12] + ", direccionViviendaUniversitaria=" + oferta[13] + ", numeroApartamentoViviendaUniversitaria=" + oferta[14] + ", direccionViviendaHabitacion=" + oferta[15] + ", numeroApartamentoViviendaHabitacion=" + oferta[16] + ", direccionApartamento=" + oferta[17] + ", numeroApartamento=" + oferta[18] + ", direccionViviendaExpress=" + oferta[19] + " ]";	
+		return resp;
+	}
+
+	public String listarOfertas(List<Object[]> lista){
+		String resp = "Las ofertas existentes son:\n";
+		int i = 1;
+		for (Object[] tupla : lista)
+		{
+			resp += i++ + ". " + formatOferta(tupla) + "\n";
+		}
+		return resp;
+	}
+
+
+
+
+
+	private String listarValorOperador(List<String> lista){
+		String resp = "Las ganancias de los operadores son:\n";
+		int i = 1;
+		for (String tupla : lista)
+		{
+			resp += i++ + ". " + tupla + "\n";
+		}
+		return resp;
+	}
+
     private String listarApartamento(List<VOApartamento> lista) 
     {
     	String resp = "Los apartamentos existentes son:\n";
@@ -1937,25 +2133,20 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	}
 
 	/* -------------------- LISTAR HABITACION HOTEL ----------------------------- */
-	private String listarHabitacionHotel(List<VOHabitacionHotel> lista) 
+	private String listarHabitacionHotel(List<Object[]> lista) 
     {
     	String resp = "Las habitaciones hotel existentes son:\n";
     	int i = 1;
-        for (VOHabitacionHotel cl : lista)
+        for (Object[] tupla : lista)
         {
-        	resp += i++ + ". " + cl.toString() + "\n";
+        	resp += i++ + ". ";
+            resp += "HabitacionHotel [tipo=" + tupla[0];
+            resp += ", numberoHabitacion=" + tupla[1];
+            resp += ", tamano=" + tupla[2];
+			resp += ", direccionHotel=" + tupla[3] + "]\n";
+			
         }
         return resp;
-	}
-	private String listarHabitacionHotelNVO(List<HabitacionHotel> lista)
-	{
-		String resp = "Las habitaciones existentes son:\n";
-		int i = 1;
-		for (HabitacionHotel cl : lista)
-		{
-			resp += i++ + ". " + cl.toString() + "\n";
-		}
-		return resp;
 	}
 
 	/* -------------------- LISTAR INSTALACION HABITACION HOTEL ----------------------------- */
@@ -1981,52 +2172,60 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	}
 
 	/* -------------------- LISTAR OPERADOR ----------------------------- */
-	private String listarOperador(List<Operador> lista) 
+	private String listarOperador(List<Object[]> lista) 
     {
-    	String resp = "Los operadores existentes son:\n";
-    	int i = 1;
-        for (Operador op : lista)
+		String respuesta = "Los operadores existentes son:\n";
+		for ( Object[] tupla : lista)
         {
-        	resp += i++ + ". " + op.toString() + "\n";
+            String resp = "";
+            resp += "Operador [id=" + tupla[0];
+            resp += ", nombre=" + tupla[1];
+            resp += ", tipo=" + tupla[2];
+			resp += ", validacionCamaraDeComercioEmpresa=" + tupla[3];
+			resp += ", validacionSuperTurismoEmpresa=" + tupla[4];
+			resp += ", miembroComunidadUniversitariaPersona=" + tupla[5] + "]\n";
+			respuesta += resp;
         }
-        return resp;
-	}
-	private String listarDineroPorOperador(List<String> lista) 
-    {
-    	String resp = "Los operadores existentes son:\n";
-    	int i = 1;
-        for (String op : lista)
-        {
-        	resp += i++ + ". " + op.toString() + "\n";
-        }
-        return resp;
-	}
-	private String listarOperadorNVO(List<Operador> lista) 
-    {
-    	String resp = "Los apartamentos existentes son:\n";
-    	int i = 1;
-        for (Operador op : lista)
-        {
-        	resp += i++ + ". " + op.toString() + "\n";
-        }
-        return resp;
+		return respuesta;
 	}
 
-	private String listarHoteles(List<Hotel> lista) 
+	
+
+	private String listarHoteles(List<Object[]> lista) 
 	{
-		String resp = "Los hoteles existentes son:\n";
-		int i = 1;
-		for (Hotel ho : lista)
-		{
-			resp += i++ + ". " + ho.toString() + "\n";
-		}
-		return resp;
+		String respuesta = "Los hoteles existentes son:\n";
+		for ( Object[] hotel : lista)
+        {
+            String resp = "";
+            resp += "Hotel [nombre=" + hotel[0];
+            resp += ", calificacion=" + hotel[1];
+            resp += ", direccion=" + hotel[2] + "]\n";
+		
+			respuesta += resp;
+        }
+		return respuesta;
 	}
 
-	private String listarHostales(List<Hostal> lista){
+	private String listarHostales(List<Object[]> lista){
+		String respuesta = "Los hostales existentes son:\n";
+		for ( Object[] hotel : lista)
+        {
+            String resp = "";
+            resp += "Hostal [nombre=" + hotel[0];
+            resp += ", direccion=" + hotel[1];
+			resp += ", horarioApertura=" + hotel[2] ;
+			resp += ", horarioCierre=" + hotel[3];
+			resp += ", calificacion=" + hotel[4] + "]\n";
+		
+			respuesta += resp;
+        }
+		return respuesta;
+	}
+
+	private String listarHabitacionesHostal(List<Object[]> lista){
 		String resp = "Los hostales existentes son:\n";
 		int i = 1;
-		for (Hostal ho : lista)
+		for (Object[] ho : lista)
 		{
 			resp += i++ + ". " + ho.toString() + "\n";
 		}

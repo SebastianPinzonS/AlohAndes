@@ -40,29 +40,27 @@ class SQLHostal
         return (long) q.executeUnique();            
 	}
 
-	public List<Hostal> darHostalPorNombre (PersistenceManager pm, String nombre) 
+	public List<Object[]> darHostalPorNombre (PersistenceManager pm, String nombre) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHostal () + " WHERE NOMBRE = ?");
-		q.setResultClass(Hostal.class);
 		q.setParameters(nombre);
-		return (List<Hostal>) q.executeUnique();
+		return (List<Object[]>) q.executeUnique();
 	}
 
 	
-	public Hostal darHostalesPorDireccion (PersistenceManager pm, String direccion) 
+	public Object[] darHostalPorDireccion (PersistenceManager pm, String direccion) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHostal () + " WHERE DIRECCION = ?");
-		q.setResultClass(Hostal.class);
 		q.setParameters(direccion);
-		return (Hostal) q.executeList();
+		return (Object[]) q.executeUnique();
 	}
 
 
-	public List<Hostal> darHostales (PersistenceManager pm)
+	public List<Object[]> darHostales (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHostal ());
-		q.setResultClass(Hostal.class);
-		return (List<Hostal>) q.executeList();
+	
+		return (List<Object[]>) q.executeList();
 	}
 
 
