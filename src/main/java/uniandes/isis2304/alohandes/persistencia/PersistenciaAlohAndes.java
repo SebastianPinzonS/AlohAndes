@@ -1618,6 +1618,19 @@ public class PersistenciaAlohAndes
     public List<Object[]> darOfertas(){
         return sqlOferta.darOfertas(pmf.getPersistenceManager());
     }
+
+    public List<Object[]> darOfertasPopulares(){
+        return sqlOferta.ofertaPopular(pmf.getPersistenceManager());
+    }
+
+    public List<Object[]> darOfertasDisponibles(){
+        return sqlOferta.ofertasDisponibles(pmf.getPersistenceManager());
+    }
+
+    public List<Object[]> darClientesFrecuentes(String tipo, String identificador){
+        return sqlOferta.clientesFrecuentes(tipo,pmf.getPersistenceManager(), identificador);
+    }
+
 	/* ****************************************************************
 	 * 			Métodos para manejar los OPERADOR
 	 *****************************************************************/

@@ -246,6 +246,18 @@
 				{
 					"label": "Listar ofertas",
 					"event": "darOfertas"
+				},
+				{
+					"label": "Listar ofertas mas populares",
+					"event": "darOfertasPopulares"
+				},
+				{
+					"label": "Listar ofertas disponibles",
+					"event": "darOfertasDisponibles"
+				},
+				{
+					"label" : "Listar Clientes Frecuentes",
+					"event" : "darClientesFrecuentes"
 				}
 			]
 		},

@@ -1665,6 +1665,67 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
 	}
+
+	public void darOfertasPopulares(){
+		try 
+		{
+			List<Object[]> lista = alohAndes.darOfertasPopulares();
+
+			String resultado = "En listarOfertasPopulares";
+			resultado +=  "\n" + listarOfertasPopulares(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+		} 
+		catch (Exception e) 
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void darOfertasDisponibles(){
+		try 
+		{
+			List<Object[]> lista = alohAndes.darOfertasDisponibles();
+
+			String resultado = "En listarOfertasPopulares";
+			resultado +=  "\n" + listarOfertasDisponibles(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+		} 
+		catch (Exception e) 
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void darClientesFrecuentes(){
+		try 
+		{
+			String tipo = JOptionPane.showInputDialog (this, "Cual es el tipo de alojamiento? APARTAMENTO, VIVIENDA_HABITACION, VIVIENDA_UNIVERSITARIA, HOTEL_HABITACION_HOTEL, HOSTAL_HABITACION_HOSTAL", "Borrar Oferta por id: ", JOptionPane.QUESTION_MESSAGE);
+			String direccion = JOptionPane.showInputDialog (this, "Cual es la direccion", "Borrar Oferta por id: ", JOptionPane.QUESTION_MESSAGE);
+
+			List<Object[]> lista = alohAndes.darClientesFrecuentes("DIRECCION_"+tipo, direccion);
+
+			String resultado = "En listarClientesFrecuentes";
+			resultado +=  "\n" + listarClientesFrecuentes(lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+		} 
+		catch (Exception e) 
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
 	/* ****************************************************************
 	 * 			CRUD de HabitacionHostal
 	 *****************************************************************/
@@ -2063,6 +2124,38 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
 		return resp;
 	}
+
+	public String listarOfertasPopulares(List<Object[]> lista){
+		String resp = "Las ofertas existentes son:\n";
+		int i = 1;
+		for (Object[] oferta : lista)
+		{
+			resp += i++ + ". " + "Oferta [id=" + oferta[0] + ", visitas=" + oferta[1] + ", costoContratoDia=" + oferta[2] + ", fechaPublicacionReserva=" + oferta[3]  + " ]" + "\n";	
+
+		}
+		return resp;
+	}
+
+	public String listarOfertasDisponibles(List<Object[]> lista){
+		String resp = "Las ofertas existentes son:\n";
+		int i = 1;
+		for (Object[] oferta : lista)
+		{
+			resp += i++ + ". " + "Oferta [id=" + oferta[0] + ", fechaInicialReserva=" + oferta[1] + ", fechaFinalReserva=" + oferta[2] + " ]" + "\n";	
+		}
+		return resp;
+	}
+
+	public String listarClientesFrecuentes(List<Object[]> lista){
+		String resp = "Las ofertas existentes son:\n";
+		int i = 1;
+		for (Object[] oferta : lista)
+		{
+			resp += i++ + ". " + "Cliente [id=" + oferta[0]+ " ,vecesReservado=" +oferta[1] + " ,cantidadDiasReservado=" + oferta[2] +" ]" + "\n";	
+		}
+		return resp;
+	}
+
 
 
 

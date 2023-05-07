@@ -194,6 +194,65 @@ class SQLOferta
 		return (List<Object[]>) q.executeList();
 	}
 
+	public List<Object[]> ofertaPopular(PersistenceManager pm) {
+		String sql = "";
+		sql += "SELECT id, visitas, costo_contrato_dia, fecha_publicacion_reserva ";
+		sql += "FROM oferta ";
+		sql += "ORDER BY visitas DESC ";
+		sql += "FETCH FIRST 20 ROWS ONLY ";
+		Query q = pm.newQuery(SQL, sql);
+		return q.executeList();
+
+	}
+
+	public List<Object[]> ofertasDisponibles(PersistenceManager pm){
+		String sql = "SELECT ofertas_2.id, ofertas_2.fecha_inicial_reserva, ofertas_2.fecha_finalizacion_reserva "
+           + "FROM "
+           + "    (SELECT ofertas.id, ofertas.fecha_publicacion_reserva, "
+           + "           NVL(reservas.fecha_inicial,ofertas.fecha_publicacion_reserva) AS fecha_inicial_reserva, "
+           + "           NVL(reservas.fecha_inicial,ofertas.fecha_publicacion_reserva)+NVL(reservas.duracion_dias,0) AS fecha_finalizacion_reserva "
+           + "    FROM "
+           + "        ((SELECT id_oferta, fecha_inicial, duracion_dias "
+           + "        FROM reserva) reservas "
+           + "        FULL OUTER JOIN "
+           + "            (SELECT id, fecha_publicacion_reserva, costo_contrato_dia, precio_especial_dia "
+           + "            FROM oferta) ofertas "
+           + "            ON reservas.id_oferta = ofertas.id)) ofertas_2 "
+           + "WHERE (ofertas_2.fecha_inicial_reserva >= to_date('01-01-2021','DD-MM-YYYY')) "
+           + "AND (ofertas_2.fecha_finalizacion_reserva <= to_date('01-01-2022','DD-MM-YYYY'))";
+		Query q = pm.newQuery(SQL, sql);
+		return q.executeList();
+	}
+
+	public List<Object[]> clientesFrecuentes(String tipo,PersistenceManager pm, String identificador){
+		
+		String sql = "SELECT reservas.id_cliente, veces_reservado, cantidad_dias_reservados "
+				+ "FROM "
+				+ "(SELECT id, "
+				+ "DIRECCION_HOSTAL_HABITACION_HOSTAL, NUMERO_HABITACION_HABITACION_HOSTAL, "
+				+ "DIRECCION_HOTEL_HABITACION_HOTEL, NUMERO_HABITACION_HABITACION_HOTEL, "
+				+ "DIRECCION_VIVIENDA_UNIVERSITARIA, NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA, "
+				+ "DIRECCION_VIVIENDA_HABITACION, NUMERO_APARTAMENTO_VIVIENDA_HABITACION, "
+				+ "DIRECCION_APARTAMENTO, NUMERO_APARTAMENTO, DIRECCION_VIVIENDA_EXPRESS "
+				+ "FROM oferta "
+				+ "WHERE " + tipo +" = \'"+identificador+"\' ) ofertas "
+				+ "RIGHT OUTER JOIN "
+				+ "(SELECT tabla2.id_cliente, tabla2.id_oferta, veces_reservado, cantidad_dias_reservados "
+				+ "FROM "
+				+ "(SELECT id_cliente, id_oferta, COUNT(*) AS veces_reservado "
+				+ "FROM reserva "
+				+ "GROUP BY id_cliente, id_oferta) tabla1 "
+				+ "FULL OUTER JOIN "
+				+ "(SELECT id_cliente, id_oferta, SUM(duracion_dias) AS cantidad_dias_reservados "
+				+ "FROM reserva "
+				+ "GROUP BY id_cliente, id_oferta) tabla2 "
+				+ "ON tabla1.id_cliente = tabla2.id_cliente AND tabla1.id_oferta = tabla2.id_oferta "
+				+ "WHERE veces_reservado >= 3 OR cantidad_dias_reservados >= 15) reservas "
+				+ "ON ofertas.id = reservas.id_oferta";
+			Query q = pm.newQuery(SQL, sql);
+			return q.executeList();
+	}
+
 
 	
 }
