@@ -7,6 +7,7 @@ import javax.jdo.Query;
 
 
 import uniandes.isis2304.alohandes.negocio.Operador;
+import uniandes.isis2304.alohandes.negocio.ValorOperador;
 
 class SQLOperador 
 {
@@ -53,54 +54,92 @@ class SQLOperador
         return (long) q.executeUnique();            
 	}
 
-	public Operador darOperadorPorId (PersistenceManager pm, String id) 
+	public Object[] darOperadorPorId (PersistenceManager pm, String id) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOperador () + " WHERE id = ?");
-		q.setResultClass(Operador.class);
 		q.setParameters(id);
-		return (Operador) q.executeUnique();
+		return (Object[]) q.executeUnique();
 	}
 
-	public List<Operador> darOperadorPorNombre (PersistenceManager pm, String nombre) 
+	public List<Object[]> darOperadorPorNombre (PersistenceManager pm, String nombre) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOperador () + " WHERE nombre = ?");
-		q.setResultClass(Operador.class);
 		q.setParameters(nombre);
-		return (List<Operador>) q.executeList();
+		return (List<Object[]>) q.executeList();
 	}
 
-	public List<Operador> darOperadores (PersistenceManager pm)
+	public List<Object[]> darOperadores (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaOperador ());
-		q.setResultClass(Operador.class);
-		return (List<Operador>) q.executeList();
+		return (List<Object[]>) q.executeList();
 	}
 
-	public List<Object> mostrarDineroRecibidoPorCadaOperador (PersistenceManager pm)
+	public List<Object[]> mostrarDineroRecibidoPorCadaOperadorAnoActual (PersistenceManager pm)
 	{
-	    String sql = "SELECT dinero.id_operador, nombres.nombre, dinero.dinero_total, dinero.dinero_ano";
-		sql += "FROM";
-		sql += "(SELECT total.id_operador, total.dinero_total, ano.dinero_ano";
-		sql += "FROM";
-		sql += "(SELECT id_operador, SUM(costo_contrato) AS dinero_total";
-	    sql += " FROM " + pa.darTablaOferta ();
-		sql += "WHERE id_cliente IS NOT NULL";
-		sql += "GROUP BY id_operador) total";
-		sql += "FULL OUTER JOIN";
-		sql += "(SELECT id_operador, SUM(costo_contrato) AS dinero_ano";
-		sql += "FROM " + pa.darTablaOferta ();
-		sql += "WHERE (id_cliente IS NOT NULL)";
-		sql += "AND (fecha_inicial >= to_date('01-01-2022','DD-MM-YYYY'))";
-		sql += "GROUP BY id_operador) ano";
-		sql += "ON total.id_operador = ano.id_operador) dinero";
-		sql += "INNER JOIN";
-		sql += "(SELECT id, nombre";
-		sql += "FROM " + pa.darTablaOperador() + ") nombres";
-		sql += "ON dinero.id_operador = nombres.id";
-		sql += "ORDER BY dinero.id_operador";
+	    String sql = "SELECT DISTINCT dineros.id_operador, nombrardos.nombre, dineros.dinero_ano_corrido, dineros.dinero_ano_actual " +
+             "FROM " +
+             "( " +
+             "  SELECT ano_actual.id_operador, NVL(ano_corrido.dinero_ano_corrido,0) AS dinero_ano_corrido, NVL(ano_actual.dinero_ano_actual,0) AS dinero_ano_actual " +
+             "  FROM " +
+             "  ( " +
+             "    SELECT oferta_corta.id_operador, SUM(ofertas_ano_corrido.duracion_dias*oferta_corta.costo_contrato_dia) AS dinero_ano_corrido " +
+             "    FROM " +
+             "    ( " +
+             "      ( " +
+             "        SELECT id_oferta, duracion_dias, fecha_inicial " +
+             "        FROM reserva " +
+             "        WHERE fecha_inicial >= (CURRENT_DATE - NUMTOYMINTERVAL(1, 'year')) " +
+             "      ) ofertas_ano_corrido " +
+             "      FULL OUTER JOIN " +
+             "      ( " +
+             "        SELECT id, id_operador, costo_contrato_dia " +
+             "        FROM oferta " +
+             "      ) oferta_corta " +
+             "      ON ofertas_ano_corrido.id_oferta = oferta_corta.id " +
+             "    ) " +
+             "    GROUP BY oferta_corta.id_operador " +
+             "  ) ano_corrido " +
+             "  FULL OUTER JOIN " +
+             "  ( " +
+             "    SELECT oferta_corta.id_operador, SUM(ofertas_ano_actual.duracion_dias*oferta_corta.costo_contrato_dia) AS dinero_ano_actual " +
+             "    FROM " +
+             "    ( " +
+             "      ( " +
+             "        SELECT id_oferta, duracion_dias, fecha_inicial " +
+             "        FROM reserva " +
+             "        WHERE fecha_inicial >= to_date('01-01-2023','DD-MM-YYYY') " +
+             "      ) ofertas_ano_actual " +
+             "      FULL OUTER JOIN " +
+             "      ( " +
+             "        SELECT id, id_operador, costo_contrato_dia " +
+             "        FROM oferta " +
+             "      ) oferta_corta " +
+             "      ON ofertas_ano_actual.id_oferta = oferta_corta.id " +
+             "    ) " +
+             "    GROUP BY oferta_corta.id_operador " +
+             "  ) ano_actual " +
+             "  ON ano_actual.id_operador = ano_corrido.id_operador " +
+             ") dineros " +
+             "LEFT OUTER JOIN " +
+             "( " +
+             "  SELECT oferta_corta.id, oferta_corta.id_operador, nombre_operador.nombre, oferta_corta.costo_contrato_dia " +
+             "  FROM " +
+             "  ( " +
+             "    SELECT id, id_operador, costo_contrato_dia " +
+             "    FROM oferta " +
+             "  ) oferta_corta " +
+             "  LEFT OUTER JOIN " +
+             "  ( " +
+             "    SELECT id, nombre " +
+             "    FROM operador " +
+             "  ) nombre_operador " +
+             "  ON nombre_operador.id = oferta_corta.id_operador " +
+             ") nombrardos " +
+             "ON dineros.id_operador = nombrardos.id_operador";
 		
 	    Query q = pm.newQuery(SQL, sql);
 		return q.executeList();
 	}
+
 
 }

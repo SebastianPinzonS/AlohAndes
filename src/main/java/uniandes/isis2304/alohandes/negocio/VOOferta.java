@@ -17,10 +17,6 @@ public interface VOOferta
 	 */
 	public Date getFechaInicial();
 
-	/**
-	 * @return 
-	 */
-	public int getDuracionContratoDias();
 
 	/**
 	 * @return 

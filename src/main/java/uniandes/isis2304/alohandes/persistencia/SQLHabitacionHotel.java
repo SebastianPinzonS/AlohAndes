@@ -47,19 +47,17 @@ class SQLHabitacionHotel
 		return (HabitacionHotel) q.executeUnique();
 	}
 
-	public List<HabitacionHotel> darHabitacionHotelesPorNombre (PersistenceManager pm, String nombreHabitacionHotel) 
+	public List<Object[]> darHabitacionHotelesPorDireccionHotel (PersistenceManager pm, String direccionHabitacionHotel) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHabitacionHotel () + " WHERE DIRECCION_HOTEL = ?");
-		q.setResultClass(HabitacionHotel.class);
-		q.setParameters(nombreHabitacionHotel);
-		return (List<HabitacionHotel>) q.executeList();
+		q.setParameters(direccionHabitacionHotel);
+		return (List<Object[]>) q.executeList();
 	}
 
-	public List<HabitacionHotel> darHabitacionHoteles (PersistenceManager pm)
+	public List<Object[]> darHabitacionHoteles (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHabitacionHotel ());
-		q.setResultClass(HabitacionHotel.class);
-		return (List<HabitacionHotel>) q.executeList();
+		return (List<Object[]>) q.executeList();
 	}
 
 	/** ------------------------------------------------------------------------------------------------------ */

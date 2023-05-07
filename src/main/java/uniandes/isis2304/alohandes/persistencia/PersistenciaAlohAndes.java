@@ -17,22 +17,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import uniandes.isis2304.alohandes.negocio.Apartamento;
-import uniandes.isis2304.alohandes.negocio.Cliente;
-import uniandes.isis2304.alohandes.negocio.HabitacionHostal;
-import uniandes.isis2304.alohandes.negocio.HabitacionHotel;
-import uniandes.isis2304.alohandes.negocio.Hostal;
-import uniandes.isis2304.alohandes.negocio.Hotel;
-import uniandes.isis2304.alohandes.negocio.InstalacionHabitacionHotel;
-import uniandes.isis2304.alohandes.negocio.Oferta;
-import uniandes.isis2304.alohandes.negocio.ServicioHabitacionHotel;
-import uniandes.isis2304.alohandes.negocio.ViviendaExpress;
-import uniandes.isis2304.alohandes.negocio.ViviendaHabitacion;
-import uniandes.isis2304.alohandes.negocio.ViviendaHabitacionServicioHabitacion;
-import uniandes.isis2304.alohandes.negocio.ViviendaUniversitaria;
-import uniandes.isis2304.alohandes.negocio.ServicioHabitacion;
-import uniandes.isis2304.alohandes.negocio.Operador;
-import uniandes.isis2304.alohandes.negocio.Reserva;
+import uniandes.isis2304.alohandes.negocio.*;
+
 
 
 public class PersistenciaAlohAndes 
@@ -423,6 +409,7 @@ public class PersistenciaAlohAndes
         }
 	}
 
+  
 	public Apartamento darApartamentoPorDireccionYNumero (String direccion, String numero)
 	{
 		return sqlApartamento.darApartamentoPorDireccionYNumero (pmf.getPersistenceManager(), direccion, numero);
@@ -549,7 +536,7 @@ public class PersistenciaAlohAndes
 	/* ****************************************************************
 	 * 			Métodos para manejar los HABITACION HOSTEL
 	 *****************************************************************/
-	public HabitacionHostal adicionarHabitacionHostal(String direccionHostal, String numeroHabitacion, int tamano) 
+	public HabitacionHostal adicionarHabitacionHostal(String direccionHostal, String numeroHabitacion, float tamano) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -644,7 +631,7 @@ public class PersistenciaAlohAndes
 		return sqlHabitacionHostal.darHabitacionesHostalPorDireccionHostal (pmf.getPersistenceManager(), direccionHostal);
 	}
 
-	public List<HabitacionHostal> darTodasHabitacionHostal ()
+	public List<Object[]> darTodasHabitacionHostal ()
 	{
 		return sqlHabitacionHostal.darTodasHabitacionHostal (pmf.getPersistenceManager());
 	}
@@ -742,12 +729,12 @@ public class PersistenciaAlohAndes
 		return sqlHabitacionHotel.darHabitacionHotelPorNumeroHabitacionYDireccionHotel (pmf.getPersistenceManager(), numeroHabitacion, direccionHotel);
 	}
 
-	public List<HabitacionHotel> darHabitacionHotelesPorNombre (String nombreHabitacionHotel)
+	public List<Object[]> darHabitacionHotelesPorNombre (String nombreHabitacionHotel)
 	{
-		return sqlHabitacionHotel.darHabitacionHotelesPorNombre (pmf.getPersistenceManager(), nombreHabitacionHotel);
+		return sqlHabitacionHotel.darHabitacionHotelesPorDireccionHotel(pmf.getPersistenceManager(), nombreHabitacionHotel);
 	}
 
-	public List<HabitacionHotel> darHabitacionHoteles ()
+	public List<Object[]> darHabitacionHoteles ()
 	{
 		return sqlHabitacionHotel.darHabitacionHoteles (pmf.getPersistenceManager());
 	}
@@ -840,17 +827,17 @@ public class PersistenciaAlohAndes
         }
 	}
 
-	public Hostal darHostalesPorDireccion ( String direccion)
+	public Object[] darHostalesPorDireccion ( String direccion)
 	{
-		return sqlHostal.darHostalesPorDireccion (pmf.getPersistenceManager(), direccion);
+		return sqlHostal.darHostalPorDireccion (pmf.getPersistenceManager(), direccion);
 	}
 
-	public List<Hostal> darHostalPorNombre (String nombre)
+	public List<Object[]> darHostalPorNombre (String nombre)
 	{
 		return sqlHostal.darHostalPorNombre (pmf.getPersistenceManager(), nombre);
 	}
 
-	public List<Hostal> darHostales ()
+	public List<Object[]> darHostales ()
 	{
 		return sqlHostal.darHostales (pmf.getPersistenceManager());
 	}
@@ -949,12 +936,12 @@ public class PersistenciaAlohAndes
 		return sqlHotel.darHotelPorDireccion (pmf.getPersistenceManager(), direccion);
 	}
 
-	public List<Hotel> darHotelesPorNombre (String nombre)
+	public List<Object[]> darHotelesPorNombre (String nombre)
 	{
 		return sqlHotel.darHotelesPorNombre (pmf.getPersistenceManager(), nombre);
 	}
 
-	public List<Hotel> darHoteles ()
+	public List<Object[]> darHoteles ()
 	{
 		return sqlHotel.darHoteles (pmf.getPersistenceManager());
 	}
@@ -1124,7 +1111,7 @@ public class PersistenciaAlohAndes
 	/* ****************************************************************
 	 * 			Métodos para manejar los OFERTA
 	 *****************************************************************/
-	public Oferta adicionarOfertaHabitacionHostal(Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal) 
+	public Oferta adicionarOfertaHabitacionHostal(  int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1132,7 +1119,7 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long id = nextval ();
-            long tuplasInsertadas = sqlOferta.adicionarOfertaHabitacionHostal(pm, id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial ,  costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal);
+            long tuplasInsertadas = sqlOferta.adicionarOfertaHabitacionHostal(pm, id,   costoContrato, precioEspecial ,  condicionPrecioEspecial ,  costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal);
             tx.commit();
 
             log.trace ("Inserción de Oferta: " + id + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -1146,7 +1133,7 @@ public class PersistenciaAlohAndes
             String direccionApartamento = "";
             String numeroApartamento = "";
             String direccionViviendaExpress = "";
-            return new Oferta (id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0);
+            return new Oferta (id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0);
         }
         catch (Exception e)
         {
@@ -1164,7 +1151,7 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public Oferta adicionarOfertaHabitacionHotel(Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+    public Oferta adicionarOfertaHabitacionHotel(  int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1172,7 +1159,7 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long id = nextval ();
-            long tuplasInsertadas = sqlOferta.adicionarOfertaHabitacionHotel(pm, id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel );
+            long tuplasInsertadas = sqlOferta.adicionarOfertaHabitacionHotel(pm, id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel );
             tx.commit();
 
             log.trace ("Inserción de Oferta: " + id + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -1185,7 +1172,7 @@ public class PersistenciaAlohAndes
             String direccionApartamento = "";
             String numeroApartamento = "";
             String direccionViviendaExpress = "";
-            return new Oferta (id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
+            return new Oferta (id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
         }
         catch (Exception e)
         {
@@ -1203,7 +1190,7 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public Oferta adicionarOfertaViviendaUniversitaria(Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
+    public Oferta adicionarOfertaViviendaUniversitaria(  int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1211,7 +1198,7 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long id = nextval ();
-            long tuplasInsertadas = sqlOferta.adicionarOfertaViviendaUniversitaria(pm, id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);
+            long tuplasInsertadas = sqlOferta.adicionarOfertaViviendaUniversitaria(pm, id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);
             tx.commit();
 
             log.trace ("Inserción de Oferta: " + id + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -1224,7 +1211,7 @@ public class PersistenciaAlohAndes
             String direccionApartamento = "";
             String numeroApartamento = "";
             String direccionViviendaExpress = "";
-            return new Oferta (id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
+            return new Oferta (id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
         }
         catch (Exception e)
         {
@@ -1242,7 +1229,7 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public Oferta adicionarOfertaViviendaHabitacion (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial,int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion) 
+    public Oferta adicionarOfertaViviendaHabitacion (  int costoContrato, int precioEspecial, String condicionPrecioEspecial,int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1250,7 +1237,7 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long id = nextval ();
-            long tuplasInsertadas = sqlOferta.adicionarOfertaViviendaHabitacion(pm, id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion );
+            long tuplasInsertadas = sqlOferta.adicionarOfertaViviendaHabitacion(pm, id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion );
             tx.commit();
 
             log.trace ("Inserción de Oferta: " + id + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -1263,7 +1250,7 @@ public class PersistenciaAlohAndes
             String direccionApartamento = "";
             String numeroApartamento = "";
             String direccionViviendaExpress = "";
-            return new Oferta (id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
+            return new Oferta (id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
         }
         catch (Exception e)
         {
@@ -1281,7 +1268,9 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public Oferta adicionarOfertaApartamento (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionApartamento, String numeroApartamento) 
+   
+
+    public Oferta adicionarOfertaApartamento (  int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionApartamento, String numeroApartamento) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1289,7 +1278,7 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long id = nextval ();
-            long tuplasInsertadas = sqlOferta.adicionarOfertaApartamento(pm, id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionApartamento, numeroApartamento);
+            long tuplasInsertadas = sqlOferta.adicionarOfertaApartamento(pm, id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionApartamento, numeroApartamento);
             tx.commit();
 
             log.trace ("Inserción de Oferta: " + id + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -1302,7 +1291,7 @@ public class PersistenciaAlohAndes
             String direccionViviendaHabitacion = "";
             String numeroApartamentoViviendaHabitacion = "";
             String direccionViviendaExpress = "";
-            return new Oferta (id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
+            return new Oferta (id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
         }
         catch (Exception e)
         {
@@ -1320,7 +1309,7 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public Oferta adicionarOfertaViviendaExpress (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaExpress) 
+    public Oferta adicionarOfertaViviendaExpress (  int costoContrato, int precioEspecial, String condicionPrecioEspecial, int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaExpress) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1328,7 +1317,7 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long id = nextval ();
-            long tuplasInsertadas = sqlOferta.adicionarOfertaViviendaExpress(pm, id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaExpress);
+            long tuplasInsertadas = sqlOferta.adicionarOfertaViviendaExpress(pm, id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionViviendaExpress);
             tx.commit();
 
             log.trace ("Inserción de Oferta: " + id + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -1342,7 +1331,7 @@ public class PersistenciaAlohAndes
             String numeroApartamentoViviendaHabitacion = "";
             String direccionApartamento = "";
             String numeroApartamento = "";
-            return new Oferta (id, fechaInicial, duracionContratoDias, costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
+            return new Oferta (id,   costoContrato, precioEspecial ,  condicionPrecioEspecial , costoAdicionalServicios, costoSeguroArrendamiento, idOperador, direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal,direccionHotelHabitacionHotel,numeroHabitacionHabitacionHotel,direccionViviendaUniversitaria,numeroApartamentoViviendaUniversitaria,direccionViviendaHabitacion,numeroApartamentoViviendaHabitacion,direccionApartamento,numeroApartamento,direccionViviendaExpress, 0 );
         }
         catch (Exception e)
         {
@@ -1626,13 +1615,13 @@ public class PersistenciaAlohAndes
 		return sqlOferta.darOfertaPorViviendaExpress (pmf.getPersistenceManager(), direccionViviendaExpress);
 	}
 
-    public List<Oferta> darOfertas ()
-	{
-		return sqlOferta.darOfertas (pmf.getPersistenceManager());
-	}
+    public List<Object[]> darOfertas(){
+        return sqlOferta.darOfertas(pmf.getPersistenceManager());
+    }
 	/* ****************************************************************
 	 * 			Métodos para manejar los OPERADOR
 	 *****************************************************************/
+
 	public Operador adicionarOperador(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1718,42 +1707,36 @@ public class PersistenciaAlohAndes
         }
 	}
 
-	public Operador darOperadorPorId ( String id)
+	public Object[] darOperadorPorId ( String id)
 	{
 		return sqlOperador.darOperadorPorId (pmf.getPersistenceManager(), id);
 	}
 
-	public List<Operador> darOperadorPorNombre (String nombre)
+	public List<Object[]> darOperadorPorNombre (String nombre)
 	{
 		return sqlOperador.darOperadorPorNombre (pmf.getPersistenceManager(), nombre);
 	}
 
-	public List<Operador> darOperadores ()
+	public List<Object[]> darOperadores ()
 	{
 		return sqlOperador.darOperadores (pmf.getPersistenceManager());
 	}
 
     public List<String> mostrarDineroRecibidoPorCadaOperador()
     {
+        List<Object[]> tuplas = null;
         List<String> respuesta = new LinkedList <String> ();
-		List<Object> tuplas = sqlOperador.mostrarDineroRecibidoPorCadaOperador (pmf.getPersistenceManager());
-        for ( Object tupla : tuplas)
+        tuplas = sqlOperador.mostrarDineroRecibidoPorCadaOperadorAnoActual(pmf.getPersistenceManager());
+       
+        for ( Object[] tupla : tuplas)
         {
-			Object [] datos = (Object []) tupla;
-			String idOperador = (String) datos [0];
-			String nombreOperador = (String) datos [1];
-			int dineroTotal = ((BigDecimal) datos [2]).intValue ();
-            int dineroAno = ((BigDecimal) datos [3]).intValue ();
-
             String resp = "";
-            resp += "id del Operador: " + idOperador;
-            resp += " nombre del Operador: " + nombreOperador;
-            resp += " dinero Total ganado: " + dineroTotal;
-            resp += " dinero Año pasado (2022): " + dineroAno; 
-			
+            resp += "id del Operador: " + tupla[0];
+            resp += " nombre del Operador: " + tupla[1];
+            resp += " dinero ganado año corrido: " + tupla[2];
+            resp += " dinero ganado año actual: " + tupla[2];
 			respuesta.add(resp);
         }
-
 		return respuesta;
     }
 	/* ****************************************************************

@@ -84,11 +84,23 @@
 				},
 				{
 					"label": "Buscar por direccion",
-					"event": "buscarHostalPorDireccion"
+					"event": "darHostalPorDireccion"
 				},
 				{
-					"label": "Buscar por nombre",
-					"event": "buscarHostalesPorNombre"
+					"label": "Adicionar habitacion",
+					"event": "adicionarHabitacionHostal"
+				},
+				{
+					"label": "Eliminar habitacion",
+					"event": "eliminarHabitacionHostalPorDireccionYNumero"
+				},
+				{
+					"label": "Eliminar habitaciones de un hostal ",
+					"event": "eliminarHabitacionHostalPorDireccionHostal"
+				},
+				{
+					"label": "Buscar habitacion ",
+					"event": "buscarHabitacionHostalPorNumeroYDireccion"
 				}
 			]
 		},
@@ -215,7 +227,7 @@
 					"event": "buscarOperadorPorNombre"
 				},
 				{
-					"label": "Mostrar dinero recibido por cada Operador (total y año pasado)",
+					"label": "Mostrar dinero recibido por cada Operador (año actual y año corrido)",
 					"event": "mostrarDineroPorOperador"
 				}
 			]
@@ -230,6 +242,10 @@
 				{
 					"label": "Eliminar por id",
 					"event": "eliminarOfertaPorId"
+				},
+				{
+					"label": "Listar ofertas",
+					"event": "darOfertas"
 				}
 			]
 		},

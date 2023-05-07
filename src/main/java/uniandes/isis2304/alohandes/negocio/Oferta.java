@@ -9,8 +9,6 @@ public class Oferta implements VOOferta
 	private long id;
 
 	private Date fechaInicial;
-	
-	private int duracionContratoDias;
 
 	private int costoContrato;
 
@@ -59,7 +57,6 @@ public class Oferta implements VOOferta
 	{
 		this.id = 0;
 		this.fechaInicial = Date.valueOf("0001-01-01");
-		this.duracionContratoDias = 0;
 		this.costoContrato = 0;
 		this.precioEspecial = 0;
 		this.condicionPrecioEspecial = "";
@@ -80,7 +77,7 @@ public class Oferta implements VOOferta
 		this.visitas = 0;
 	}
 	
-	public Oferta(long id, Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial,
+	public Oferta(long id, int costoContrato, int precioEspecial,
 			String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento,
 			String idOperador, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal,
 			String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel,
@@ -88,9 +85,10 @@ public class Oferta implements VOOferta
 			String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion, String direccionApartamento,
 			String numeroApartamento, String direccionViviendaExpress, int visitas) 
 	{
-		this.id = id;
-		this.fechaInicial = fechaInicial;
-		this.duracionContratoDias = duracionContratoDias;
+		this.id = id; 
+		long millis=System.currentTimeMillis();  
+		java.sql.Date date = new java.sql.Date(millis);
+		this.fechaInicial = date;
 		this.costoContrato = costoContrato;
 		this.precioEspecial = precioEspecial;
 		this.condicionPrecioEspecial = condicionPrecioEspecial;
@@ -126,14 +124,6 @@ public class Oferta implements VOOferta
 
 	public void setId(Date fechaInicial) {
 		this.fechaInicial = fechaInicial;
-	}
-
-	public int getDuracionContratoDias() {
-		return duracionContratoDias;
-	}
-
-	public void setDuracionContratoDias(int duracionContratoDias) {
-		this.duracionContratoDias = duracionContratoDias;
 	}
 
 	public int getCostoContrato() {

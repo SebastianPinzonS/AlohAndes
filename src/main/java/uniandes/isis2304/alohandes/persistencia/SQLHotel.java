@@ -50,19 +50,17 @@ class SQLHotel
 		return (Hotel) q.executeUnique();
 	}
 
-	public List<Hotel> darHotelesPorNombre (PersistenceManager pm, String nombre) 
+	public List<Object[]> darHotelesPorNombre (PersistenceManager pm, String nombre) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHotel () + " WHERE NOMBRE = ?");
-		q.setResultClass(Hotel.class);
 		q.setParameters(nombre);
-		return (List<Hotel>) q.executeList();
+		return (List<Object[]>) q.executeList();
 	}
 
-	public List<Hotel> darHoteles (PersistenceManager pm)
+	public List<Object[]> darHoteles (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaHotel ());
-		q.setResultClass(Hotel.class);
-		return (List<Hotel>) q.executeList();
+		return (List<Object[]>) q.executeList();
 	}
 
 	

@@ -143,23 +143,10 @@ public class AlohAndes
 	}
 	
 
-	public List<VOHotel> darVOHoteles ()
-	{
-		log.info ("Generando los VO de Hotel");        
-        List<VOHotel> voHotels = new LinkedList<VOHotel> ();
-        List<Hotel> Hotels = pa.darHoteles  ();
-        for (Hotel ap : Hotels )
-        {
-        	voHotels.add (ap);
-        }
-        log.info ("Generando los VO de Tipos de Hotel: " + voHotels.size() + " existentes");
-        return voHotels;
-	}
-
-	public List<Hotel> darHotelesPorNombre (String nombre)
+	public List<Object[]> darHotelesPorNombre (String nombre)
 	{
 		 log.info ("Consultando Hotel");
-		 List<Hotel> hoteles = pa.darHotelesPorNombre(nombre);
+		 List<Object[]> hoteles = pa.darHotelesPorNombre(nombre);
 		 log.info ("Buscando Hotels: " + nombre != null ? hoteles : "NO EXISTE");
 		 return hoteles;
 	}
@@ -172,10 +159,10 @@ public class AlohAndes
         return hotel;
 	}
 
-	public List<Hotel> listarHoteles ()
+	public List<Object[]> listarHoteles ()
 	{
 		log.info ("Consultando Hotels");
-        List<Hotel> Hotels = pa.darHoteles ();	
+        List<Object[]> Hotels = pa.darHoteles ();	
 		log.info ("Buscando Hotels: "  != null ? Hotels : "NO EXISTE");
         return Hotels;
 	}
@@ -275,40 +262,28 @@ public class AlohAndes
 		log.info ("Eliminando Operador: " + resp + " tuplas eliminadas");
 		return resp;
 	 }
-	 
-	 public Operador darOperadorPorId (String id)
+
+	 public Object[] darOperadorPorId (String id)
 	 {
 		 log.info ("Consultando Operador");
-		 Operador operador = pa.darOperadorPorId (id);	
+		 Object[] operador = pa.darOperadorPorId (id);	
 		 log.info ("Buscando Operador: " + id  != null ? operador : "NO EXISTE");
 		 return operador;
 	 }
  
-	 public List<VOOperador> darVOOperadores ()
-	 {
-		 log.info ("Generando los VO de Operador");        
-		 List<VOOperador> voOperadores = new LinkedList<VOOperador> ();
-		 List<Operador> operadores = pa.darOperadores();
-		 for (Operador op : operadores )
-		 {
-			voOperadores.add (op);
-		 }
-		 log.info ("Generando los VO de Tipos de Operadores: " + voOperadores.size() + " existentes");
-		 return voOperadores;
-	 }
  
-	 public List<Operador> darOperadorPorNombre (String nombre)
+	 public List<Object[]> darOperadorPorNombre (String nombre)
 	 {
 		 log.info ("Consultando Operadores");
-		 List<Operador> operadores = pa.darOperadorPorNombre (nombre);	
+		 List<Object[]> operadores = pa.darOperadorPorNombre (nombre);	
 		 log.info ("Buscando Operador: " + nombre  != null ? operadores : "NO EXISTE");
 		 return operadores;
 	 }
  
-	 public List<Operador> darOperadores ()
+	 public List<Object[]> darOperadores ()
 	 {
 		 log.info ("Consultando Operadores");
-		 List<Operador> operadores = pa.darOperadores();	
+		 List<Object[]> operadores = pa.darOperadores();	
 		 log.info ("Buscando Operadores: "  != null ? operadores : "NO EXISTE");
 		 return operadores;
 	 }
@@ -325,50 +300,50 @@ public class AlohAndes
 	 * 			Métodos para manejar los Oferta
 	 *****************************************************************/
 
-	public Oferta adicionarOfertaHabitacionHostal (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal)
+	public Oferta adicionarOfertaHabitacionHostal (  int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHostalHabitacionHostal, String numeroHabitacionHabitacionHostal)
 	{
         log.info ("Adicionando Oferta Habitacion Hostal");
-        Oferta oferta = pa.adicionarOfertaHabitacionHostal(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal);		
+        Oferta oferta = pa.adicionarOfertaHabitacionHostal( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHostalHabitacionHostal, numeroHabitacionHabitacionHostal);		
         log.info ("Adicionando Oferta: " + oferta);
         return oferta;
 	}
 
-	public Oferta adicionarOfertaHabitacionHotel (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
+	public Oferta adicionarOfertaHabitacionHotel (  int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionHotelHabitacionHotel, String numeroHabitacionHabitacionHotel)
 	{
         log.info ("Adicionando Oferta Habitacion Hotel");
-        Oferta oferta = pa.adicionarOfertaHabitacionHotel(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);		
+        Oferta oferta = pa.adicionarOfertaHabitacionHotel( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionHotelHabitacionHotel, numeroHabitacionHabitacionHotel);		
         log.info ("Adicionando Oferta: " + oferta);
         return oferta;
 	}
 
-	public Oferta adicionarOfertaViviendaUniversitaria (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
+	public Oferta adicionarOfertaViviendaUniversitaria (  int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaUniversitaria, String numeroApartamentoViviendaUniversitaria)
 	{
         log.info ("Adicionando Oferta Vivienda Universitaria");
-        Oferta oferta = pa.adicionarOfertaViviendaUniversitaria(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);		
+        Oferta oferta = pa.adicionarOfertaViviendaUniversitaria( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaUniversitaria, numeroApartamentoViviendaUniversitaria);		
         log.info ("Adicionando Oferta: " + oferta);
         return oferta;
 	}
 
-	public Oferta adicionarOfertaViviendaHabitacion (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion)
+	public Oferta adicionarOfertaViviendaHabitacion (  int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaHabitacion, String numeroApartamentoViviendaHabitacion)
 	{
         log.info ("Adicionando Oferta Vivienda Habitacion");
-        Oferta oferta = pa.adicionarOfertaHabitacionHostal(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion);		
+        Oferta oferta = pa.adicionarOfertaHabitacionHostal( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaHabitacion, numeroApartamentoViviendaHabitacion);		
         log.info ("Adicionando Oferta: " + oferta);
         return oferta;
 	}
 
-	public Oferta adicionarOfertaApartamento (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionApartamento, String numeroApartamento)
+	public Oferta adicionarOfertaApartamento (  int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionApartamento, String numeroApartamento)
 	{
         log.info ("Adicionando Oferta Apartamento");
-        Oferta oferta = pa.adicionarOfertaApartamento(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionApartamento, numeroApartamento);		
+        Oferta oferta = pa.adicionarOfertaApartamento( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionApartamento, numeroApartamento);		
         log.info ("Adicionando Oferta: " + oferta);
         return oferta;
 	}
 
-	public Oferta adicionarOfertaViviendaExpress (Date fechaInicial, int duracionContratoDias, int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaExpress)
+	public Oferta adicionarOfertaViviendaExpress (  int costoContrato, int precioEspecial, String condicionPrecioEspecial,  int costoAdicionalServicios, int costoSeguroArrendamiento, String idOperador, String direccionViviendaExpress)
 	{
         log.info ("Adicionando Vivienda Express");
-        Oferta oferta = pa.adicionarOfertaViviendaExpress(fechaInicial,duracionContratoDias, costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaExpress);		
+        Oferta oferta = pa.adicionarOfertaViviendaExpress( costoContrato, precioEspecial, condicionPrecioEspecial, costoAdicionalServicios, costoSeguroArrendamiento, idOperador,direccionViviendaExpress);		
         log.info ("Adicionando Oferta: " + oferta);
         return oferta;
 	}
@@ -376,6 +351,10 @@ public class AlohAndes
 	public long eliminarOfertaPorId(long id)
 	{
 		return pa.eliminarOfertaPorId(id);
+	}
+
+	public List<Object[]> darOfertas(){
+		return pa.darOfertas();
 	}
 
 	/* ****************************************************************
@@ -414,31 +393,19 @@ public class AlohAndes
         return habitacionHotel;
 	}
 
-	public List<VOHabitacionHotel> darVoHabitacionesHotel ()
-	{
-		log.info ("Generando los VO de Habitacion Hotel");        
-        List<VOHabitacionHotel> voHabicacionHotel = new LinkedList<VOHabitacionHotel> ();
-        List<HabitacionHotel> habitacionHotel = pa.darHabitacionHoteles();
-        for (HabitacionHotel habHot : habitacionHotel)
-        {
-        	voHabicacionHotel.add (habHot);
-        }
-        log.info ("Generando los VO de Tipos de Habitaicon Hotel: " + voHabicacionHotel.size() + " existentes");
-        return voHabicacionHotel;
-	}
 	
-	public List<HabitacionHotel> darHabitacionHotelesPorDireccion (String direccion)
+	public List<Object[]> darHabitacionHotelesPorDireccion (String direccion)
 	{
 		log.info ("Consultando Habitacion Hotel");
-        List<HabitacionHotel> habitacionHotel = pa.darHabitacionHotelesPorNombre(direccion);	
+        List<Object[]> habitacionHotel = pa.darHabitacionHotelesPorNombre(direccion);	
 		log.info ("Buscando Habitacion Hotel: " + direccion != null ? habitacionHotel : "NO EXISTE");
         return habitacionHotel;
 	}
 
-	public List<HabitacionHotel> darHabitacionesHotel ()
+	public List<Object[]> darHabitacionesHotel ()
 	{
 		log.info ("Consultando Habitacion Hotel");
-        List<HabitacionHotel> habitacionHotel = pa.darHabitacionHoteles();	
+        List<Object[]> habitacionHotel = pa.darHabitacionHoteles();	
 		log.info ("Buscando Habitacion Hotel: "  != null ? habitacionHotel : "NO EXISTE");
         return habitacionHotel;
 	}
@@ -447,7 +414,7 @@ public class AlohAndes
 	 * 			Métodos para manejar las HABITACION HOSTAL
 	 *****************************************************************/
 
-	 public HabitacionHostal adicionarHabitacionHostal(String direccionHostal, String numeroHabitacion, int tamano)  
+	 public HabitacionHostal adicionarHabitacionHostal(String direccionHostal, String numeroHabitacion, float tamano)  
 	 {
 		 log.info ("Adicionando Habitacion Hostal");
 		 HabitacionHostal habitacionHostal = pa.adicionarHabitacionHostal(direccionHostal, numeroHabitacion, tamano);		
@@ -479,32 +446,20 @@ public class AlohAndes
         return habitacionHostal;
 	}
 
-	/* 
-	public List<VOHabitacionHostal> darVoHabitacionesHostal ()
-	{
-		log.info ("Generando los VO de Habitacion Hostal");        
-        List<VOHabitacionHostal> voHabitacionHostals = new LinkedList<VOHabitacionHostal> ();
-        List<HabitacionHostal> habitacionHostal = pa.darHabitacionHostales();
-        for (HabitacionHostal habHot : habitacionHostal)
-        {
-        	voHabitacionHostals.add (habHot);
-        }
-        log.info ("Generando los VO de Tipos de Habitacion Hostal: " + voHabitacionHostals.size() + " existentes");
-        return voHabitacionHostals;
-	} 
-	*/
-	public List<HabitacionHotel> darHabitacionHostalPorDireccion (String direccion)
+	
+	
+	public List<Object[]> darHabitacionHostalPorDireccion (String direccion)
 	{
 		log.info ("Consultando Habitacion Hotel");
-        List<HabitacionHotel> habitacionHotel = pa.darHabitacionHotelesPorNombre(direccion);	
+        List<Object[]> habitacionHotel = pa.darHabitacionHotelesPorNombre(direccion);	
 		log.info ("Buscando Habitacion Hotel: " + direccion != null ? habitacionHotel : "NO EXISTE");
         return habitacionHotel;
 	}
 
-	public List<HabitacionHotel> darHabitacionesHostal ()
+	public List<Object[]> darHabitacionesHostal ()
 	{
 		log.info ("Consultando Habitacion Hotel");
-        List<HabitacionHotel> habitacionHotel = pa.darHabitacionHoteles();	
+        List<Object[]> habitacionHotel = pa.darTodasHabitacionHostal();	
 		log.info ("Buscando Habitacion Hotel: "  != null ? habitacionHotel : "NO EXISTE");
         return habitacionHotel;
 	}
@@ -643,15 +598,15 @@ public class AlohAndes
 		return pa.adicionarHostal(nombre, direccion, horarioApertura, horarioCierre, calificacion);
 	}
 
-    public List<Hostal> darHostales() {
+    public List<Object[]> darHostales() {
 		return pa.darHostales();
     }
 
-	public List<Hostal> darHostalesPorNombre(String nombre) {
+	public List<Object[]> darHostalesPorNombre(String nombre) {
 		return pa.darHostalPorNombre(nombre);
 	}
 
-	public Hostal darHostalPorDireccion(String direccion) {
+	public Object[] darHostalPorDireccion(String direccion) {
 		return pa.darHostalesPorDireccion(direccion);
 	}
 
