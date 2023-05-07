@@ -122,10 +122,6 @@ public class Oferta implements VOOferta
 		return fechaInicial;
 	}
 
-	public void setId(Date fechaInicial) {
-		this.fechaInicial = fechaInicial;
-	}
-
 	public int getCostoContrato() {
 		return costoContrato;
 	}
