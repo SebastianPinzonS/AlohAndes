@@ -196,6 +196,14 @@
 				{
 					"label": "Buscar por Nombre",
 					"event": "buscarClientePorNombre"
+				},
+				{
+					"label": "Mostrar Uso de AlohAndes de los Clientes",
+					"event": "mostrarUsoAlohAndesClientes"
+				},
+				{
+					"label": "Mostrar Uso de AlohAndes de un Cliente deseado",
+					"event": "mostrarUsoAlohAndesParaUnUsuarioDado"
 				}
 			]
 		},
@@ -229,6 +237,10 @@
 				{
 					"label": "Mostrar dinero recibido por cada Operador (año actual y año corrido)",
 					"event": "mostrarDineroPorOperador"
+				},
+				{
+					"label": "Mostrar el uso de Aloh Andes de los operadores",
+					"event": "mostrarUsoAlohAndesOperador"
 				}
 			]
 		},
@@ -258,7 +270,16 @@
 				{
 					"label" : "Listar Clientes Frecuentes",
 					"event" : "darClientesFrecuentes"
+				},
+				{
+					"label": "Listar indices de ocupacion por oferta",
+					"event": "mostrarIndiceDeOcupacion"
+				},
+				{
+					"label": "Listar ofertas de alojamiento con poca demanda",
+					"event": "mostrarOfertasAlojamientoPocaDemanda"
 				}
+				
 			]
 		},
 		{ "menuTitle": "Reserva",

@@ -533,6 +533,57 @@ public class PersistenciaAlohAndes
 		return sqlCliente.darClientes (pmf.getPersistenceManager());
 	}
 
+    public List<String> mostrarUsoAlohAndesClientes()
+    {
+        List<Object[]> tuplas = null;
+        List<String> respuesta = new LinkedList <String> ();
+        tuplas = sqlCliente.mostrarUsoAlohAndesClientes(pmf.getPersistenceManager());
+       
+        for ( Object[] tupla : tuplas)
+        {
+            String resp = "";
+            resp += "id del Cliente: " + tupla[0];
+            resp += " tipo de cliente: " + tupla[1];
+            resp += " direccion hostal habitacion hostal: " + tupla[2];
+            resp += " numero habitacion habitacion hostal: " + tupla[3];
+            resp += " direccion hotel habitacion hotel: " + tupla[4];
+            resp += " numero habitacion habitacion hotel: " + tupla[5];
+            resp += " direccion vivienda universitaria: " + tupla[6];
+            resp += " numero apartamento vivienda universitaria: " + tupla[7];
+            resp += " direccion vivienda habitacion: " + tupla[8];
+            resp += " numero apartamento vivienda habitacion: " + tupla[9];
+            resp += " direccion apartamento: " + tupla[10];
+            resp += " numero apartamento: " + tupla[11];
+            resp += " direccion vivienda express: " + tupla[12];
+			respuesta.add(resp);
+        }
+		return respuesta;
+    }
+
+    public List<String> mostrarUsoAlohAndesParaUnUsuarioDado(String idCliente)
+    {
+        List<Object[]> tuplas = null;
+        List<String> respuesta = new LinkedList <String> ();
+        tuplas = sqlCliente.mostrarUsoAlohAndesParaUnUsuarioDado(pmf.getPersistenceManager(), idCliente);
+       
+        for ( Object[] tupla : tuplas)
+        {
+            String resp = "";
+            resp += "id del Cliente: " + tupla[0];
+            if( tupla[1].toString().equals("1"))
+            {
+                resp += " precio total pagado: " + tupla[3];
+            }
+            else if ( tupla[1].toString().equals("0") )
+            {
+                resp += " precio total pagado: " + tupla[2];
+            }
+            resp += " dias contratados: " + tupla[4];
+			respuesta.add(resp);
+        }
+		return respuesta;
+    }
+
 	/* ****************************************************************
 	 * 			Métodos para manejar los HABITACION HOSTEL
 	 *****************************************************************/
@@ -1619,6 +1670,50 @@ public class PersistenciaAlohAndes
         return sqlOferta.darOfertas(pmf.getPersistenceManager());
     }
 
+    public List<String> mostrarIndiceDeOcupacion()
+    {
+        List<Object[]> tuplas = null;
+        List<String> respuesta = new LinkedList <String> ();
+        tuplas = sqlOferta.mostrarIndiceDeOcupacion(pmf.getPersistenceManager());
+       
+        for ( Object[] tupla : tuplas)
+        {
+            String resp = "";
+            resp += "id de la Oferta: " + tupla[0];
+            resp += " indice de ocupacion de la Oferta: " + tupla[1];
+			respuesta.add(resp);
+        }
+		return respuesta;
+    }
+    
+    public List<String> mostrarOfertasAlojamientoPocaDemanda()
+    {
+        List<Object[]> tuplas = null;
+        List<String> respuesta = new LinkedList <String> ();
+        tuplas = sqlOferta.mostrarOfertasAlojamientoPocaDemanda(pmf.getPersistenceManager());
+       
+        for ( Object[] tupla : tuplas)
+        {
+            String resp = "";
+            resp += "id de la Oferta: " + tupla[0];
+            resp += " cantidad de dias reservados: " + tupla[1];
+            resp += " direccion hostal habitacion hostal: " + tupla[2];
+            resp += " numero habitacion habitacion hostal: " + tupla[3];
+            resp += " direccion hotel habitacion hotel: " + tupla[4];
+            resp += " numero habitacion habitacion hotel: " + tupla[5];
+            resp += " direccion vivienda universitaria: " + tupla[6];
+            resp += " numero apartamento vivienda universitaria: " + tupla[7];
+            resp += " direccion vivienda habitacion: " + tupla[8];
+            resp += " numero apartamento vivienda habitacion: " + tupla[9];
+            resp += " direccion apartamento: " + tupla[10];
+            resp += " numero apartamento: " + tupla[11];
+            resp += " direccion vivienda express: " + tupla[12];
+
+			respuesta.add(resp);
+        }
+		return respuesta;
+    }
+
     public List<Object[]> darOfertasPopulares(){
         return sqlOferta.ofertaPopular(pmf.getPersistenceManager());
     }
@@ -1747,7 +1842,34 @@ public class PersistenciaAlohAndes
             resp += "id del Operador: " + tupla[0];
             resp += " nombre del Operador: " + tupla[1];
             resp += " dinero ganado año corrido: " + tupla[2];
-            resp += " dinero ganado año actual: " + tupla[2];
+            resp += " dinero ganado año actual: " + tupla[3];
+			respuesta.add(resp);
+        }
+		return respuesta;
+    }
+
+    public List<String> mostrarUsoAlohAndesOperador()
+    {
+        List<Object[]> tuplas = null;
+        List<String> respuesta = new LinkedList <String> ();
+        tuplas = sqlOperador.mostrarUsoAlohAndesOperador(pmf.getPersistenceManager());
+       
+        for ( Object[] tupla : tuplas)
+        {
+            String resp = "";
+            resp += "id del Operador: " + tupla[0];
+            resp += " nombre Operador: " + tupla[1];
+            resp += " direccion hostal habitacion hostal: " + tupla[2];
+            resp += " numero habitacion habitacion hostal: " + tupla[3];
+            resp += " direccion hotel habitacion hotel: " + tupla[4];
+            resp += " numero habitacion habitacion hotel: " + tupla[5];
+            resp += " direccion vivienda universitaria: " + tupla[6];
+            resp += " numero apartamento vivienda universitaria: " + tupla[7];
+            resp += " direccion vivienda habitacion: " + tupla[8];
+            resp += " numero apartamento vivienda habitacion: " + tupla[9];
+            resp += " direccion apartamento: " + tupla[10];
+            resp += " numero apartamento: " + tupla[11];
+            resp += " direccion vivienda express: " + tupla[12];
 			respuesta.add(resp);
         }
 		return respuesta;

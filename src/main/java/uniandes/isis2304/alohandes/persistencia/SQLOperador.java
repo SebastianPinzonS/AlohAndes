@@ -141,5 +141,31 @@ class SQLOperador
 		return q.executeList();
 	}
 
+        public List<Object[]> mostrarUsoAlohAndesOperador (PersistenceManager pm)
+	{
+	    String sql = "SELECT operadores.id, operadores.nombre,"+
+            " ofertas.DIRECCION_HOSTAL_HABITACION_HOSTAL, ofertas.NUMERO_HABITACION_HABITACION_HOSTAL," +
+            " ofertas.DIRECCION_HOTEL_HABITACION_HOTEL, ofertas.NUMERO_HABITACION_HABITACION_HOTEL,"+
+            " ofertas.DIRECCION_VIVIENDA_UNIVERSITARIA, ofertas.NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA,"+
+            " ofertas.DIRECCION_VIVIENDA_HABITACION, ofertas.NUMERO_APARTAMENTO_VIVIENDA_HABITACION,"+
+            " ofertas.DIRECCION_APARTAMENTO, ofertas.NUMERO_APARTAMENTO, ofertas.DIRECCION_VIVIENDA_EXPRESS"+
+                " FROM"+
+            " (SELECT id, id_operador," +
+                "    NVL(DIRECCION_HOSTAL_HABITACION_HOSTAL,'No Aplica') AS DIRECCION_HOSTAL_HABITACION_HOSTAL, NVL(NUMERO_HABITACION_HABITACION_HOSTAL,'No Aplica') AS NUMERO_HABITACION_HABITACION_HOSTAL, "+
+                    " NVL(DIRECCION_HOTEL_HABITACION_HOTEL,'No Aplica') AS DIRECCION_HOTEL_HABITACION_HOTEL, NVL(NUMERO_HABITACION_HABITACION_HOTEL,'No Aplica') AS NUMERO_HABITACION_HABITACION_HOTEL, "+
+                    " NVL(DIRECCION_VIVIENDA_UNIVERSITARIA,'No Aplica') AS DIRECCION_VIVIENDA_UNIVERSITARIA, NVL(NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA,'No Aplica') AS NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA," +
+                    " NVL(DIRECCION_VIVIENDA_HABITACION,'No Aplica') AS DIRECCION_VIVIENDA_HABITACION, NVL(NUMERO_APARTAMENTO_VIVIENDA_HABITACION,'No Aplica') AS NUMERO_APARTAMENTO_VIVIENDA_HABITACION," +
+                    " NVL(DIRECCION_APARTAMENTO,'No Aplica') AS DIRECCION_APARTAMENTO, NVL(NUMERO_APARTAMENTO,'No Aplica') AS NUMERO_APARTAMENTO, "+
+                    " NVL(DIRECCION_VIVIENDA_EXPRESS,'No Aplica') AS DIRECCION_VIVIENDA_EXPRESS"+
+            " FROM oferta) ofertas"+
+            " RIGHT OUTER JOIN"+
+            " (SELECT id, nombre"+
+            " FROM operador"+
+            " WHERE miembro_comunidad_universitaria_persona = 1) operadores"+
+            " ON ofertas.id_operador = operadores.id";
+		
+	    Query q = pm.newQuery(SQL, sql);
+		return q.executeList();
+	}
 
 }

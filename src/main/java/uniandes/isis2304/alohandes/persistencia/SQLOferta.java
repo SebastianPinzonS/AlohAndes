@@ -253,6 +253,50 @@ class SQLOferta
 			return q.executeList();
 	}
 
+	public List<Object[]> mostrarIndiceDeOcupacion (PersistenceManager pm)
+	{
+	    String sql = "SELECT ofertas.id, ROUND((NVL(reservas.dias_ocupada,0))/ofertas.date_difference,2) AS indice_ocupacion" +
+		 	" FROM" +
+	 		" (SELECT id, ROUND(CURRENT_DATE-fecha_publicacion_reserva,0) AS date_difference" +
+	 		" FROM oferta) ofertas" +
+	 		" LEFT OUTER JOIN" +
+		 	" (SELECT id_oferta, SUM(duracion_dias) AS dias_ocupada" +
+		 	" FROM reserva" +
+		 	" GROUP BY id_oferta) reservas" +
+		 	" ON reservas.id_oferta = ofertas.id" +
+			" WHERE ofertas.date_difference <> 0";
+		
+	    Query q = pm.newQuery(SQL, sql);
+		return q.executeList();
+	}
+
+	public List<Object[]> mostrarOfertasAlojamientoPocaDemanda (PersistenceManager pm)
+	{
+	    String sql = "SELECT ofertas.id, NVL(cantidad_dias_reservados,0) AS cantidad_dias_reservados,"+
+		" DIRECCION_HOSTAL_HABITACION_HOSTAL, NUMERO_HABITACION_HABITACION_HOSTAL, "+
+		" DIRECCION_HOTEL_HABITACION_HOTEL, NUMERO_HABITACION_HABITACION_HOTEL,"+
+		" DIRECCION_VIVIENDA_UNIVERSITARIA, NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA,"+
+		" DIRECCION_VIVIENDA_HABITACION, NUMERO_APARTAMENTO_VIVIENDA_HABITACION,"+
+		" DIRECCION_APARTAMENTO, NUMERO_APARTAMENTO, DIRECCION_VIVIENDA_EXPRESS"+
+ 		" FROM"+
+	 	" (SELECT id,"+
+		" NVL(DIRECCION_HOSTAL_HABITACION_HOSTAL,'No Aplica') AS DIRECCION_HOSTAL_HABITACION_HOSTAL, NVL(NUMERO_HABITACION_HABITACION_HOSTAL,'No Aplica') AS NUMERO_HABITACION_HABITACION_HOSTAL, "+
+		" NVL(DIRECCION_HOTEL_HABITACION_HOTEL,'No Aplica') AS DIRECCION_HOTEL_HABITACION_HOTEL, NVL(NUMERO_HABITACION_HABITACION_HOTEL,'No Aplica') AS NUMERO_HABITACION_HABITACION_HOTEL," +
+		" NVL(DIRECCION_VIVIENDA_UNIVERSITARIA,'No Aplica') AS DIRECCION_VIVIENDA_UNIVERSITARIA, NVL(NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA,'No Aplica') AS NUMERO_APARTAMENTO_VIVIENDA_UNIVERSITARIA, "+
+		" NVL(DIRECCION_VIVIENDA_HABITACION,'No Aplica') AS DIRECCION_VIVIENDA_HABITACION, NVL(NUMERO_APARTAMENTO_VIVIENDA_HABITACION,'No Aplica') AS NUMERO_APARTAMENTO_VIVIENDA_HABITACION,"+
+		" NVL(DIRECCION_APARTAMENTO,'No Aplica') AS DIRECCION_APARTAMENTO, NVL(NUMERO_APARTAMENTO,'No Aplica') AS NUMERO_APARTAMENTO, "+
+		" NVL(DIRECCION_VIVIENDA_EXPRESS,'No Aplica') AS DIRECCION_VIVIENDA_EXPRESS"+
+	 	" FROM oferta) ofertas"+
+	 	" FULL OUTER JOIN"+
+		" (SELECT id_oferta, SUM(duracion_dias) AS cantidad_dias_reservados"+
+		" FROM reserva"+
+		" GROUP BY id_oferta) reservas"+
+		" ON ofertas.id = reservas.id_oferta"+
+		" WHERE cantidad_dias_reservados <= 30 OR cantidad_dias_reservados IS NULL";
+		
+	    Query q = pm.newQuery(SQL, sql);
+		return q.executeList();
+	}
 
 	
 }

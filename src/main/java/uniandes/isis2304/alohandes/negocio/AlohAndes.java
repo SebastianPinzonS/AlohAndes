@@ -234,6 +234,22 @@ public class AlohAndes
 		 return clientes;
 	 }
 
+	 public List<String> mostrarUsoAlohAndesClientes()
+	 {
+		log.info ("Consultando el uso de AlohAndes por clientes");
+		List<String> respuesta = pa.mostrarUsoAlohAndesClientes();
+		return respuesta;
+
+	 }
+
+	 public List<String> mostrarUsoAlohAndesParaUnUsuarioDado(String idCliente)
+	 {
+		log.info ("Consultando el uso de AlohAndes para un usuario dado");
+		List<String> respuesta = pa.mostrarUsoAlohAndesParaUnUsuarioDado(idCliente);
+		return respuesta;
+
+	 }
+
 	/* ****************************************************************
 	 * 			Métodos para manejar los OPERADOR
 	 *****************************************************************/
@@ -292,6 +308,14 @@ public class AlohAndes
 	 {
 		log.info ("Consultando Dinero por Operador");
 		List<String> respuesta = pa.mostrarDineroRecibidoPorCadaOperador();
+		return respuesta;
+
+	 }
+
+	 public List<String> mostrarUsoAlohAndesOperador()
+	 {
+		log.info ("Consultando el uso de AlohAndes por operadores");
+		List<String> respuesta = pa.mostrarUsoAlohAndesOperador();
 		return respuesta;
 
 	 }
@@ -356,6 +380,22 @@ public class AlohAndes
 	public List<Object[]> darOfertas(){
 		return pa.darOfertas();
 	}
+
+	public List<String> mostrarIndiceDeOcupacion()
+	 {
+		log.info ("Consultando los indices de ocupacion por Ofertas");
+		List<String> respuesta = pa.mostrarIndiceDeOcupacion();
+		return respuesta;
+
+	 }
+	 
+	 public List<String> mostrarOfertasAlojamientoPocaDemanda()
+	 {
+		log.info ("Consultando las ofertas con poca demanda");
+		List<String> respuesta = pa.mostrarOfertasAlojamientoPocaDemanda();
+		return respuesta;
+
+	 }
 
 	public List<Object[]> darOfertasPopulares(){
 		return pa.darOfertasPopulares();

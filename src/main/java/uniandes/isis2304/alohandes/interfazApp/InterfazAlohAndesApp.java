@@ -990,6 +990,24 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		 }
 	 }
 
+	 public void mostrarUsoAlohAndesClientes()
+	 {		
+		try 
+		 {
+			 List <String> lista = alohAndes.mostrarUsoAlohAndesClientes();
+			 String resultado = "En mostrarUsoAlohAndesClientes";
+			 resultado +=  "\n" + listarUsoAlohAndesClientes(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+
 	 /* ****************************************************************
 	 * 			CRUD de Instalacion Habitacion Hotel
 	 * *****************************************************************/
@@ -1464,6 +1482,54 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			 panelDatos.actualizarInterfaz(resultado);
 		 }
 	 }
+
+	 public void mostrarUsoAlohAndesOperador()
+	 {		
+		try 
+		 {
+			 List <String> lista = alohAndes.mostrarUsoAlohAndesOperador();
+			 String resultado = "En mostrarUsoAlohAndesOperador";
+			 resultado +=  "\n" + listarUsoAlohAndesOperador(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+
+	 public void mostrarUsoAlohAndesParaUnUsuarioDado()
+	 {		
+		try 
+		 {
+			 String idCliente = JOptionPane.showInputDialog (this, "Id del Cliente?", "Mostrar Uso AlohAndes por Usuario", JOptionPane.QUESTION_MESSAGE);
+			 if (idCliente != null)
+			 {
+				 List <String> lista = alohAndes.mostrarUsoAlohAndesParaUnUsuarioDado(idCliente);
+				 String resultado = "En mostrarUsoAlohAndesOperador";
+				if (lista != null)
+				{
+					resultado +=  "\n" + listarUsoAlohAndesParaUnUsuarioDado(lista);
+				}
+				else
+				{
+					resultado += "Un Cliente con id: " + idCliente  + " NO EXISTE\n";    				
+				}
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+				
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
 	 /* ****************************************************************
 	 * 			CRUD de Oferta
 	 *****************************************************************/
@@ -1726,6 +1792,41 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		}
 	}
 	
+	public void mostrarIndiceDeOcupacion()
+	 {		
+		try 
+		 {
+			 List <String> lista = alohAndes.mostrarIndiceDeOcupacion();
+			 String resultado = "En mostrarIndiceDeOcupacion";
+			 resultado +=  "\n" + listarIndicesOcupacion(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+	 
+	 public void mostrarOfertasAlojamientoPocaDemanda()
+	 {		
+		try 
+		 {
+			 List <String> lista = alohAndes.mostrarOfertasAlojamientoPocaDemanda();
+			 String resultado = "En mostrarOfertasAlojamientoPocaDemanda";
+			 resultado +=  "\n" + listarOfertasAlojamientoPocaDemanda(lista);
+			 panelDatos.actualizarInterfaz(resultado);
+			 resultado += "\n Operación terminada";
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
 	/* ****************************************************************
 	 * 			CRUD de HabitacionHostal
 	 *****************************************************************/
@@ -2163,6 +2264,56 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 
 	private String listarValorOperador(List<String> lista){
 		String resp = "Las ganancias de los operadores son:\n";
+		int i = 1;
+		for (String tupla : lista)
+		{
+			resp += i++ + ". " + tupla + "\n";
+		}
+		return resp;
+	}
+
+	private String listarIndicesOcupacion(List<String> lista){
+		String resp = "Los indices de ocupacion de las ofertas son:\n";
+		int i = 1;
+		for (String tupla : lista)
+		{
+			resp += i++ + ". " + tupla + "\n";
+		}
+		return resp;
+	}
+	
+	private String listarUsoAlohAndesClientes(List<String> lista){
+		String resp = "El uso de AlohAndes de los clientes es el siguiente:\n";
+		int i = 1;
+		for (String tupla : lista)
+		{
+			resp += i++ + ". " + tupla + "\n";
+		}
+		return resp;
+	}
+	
+	private String listarUsoAlohAndesOperador(List<String> lista){
+		String resp = "El uso de AlohAndes de los operadores es el siguiente:\n";
+		int i = 1;
+		for (String tupla : lista)
+		{
+			resp += i++ + ". " + tupla + "\n";
+		}
+		return resp;
+	}
+	
+	private String listarUsoAlohAndesParaUnUsuarioDado(List<String> lista){
+		String resp = "El uso de AlohAndes del cliente selecionado es:\n";
+		int i = 1;
+		for (String tupla : lista)
+		{
+			resp += i++ + ". " + tupla + "\n";
+		}
+		return resp;
+	}
+	
+	private String listarOfertasAlojamientoPocaDemanda(List<String> lista){
+		String resp = "El las ofertas de alojamiento con poca demanda son las siguientes:\n";
 		int i = 1;
 		for (String tupla : lista)
 		{
