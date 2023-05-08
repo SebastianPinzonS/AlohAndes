@@ -2667,7 +2667,7 @@ public class PersistenciaAlohAndes
         }
     }
 
-    public Reserva deshabilitarOferta(long idReserva, String idOferta, Date fechaInicial, int duracionDias) 
+    public Reserva deshabilitarOferta( String idOferta, Date fechaInicial, int duracionDias) 
 	{
         
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -2676,7 +2676,7 @@ public class PersistenciaAlohAndes
         {
             tx.begin(); 
             long id = nextVal1 ();           
-            long tuplasInsertadas = sqlReserva.deshabilitarOferta(pm, idReserva,idOferta, fechaInicial, duracionDias);
+            long tuplasInsertadas = sqlReserva.deshabilitarOferta(pm, id, idOferta, fechaInicial, duracionDias);
             tx.commit();
             
             log.trace ("Inserción Reserva: "+ id + ","+ idOferta + ": " + tuplasInsertadas + " tuplas insertadas");

@@ -283,6 +283,10 @@
 				{
 					"label": "Listar ofertas de alojamiento con poca demanda",
 					"event": "mostrarOfertasAlojamientoPocaDemanda"
+				},
+				{
+					"label": "Deshabilitar una Oferta",
+					"event": "deshabilitarOferta"
 				}
 				
 			]

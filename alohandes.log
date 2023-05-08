@@ -942,3 +942,31 @@ ORA-00904: "VALIDACION_SUPER_TURISMO_EMPRESAA": invalid identifier
 21:25:23,865 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÃ³ un archivo de configuraciÃ³n vÃ¡lido: Tablas BD
 21:25:57,185 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 1231238 con el nombre: HOLA
 21:25:57,320 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: Operador [id=1231238, nombre=HOLA, tipo=NIT, validacionCamaraDeComercioEmpresa=1, validacionSuperTurismoEmpresa=1, miembroComunidadUniversitariaPersona=0]
+21:37:36,512 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:37:36,513 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:37:36,537 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:38:04,251 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Deshabilitando Oferta
+21:40:29,053 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:40:29,054 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:40:29,084 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:40:32,202 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:40:32,203 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:40:32,239 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:40:45,940 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Deshabilitando Oferta
+21:40:46,281 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO RESERVA (id_reserva,id_oferta, id_cliente, precio_especial_tomado, reserva_colectiva, fecha_realizacion_reserva,fecha_inicial,duracion_dias) VALUES (?, ?, 0, 0, 0, CURRENT_DATE, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304B07202310.FK_ID_CLIENTE_RESERVA) violada - clave principal no encontrada
+
+21:40:46,315 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Deshabilitando Oferta: 1
+21:41:36,441 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:41:36,442 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:41:36,467 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:41:50,981 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Deshabilitando Oferta
+21:41:51,301 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO RESERVA (id_reserva,id_oferta, id_cliente, precio_especial_tomado, reserva_colectiva, fecha_realizacion_reserva,fecha_inicial,duracion_dias) VALUES (?, ?, 0, 0, 0, CURRENT_DATE, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304B07202310.FK_ID_CLIENTE_RESERVA) violada - clave principal no encontrada
+
+21:41:51,331 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Deshabilitando Oferta: 1
+21:42:47,578 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:42:47,578 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:42:47,603 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:43:00,003 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Deshabilitando Oferta
+21:43:00,343 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Deshabilitando Oferta: 1
