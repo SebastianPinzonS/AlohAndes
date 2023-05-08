@@ -310,6 +310,13 @@ public class PersistenciaAlohAndes
         return resp;
     }
 
+    private long nextVal1()
+    {
+        long resp = sqlUtil.nextval1 (pmf.getPersistenceManager());
+        log.trace ("Generando secuencia: " + resp);
+        return resp;
+    }
+
 	private String darDetalleException(Exception e) 
 	{
 		String resp = "";
@@ -2489,18 +2496,20 @@ public class PersistenciaAlohAndes
     /* ****************************************************************
 	 * 			Métodos para manejar las RESERVA
 	 *****************************************************************/
-    public Reserva adicionarReserva(long idOferta, String idCliente, int precioEspecialTomado)
+    public Reserva adicionarReserva(String idCliente, String idOferta, int reservaColectiva, Date fechaInicial, int precioEspecialTomado, int duracionDias)
 	{
+        
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
-            tx.begin();            
-            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idOferta, idCliente, precioEspecialTomado);
+            tx.begin(); 
+            long id = nextVal1 ();           
+            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, id, idCliente, idOferta, precioEspecialTomado, reservaColectiva, fechaInicial, duracionDias);
             tx.commit();
             
-            log.trace ("Inserción Resrva: " + idOferta + ","+ idCliente + ": " + tuplasInsertadas + " tuplas insertadas");
-            return new Reserva (idOferta, idCliente, precioEspecialTomado);
+            log.trace ("Inserción Resrva: "+ id + ","+ idCliente + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Reserva (id, idCliente, precioEspecialTomado);
         }
         catch (Exception e)
         {

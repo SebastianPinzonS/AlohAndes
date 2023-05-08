@@ -25,6 +25,14 @@ class SQLUtil
         return resp;
 	}
 
+        public long nextval1 (PersistenceManager pm)
+	{
+        Query q = pm.newQuery(SQL, "SELECT AlohAndes_sequence_2.nextval FROM DUAL");
+        q.setResultClass(Long.class);
+        long resp = (long) q.executeUnique();
+        return resp;
+	}
+
 
 	public long [] limpiarAlohAndes (PersistenceManager pm)
 	{

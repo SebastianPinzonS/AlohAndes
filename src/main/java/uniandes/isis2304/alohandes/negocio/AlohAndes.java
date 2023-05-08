@@ -507,10 +507,10 @@ public class AlohAndes
 	 * 			Métodos para manejar los Reservas
 	 *****************************************************************/
 
-	 public Reserva adicionarReserva (long idOferta, String idCliente, int precioEspecialTomado)
+	 public Reserva adicionarReserva ( String idCliente, String idOferta, int reservaColectiva, Date fechaInicial, int precioEspecialTomado, int duracionDias)
 	 {
 		 log.info ("Adicionando Reserva");
-		 Reserva reserva = pa.adicionarReserva(idOferta, idCliente, precioEspecialTomado);		
+		 Reserva reserva = pa.adicionarReserva(idCliente, idOferta, reservaColectiva, fechaInicial, precioEspecialTomado, duracionDias);		
 		 log.info ("Adicionando Reserva: " + reserva);
 		 return reserva;
 	 }
