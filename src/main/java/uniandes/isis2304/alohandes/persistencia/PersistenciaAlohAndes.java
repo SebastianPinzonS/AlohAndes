@@ -310,7 +310,7 @@ public class PersistenciaAlohAndes
         return resp;
     }
 
-    private long nextVal1()
+    public long nextVal1()
     {
         long resp = sqlUtil.nextval1 (pmf.getPersistenceManager());
         log.trace ("Generando secuencia: " + resp);
@@ -2547,6 +2547,36 @@ public class PersistenciaAlohAndes
         {
             tx.begin(); 
             long id = nextVal1 ();           
+            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, id, idCliente, idOferta, precioEspecialTomado, reservaColectiva, fechaInicial, duracionDias);
+            tx.commit();
+            
+            log.trace ("Inserción Resrva: "+ id + ","+ idCliente + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Reserva (id, idCliente, precioEspecialTomado);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+    public Reserva adicionarReservaColectiva(long id, String idCliente, String idOferta, int reservaColectiva, Date fechaInicial, int precioEspecialTomado, int duracionDias)
+	{
+        
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
             long tuplasInsertadas = sqlReserva.adicionarReserva(pm, id, idCliente, idOferta, precioEspecialTomado, reservaColectiva, fechaInicial, duracionDias);
             tx.commit();
             

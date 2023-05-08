@@ -2013,6 +2013,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	 * 			CRUD de Reserva
 	 *****************************************************************/
 
+	
 	public void eliminarReservaPorIdReserva(){
 		try 
 		{
@@ -2140,6 +2141,49 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			 panelDatos.actualizarInterfaz(resultado);
 		 }
 	}
+
+	public void adicionarReservaColectiva( )
+	{
+		 try 
+		 {
+			long id = alohAndes.getNextVal1();
+			int cantidad = Integer.valueOf(JOptionPane.showInputDialog (this, "Cantidad de reservas a adicionar?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+			for (int i = 0; i < cantidad; i++) {
+
+			 String idCliente = JOptionPane.showInputDialog (this, "Id del Cliente?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
+			 String idOferta = JOptionPane.showInputDialog (this, "Id de Oferta?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
+			 Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Fecha Inicial? YYYY-MM_DD" , "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+			 int precio_especial_tomado = Integer.valueOf(JOptionPane.showInputDialog (this, "1 para precio especial tomado 0 para no tomado", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+			 int duracionDias = Integer.valueOf(JOptionPane.showInputDialog (this, "Duracion en dias?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+			 int reservaColectiva = Integer.valueOf(JOptionPane.showInputDialog (this, "1 para reserva colectiva 0 para no colectiva", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+ 
+			 if (idCliente != null)
+			 {
+				 Reserva ap = alohAndes.adicionarReservaColectiva(id, idCliente, idOferta, reservaColectiva, fechaInicial, precio_especial_tomado,duracionDias); 
+				 if (ap == null)
+				 {
+					 throw new Exception ("No se pudo crear una Reserva con idOferta: " );
+				 }
+				 String resultado = "En adicionarReservaColectiva\n\n";
+				 resultado += "Oferta adicionado exitosamente: " + ap;
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+			}
+			String resultado = "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	}
+
 	
 	 
 	

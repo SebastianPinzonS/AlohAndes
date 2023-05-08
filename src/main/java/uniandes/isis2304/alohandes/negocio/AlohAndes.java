@@ -536,6 +536,18 @@ public class AlohAndes
 		 return reserva;
 	 }
 
+	 public long getNextVal1(){
+		 return pa.nextVal1();
+	 }
+
+	 public Reserva adicionarReservaColectiva ( long idReserva, String idCliente, String idOferta, int reservaColectiva, Date fechaInicial, int precioEspecialTomado, int duracionDias)
+	 {
+		 log.info ("Adicionando Reserva");
+		 Reserva reserva = pa.adicionarReserva(idCliente, idOferta, reservaColectiva, fechaInicial, precioEspecialTomado, duracionDias);		
+		 log.info ("Adicionando Reserva: " + reserva);
+		 return reserva;
+	 }
+
 	 public long eliminarReservaPorIdReserva(long idReserva)
 	 {
 		 log.info ("Eliminando Reserva");

@@ -78,6 +78,6 @@ public class Reserva implements VOReserva{
 	@Override
 	public String toString() 
 	{
-		return "Reserva [idOferta=" + idOferta + ", idCliente=" + idCliente + ", precioEspecialTomado=" + precioEspecialTomado + "]";
+		return "Reserva [idReserva=" + idOferta + ", idCliente=" + idCliente + ", precioEspecialTomado=" + precioEspecialTomado + "]";
 	}
 }

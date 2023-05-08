@@ -309,6 +309,10 @@
 				{
 					"label": "Eliminar Reserva",
 					"event": "eliminarReservaPorIdReserva"
+				},
+				{
+					"label": "Adicionar Reserva Colectiva",
+					"event": "adicionarReservaColectiva"
 				}
 			]
 		},
