@@ -257,7 +257,7 @@ public class AlohAndes
 	 public Operador adicionarOperadorPersona (String id, String nombre, String tipo,  int miembroComunidadUniversitariaPersona) 
 	 {
 		 log.info ("Adicionando Operador id: " + id + " con el nombre: " + nombre);
-		 Operador operador = pa.adicionarOperador(id, nombre, tipo, miembroComunidadUniversitariaPersona);		
+		 Operador operador = pa.adicionarOperadorPersona(id, nombre, tipo, miembroComunidadUniversitariaPersona);		
 		 log.info ("Adicionando Operador: " + operador);
 		 return operador;
 	 }
@@ -265,7 +265,7 @@ public class AlohAndes
 	 public Operador adicionarOperadorEmpresa (String id, String nombre, String tipo, int validacionCamaraDeComercioEmpresa, int validacionSuperTurismoEmpresa) 
 	 {
 		 log.info ("Adicionando Operador id: " + id + " con el nombre: " + nombre);
-		 Operador operador = pa.adicionarOperador(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);		
+		 Operador operador = pa.adicionarOperadorEmpresa(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa);		
 		 log.info ("Adicionando Operador: " + operador);
 		 return operador;
 	 }

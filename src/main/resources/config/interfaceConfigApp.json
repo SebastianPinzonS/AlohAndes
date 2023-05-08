@@ -214,6 +214,11 @@
 					"label": "Adicionar Empresa",
 					"event": "adicionarOperadorEmpresa"
 				},
+				
+				{
+					"label": "Adicionar persona",
+					"event": "adicionarOperadorPersona"
+				},
 				{
 					"label": "Listar",
 					"event": "listarOperadores"
