@@ -211,8 +211,8 @@
 		  "options":
 			[
 				{
-					"label": "Adicionar",
-					"event": "adicionarOperador"
+					"label": "Adicionar Empresa",
+					"event": "adicionarOperadorEmpresa"
 				},
 				{
 					"label": "Listar",
@@ -300,6 +300,10 @@
 				{
 					"label": "Listar por IdOferta",
 					"event": "listarReservaPorIdOferta"
+				},
+				{
+					"label": "Eliminar Reserva",
+					"event": "eliminarReservaPorIdReserva"
 				}
 			]
 		},

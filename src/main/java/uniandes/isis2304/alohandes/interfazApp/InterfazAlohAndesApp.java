@@ -1288,7 +1288,41 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	 * 			CRUD de Operador
 	 *****************************************************************/
 
-	 public void adicionarOperador()
+	 public void adicionarOperadorPersona()
+	 {
+		 try 
+		 {
+			 String idOperador = JOptionPane.showInputDialog (this, "Id del Operador?", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE);
+			 String nombreOperador = JOptionPane.showInputDialog (this, "Nombre del Operador?", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE);
+			 String tipoOperador = JOptionPane.showInputDialog (this, "Tipo del documento del Operador?", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE);
+			 int miembroComunidadUniversitariaPersona = Integer.parseInt(JOptionPane.showInputDialog (this, "Pertenece a la comunidad Universitaria? 1 para si, 0 para no o no aplica", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE));
+ 
+			 if (idOperador != null && nombreOperador != null && tipoOperador != null)
+			 {
+				 VOOperador op = alohAndes.adicionarOperador(idOperador, nombreOperador, tipoOperador, miembroComunidadUniversitariaPersona);
+				 if (op == null)
+				 {
+					 throw new Exception ("No se pudo crear un Operador con nombre: " + nombreOperador + " y id: " + idOperador);
+				 }
+				 String resultado = "En adicionarOperador\n\n";
+				 resultado += "Operador adicionado exitosamente: " + op;
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+
+	 public void adicionarOperadorEmpresa()
 	 {
 		 try 
 		 {
@@ -1301,7 +1335,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
  
 			 if (idOperador != null && nombreOperador != null && tipoOperador != null)
 			 {
-				 VOOperador op = alohAndes.adicionarOperador(idOperador, nombreOperador, tipoOperador, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+				 VOOperador op = alohAndes.adicionarOperador(idOperador, nombreOperador, tipoOperador, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, null);
 				 if (op == null)
 				 {
 					 throw new Exception ("No se pudo crear un Operador con nombre: " + nombreOperador + " y id: " + idOperador);
@@ -1980,11 +2014,39 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 	/* ****************************************************************
 	 * 			CRUD de Reserva
 	 *****************************************************************/
+
+	public void eliminarReservaPorIdReserva(){
+		try 
+		{
+			String idReserva = JOptionPane.showInputDialog (this, "Cual es el id de la reserva", "Eliminar Reserva", JOptionPane.QUESTION_MESSAGE);
+			if (idReserva != null)
+			{
+				long reservaEliminada = alohAndes.eliminarReservaPorIdReserva(Long.parseLong(idReserva));
+				if (reservaEliminada == 0)
+				{
+					throw new Exception ("No se pudo eliminar reserva con id: " + idReserva);
+				}
+				String resultado = "En eliminarReserva\n\n";
+				resultado += "Reserva eliminada exitosamente: " + reservaEliminada;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
 	public void listarReservas( )
 	{
 		 try 
 		 {
-			 List <Reserva> lista = alohAndes.darReservas();
+			 List <Object[]> lista = alohAndes.darReservas();
  
 			 String resultado = "En listarReservas";
 			 resultado +=  "\n" + listarReservas(lista);
@@ -2005,7 +2067,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		 
 		 try 
 		 {
-			 List <Reserva> lista = alohAndes.darReservasPorIdCliente(idCliente);
+			 List <Object[]> lista = alohAndes.darReservasPorIdCliente(idCliente);
  
 			 String resultado = "En listarReservasPorIdCliente";
 			 resultado +=  "\n" + listarReservas(lista);
@@ -2063,7 +2125,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 				 {
 					 throw new Exception ("No se pudo crear una Reserva con idOferta: " );
 				 }
-				 String resultado = "En adicionarOferta\n\n";
+				 String resultado = "En adicionarReserva\n\n";
 				 resultado += "Oferta adicionado exitosamente: " + ap;
 				 resultado += "\n Operación terminada";
 				 panelDatos.actualizarInterfaz(resultado);
@@ -2335,16 +2397,22 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
         return resp;
 	}
     
-    private String listarReservas(List<Reserva> lista) 
+    private String listarReservas(List<Object[]> lista) 
     {
     	String resp = "Los apartamentos existentes son:\n";
     	int i = 1;
-        for (Reserva ap : lista)
+        for (Object[] ap : lista)
         {
-        	resp += i++ + ". " + ap.toString() + "\n";
+        	resp += i++ + ". " + formatReserva(ap) + "\n";
         }
         return resp;
 	}
+
+	private String formatReserva(Object[] reserva){
+		String resp = "Reserva [id=" + reserva[0] + ", idOferta=" + reserva[1] + ", idCliente=" + reserva[2] + ", precioEspecialTomado=" + reserva[3] + ", reservaColectiva=" + reserva[4] + ", fechaRealizacion=" + reserva[5] + ", fechaInicial=" + reserva[6] + "duracionDias=" + reserva[7] + " ]";	
+		return resp;
+	}
+
 	private String listarApartamentoNVO(List<Apartamento> lista) 
     {
     	String resp = "Los apartamentos existentes son:\n";

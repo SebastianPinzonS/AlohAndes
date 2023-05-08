@@ -1737,7 +1737,36 @@ public class PersistenciaAlohAndes
 	 * 			Métodos para manejar los OPERADOR
 	 *****************************************************************/
 
-	public Operador adicionarOperador(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
+	public Operador adicionarOperadorEmpresa(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();            
+            long tuplasInsertadas = sqlOperador.adicionarOperador(pm, id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+            tx.commit();
+            
+            log.trace ("Inserción Hotel: " + id + ","+ nombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Operador (id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+    public Operador adicionarOperadorEmpresa(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -2601,16 +2630,44 @@ public class PersistenciaAlohAndes
 		return sqlReserva.darReservaPorIdOferta(pmf.getPersistenceManager(), idOferta);
 	}
 
-    public List<Reserva> darReservasPorIdCliente (String idCliente)
+    public List<Object[]> darReservasPorIdCliente (String idCliente)
 	{
 		return sqlReserva.darReservasPorIdCliente(pmf.getPersistenceManager(), idCliente);
 	}
 
-	public List<Reserva> darReservas ()
+	public List<Object[]> darReservas ()
 	{
 		return sqlReserva.darReservas(pmf.getPersistenceManager());
 	}
 
+    public long eliminarReservaPorIdReserva(long idReserva){
+        PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlReserva.eliminarReservaPorIdReserva(pm, idReserva);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+            log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+    }
+
 	
- }
+}
+
 

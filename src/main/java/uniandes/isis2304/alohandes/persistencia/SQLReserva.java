@@ -39,6 +39,13 @@ public class SQLReserva
         return (long) q.executeUnique();
 	}
 
+	public long eliminarReservaPorIdReserva(PersistenceManager pm, long idReserva)
+	{
+		Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaReserva() + " WHERE id_reserva = ?");
+		q.setParameters(idReserva);
+		return (long) q.executeUnique();            
+	}
+
 	public long eliminarReservaPorIdOferta (PersistenceManager pm, long idOferta)
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaReserva() + " WHERE id_oferta = ?");
@@ -55,25 +62,23 @@ public class SQLReserva
 
 	public Reserva darReservaPorIdOferta (PersistenceManager pm, long idOferta) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaReserva () + " WHERE id_oferta = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM RESERVA WHERE id_oferta = ?");
 		q.setResultClass(Reserva.class);
 		q.setParameters(idOferta);
 		return (Reserva) q.executeUnique();
 	}
 
-	public List<Reserva> darReservasPorIdCliente (PersistenceManager pm, String idCliente) 
+	public List<Object[]> darReservasPorIdCliente (PersistenceManager pm, String idCliente) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaReserva () + " WHERE id_cliente = ?");
-		q.setResultClass(Reserva.class);
+		Query q = pm.newQuery(SQL, "SELECT * FROM RESERVA WHERE id_cliente = ?");
 		q.setParameters(idCliente);
-		return (List<Reserva>) q.executeList();
+		return (List<Object[]>) q.executeList();
 	}
 
-	public List<Reserva> darReservas (PersistenceManager pm)
+	public List<Object[]> darReservas (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaReserva ());
-		q.setResultClass(Reserva.class);
-		return (List<Reserva>) q.executeList();
+		Query q = pm.newQuery(SQL, "SELECT * FROM RESERVA");
+		return (List<Object[]>) q.executeList();
 	}
 
 	

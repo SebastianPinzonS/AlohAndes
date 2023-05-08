@@ -254,7 +254,15 @@ public class AlohAndes
 	 * 			Métodos para manejar los OPERADOR
 	 *****************************************************************/
 
-	 public Operador adicionarOperador (String id, String nombre, String tipo, int validacionCamaraDeComercioEmpresa, int validacionSuperTurismoEmpresa, int miembroComunidadUniversitariaPersona) 
+	 public Operador adicionarOperadorPersona (String id, String nombre, String tipo,  int miembroComunidadUniversitariaPersona) 
+	 {
+		 log.info ("Adicionando Operador id: " + id + " con el nombre: " + nombre);
+		 Operador operador = pa.adicionarOperador(id, nombre, tipo, miembroComunidadUniversitariaPersona);		
+		 log.info ("Adicionando Operador: " + operador);
+		 return operador;
+	 }
+
+	 public Operador adicionarOperadorEmpresa (String id, String nombre, String tipo, int validacionCamaraDeComercioEmpresa, int validacionSuperTurismoEmpresa) 
 	 {
 		 log.info ("Adicionando Operador id: " + id + " con el nombre: " + nombre);
 		 Operador operador = pa.adicionarOperador(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);		
@@ -528,12 +536,20 @@ public class AlohAndes
 		 return reserva;
 	 }
 
-	 public List<Reserva> darReservas()
+	 public long eliminarReservaPorIdReserva(long idReserva)
+	 {
+		 log.info ("Eliminando Reserva");
+		 long resp = pa.eliminarReservaPorIdReserva(idReserva);		
+		 log.info ("Eliminando Reserva: " + resp + " tuplas eliminadas");
+		 return resp;
+	 }
+
+	 public List<Object[]> darReservas()
 	 {
 		 return pa.darReservas();
 	 }
 
-	 public List<Reserva> darReservasPorIdCliente(String idCliente)
+	 public List<Object[]> darReservasPorIdCliente(String idCliente)
 	 {
 		 return pa.darReservasPorIdCliente(idCliente);
 	 }
