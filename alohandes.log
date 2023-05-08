@@ -917,3 +917,28 @@ ORA-02290: check constraint (ISIS2304B07202310.CK_EMPRESA_O_PERSONA) violated
 21:13:10,683 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
 21:13:10,683 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
 21:13:10,710 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:13:48,647 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 1234124 con el nombre: hola
+21:13:48,796 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Cannot invoke "java.lang.Integer.intValue()" because "miembroComunidadUniversitariaPersona" is null
+
+21:13:48,796 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: null
+21:23:35,957 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:23:35,957 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:23:35,983 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:23:55,609 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 2038124 con el nombre: hola
+21:23:55,746 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO OPERADOR(id, nombre, tipo, validacion_Camara_De_Comercio_Empresa, validacion_Super_Turismo_Empresaa) values (?, ?, ?, ?, ?)".
+ORA-00904: "VALIDACION_SUPER_TURISMO_EMPRESAA": invalid identifier
+
+21:23:55,756 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: null
+21:24:15,463 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:24:15,465 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:24:15,558 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:24:39,439 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 1234 con el nombre: HOLA
+21:24:39,580 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohAndes] - Exception : Error executing SQL query "INSERT INTO OPERADOR(id, nombre, tipo, validacion_Camara_De_Comercio_Empresa, validacion_Super_Turismo_Empresaa) values (?, ?, ?, ?, ?)".
+ORA-00904: "VALIDACION_SUPER_TURISMO_EMPRESAA": invalid identifier
+
+21:24:39,589 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: null
+21:25:23,839 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:25:23,840 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuración indicada en el archivo de configuración
+21:25:23,865 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:25:57,185 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 1231238 con el nombre: HOLA
+21:25:57,320 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: Operador [id=1231238, nombre=HOLA, tipo=NIT, validacionCamaraDeComercioEmpresa=1, validacionSuperTurismoEmpresa=1, miembroComunidadUniversitariaPersona=0]

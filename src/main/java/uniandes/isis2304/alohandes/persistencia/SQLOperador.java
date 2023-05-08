@@ -33,10 +33,17 @@ class SQLOperador
 	}
 	
 
-	public long adicionarOperador (PersistenceManager pm, String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
+	public long adicionarOperadorPersona (PersistenceManager pm, String id, String nombre, String tipo,  int miembroComunidadUniversitariaPersona) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOperador () + "(id, nombre, tipo, validacion_Camara_De_Comercio_Empresa, validacion_Super_Turismo_Empresa, miembro_Comunidad_Universitaria_Persona) values (?, ?, ?, ?, ?, ?)");
-        q.setParameters(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOperador () + "(id, nombre, tipo, miembro_Comunidad_Universitaria_Persona) values (?, ?, ?, ?)");
+        q.setParameters(id, nombre, tipo, miembroComunidadUniversitariaPersona);
+        return (long) q.executeUnique();
+	}
+
+        public long adicionarOperadorEmpresa (PersistenceManager pm, String id, String nombre, String tipo, int validacionCamaraDeComercioEmpresa, int validacionSuperTurismoEmpresa) 
+	{
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOperador () + "(id, nombre, tipo, validacion_Camara_De_Comercio_Empresa, validacion_Super_Turismo_Empresa) values (?, ?, ?, ?, ?)");
+        q.setParameters(id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa);
         return (long) q.executeUnique();
 	}
 

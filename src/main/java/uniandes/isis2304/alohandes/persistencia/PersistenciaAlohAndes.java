@@ -1737,24 +1737,24 @@ public class PersistenciaAlohAndes
 	 * 			Métodos para manejar los OPERADOR
 	 *****************************************************************/
 
-	public Operador adicionarOperadorEmpresa(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
+	public Operador adicionarOperadorEmpresa(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();            
-            long tuplasInsertadas = sqlOperador.adicionarOperador(pm, id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+            long tuplasInsertadas = sqlOperador.adicionarOperadorEmpresa(pm, id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa);
             tx.commit();
             
-            log.trace ("Inserción Hotel: " + id + ","+ nombre + ": " + tuplasInsertadas + " tuplas insertadas");
-            return new Operador (id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+            log.trace ("Inserción Operador: " + id + ","+ nombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Operador (id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, 0);
         }
         catch (Exception e)
         {
 //        	e.printStackTrace();
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
+            return null;
         }
         finally
         {
@@ -1766,24 +1766,24 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public Operador adicionarOperadorEmpresa(String id, String nombre, String tipo, Integer validacionCamaraDeComercioEmpresa, Integer validacionSuperTurismoEmpresa, Integer miembroComunidadUniversitariaPersona) 
+    public Operador adicionarOperadorPersona(String id, String nombre, String tipo, Integer miembroComunidadUniversitariaPersona) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();            
-            long tuplasInsertadas = sqlOperador.adicionarOperador(pm, id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+            long tuplasInsertadas = sqlOperador.adicionarOperadorPersona(pm, id, nombre, tipo, miembroComunidadUniversitariaPersona);
             tx.commit();
             
-            log.trace ("Inserción Hotel: " + id + ","+ nombre + ": " + tuplasInsertadas + " tuplas insertadas");
-            return new Operador (id, nombre, tipo, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, miembroComunidadUniversitariaPersona);
+            log.trace ("Inserción Operador: " + id + ","+ nombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Operador (id, nombre, tipo, 0, 0, miembroComunidadUniversitariaPersona);
         }
         catch (Exception e)
         {
 //        	e.printStackTrace();
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
+            return null;
         }
         finally
         {

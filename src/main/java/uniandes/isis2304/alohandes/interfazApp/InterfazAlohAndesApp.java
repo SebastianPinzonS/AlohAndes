@@ -1299,7 +1299,7 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
  
 			 if (idOperador != null && nombreOperador != null && tipoOperador != null)
 			 {
-				 VOOperador op = alohAndes.adicionarOperador(idOperador, nombreOperador, tipoOperador, miembroComunidadUniversitariaPersona);
+				 VOOperador op = alohAndes.adicionarOperadorPersona(idOperador, nombreOperador, tipoOperador, miembroComunidadUniversitariaPersona);
 				 if (op == null)
 				 {
 					 throw new Exception ("No se pudo crear un Operador con nombre: " + nombreOperador + " y id: " + idOperador);
@@ -1330,12 +1330,10 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 			 String nombreOperador = JOptionPane.showInputDialog (this, "Nombre del Operador?", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE);
 			 String tipoOperador = JOptionPane.showInputDialog (this, "Tipo del documento del Operador?", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE);
 			 int validacionCamaraDeComercioEmpresa = Integer.parseInt(JOptionPane.showInputDialog (this, "Tiene validacion de la camara de comercio? 1 para si, 0 para no o no aplica", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE));
-			 int validacionSuperTurismoEmpresa = Integer.parseInt(JOptionPane.showInputDialog (this, "Tiene validacion de la super intendecia de turismo? 1 para si, 0 para no o no aplica", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE));
-			 int miembroComunidadUniversitariaPersona = Integer.parseInt(JOptionPane.showInputDialog (this, "Pertenece a la comunidad Universitaria? 1 para si, 0 para no o no aplica", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE));
- 
+			 int validacionSuperTurismoEmpresa = Integer.parseInt(JOptionPane.showInputDialog (this, "Tiene validacion de la super intendecia de turismo? 1 para si, 0 para no o no aplica", "Adicionar Operador", JOptionPane.QUESTION_MESSAGE)); 
 			 if (idOperador != null && nombreOperador != null && tipoOperador != null)
 			 {
-				 VOOperador op = alohAndes.adicionarOperador(idOperador, nombreOperador, tipoOperador, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa, null);
+				 VOOperador op = alohAndes.adicionarOperadorEmpresa(idOperador, nombreOperador, tipoOperador, validacionCamaraDeComercioEmpresa, validacionSuperTurismoEmpresa);
 				 if (op == null)
 				 {
 					 throw new Exception ("No se pudo crear un Operador con nombre: " + nombreOperador + " y id: " + idOperador);
