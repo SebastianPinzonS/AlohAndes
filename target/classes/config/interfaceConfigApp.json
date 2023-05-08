@@ -260,6 +260,18 @@
 					"event": "darOfertas"
 				},
 				{
+					"label": "Listar ofertas mas populares",
+					"event": "darOfertasPopulares"
+				},
+				{
+					"label": "Listar ofertas disponibles",
+					"event": "darOfertasDisponibles"
+				},
+				{
+					"label" : "Listar Clientes Frecuentes",
+					"event" : "darClientesFrecuentes"
+				},
+				{
 					"label": "Listar indices de ocupacion por oferta",
 					"event": "mostrarIndiceDeOcupacion"
 				},

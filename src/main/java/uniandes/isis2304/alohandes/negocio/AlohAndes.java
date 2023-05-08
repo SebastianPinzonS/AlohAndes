@@ -397,6 +397,19 @@ public class AlohAndes
 
 	 }
 
+	public List<Object[]> darOfertasPopulares(){
+		return pa.darOfertasPopulares();
+	}
+
+	public List<Object[]> darOfertasDisponibles(){
+		return pa.darOfertasDisponibles();
+	}
+
+	public List<Object[]> darClientesFrecuentes(String tipo, String identificador){
+		return pa.darClientesFrecuentes(tipo, identificador);
+	}
+
+
 	/* ****************************************************************
 	 * 			Métodos para manejar las HABITACION HOTEL
 	 *****************************************************************/
