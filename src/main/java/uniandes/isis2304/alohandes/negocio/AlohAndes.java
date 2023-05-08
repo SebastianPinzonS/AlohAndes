@@ -582,6 +582,14 @@ public class AlohAndes
 		 return pa.eliminarReservaPorIdCliente(idCliente);
 	 }
 
+	 public Reserva deshabilitarOferta (String idOferta, Date fechaInicial, int duracionDias)
+	 {
+		 log.info ("Deshabilitando Oferta");
+		 Reserva reserva = pa.deshabilitarOferta(idOferta, fechaInicial, duracionDias);	
+		 log.info ("Deshabilitando Oferta: " + idOferta);
+		 return reserva;
+	 }
+
 	 /* ****************************************************************
 	 * 			Métodos para manejar las Instalacion Habitacion Hotel
 	 *****************************************************************/

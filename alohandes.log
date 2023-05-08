@@ -371,9 +371,9 @@ ORA-00904: "DIRECCION_HOTEL_HOTEL_HABITACION": identificador no v√°lido
 22:48:21,772 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Interfaz
 22:48:21,776 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraci√≥n indicada en el archivo de configuraci√≥n
 22:48:21,917 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Tablas BD
-10:25:08,081 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
-10:25:08,081 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
-10:25:08,204 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
+10:25:08,081 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Interfaz
+10:25:08,081 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÔøΩn indicada en el archivo de configuraciÔøΩn
+10:25:08,204 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Tablas BD
 10:25:40,190 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Apartamento
 10:25:40,362 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Generando los VO de Tipos de Apartamento: 6 existentes
 10:25:46,487 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando Habitacion Hotel
@@ -724,32 +724,32 @@ ORA-01400: cannot insert NULL into ("ISIS2304B07202310"."OFERTA"."COSTO_CONTRATO
 18:07:15,371 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraci√≥n indicada en el archivo de configuraci√≥n
 18:07:15,402 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Tablas BD
 =======
-16:51:31,075 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
-16:51:31,076 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
-16:51:31,098 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
-16:53:00,866 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
-16:53:00,866 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
-16:53:00,886 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
+16:51:31,075 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Interfaz
+16:51:31,076 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÔøΩn indicada en el archivo de configuraciÔøΩn
+16:51:31,098 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Tablas BD
+16:53:00,866 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Interfaz
+16:53:00,866 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÔøΩn indicada en el archivo de configuraciÔøΩn
+16:53:00,886 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Tablas BD
 16:53:05,902 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando los indices de ocupacion por Ofertas
-16:54:43,703 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
-16:54:43,704 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
-16:54:43,743 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
+16:54:43,703 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Interfaz
+16:54:43,704 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÔøΩn indicada en el archivo de configuraciÔøΩn
+16:54:43,743 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Tablas BD
 16:54:47,746 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando los indices de ocupacion por Ofertas
-16:55:46,930 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
-16:55:46,930 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
-16:55:46,954 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
+16:55:46,930 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Interfaz
+16:55:46,930 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÔøΩn indicada en el archivo de configuraciÔøΩn
+16:55:46,954 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Tablas BD
 16:55:51,359 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando el uso de AlohAndes por clientes
-17:06:15,983 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
-17:06:15,983 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
-17:06:16,006 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
+17:06:15,983 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Interfaz
+17:06:15,983 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÔøΩn indicada en el archivo de configuraciÔøΩn
+17:06:16,006 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Tablas BD
 17:06:20,833 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando el uso de AlohAndes por operadores
-17:40:16,258 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
-17:40:16,260 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
-17:40:16,282 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
+17:40:16,258 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Interfaz
+17:40:16,260 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÔøΩn indicada en el archivo de configuraciÔøΩn
+17:40:16,282 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Tablas BD
 17:40:52,630 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando el uso de AlohAndes para un usuario dado
-17:50:58,481 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Interfaz
-17:50:58,482 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÛn indicada en el archivo de configuraciÛn
-17:50:58,511 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÛ un archivo de configuraciÛn v·lido: Tablas BD
+17:50:58,481 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Interfaz
+17:50:58,482 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraciÔøΩn indicada en el archivo de configuraciÔøΩn
+17:50:58,511 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontrÔøΩ un archivo de configuraciÔøΩn vÔøΩlido: Tablas BD
 17:51:04,771 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Consultando las ofertas con poca demanda
 >>>>>>> master
 18:13:41,024 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Interfaz
@@ -942,20 +942,3 @@ ORA-00904: "VALIDACION_SUPER_TURISMO_EMPRESAA": invalid identifier
 21:25:23,865 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Tablas BD
 21:25:57,185 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador id: 1231238 con el nombre: HOLA
 21:25:57,320 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Operador: Operador [id=1231238, nombre=HOLA, tipo=NIT, validacionCamaraDeComercioEmpresa=1, validacionSuperTurismoEmpresa=1, miembroComunidadUniversitariaPersona=0]
-21:30:19,499 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Interfaz
-21:30:19,499 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraci√≥n indicada en el archivo de configuraci√≥n
-21:30:19,525 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Tablas BD
-21:32:14,290 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Oferta Habitacion Hostal
-21:32:14,502 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Oferta: uniandes.isis2304.alohandes.negocio.Oferta@234371e9
-21:44:54,374 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Interfaz
-21:44:54,375 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraci√≥n indicada en el archivo de configuraci√≥n
-21:44:54,402 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Tablas BD
-21:45:21,290 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Reserva
-21:45:21,433 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Reserva: Reserva [idOferta=35, idCliente=1, precioEspecialTomado=1]
-21:46:03,118 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Reserva
-21:46:03,142 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Reserva: Reserva [idOferta=36, idCliente=1, precioEspecialTomado=1]
-21:47:19,915 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Interfaz
-21:47:19,915 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se aplica configuraci√≥n indicada en el archivo de configuraci√≥n
-21:47:19,944 (main) INFO  [uniandes.isis2304.alohandes.interfazApp.InterfazAlohAndesApp] - Se encontr√≥ un archivo de configuraci√≥n v√°lido: Tablas BD
-21:47:54,599 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Reserva
-21:47:54,732 (AWT-EventQueue-0) INFO  [uniandes.isis2304.alohandes.negocio.AlohAndes] - Adicionando Reserva: Reserva [idOferta=38, idCliente=1, precioEspecialTomado=1]

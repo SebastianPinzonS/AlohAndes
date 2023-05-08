@@ -2142,6 +2142,42 @@ public class InterfazAlohAndesApp extends JFrame implements ActionListener
 		 }
 	}
 
+	public void deshabilitarOferta( )
+	{
+		 try 
+		 {
+			 String idOferta = JOptionPane.showInputDialog (this, "Id de Oferta a Deshabilitar?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
+			 Date fechaInicial = Date.valueOf(JOptionPane.showInputDialog (this, "Fecha Inicial? YYYY-MM_DD" , "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+			 int duracionDias = Integer.valueOf(JOptionPane.showInputDialog (this, "Duracion en dias?", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE));
+			
+			 if (idOferta!= null)
+			 {
+				 Reserva ap = alohAndes.deshabilitarOferta(idOferta, fechaInicial, duracionDias); 
+				 if (ap == null)
+				 {
+					 throw new Exception ("No se pudo crear deshabilitar una Oferta con idOferta: " );
+				 }
+				 String resultado = "En deshabilitarOferta\n\n";
+				 resultado += "Oferta deshabilitada exitosamente: " + ap;
+				 resultado += "\n Operación terminada";
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	}
+	
+	 
+	
+
 	public void adicionarReservaColectiva( )
 	{
 		 try 
