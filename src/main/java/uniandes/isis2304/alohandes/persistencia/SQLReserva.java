@@ -81,6 +81,12 @@ public class SQLReserva
 		return (List<Object[]>) q.executeList();
 	}
 
+	public long deshabilitarOferta (PersistenceManager pm, long idReserva, String idOferta, Date fechaInicial, int duracionDias) 
+	{
+        Query q = pm.newQuery(SQL, "INSERT INTO RESERVA (id_reserva,id_oferta, id_cliente, precio_especial_tomado, reserva_colectiva, fecha_realizacion_reserva,fecha_inicial,duracion_dias) VALUES (?, ?, 0, 0, 0, CURRENT_DATE, ?, ?)");
+        q.setParameters(idReserva,idOferta, fechaInicial, duracionDias);
+        return (long) q.executeUnique();
+	}
 	
 
 }

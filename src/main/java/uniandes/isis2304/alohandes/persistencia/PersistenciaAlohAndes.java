@@ -2667,6 +2667,37 @@ public class PersistenciaAlohAndes
         }
     }
 
+    public Reserva deshabilitarOferta(long idReserva, String idOferta, Date fechaInicial, int duracionDias) 
+	{
+        
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin(); 
+            long id = nextVal1 ();           
+            long tuplasInsertadas = sqlReserva.deshabilitarOferta(pm, idReserva,idOferta, fechaInicial, duracionDias);
+            tx.commit();
+            
+            log.trace ("Inserción Reserva: "+ id + ","+ idOferta + ": " + tuplasInsertadas + " tuplas insertadas");
+            return new Reserva (id, "0", 0);
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
 	
 }
 
