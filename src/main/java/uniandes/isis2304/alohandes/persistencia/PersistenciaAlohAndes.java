@@ -3,6 +3,7 @@ package uniandes.isis2304.alohandes.persistencia;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -2569,19 +2570,37 @@ public class PersistenciaAlohAndes
         }
 	}
 
-    public Reserva adicionarReservaColectiva(long id, String idCliente, String idOferta, int reservaColectiva, Date fechaInicial, int precioEspecialTomado, int duracionDias)
+    public Reserva adicionarReservaColectiva(String idCliente, Date fechaInicial, int precioEspecialTomado, int duracionDias, int cantidadReservas)
 	{
-        
+
+        long id = nextVal1 ();
+        List<Reserva> reservas = new ArrayList<Reserva>();
+        List<String> noReservas = new ArrayList<String>();
+        int total = 0;
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
+        tx.begin();    
+        
         try
         {
-            tx.begin();            
-            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, id, idCliente, idOferta, precioEspecialTomado, reservaColectiva, fechaInicial, duracionDias);
-            tx.commit();
-            
-            log.trace ("Inserción Resrva: "+ id + ","+ idCliente + ": " + tuplasInsertadas + " tuplas insertadas");
-            return new Reserva (id, idCliente, precioEspecialTomado);
+            for (int i = 0; i < cantidadReservas; i++){
+                try
+                {   
+                long tuplasInsertadas = sqlReserva.adicionarReserva(pm, id, idCliente, idOferta, precioEspecialTomado, 1, fechaInicial, duracionDias);
+                log.trace ("Inserción Resrva: "+ id + ","+ idCliente + ": " + tuplasInsertadas + " tuplas insertadas");
+                reservas.add(new Reserva (id, idCliente, precioEspecialTomado));
+                sqlUtil.newSavePoint(pm, idOferta);
+                }
+                catch (Exception e)
+                {
+                    noReservas.add(Long.valueOf(idOferta));
+                    sqlUtil.rollbackToSavePoint(pm, noReservas.get(noReservas.size()-1));
+
+                    
+                    log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+
+                }
+            }
         }
         catch (Exception e)
         {
@@ -2597,6 +2616,8 @@ public class PersistenciaAlohAndes
             }
             pm.close();
         }
+    
+    tx.commit();
 	}
 	
 	public long eliminarReservaPorIdOferta (long idOferta)

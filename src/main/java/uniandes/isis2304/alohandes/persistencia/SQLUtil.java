@@ -74,4 +74,19 @@ class SQLUtil
         return new long[] {ofertaEliminados, instalacionHabitacionHotelEliminados, servicioHabitacionHotelEliminados, viviendaHabitacionServicioHabitacionEliminados, 
         		clienteEliminados, operadorEliminados, servicioHabitacionEliminados, habitacionHotelEliminados, hotelEliminados, habitacionHostalEliminados, hostalEliminados, viviendaUniversitariaEliminados, viviendaHabitacionEliminados, viviendaExpressEliminados, apartamentoEliminados};
 	}
+
+
+        public long newSavePoint (PersistenceManager pm, String name)
+        {
+        Query q = pm.newQuery(SQL, "SAVEPOINT (?)");
+        q.setParameters(name);
+        return (long) q.executeUnique();
+        }
+        
+        public long rollbackToSavePoint (PersistenceManager pm, String name)
+	{
+        Query q = pm.newQuery(SQL, "ROLLBACK TO (?)");
+        q.setParameters(name);
+        return (long) q.executeUnique();
+        }
 }
